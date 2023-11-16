@@ -10,9 +10,7 @@ public class RoundManager : MonoBehaviour
     public static RoundManager instance;
 
     private float countdownTimer = 0.0f;
-    private float countdownDuration = 3.0f;
     private bool isCountingDown = false;
-
     [SerializeField]
     public bool canContinue = true;
     public bool runOnce = true;

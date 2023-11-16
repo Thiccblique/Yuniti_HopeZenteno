@@ -10,7 +10,6 @@ public class IsometricController : MonoBehaviour
     public Vector3 input;
     public GameObject hitBox;
     private Animator anim;
-    private bool animRunning = true;
     
     void Start()
     {

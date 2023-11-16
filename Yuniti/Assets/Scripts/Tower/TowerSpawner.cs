@@ -67,6 +67,7 @@ public class TowerSpawner : MonoBehaviour
                 }
             }
         }
+       
         if (GameManager.instance.inRound)
         {
             locationMarker.SetActive(false);

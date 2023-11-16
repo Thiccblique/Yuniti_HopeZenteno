@@ -109,8 +109,7 @@ public class RoundManager : MonoBehaviour
         day.SetActive(false);
         night.SetActive(true);
         startRoundUI.SetActive(false);
-       
-
+        GameManager.instance.inRound = true;
     }
     public void EndRound()
     {
@@ -119,7 +118,8 @@ public class RoundManager : MonoBehaviour
 
             day.SetActive(true);
             night.SetActive(false);
-            if(runOnce)
+            GameManager.instance.inRound = false;
+            if (runOnce)
             {
                 canContinue = true;
                 runOnce = false;

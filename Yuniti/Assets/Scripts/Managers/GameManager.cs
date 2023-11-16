@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     public bool readyForUpgradeII = false;
+    public bool inRound = true;
 
     [Header("FirstRound")]
     public GameObject round1TowerOne;
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         Disability();
         CheckCoins();
+        inRound = false;
     }
 
     public void CheckCoins()
@@ -102,7 +104,7 @@ public class GameManager : MonoBehaviour
             round1TowerTwo.SetActive(true);
             readyForUpgradeII = true;
 
-            if (readyForUpgradeII) ;
+            if (readyForUpgradeII) 
             {
                 defendPointMarkII.SetActive(true);
                 if (towerSpawnerMarkII.hasSpawned)
@@ -119,8 +121,9 @@ public class GameManager : MonoBehaviour
                
                
             }
-        }    
-       
+        }
+      
+
     }
     private void Disability()
     {
@@ -135,6 +138,7 @@ public class GameManager : MonoBehaviour
         round2TowerSix.SetActive(false);
         round2TowerSeven.SetActive(false);
 
+
     }
 
     public void RoundStart()
@@ -142,6 +146,7 @@ public class GameManager : MonoBehaviour
         RoundManager.instance.StartRoundCountdown();
         RoundManager.instance.totalEnemies = 12;
         RoundManager.instance.remainingEnemies = RoundManager.instance.totalEnemies;
+       
         
     }
 }

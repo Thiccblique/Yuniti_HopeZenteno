@@ -10,6 +10,7 @@ public class TowerSpawner : MonoBehaviour
     public GameObject currentTower;
     public GameObject locationMarker;
     public GameObject priceMarker;
+    public GameObject transparentTower;
     public Transform spawnPoint; 
     public float spawnRadius = 3f;
     public int price = 2;
@@ -22,6 +23,7 @@ public class TowerSpawner : MonoBehaviour
     void Start()
     {
         currentTower.SetActive(false);
+        transparentTower.SetActive(false);
     }
 
     // Update is called once per frame
@@ -66,9 +68,10 @@ public class TowerSpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     { 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !hasSpawned)
         {
             priceMarker.SetActive(true);
+            transparentTower.SetActive(true);
         }
     }
 
@@ -77,6 +80,7 @@ public class TowerSpawner : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             priceMarker.SetActive(false);
+            transparentTower.SetActive(false);
         }
     }
 }

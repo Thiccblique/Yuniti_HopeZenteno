@@ -14,6 +14,7 @@ public class TowerSpawner : MonoBehaviour
     public Transform spawnPoint; 
     public float spawnRadius = 3f;
     public int price = 2;
+   
 
 
     [SerializeField]
@@ -37,6 +38,8 @@ public class TowerSpawner : MonoBehaviour
         Instantiate(currentTower, spawnPoint.position, spawnPoint.rotation);
         currentTower.SetActive(true);
         locationMarker.SetActive(false);
+        
+
     }
 
     private void OnDrawGizmosSelected()
@@ -47,7 +50,7 @@ public class TowerSpawner : MonoBehaviour
 
     private void SpawnTower()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !hasSpawned && GameManager.instance.coins >= price)
+        if (Input.GetKeyDown(KeyCode.E) && !hasSpawned && GameManager.instance.coins >= price && GameManager.instance.inRound == false)
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position, spawnRadius);
 
@@ -64,11 +67,20 @@ public class TowerSpawner : MonoBehaviour
                 }
             }
         }
+        if (GameManager.instance.inRound)
+        {
+            locationMarker.SetActive(false);
+        }
+        else if(!hasSpawned)
+        {
+            locationMarker.SetActive(true);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
     { 
-        if (other.CompareTag("Player") && !hasSpawned)
+        if (other.CompareTag("Player") && !hasSpawned && GameManager.instance.inRound == false)
         {
             priceMarker.SetActive(true);
             transparentTower.SetActive(true);

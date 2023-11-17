@@ -15,8 +15,9 @@ public class EnemyBehaviour : MonoBehaviour
     public int healthAmount = 0;
     public int maxHealth = 3;
     private bool attackCooldown = false;
+    private bool towerNearby = false;
     private Vector3 destination;
-    private Vector3 originalWaypointVector3;
+    public Vector3 originalWaypointVector3;
 
     private TowerHealth towerHealth;
     private ProjectileBehaviour projectileBehaviour;
@@ -34,8 +35,15 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyAgent.SetDestination(destination); // This makes the enemies move to the set destination. The destination is a Vector3 point.
-        
+        if (towerNearby == true)
+        {
+            enemyAgent.SetDestination(destination);
+        }
+        else
+        {
+            enemyAgent.SetDestination(originalWaypointVector3);
+        }
+
         if (healthAmount <= 0)
         {
             healthAmount = 0;
@@ -50,11 +58,6 @@ public class EnemyBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("Waypoint")) // It detects if the collider trigger has the tag "Waypoint".
         {
             destination = other.transform.position; // This updates the destination as it collides with a collider.
-        }
-
-        if (other.gameObject.CompareTag("Test"))
-        {
-            destination = originalWaypointVector3; // Sets the destination back to the original once it collides.
         }
 
         if (other.gameObject.CompareTag("Projectile"))
@@ -79,6 +82,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (other.gameObject.CompareTag("Waypoint")) // It detects if the collider trigger has the tag "Waypoint".
+        {
+            towerNearby = true;
+            StartCoroutine(TowerCheck());
+        }
+
         if (other.gameObject.CompareTag("Tower") && !attackCooldown)
         {
             towerHealth = other.gameObject.GetComponent<TowerHealth>();
@@ -86,6 +95,11 @@ public class EnemyBehaviour : MonoBehaviour
             Debug.Log("Tower Health: " + towerHealth.curHealth);
 
             StartCoroutine(StartAttackCooldown());
+
+            if (towerHealth.curHealth <= 0 && towerNearby == true)
+            {
+                other.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -94,5 +108,11 @@ public class EnemyBehaviour : MonoBehaviour
         attackCooldown = true;
         yield return new WaitForSeconds(attackRate);
         attackCooldown = false;
+    }
+
+    IEnumerator TowerCheck()
+    {
+        yield return new WaitForSeconds(3);
+        towerNearby = false;
     }
 }

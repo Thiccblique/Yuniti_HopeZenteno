@@ -9,6 +9,7 @@ public class AllyBehaviour : MonoBehaviour
     public int damageAmount = 1;
     public int attackRate = 1;
     private bool attackCooldown = false;
+    private bool standingDown = false;
     private EnemyBehaviour enemyBehaviour;
 
     // Start is called before the first frame update
@@ -25,19 +26,21 @@ public class AllyBehaviour : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") && !attackCooldown)
         {
-            enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
-            Vector3 enemyTransform = other.transform.position;
-            allyAgent.SetDestination(enemyTransform);
+           enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
+           enemyBehaviour.healthAmount = enemyBehaviour.healthAmount - damageAmount;
+           Debug.Log("Enemy Health: " + enemyBehaviour.healthAmount);
 
-            if (!attackCooldown)
-            {
-                enemyBehaviour.healthAmount = enemyBehaviour.healthAmount - damageAmount;
-                Debug.Log("Enemy Health: " + enemyBehaviour.healthAmount);
-
-                StartCoroutine(StartAttackCooldown());
-            } 
+           StartCoroutine(StartAttackCooldown());
+           if (enemyBehaviour.healthAmount <= 0) 
+           {
+                StartCoroutine(BackToBase());
+           }
+           if (standingDown == true)
+           {
+                allyAgent.SetDestination(enemyBehaviour.originalWaypointVector3);
+           }
         }
     }
 
@@ -46,5 +49,11 @@ public class AllyBehaviour : MonoBehaviour
         attackCooldown = true;
         yield return new WaitForSeconds(attackRate);
         attackCooldown = false;
+    }
+
+    IEnumerator BackToBase()
+    {
+        yield return new WaitForSeconds(3);
+        standingDown = true;
     }
 }

@@ -10,7 +10,8 @@ public class TowerSpawner : MonoBehaviour
     public GameObject currentTower;
     public GameObject locationMarker;
     public GameObject priceMarker;
-    public GameObject transparentTower;
+    public GameObject notEnoughTT;
+    public GameObject justEnoughTT;
     public Transform spawnPoint; 
     public float spawnRadius = 3f;
     public int price = 2;
@@ -24,7 +25,7 @@ public class TowerSpawner : MonoBehaviour
     void Start()
     {
         currentTower.SetActive(false);
-        transparentTower.SetActive(false);
+        notEnoughTT.SetActive(false);
     }
 
     // Update is called once per frame
@@ -84,7 +85,15 @@ public class TowerSpawner : MonoBehaviour
         if (other.CompareTag("Player") && !hasSpawned && GameManager.instance.inRound == false)
         {
             priceMarker.SetActive(true);
-            transparentTower.SetActive(true);
+            if (GameManager.instance.coins >= price)
+            {
+                justEnoughTT.SetActive(true);
+            }
+            else
+            {
+                notEnoughTT.SetActive(true);
+            }
+          
         }
     }
 
@@ -93,7 +102,8 @@ public class TowerSpawner : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             priceMarker.SetActive(false);
-            transparentTower.SetActive(false);
+            justEnoughTT.SetActive(false);
+            notEnoughTT.SetActive(false);
         }
     }
 }

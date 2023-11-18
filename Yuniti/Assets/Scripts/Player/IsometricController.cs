@@ -49,7 +49,7 @@ public class IsometricController : MonoBehaviour
 
     public void Animation()
     {
-        var hitKey = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow);
+/*        var hitKey = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow);
     
         if (hitKey == true)
         {
@@ -60,7 +60,7 @@ public class IsometricController : MonoBehaviour
         {
             // Activate the animation
             anim.SetBool("GambleWalk", false);
-        }
+        } */
       
         if (Input.GetMouseButtonDown(0))
         {
@@ -73,7 +73,7 @@ public class IsometricController : MonoBehaviour
         {
             anim.SetBool("OrionAttack", false);
             hitBox.SetActive(false);
-        }
+        } 
     }
     
 }

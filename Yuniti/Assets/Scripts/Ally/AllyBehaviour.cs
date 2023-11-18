@@ -33,14 +33,6 @@ public class AllyBehaviour : MonoBehaviour
            Debug.Log("Enemy Health: " + enemyBehaviour.healthAmount);
 
            StartCoroutine(StartAttackCooldown());
-           if (enemyBehaviour.healthAmount <= 0) 
-           {
-                StartCoroutine(BackToBase());
-           }
-           if (standingDown == true)
-           {
-                allyAgent.SetDestination(enemyBehaviour.originalWaypointVector3);
-           }
         }
     }
 
@@ -49,11 +41,5 @@ public class AllyBehaviour : MonoBehaviour
         attackCooldown = true;
         yield return new WaitForSeconds(attackRate);
         attackCooldown = false;
-    }
-
-    IEnumerator BackToBase()
-    {
-        yield return new WaitForSeconds(3);
-        standingDown = true;
     }
 }

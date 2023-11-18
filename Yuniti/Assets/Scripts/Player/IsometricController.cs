@@ -9,7 +9,7 @@ public class IsometricController : MonoBehaviour
     public float rotSpeed = 360;
     public Vector3 input;
     public GameObject hitBox;
-    private Animator anim;
+    private Animator anim;  
     
     void Start()
     {

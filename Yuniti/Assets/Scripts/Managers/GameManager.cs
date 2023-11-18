@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     public GameObject defendingPont;
     public GameObject defendPointMarkII;
 
+    [Header("HUD")]
+    public GameObject hudCanvas;
+
     [SerializeField]
     public bool readyForUpgradeII = false;
     public bool inRound = true;
@@ -100,6 +103,7 @@ public class GameManager : MonoBehaviour
     {
         if(towerSpawnerMarkI.hasSpawned)
         {
+            hudCanvas.SetActive(true);
             round1TowerOne.SetActive(true);
             round1TowerTwo.SetActive(true);
             readyForUpgradeII = true;

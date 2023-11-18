@@ -12476,7 +12476,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Start Round '
+  m_text: Start Round [click here]
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f9fbe294db4cc34d800ac8eb8f338ee, type: 2}
   m_sharedMaterial: {fileID: 7723050555529777125, guid: 1f9fbe294db4cc34d800ac8eb8f338ee, type: 2}
@@ -30016,6 +30016,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51ddc4e7a865a8a4c87a2807ce2d25f4, type: 3}
+--- !u!1 &1041188605 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4771124975491770132, guid: 4c8a56cfe795e28478721320af19a4c2, type: 3}
+  m_PrefabInstance: {fileID: 1225197201}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1043967777
 GameObject:
   m_ObjectHideFlags: 0
@@ -35333,6 +35338,7 @@ MonoBehaviour:
   towerSpawnerMarkII: {fileID: 802710621}
   defendingPont: {fileID: 671880600}
   defendPointMarkII: {fileID: 558430149}
+  hudCanvas: {fileID: 1458598205}
   readyForUpgradeII: 0
   inRound: 1
   round1TowerOne: {fileID: 913105158}
@@ -35344,7 +35350,7 @@ MonoBehaviour:
   round2TowerFive: {fileID: 1587739677}
   round2TowerSix: {fileID: 1492077410}
   round2TowerSeven: {fileID: 1373345409}
-  coins: 99
+  coins: 6
   itemPrice: 2
   towerIsLocked: 1
   coinsAmount: {fileID: 345214007}
@@ -36312,7 +36318,7 @@ PrefabInstance:
     - target: {fileID: 6621305265770796732, guid: 4c8a56cfe795e28478721320af19a4c2, type: 3}
       propertyPath: currentTower
       value: 
-      objectReference: {fileID: 6622545819828463240, guid: 61406b123c869384195c6ce8d2309de2, type: 3}
+      objectReference: {fileID: 1041188605}
     - target: {fileID: 6797320016560161215, guid: 4c8a56cfe795e28478721320af19a4c2, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -38804,7 +38810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3161168450957284822, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: price
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3161168450957284822, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: priceMarker
@@ -40758,7 +40764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1458598206
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48323,11 +48329,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1227934791}
     m_Modifications:
+    - target: {fileID: 1342869534230224205, guid: be879e3750c6630438b517e8cd68748c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.48
+      objectReference: {fileID: 0}
     - target: {fileID: 3798988317837037257, guid: be879e3750c6630438b517e8cd68748c, type: 3}
       propertyPath: m_text
-      value: '  [E]
-
-        Price: 3'
+      value: ' Start Here[E]'
       objectReference: {fileID: 0}
     - target: {fileID: 3836405134854541847, guid: be879e3750c6630438b517e8cd68748c, type: 3}
       propertyPath: m_LocalScale.x
@@ -48347,7 +48355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3836405134854541847, guid: be879e3750c6630438b517e8cd68748c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.73
+      value: 13.27
       objectReference: {fileID: 0}
     - target: {fileID: 3836405134854541847, guid: be879e3750c6630438b517e8cd68748c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -48387,18 +48395,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4004299209582159902, guid: be879e3750c6630438b517e8cd68748c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4836310432229850477, guid: be879e3750c6630438b517e8cd68748c, type: 3}
       propertyPath: m_text
-      value: '  [E]
-
-        Price: 3'
+      value: ' Start Here[E]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8230810793279947917, guid: be879e3750c6630438b517e8cd68748c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.77
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7985066617176941513, guid: be879e3750c6630438b517e8cd68748c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6729237420889389175, guid: be879e3750c6630438b517e8cd68748c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: be879e3750c6630438b517e8cd68748c, type: 3}
 --- !u!1 &1705809699
 GameObject:

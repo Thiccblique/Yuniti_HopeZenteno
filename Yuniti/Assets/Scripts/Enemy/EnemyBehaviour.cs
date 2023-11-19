@@ -101,6 +101,7 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 other.gameObject.SetActive(false);
             }
+            if 
         }
     }
 

@@ -67,7 +67,7 @@ public class TowerSpawner : MonoBehaviour
 
                     // Break the loop to avoid spawning multiple objects simultaneously
                     hasSpawned = true; break;
-                    paidFor = true;
+                    
                 }
             }
         }
@@ -80,10 +80,10 @@ public class TowerSpawner : MonoBehaviour
         {
             locationMarker.SetActive(true);
         }
-        if (RoundManager.instance.remainingEnemies <= 0 && paidFor)
+        if (RoundManager.instance.remainingEnemies <= 0 && hasSpawned)
         {
             currentTower.SetActive(true);
-            TowerHealth.instance.curHealth = TowerHealth.instance.maxHealth;
+            //TowerHealth.instance.curHealth = TowerHealth.instance.maxHealth;
         }
 
     }

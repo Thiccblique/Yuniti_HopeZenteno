@@ -63,7 +63,7 @@ public class IsometricController : MonoBehaviour
             anim.SetBool("GambleWalk", false);
         } */
       
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
             hitBox.SetActive(true);
             orionAnim.SetBool("OrionAttack", true);

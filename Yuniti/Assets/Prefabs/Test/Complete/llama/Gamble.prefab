@@ -358,7 +358,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8037883470667571721}
-  - {fileID: 3364499403097468582}
   m_Father: {fileID: 3225650241671013452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6995510828960936949
@@ -423,7 +422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a4102b1cd0bf674e9326da5323df17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 100
+  rotationSpeed: 5
+  pivotPoint: {fileID: 0}
 --- !u!95 &4697822146249734366
 Animator:
   serializedVersion: 5
@@ -763,14 +763,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2736722705432917020}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: -4.48, z: -2.54}
-  m_LocalScale: {x: 0.6666666, y: 0.6666666, z: 0.83333325}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.11111118, y: -4.4428573, z: -2.8222222}
+  m_LocalScale: {x: 0.7407407, y: 0.95238096, z: 0.9259258}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8431044814893028220}
   - {fileID: 5162051157716645647}
-  m_Father: {fileID: 5812091814058373779}
+  m_Father: {fileID: 8037883470667571721}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2927323332906817354
 GameObject:
@@ -1811,7 +1811,7 @@ GameObject:
   - component: {fileID: 2555673104094343912}
   - component: {fileID: 3370952353396344671}
   m_Layer: 9
-  m_Name: Cylinder
+  m_Name: OrionBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1829,7 +1829,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -1.37, z: 0}
   m_LocalScale: {x: 0.9, y: 0.7, z: 0.9}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3364499403097468582}
   m_Father: {fileID: 5812091814058373779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9003603599096628645

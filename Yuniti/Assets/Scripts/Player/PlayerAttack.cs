@@ -6,7 +6,7 @@ public class PlayerAttack : MonoBehaviour
 {
     public static PlayerAttack instance;
 
-    public float moveSpeed = 5f; // Adjust the speed of movement
+    public float rotationSpeed = 5f; // Adjust the speed of movement
     
     private Camera mainCamera;
   
@@ -20,18 +20,30 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+        FaceMouseCursor();
     }
 
     private void FaceMouseCursor()
     {
-        Vector3 mousePos = (Vector2)mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        float angleRad = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x);
-        float angleDeg = (180 / Mathf.PI) * angleRad - 90;
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            Vector3 lookDir = hit.point - transform.position;
+            lookDir.y = 0; // Ensure the object stays upright (for a top-down view)
 
-        transform.rotation = Quaternion.Euler(0f, angleDeg, 0f);
-        Debug.DrawLine(transform.position, mousePos, Color.white, Time.deltaTime);
+            // Calculate rotation to look at the mouse position
+            Quaternion rotation = Quaternion.LookRotation(lookDir);
 
+            // Smoothly rotate towards the mouse cursor
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 10f);
+            Debug.DrawLine(transform.position, lookDir, Color.white, Time.deltaTime);
+        }
+    
+       
     }
+      
+
+    
 
 }

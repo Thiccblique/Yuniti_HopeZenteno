@@ -72,6 +72,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("HitBox"))
         {
             healthAmount--;
+            healthbar.value = CalculateHealth();
         }
     }
 

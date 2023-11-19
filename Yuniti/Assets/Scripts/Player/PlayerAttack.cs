@@ -6,61 +6,32 @@ public class PlayerAttack : MonoBehaviour
 {
     public static PlayerAttack instance;
 
-    [Header("Scripts")]
-    public EnemyBehaviour enBehavior;
-   
-    public Transform attackPoint; 
-    public float attackRange = 5f; 
-    public LayerMask attackLayer;
-
-    private Animator anim;
+    public float moveSpeed = 5f; // Adjust the speed of movement
+    
     private Camera mainCamera;
-
+  
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
         mainCamera = Camera.main;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        FaceMouseCursor();
-       
-        if (Input.GetMouseButtonDown(0))
-        { 
-            Attack();
-        }
-        
-       
+      
     }
 
     private void FaceMouseCursor()
     {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            Vector3 lookDir = hit.point - transform.position;
-            lookDir.y = 0f;
-            Quaternion rotation = Quaternion.LookRotation(lookDir);
-            transform.rotation = rotation;
-        }
+        Vector3 mousePos = (Vector2)mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        float angleRad = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x);
+        float angleDeg = (180 / Mathf.PI) * angleRad - 90;
+
+        transform.rotation = Quaternion.Euler(0f, angleDeg, 0f);
+        Debug.DrawLine(transform.position, mousePos, Color.white, Time.deltaTime);
+
     }
 
-    private void Attack()
-    {
-        
-        //preforms attack at mouse cursor
-        RaycastHit[] hits;
-        hits = Physics.RaycastAll(attackPoint.position, transform.forward, attackRange, attackLayer);
-
-        foreach (RaycastHit hit in hits)
-        {
-            Debug.Log("Attacked: " + hit.transform.name);
-            enBehavior.healthAmount -= 1;
-          
-        }
-    }
 }

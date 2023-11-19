@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TowerHealth : MonoBehaviour
 {
+    public static TowerHealth instance;
+
     public int curHealth = 0;
     public int maxHealth = 100;
 

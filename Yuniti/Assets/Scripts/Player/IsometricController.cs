@@ -9,7 +9,8 @@ public class IsometricController : MonoBehaviour
     public float rotSpeed = 360;
     public Vector3 input;
     public GameObject hitBox;
-    private Animator anim;  
+    private Animator anim;
+    public Animator orionAnim;
     
     void Start()
     {
@@ -62,16 +63,16 @@ public class IsometricController : MonoBehaviour
             anim.SetBool("GambleWalk", false);
         } */
       
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             hitBox.SetActive(true);
-            anim.SetBool("OrionAttack", true);
+            orionAnim.SetBool("OrionAttack", true);
             
             
         }
         else
         {
-            anim.SetBool("OrionAttack", false);
+            orionAnim.SetBool("OrionAttack", false);
             hitBox.SetActive(false);
         } 
     }

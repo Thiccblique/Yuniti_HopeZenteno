@@ -12,16 +12,19 @@ public class GameManager : MonoBehaviour
     [Header("Scripts")]
     public TowerSpawner towerSpawnerMarkI;
     public TowerSpawner towerSpawnerMarkII;
+    public TowerSpawner towerSpawnerMarkIII;
 
     [Header("DefendingPoint")]
     public GameObject defendingPont;
     public GameObject defendPointMarkII;
+    public GameObject defendPointMarkIII;
 
     [Header("HUD")]
     public GameObject hudCanvas;
 
     [SerializeField]
     public bool readyForUpgradeII = false;
+    public bool readyForUpgradeIII = false;
     public bool inRound = true;
 
     [Header("FirstRound")]
@@ -36,6 +39,13 @@ public class GameManager : MonoBehaviour
     public GameObject round2TowerFive;
     public GameObject round2TowerSix;
     public GameObject round2TowerSeven;
+
+    [Header("ThirdRound")]
+    public GameObject round3TowerOne;
+    public GameObject round3TowerTwo;
+    public GameObject round3TowerThree;
+    public GameObject round3TowerFour;
+    public GameObject round3TowerFive;
 
     [Header("Money")]
     public int coins = 5;
@@ -121,9 +131,18 @@ public class GameManager : MonoBehaviour
                     round2TowerSix.SetActive(true);
                     round2TowerSeven.SetActive(true);
                     defendingPont.SetActive(false);
+                    readyForUpgradeIII = true;
                 }
-               
-               
+ 
+                if(readyForUpgradeIII)
+                {
+                    defendPointMarkIII.SetActive(true);
+                    if (towerSpawnerMarkIII.hasSpawned)
+                    {
+
+                    }
+                }
+
             }
         }
 
@@ -140,6 +159,11 @@ public class GameManager : MonoBehaviour
         round2TowerFive.SetActive(false);
         round2TowerSix.SetActive(false);
         round2TowerSeven.SetActive(false);
+        round3TowerOne.SetActive(false);
+        round3TowerTwo.SetActive(false);
+        round3TowerThree.SetActive(false);
+        round3TowerFour.SetActive(false);
+        round3TowerFive.SetActive(false);
 
 
     }

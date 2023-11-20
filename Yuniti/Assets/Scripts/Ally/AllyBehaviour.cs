@@ -42,4 +42,10 @@ public class AllyBehaviour : MonoBehaviour
         yield return new WaitForSeconds(attackRate);
         attackCooldown = false;
     }
+
+    IEnumerator EnemiesInRange()
+    {
+        yield return new WaitForSeconds(5);
+        standingDown = true;
+    }
 }

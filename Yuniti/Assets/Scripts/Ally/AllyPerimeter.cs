@@ -8,8 +8,10 @@ public class AllyPerimeter : MonoBehaviour
     private EnemyBehaviour enemyBehaviour;
     public LayerMask enemy;
     public LayerMask ally;
+    public LayerMask PatrolWaypoint;
     private List<GameObject> targets = new List<GameObject>();
     private List<AllyBehaviour> alliesInRange = new List<AllyBehaviour>();
+    private List<GameObject> patrolPoints = new List<GameObject>();
     private int maxTargets = 4;
     public int perimeterRange = 15;
 
@@ -22,6 +24,7 @@ public class AllyPerimeter : MonoBehaviour
     {
         Collider[] enemyColliders = Physics.OverlapSphere(transform.position, perimeterRange, enemy); // Detects colliders in a layermask using OverlapSphere.
         Collider[] allyColliders = Physics.OverlapSphere(transform.position, perimeterRange, ally);
+        Collider[] patrolPattern = Physics.OverlapSphere(transform.position, perimeterRange, PatrolWaypoint);
 
         alliesInRange.Clear(); // Clears the alliesInRange list...
         targets.Clear(); // Clears the targets list...
@@ -35,6 +38,14 @@ public class AllyPerimeter : MonoBehaviour
                 alliesInRange.Add(allyBehaviour);
             }
         }
+        foreach (var collider in patrolPattern)
+        {
+            GameObject patrolWaypoint = collider.gameObject;
+            if (patrolWaypoint != null)
+            {
+                patrolPoints.Add(patrolWaypoint);
+            }
+        }
         foreach (var collider in enemyColliders) // for each enemy collider detected in the OverlapSphere...
         {
             GameObject detectedEnemy = collider.gameObject; // a gameobject is created based on the enemy collider which allows the usage of gameobject methods.
@@ -43,6 +54,22 @@ public class AllyPerimeter : MonoBehaviour
                 targets.Add(detectedEnemy);
             }
         }
+
+        ShufflePatrolPoints();
+
+        for (int i = 0; i < Mathf.Min(patrolPoints.Count, alliesInRange.Count); i++)
+        {
+            if (targets.Count <= 0 && alliesInRange != null)
+            {
+                GameObject Waypoint = patrolPoints[i];
+                foreach (var allyPawn in alliesInRange)
+                {
+                    AllyBehaviour allyBehaviour = alliesInRange[i];
+                    allyBehaviour.allyAgent.SetDestination(Waypoint.transform.position);
+                }
+            }
+        }
+
 
         ShuffleTargets(); // Randomizes the order of targets...
 
@@ -72,6 +99,7 @@ public class AllyPerimeter : MonoBehaviour
         }
     }
 
+
     void ShuffleTargets() // This is something called a Fisher-Yates shuffle algorithm... I looked this one up...
     {
         for (int i = targets.Count - 1; i > 0; i--) // For-Loop that sets i as the last index available in the list and then subtracting by 1 each loop... This makes it go in reverse basically...
@@ -80,6 +108,16 @@ public class AllyPerimeter : MonoBehaviour
             GameObject temp = targets[i]; // Creates a temporary GameObject called temp depending on the GameObject at index i...
             targets[i] = targets[randomIndex]; // This makes it so the GameObject at index i is overwritten by whatever index is chosen by the Random.Range...
             targets[randomIndex] = temp; // Replaces the randomly selected index from before with the temporary GameObject we called earlier... This completes this round of the shuffle then loops for the rest of the list...
+        }
+    }
+    void ShufflePatrolPoints()
+    {
+        for (int i = patrolPoints.Count - 1; i > 0; i--)
+        {
+            int randomIndex = Random.Range(0, i + 1);
+            GameObject temp = patrolPoints[i];
+            patrolPoints[i] = patrolPoints[randomIndex];
+            patrolPoints[randomIndex] = temp;
         }
     }
 }

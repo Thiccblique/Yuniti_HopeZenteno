@@ -50,18 +50,18 @@ public class IsometricController : MonoBehaviour
 
     public void Animation()
     {
-/*        var hitKey = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow);
+        var hitKey = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow);
     
         if (hitKey == true)
         {
             // Activate the animation
-            anim.SetBool("GambleWalk", true);
+            anim.SetBool("Walk", true);
         }
         else
         {
             // Activate the animation
-            anim.SetBool("GambleWalk", false);
-        } */
+            anim.SetBool("Walk", false);
+        } 
       
         if (Input.GetMouseButtonDown(0))
         {

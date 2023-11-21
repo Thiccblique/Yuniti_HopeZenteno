@@ -18,6 +18,7 @@ public class EnemyBehaviour : MonoBehaviour
     private bool towerNearby = false;
     private Vector3 destination;
     public Vector3 originalWaypointVector3;
+    private Animator anim;
 
     private TowerHealth towerHealth;
     private ProjectileBehaviour projectileBehaviour;
@@ -30,6 +31,7 @@ public class EnemyBehaviour : MonoBehaviour
         originalWaypointVector3 = waypoint.transform.position; // This stores the waypoint of the assigned waypoint.
         destination = waypoint.transform.position; // This sets the Vector3 destination (X, Y, Z) for the Enemy to go to.
         healthAmount = maxHealth;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -94,6 +96,8 @@ public class EnemyBehaviour : MonoBehaviour
             towerHealth = other.gameObject.GetComponent<TowerHealth>();
             towerHealth.curHealth = towerHealth.curHealth - damageAmount;
             Debug.Log("Tower Health: " + towerHealth.curHealth);
+           
+            anim.SetBool("EnemyAttack", true);
 
             StartCoroutine(StartAttackCooldown());
 
@@ -103,6 +107,7 @@ public class EnemyBehaviour : MonoBehaviour
             }
             
         }
+       
     }
 
     IEnumerator StartAttackCooldown()
@@ -110,6 +115,8 @@ public class EnemyBehaviour : MonoBehaviour
         attackCooldown = true;
         yield return new WaitForSeconds(attackRate);
         attackCooldown = false;
+        anim.SetBool("EnemyAttack", false);
+        
     }
 
     IEnumerator TowerCheck()

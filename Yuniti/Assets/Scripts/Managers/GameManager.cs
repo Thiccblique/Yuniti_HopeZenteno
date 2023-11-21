@@ -43,9 +43,9 @@ public class GameManager : MonoBehaviour
     [Header("ThirdRound")]
     public GameObject round3TowerOne;
     public GameObject round3TowerTwo;
-    public GameObject round3TowerThree;
+    /*public GameObject round3TowerThree;
     public GameObject round3TowerFour;
-    public GameObject round3TowerFive;
+    public GameObject round3TowerFive; */
 
     [Header("Money")]
     public int coins = 5;
@@ -139,7 +139,9 @@ public class GameManager : MonoBehaviour
                     defendPointMarkIII.SetActive(true);
                     if (towerSpawnerMarkIII.hasSpawned)
                     {
-
+                        defendPointMarkII.SetActive(false);
+                        round3TowerOne.SetActive(true);
+                        round3TowerTwo.SetActive(true);
                     }
                 }
 
@@ -159,11 +161,12 @@ public class GameManager : MonoBehaviour
         round2TowerFive.SetActive(false);
         round2TowerSix.SetActive(false);
         round2TowerSeven.SetActive(false);
+        defendPointMarkIII.SetActive(false);
         round3TowerOne.SetActive(false);
         round3TowerTwo.SetActive(false);
-        round3TowerThree.SetActive(false);
+        /*round3TowerThree.SetActive(false);
         round3TowerFour.SetActive(false);
-        round3TowerFive.SetActive(false);
+        round3TowerFive.SetActive(false);*/
 
 
     }

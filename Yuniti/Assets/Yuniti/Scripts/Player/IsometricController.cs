@@ -67,8 +67,6 @@ public class IsometricController : MonoBehaviour
         {
             hitBox.SetActive(true);
             orionAnim.SetBool("OrionAttack", true);
-            
-            
         }
         else
         {

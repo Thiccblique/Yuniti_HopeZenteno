@@ -30,12 +30,30 @@ public class RoundManager : MonoBehaviour
     public GameObject day;
     public GameObject night;
 
+    [Header("Particals")]
+    public GameObject partical1;
+    public GameObject partical2;
+    public GameObject partical3;
+    public GameObject partical4;
+    public GameObject partical5;
+    public GameObject partical6;
+    public GameObject partical7;
+    public GameObject partical8;
+    public GameObject partical9;
+    public GameObject partical10;
+    public GameObject partical11;
+    public GameObject partical12;
+    public GameObject partical13;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         remainingEnemies = totalEnemies;
         day.SetActive(true);
         night.SetActive(false);
+        TurnOff();
     }
 
     void Awake()
@@ -108,6 +126,7 @@ public class RoundManager : MonoBehaviour
         night.SetActive(true);
         startRoundUI.SetActive(false);
         GameManager.instance.inRound = true;
+        TurnOn();
     }
     public void EndRound()
     {
@@ -116,6 +135,7 @@ public class RoundManager : MonoBehaviour
 
             day.SetActive(true);
             night.SetActive(false);
+            TurnOff();
             GameManager.instance.inRound = false;
             if (runOnce)
             {
@@ -127,5 +147,38 @@ public class RoundManager : MonoBehaviour
           
         }
       
+    }
+
+    public void TurnOn()
+    {
+        partical1.SetActive(true);
+        partical2.SetActive(true);
+        partical3.SetActive(true);
+        partical4.SetActive(true);
+        partical5.SetActive(true);
+        partical6.SetActive(true);
+        partical7.SetActive(true);
+        partical8.SetActive(true);
+        partical9.SetActive(true);
+        partical10.SetActive(true);
+        partical11.SetActive(true);
+        partical12.SetActive(true); 
+        partical13.SetActive(true);
+    }
+    public void TurnOff()
+    {
+        partical1.SetActive(false);
+        partical2.SetActive(false);
+        partical3.SetActive(false);
+        partical4.SetActive(false);
+        partical5.SetActive(false);
+        partical6.SetActive(false);
+        partical7.SetActive(false);
+        partical8.SetActive(false);
+        partical9.SetActive(false);
+        partical10.SetActive(false);
+        partical11.SetActive(false);
+        partical12.SetActive(false);
+        partical13.SetActive(false);
     }
 }

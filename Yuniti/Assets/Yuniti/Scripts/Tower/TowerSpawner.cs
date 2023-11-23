@@ -22,9 +22,9 @@ public class TowerSpawner : MonoBehaviour
 
 
     [Header("Tower Booleans")]
-    private bool spawnOne = true;
-    private bool spawnTwo = true;
-    private bool spawnThree = true;
+    public bool spawnOne = true;
+    public bool spawnTwo = true;
+    public bool spawnThree = true;
 
     [Header("Location Markers")]
     public GameObject locationMarkerOne;

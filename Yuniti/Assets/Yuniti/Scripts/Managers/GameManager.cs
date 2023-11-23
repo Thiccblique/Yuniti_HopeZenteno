@@ -10,15 +10,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [Header("Scripts")]
-    public TowerSpawner towerSpawnerMarkI;
-    public TowerSpawner towerSpawnerMarkII;
-    public TowerSpawner towerSpawnerMarkIII;
-
-    [Header("DefendingPoint")]
-    public GameObject defendingPont;
-    public GameObject defendPointMarkII;
-    public GameObject defendPointMarkIII;
-
+    public TowerSpawner defendingPoints;
+    
     [Header("HUD")]
     public GameObject hudCanvas;
 
@@ -111,17 +104,13 @@ public class GameManager : MonoBehaviour
 
     private void Spawner()
     {
-        if(towerSpawnerMarkI.hasSpawned)
+        if(defendingPoints.spawnOne == true)
         {
             hudCanvas.SetActive(true);
             round1TowerOne.SetActive(true);
             round1TowerTwo.SetActive(true);
-            readyForUpgradeII = true;
 
-            if (readyForUpgradeII) 
-            {
-                defendPointMarkII.SetActive(true);
-                if (towerSpawnerMarkII.hasSpawned)
+                if (defendingPoints.spawnTwo)
                 {
                     round2TowerOne.SetActive(true);
                     round2TowerTwo.SetActive(true);
@@ -130,22 +119,16 @@ public class GameManager : MonoBehaviour
                     round2TowerFive.SetActive(true);
                     round2TowerSix.SetActive(true);
                     round2TowerSeven.SetActive(true);
-                    defendingPont.SetActive(false);
-                    readyForUpgradeIII = true;
+                  
                 }
- 
-                if(readyForUpgradeIII)
+                if (defendingPoints.spawnThree)
                 {
-                    defendPointMarkIII.SetActive(true);
-                    if (towerSpawnerMarkIII.hasSpawned)
-                    {
-                        defendPointMarkII.SetActive(false);
-                        round3TowerOne.SetActive(true);
-                        round3TowerTwo.SetActive(true);
-                    }
+                    round3TowerOne.SetActive(true);
+                    round3TowerTwo.SetActive(true);
                 }
+                
 
-            }
+            
         }
 
     }
@@ -153,7 +136,7 @@ public class GameManager : MonoBehaviour
     {
         round1TowerOne.SetActive(false);       
         round1TowerTwo.SetActive(false);
-        defendPointMarkII.SetActive(false);
+
         round2TowerOne.SetActive(false);
         round2TowerTwo.SetActive(false);
         round2TowerThree.SetActive(false);
@@ -161,7 +144,7 @@ public class GameManager : MonoBehaviour
         round2TowerFive.SetActive(false);
         round2TowerSix.SetActive(false);
         round2TowerSeven.SetActive(false);
-        defendPointMarkIII.SetActive(false);
+      
         round3TowerOne.SetActive(false);
         round3TowerTwo.SetActive(false);
         /*round3TowerThree.SetActive(false);

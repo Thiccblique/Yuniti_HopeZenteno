@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TowerBehaviour : MonoBehaviour
 {
+    public static TowerBehaviour instance;
+
     public float towerRange = 5f;
     public Transform shootingPoint;
     public LayerMask enemy;
@@ -13,6 +15,8 @@ public class TowerBehaviour : MonoBehaviour
     private List<GameObject> targets = new List<GameObject>(); // Creates a list called targets to keep track of detected enemies.
     private int maxTargets = 1;
     private float fireCountdown = 0f;
+
+    public int towerPrice = 2;
 
     private EnemyBehaviour enemyBehaviour;
 

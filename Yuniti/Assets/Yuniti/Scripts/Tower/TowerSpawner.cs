@@ -6,12 +6,38 @@ public class TowerSpawner : MonoBehaviour
 {
     public static TowerSpawner instance;
 
-    [Header("This.Tower")]
-    public GameObject currentTower;
-    public GameObject locationMarker;
-    public GameObject priceMarker;
-    public GameObject notEnoughTT;
-    public GameObject justEnoughTT;
+    [Header("Towers")]
+    public GameObject towerStageOne;
+    public GameObject towerStageTwo;
+    public GameObject towerStageThree;
+    
+
+    [Header("TT")]
+    public GameObject notEnoughTTOne;
+    public GameObject justEnoughTTOne;
+    public GameObject notEnoughTT_Two;
+    public GameObject justEnoughTT_Two;
+    public GameObject notEnoughTT_Three;
+    public GameObject justEnoughTT_Three;
+
+
+    [Header("Tower Booleans")]
+    private bool spawnOne = true;
+    private bool spawnTwo = true;
+    private bool spawnThree = true;
+
+    [Header("Location Markers")]
+    public GameObject locationMarkerOne;
+    public GameObject locationMarkerTwo;
+    public GameObject locationMarkerThree;
+
+    
+    [Header("Price Markers")]
+    public GameObject priceMarkerOne;
+    public GameObject priceMarkerTwo;
+    public GameObject priceMarkerThree;
+    
+    [Header("Other Mechanics")]
     public Transform spawnPoint; 
     public float spawnRadius = 3f;
     public int price = 2;
@@ -25,8 +51,11 @@ public class TowerSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentTower.SetActive(false);
-        notEnoughTT.SetActive(false);
+        spawnOne = false;
+        spawnTwo = false;
+        spawnThree = false;
+        towerStageOne.SetActive(false);
+        notEnoughTTOne.SetActive(false);
         paidFor = false;
     }
 
@@ -38,10 +67,45 @@ public class TowerSpawner : MonoBehaviour
 
     private void SpawnObject()
     {
-        Instantiate(currentTower, spawnPoint.position, spawnPoint.rotation);
-        currentTower.SetActive(true);
-        locationMarker.SetActive(false);
-        
+        if (!spawnOne)
+        {
+            Instantiate(towerStageOne, spawnPoint.position, spawnPoint.rotation);
+            towerStageOne.SetActive(true);
+            locationMarkerOne.SetActive(false);
+            spawnOne = true;
+            hasSpawned = false;
+            locationMarkerTwo.SetActive(true);
+            
+        }
+        else if (!spawnTwo)
+        {
+            price = 7;
+            towerStageOne.SetActive(false);
+            Instantiate(towerStageTwo, spawnPoint.position, spawnPoint.rotation);
+            towerStageTwo.SetActive(true);
+            locationMarkerTwo.SetActive(false);
+            spawnTwo = true;
+            hasSpawned = false;
+            locationMarkerThree.SetActive(true);
+            
+
+        }
+        else if (!spawnThree)
+        {
+            price = 15;
+            towerStageTwo.SetActive(false);
+            Instantiate(towerStageThree, spawnPoint.position, spawnPoint.rotation);
+            towerStageThree.SetActive(true);
+            locationMarkerThree.SetActive(false);
+            spawnThree = true;
+            hasSpawned = false;
+          
+
+
+        }
+
+
+
 
     }
 
@@ -61,47 +125,81 @@ public class TowerSpawner : MonoBehaviour
             {
                 if (col.CompareTag("Player"))
                 {
+                    hasSpawned = true;
+
                     SpawnObject();
-                    
                     GameManager.instance.coins = GameManager.instance.coins - price;
 
                     // Break the loop to avoid spawning multiple objects simultaneously
-                    hasSpawned = true; break;
                     
+
                 }
             }
         }
        
         if (GameManager.instance.inRound)
         {
-            locationMarker.SetActive(false);
+            locationMarkerOne.SetActive(false);
+            locationMarkerTwo.SetActive(false);
+            locationMarkerThree.SetActive(false);
         }
-        else if(!hasSpawned)
+       /* else if(!hasSpawned)
         {
-            locationMarker.SetActive(true);
-        }
+            locationMarkerOne.SetActive(true);
+            locationMarkerTwo.SetActive(tr);
+            locationMarkerThree.SetActive(false);
+        }*/
         if (RoundManager.instance.remainingEnemies <= 0 && hasSpawned)
         {
-            currentTower.SetActive(true);
+            towerStageOne.SetActive(true);
             //TowerHealth.instance.curHealth = TowerHealth.instance.maxHealth;
         }
 
     }
 
     private void OnTriggerEnter(Collider other)
-    { 
+    {
+       
         if (other.CompareTag("Player") && !hasSpawned && GameManager.instance.inRound == false)
         {
-            priceMarker.SetActive(true);
-            if (GameManager.instance.coins >= price)
+            if (!spawnOne)
             {
-                justEnoughTT.SetActive(true);
+                priceMarkerOne.SetActive(true);
+                if (GameManager.instance.coins >= price)
+                {
+                    justEnoughTTOne.SetActive(true);
+                }
+                else
+                {
+                    notEnoughTTOne.SetActive(true);
+                }
             }
-            else
+            else if (!spawnTwo)
             {
-                notEnoughTT.SetActive(true);
+                priceMarkerTwo.SetActive(true);
+                if (GameManager.instance.coins >= price)
+                {
+                    justEnoughTT_Two.SetActive(true);
+                }
+                else
+                {
+                    notEnoughTT_Two.SetActive(true);
+                }
             }
-          
+            else if (!spawnThree)
+            {
+                priceMarkerThree.SetActive(true);
+                if (GameManager.instance.coins >= price)
+                {
+                    justEnoughTT_Three.SetActive(true);
+                }
+                else
+                {
+                    notEnoughTT_Three.SetActive(true);
+                }
+            }
+
+
         }
     }
 
@@ -109,9 +207,16 @@ public class TowerSpawner : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            priceMarker.SetActive(false);
-            justEnoughTT.SetActive(false);
-            notEnoughTT.SetActive(false);
+            priceMarkerOne.SetActive(false);
+            justEnoughTTOne.SetActive(false);
+            notEnoughTTOne.SetActive(false);
+            priceMarkerTwo.SetActive(false);
+            justEnoughTT_Two.SetActive(false);
+            notEnoughTT_Two.SetActive(false);
+            priceMarkerThree.SetActive(false);
+            justEnoughTT_Three.SetActive(false);
+            notEnoughTT_Three.SetActive(false);
+
         }
     }
 }

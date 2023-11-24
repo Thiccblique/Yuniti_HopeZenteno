@@ -14,6 +14,7 @@ public class RoundManager : MonoBehaviour
     [SerializeField]
     public bool canContinue = true;
     public bool runOnce = true;
+    public bool endRound = true;
 
     public int totalEnemies = 12;
     public GameObject startRoundUI;
@@ -54,6 +55,7 @@ public class RoundManager : MonoBehaviour
         day.SetActive(true);
         night.SetActive(false);
         TurnOff();
+        endRound = false;
     }
 
     void Awake()
@@ -126,6 +128,7 @@ public class RoundManager : MonoBehaviour
         night.SetActive(true);
         startRoundUI.SetActive(false);
         GameManager.instance.inRound = true;
+        endRound = false;
         TurnOn();
     }
     public void EndRound()
@@ -141,6 +144,7 @@ public class RoundManager : MonoBehaviour
             {
                 canContinue = true;
                 runOnce = false;
+                endRound = true;
             }
             startRoundUI.SetActive(true);
             ResetCountdown();

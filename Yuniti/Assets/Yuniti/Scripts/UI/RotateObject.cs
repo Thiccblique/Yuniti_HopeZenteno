@@ -18,4 +18,6 @@ public class RotateObject : MonoBehaviour
         // Rotate the object around the Y-axis
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
     }
+
+    
 }

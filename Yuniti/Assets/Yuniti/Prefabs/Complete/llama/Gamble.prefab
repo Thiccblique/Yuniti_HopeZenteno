@@ -360,6 +360,7 @@ Transform:
   - {fileID: 8037883470667571721}
   - {fileID: 4191708373674856898}
   - {fileID: 7336322452863916480}
+  - {fileID: 3364499403097468582}
   m_Father: {fileID: 3225650241671013452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6995510828960936949
@@ -425,6 +426,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
+  playerRange: 3
+  enemy:
+    serializedVersion: 2
+    m_Bits: 256
+  lookPoint: {fileID: 5812091814058373779}
 --- !u!95 &4697822146249734366
 Animator:
   serializedVersion: 5
@@ -457,9 +463,10 @@ GameObject:
   - component: {fileID: 8431044814893028220}
   - component: {fileID: 7152787748953551112}
   - component: {fileID: 5388619241714859922}
+  - component: {fileID: 3424589437349654926}
   m_Layer: 9
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: HitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -529,6 +536,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &3424589437349654926
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982296893292873549}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.02
+  m_Center: {x: -0.000000023748724, y: 0.000008633361, z: 0.014248926}
 --- !u!1 &1995187692164555230
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,13 +793,13 @@ Transform:
   m_GameObject: {fileID: 2736722705432917020}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11111118, y: -4.4428573, z: -2.8222222}
-  m_LocalScale: {x: 0.7407407, y: 0.95238096, z: 0.9259258}
+  m_LocalPosition: {x: -0.09999987, y: -4.48, z: -2.54}
+  m_LocalScale: {x: 0.6666666, y: 0.6666667, z: 0.83333313}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8431044814893028220}
   - {fileID: 5162051157716645647}
-  m_Father: {fileID: 8037883470667571721}
+  m_Father: {fileID: 5812091814058373779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2927323332906817354
 GameObject:
@@ -1935,8 +1963,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -1.37, z: 0}
   m_LocalScale: {x: 0.9, y: 0.7, z: 0.9}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3364499403097468582}
+  m_Children: []
   m_Father: {fileID: 5812091814058373779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9003603599096628645
@@ -2162,7 +2189,7 @@ GameObject:
   - component: {fileID: 5901936570856195910}
   m_Layer: 9
   m_Name: HitBox
-  m_TagString: HitBox
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

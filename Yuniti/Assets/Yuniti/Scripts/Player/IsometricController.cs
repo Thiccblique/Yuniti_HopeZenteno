@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class IsometricController : MonoBehaviour
 {
+    public static IsometricController instance;
+
     public Rigidbody rb;
     public float speed = 5;
     public float rotSpeed = 360;
@@ -22,6 +24,7 @@ public class IsometricController : MonoBehaviour
         PlayerInput();
         Look();
         Animation();
+        AttackAnim();
     }
 
     private void FixedUpdate()
@@ -48,9 +51,9 @@ public class IsometricController : MonoBehaviour
         rb.MovePosition(transform.position + transform.forward * input.normalized.magnitude * speed * Time.deltaTime);
     }
 
-    public void Animation()
+    public void AttackAnim()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             hitBox.SetActive(true);
             orionAnim.SetBool("OrionAttack", true);
@@ -60,6 +63,11 @@ public class IsometricController : MonoBehaviour
             orionAnim.SetBool("OrionAttack", false);
             hitBox.SetActive(false);
         }
+    }
+
+    public void Animation()
+    {
+       
 
         var hitKey = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow);
     

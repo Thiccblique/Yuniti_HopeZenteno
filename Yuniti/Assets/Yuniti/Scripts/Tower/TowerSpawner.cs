@@ -65,46 +65,7 @@ public class TowerSpawner : MonoBehaviour
        SpawnTower();
     }
 
-    private void SpawnObject()
-    {
-        if (!spawnOne)
-        {
-            Instantiate(towerStageOne, spawnPoint.position, spawnPoint.rotation);
-            towerStageOne.SetActive(true);
-            locationMarkerOne.SetActive(false);
-            spawnOne = true;
-            hasSpawned = false;
-            locationMarkerTwo.SetActive(true);
-            
-        }
-        else if (!spawnTwo)
-        {
-            price = 7;
-            towerStageOne.SetActive(false);
-            Instantiate(towerStageTwo, spawnPoint.position, spawnPoint.rotation);
-            towerStageTwo.SetActive(true);
-            locationMarkerTwo.SetActive(false);
-            spawnTwo = true;
-            hasSpawned = false;
-            locationMarkerThree.SetActive(true);
-            
-
-        }
-        else if (!spawnThree)
-        {
-            price = 15;
-            towerStageTwo.SetActive(false);
-            Instantiate(towerStageThree, spawnPoint.position, spawnPoint.rotation);
-            towerStageThree.SetActive(true);
-            locationMarkerThree.SetActive(false);
-            spawnThree = true;
-            hasSpawned = false;
-        }
-
-
-
-
-    }
+  
 
     private void OnDrawGizmosSelected()
     {
@@ -126,10 +87,6 @@ public class TowerSpawner : MonoBehaviour
 
                     SpawnObject();
                     GameManager.instance.coins = GameManager.instance.coins - price;
-
-                    // Break the loop to avoid spawning multiple objects simultaneously
-                    
-
                 }
             }
         }
@@ -140,6 +97,8 @@ public class TowerSpawner : MonoBehaviour
             locationMarkerTwo.SetActive(false);
             locationMarkerThree.SetActive(false);
         }
+       
+
        /* else if(!hasSpawned)
         {
             locationMarkerOne.SetActive(true);
@@ -152,6 +111,44 @@ public class TowerSpawner : MonoBehaviour
             //TowerHealth.instance.curHealth = TowerHealth.instance.maxHealth;
         }
 
+    }
+    private void SpawnObject()
+    {
+        if (!spawnOne)
+        {
+            Instantiate(towerStageOne, spawnPoint.position, spawnPoint.rotation);
+            towerStageOne.SetActive(true);
+            locationMarkerOne.SetActive(false);
+            spawnOne = true;
+            hasSpawned = false;
+            locationMarkerTwo.SetActive(true);
+            
+
+        }
+        else if (!spawnTwo)
+        {
+            price = 7;
+            towerStageOne.SetActive(false);
+            Instantiate(towerStageTwo, spawnPoint.position, spawnPoint.rotation);
+            towerStageTwo.SetActive(true);
+            locationMarkerTwo.SetActive(false);
+            spawnTwo = true;
+            hasSpawned = false;
+            locationMarkerThree.SetActive(true);
+           
+           
+
+        }
+        else if (!spawnThree)
+        {
+            price = 15;
+            towerStageTwo.SetActive(false);
+            Instantiate(towerStageThree, spawnPoint.position, spawnPoint.rotation);
+            towerStageThree.SetActive(true);
+            locationMarkerThree.SetActive(false);
+            spawnThree = true;
+            hasSpawned = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

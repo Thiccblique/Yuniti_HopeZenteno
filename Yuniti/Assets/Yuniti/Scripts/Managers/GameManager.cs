@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     [Header("FirstRound")]
     public GameObject round1TowerOne;
     public GameObject round1TowerTwo;
+    public GameObject round1TowerThree;
+    public GameObject round1TowerFour;
 
     [Header("SecondRound")]
     public GameObject round2TowerOne;
@@ -109,6 +111,8 @@ public class GameManager : MonoBehaviour
             hudCanvas.SetActive(true);
             round1TowerOne.SetActive(true);
             round1TowerTwo.SetActive(true);
+            round1TowerThree.SetActive(true);
+            round1TowerFour.SetActive(true);
 
                 if (defendingPoints.spawnTwo)
                 {
@@ -136,6 +140,8 @@ public class GameManager : MonoBehaviour
     {
         round1TowerOne.SetActive(false);       
         round1TowerTwo.SetActive(false);
+        round1TowerThree.SetActive(false);
+        round1TowerFour.SetActive(false);
 
         round2TowerOne.SetActive(false);
         round2TowerTwo.SetActive(false);

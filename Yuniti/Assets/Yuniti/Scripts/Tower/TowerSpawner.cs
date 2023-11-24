@@ -99,9 +99,6 @@ public class TowerSpawner : MonoBehaviour
             locationMarkerThree.SetActive(false);
             spawnThree = true;
             hasSpawned = false;
-          
-
-
         }
 
 

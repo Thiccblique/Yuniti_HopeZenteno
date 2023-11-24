@@ -50,6 +50,17 @@ public class IsometricController : MonoBehaviour
 
     public void Animation()
     {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            hitBox.SetActive(true);
+            orionAnim.SetBool("OrionAttack", true);
+        }
+        else
+        {
+            orionAnim.SetBool("OrionAttack", false);
+            hitBox.SetActive(false);
+        }
+
         var hitKey = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow);
     
         if (hitKey == true)
@@ -63,16 +74,7 @@ public class IsometricController : MonoBehaviour
             anim.SetBool("Walk", false);
         } 
       
-        if (Input.GetKey(KeyCode.Space))
-        {
-            hitBox.SetActive(true);
-            orionAnim.SetBool("OrionAttack", true);
-        }
-        else
-        {
-            orionAnim.SetBool("OrionAttack", false);
-            hitBox.SetActive(false);
-        } 
+        
     }
     
 }

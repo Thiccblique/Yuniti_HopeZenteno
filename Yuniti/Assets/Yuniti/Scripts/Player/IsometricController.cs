@@ -53,7 +53,7 @@ public class IsometricController : MonoBehaviour
 
     public void AttackAnim()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.O) || Input.GetMouseButtonDown(0) /*|| Input.GetKeyDown(KeyCode.Space)*/)
         {
             hitBox.SetActive(true);
             orionAnim.SetBool("OrionAttack", true);

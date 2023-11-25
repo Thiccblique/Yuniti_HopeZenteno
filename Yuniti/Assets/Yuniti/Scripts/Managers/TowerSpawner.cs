@@ -63,6 +63,7 @@ public class TowerSpawner : MonoBehaviour
     void Update()
     {
        SpawnTower();
+       MakeMarkerGoByeBye();
     }
 
   
@@ -196,6 +197,43 @@ public class TowerSpawner : MonoBehaviour
             }
 
 
+        }
+    }
+
+    private void MakeMarkerGoByeBye()
+    {
+        if (!spawnOne)
+        {
+            if (GameManager.instance.inRound)
+            {
+                locationMarkerOne.SetActive(false);
+            }
+            else if(GameManager.instance.inRound == false)
+            {
+                locationMarkerOne.SetActive(true);
+            }
+        }
+        else if (!spawnTwo)
+        {
+            if (GameManager.instance.inRound)
+            {
+                locationMarkerTwo.SetActive(false);
+            }
+            else if (GameManager.instance.inRound == false)
+            {
+                locationMarkerTwo.SetActive(true);
+            }
+        }
+        else if (!spawnThree)
+        {
+            if (GameManager.instance.inRound)
+            {
+                locationMarkerThree.SetActive(false);
+            }
+            else if (GameManager.instance.inRound == false)
+            {
+                locationMarkerThree.SetActive(true);
+            }
         }
     }
 

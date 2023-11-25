@@ -84,14 +84,14 @@ public class TowerSpawner : MonoBehaviour
                 if (col.CompareTag("Player"))
                 {
                     hasSpawned = true;
-
-                    SpawnObject();
                     GameManager.instance.coins = GameManager.instance.coins - price;
+                    SpawnObject();
+                   
                 }
             }
         }
        
-        if (GameManager.instance.inRound)
+        /*if (GameManager.instance.inRound)
         {
             locationMarkerOne.SetActive(false);
             locationMarkerTwo.SetActive(false);
@@ -99,7 +99,7 @@ public class TowerSpawner : MonoBehaviour
         }
        
 
-       /* else if(!hasSpawned)
+        else if(!hasSpawned)
         {
             locationMarkerOne.SetActive(true);
             locationMarkerTwo.SetActive(tr);
@@ -122,12 +122,13 @@ public class TowerSpawner : MonoBehaviour
             spawnOne = true;
             hasSpawned = false;
             locationMarkerTwo.SetActive(true);
-            
+            price = 7;
+
 
         }
         else if (!spawnTwo)
         {
-            price = 7;
+          
             towerStageOne.SetActive(false);
             Instantiate(towerStageTwo, spawnPoint.position, spawnPoint.rotation);
             towerStageTwo.SetActive(true);
@@ -135,13 +136,14 @@ public class TowerSpawner : MonoBehaviour
             spawnTwo = true;
             hasSpawned = false;
             locationMarkerThree.SetActive(true);
-           
-           
+            price = 15;
+
+
 
         }
         else if (!spawnThree)
         {
-            price = 15;
+            
             towerStageTwo.SetActive(false);
             Instantiate(towerStageThree, spawnPoint.position, spawnPoint.rotation);
             towerStageThree.SetActive(true);

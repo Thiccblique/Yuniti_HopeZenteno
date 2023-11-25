@@ -557,7 +557,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5636400914012177155, guid: 8ec0c4ba044f234489c31e0de5cc5a01, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5554897667001840424}
   m_SourcePrefab: {fileID: 100100000, guid: 8ec0c4ba044f234489c31e0de5cc5a01, type: 3}
 --- !u!4 &7112666750120218667 stripped
 Transform:
@@ -569,6 +572,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5636400914012177155, guid: 8ec0c4ba044f234489c31e0de5cc5a01, type: 3}
   m_PrefabInstance: {fileID: 2865996705645955474}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5554897667001840424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7637704836453337745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8262006d04920b4097563fc010dd1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerRange: 5
+  shootingPoint: {fileID: 0}
+  enemy:
+    serializedVersion: 2
+    m_Bits: 0
+  towerProjectile: {fileID: 0}
+  fireRate: 1
+  towerPrice: 2
 --- !u!1001 &3159249921257351309
 PrefabInstance:
   m_ObjectHideFlags: 0

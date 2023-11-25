@@ -34,19 +34,25 @@ public class GameManager : MonoBehaviour
     public GameObject round2TowerFive;
     public GameObject round2TowerSix;
     public GameObject round2TowerSeven;
+    public GameObject round2TowerEight;
 
     [Header("ThirdRound")]
     public GameObject round3TowerOne;
     public GameObject round3TowerTwo;
-    /*public GameObject round3TowerThree;
+    public GameObject round3TowerThree;
     public GameObject round3TowerFour;
-    public GameObject round3TowerFive; */
+    public GameObject round3TowerFive;
+    public GameObject rounde3TowerSix;
+
+    [Header("UI")]
+    public TMPro.TMP_Text coinsCount;
+    public TMPro.TMP_Text enemyCount;
 
     [Header("Money")]
     public int coins = 5;
     public int itemPrice = 2;
     public bool towerIsLocked = true;
-    public TMPro.TMP_Text coinsAmount;
+  
     
     
 
@@ -54,13 +60,14 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Disability();
-        CheckCoins();
+        CodeTooUI();
         inRound = false;
     }
 
-    public void CheckCoins()
+    public void CodeTooUI()
     {
-        coinsAmount.text = coins.ToString();
+        coinsCount.text = coins.ToString();
+        enemyCount.text = RoundManager.instance.remainingEnemies.ToString();
     }
 
     public void DisplayItemPrice()
@@ -100,7 +107,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         Spawner();
-        CheckCoins();
+        CodeTooUI();
         DisplayItemPrice();
     }
 
@@ -123,12 +130,18 @@ public class GameManager : MonoBehaviour
                     round2TowerFive.SetActive(true);
                     round2TowerSix.SetActive(true);
                     round2TowerSeven.SetActive(true);
+                    round2TowerEight.SetActive(true);
                   
                 }
                 if (defendingPoints.spawnThree)
                 {
                     round3TowerOne.SetActive(true);
                     round3TowerTwo.SetActive(true);
+                    round3TowerThree.SetActive(true); 
+                    round3TowerFour.SetActive(true);
+                    round3TowerFive.SetActive(true);
+                    rounde3TowerSix.SetActive(true);
+                    
                 }
                 
 
@@ -150,12 +163,14 @@ public class GameManager : MonoBehaviour
         round2TowerFive.SetActive(false);
         round2TowerSix.SetActive(false);
         round2TowerSeven.SetActive(false);
+        round2TowerEight.SetActive(false);
       
         round3TowerOne.SetActive(false);
         round3TowerTwo.SetActive(false);
-        /*round3TowerThree.SetActive(false);
+        round3TowerThree.SetActive(false);
         round3TowerFour.SetActive(false);
-        round3TowerFive.SetActive(false);*/
+        round3TowerFive.SetActive(false);
+        rounde3TowerSix.SetActive(false);
 
 
     }

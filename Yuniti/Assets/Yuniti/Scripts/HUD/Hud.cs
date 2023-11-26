@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Hud : MonoBehaviour
 {
-    public GameObject HUD;
+    public static Hud instance;
 
+    public GameObject HUD;
+    public bool publicOpen = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class Hud : MonoBehaviour
 
     public void HUDController()
     {
+        publicOpen = true;
         if (HUD != null)
         {
             Animator anim = HUD.GetComponent<Animator>();
@@ -30,7 +33,7 @@ public class Hud : MonoBehaviour
                 anim.SetBool("open", !isOpen);
             }
         }
-       
+       publicOpen = false;
  
     }
 }

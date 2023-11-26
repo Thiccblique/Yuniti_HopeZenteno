@@ -42,6 +42,7 @@ public class TowerSpawner : MonoBehaviour
     public float spawnRadius = 3f;
     public int price = 2;
     private bool paidFor = true;
+    
    
 
 
@@ -57,6 +58,7 @@ public class TowerSpawner : MonoBehaviour
         towerStageOne.SetActive(false);
         notEnoughTTOne.SetActive(false);
         paidFor = false;
+      
     }
 
     // Update is called once per frame
@@ -91,28 +93,26 @@ public class TowerSpawner : MonoBehaviour
                 }
             }
         }
-       
-        /*if (GameManager.instance.inRound)
-        {
-            locationMarkerOne.SetActive(false);
-            locationMarkerTwo.SetActive(false);
-            locationMarkerThree.SetActive(false);
-        }
-       
 
-        else if(!hasSpawned)
-        {
-            locationMarkerOne.SetActive(true);
-            locationMarkerTwo.SetActive(tr);
-            locationMarkerThree.SetActive(false);
-        }*/
         if (RoundManager.instance.remainingEnemies <= 0 && hasSpawned)
         {
             towerStageOne.SetActive(true);
             //TowerHealth.instance.curHealth = TowerHealth.instance.maxHealth;
         }
-
     }
+    public void SpawnTowerOnClick()
+    {
+        if (GameManager.instance.coins >= price)
+        {
+            MultiTowerSpawner.instance.multiDeactivate = true;
+            hasSpawned = true;
+            GameManager.instance.coins = GameManager.instance.coins - price;
+            SpawnObject();
+           
+        }
+               
+    }
+
     private void SpawnObject()
     {
         if (!spawnOne)

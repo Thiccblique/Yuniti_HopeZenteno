@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileBehaviour : MonoBehaviour
+public class FWProjectileBehaviour : MonoBehaviour
 {
     public LayerMask enemy;
     public float projectileLifetime = 5f;
     public int damageAmount = 1;
+    public float explosionRange = 3f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,11 +34,12 @@ public class ProjectileBehaviour : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Ground"))
         {
+            SphereCollider explosionRadius = gameObject.GetComponent<SphereCollider>();
+            explosionRadius.radius = explosionRange;
             projectileLifetime = 0.05f;
         }
     }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1317777059568740833}
   - component: {fileID: 2127225008548217529}
   - component: {fileID: 3509574790019349435}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tourch1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1239800554221540522}
   - component: {fileID: 7519144175421327696}
   - component: {fileID: 2463222035562454991}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FireSparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4923,7 +4923,7 @@ GameObject:
   - component: {fileID: 2150271348275266866}
   - component: {fileID: 3810004005418055982}
   - component: {fileID: 4634746955778436257}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FirePartical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9749,7 +9749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6232512753275118108}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9784,7 +9784,7 @@ GameObject:
   - component: {fileID: 4789290982770722832}
   - component: {fileID: 2218856920966026855}
   - component: {fileID: 6975441236893019545}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Torch2Top.001 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9865,7 +9865,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4115049268865122711}
-  m_Layer: 0
+  - component: {fileID: 2974095700232936510}
+  m_Layer: 9
   m_Name: TourchOne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9889,6 +9890,22 @@ Transform:
   - {fileID: 6232512753275118108}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &2974095700232936510
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9166979302961819888}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.00001, y: 0.00001, z: 0.00001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &4443315094592487861
 PrefabInstance:
   m_ObjectHideFlags: 0

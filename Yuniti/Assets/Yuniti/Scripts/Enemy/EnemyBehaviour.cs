@@ -14,6 +14,7 @@ public class EnemyBehaviour : MonoBehaviour
     public int attackRate = 0;
     public int healthAmount = 0;
     public int maxHealth = 3;
+    
     private bool attackCooldown = false;
     private bool towerNearby = false;
     private Vector3 destination;
@@ -22,6 +23,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private TowerHealth towerHealth;
     private ProjectileBehaviour projectileBehaviour;
+    private FWProjectileBehaviour fwProjectileBehaviour;
 
     public Slider healthbar;
     public GameObject healthbarUI;
@@ -67,7 +69,14 @@ public class EnemyBehaviour : MonoBehaviour
             projectileBehaviour = other.gameObject.GetComponent<ProjectileBehaviour>();
             healthAmount = healthAmount - projectileBehaviour.damageAmount;
             healthbar.value = CalculateHealth();
-            Destroy(other.gameObject);
+            Debug.Log("Enemy Health: " + healthAmount);
+        }
+
+        if (other.gameObject.CompareTag("FWProjectile"))
+        {
+            fwProjectileBehaviour = other.gameObject.GetComponent<FWProjectileBehaviour>();
+            healthAmount = healthAmount - fwProjectileBehaviour.damageAmount;
+            healthbar.value = CalculateHealth();
             Debug.Log("Enemy Health: " + healthAmount);
         }
 

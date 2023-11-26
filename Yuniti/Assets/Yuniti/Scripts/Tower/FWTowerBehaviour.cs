@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerBehaviour : MonoBehaviour
+public class FWTowerBehaviour : MonoBehaviour
 {
-    public static TowerBehaviour instance;
+    public static FWTowerBehaviour instance;
 
     public float towerRange = 5f;
     public Transform shootingPoint;
     public LayerMask enemy;
     public GameObject towerProjectile;
     public float fireRate = 1f;
-    public int towerDamage;
+    public int towerFWDamage = 3;
+    public float areaFW = 3f;
 
     private List<GameObject> targets = new List<GameObject>(); // Creates a list called targets to keep track of detected enemies.
     public int maxTargets = 1;
@@ -20,13 +21,14 @@ public class TowerBehaviour : MonoBehaviour
     public int towerPrice = 2;
 
     private EnemyBehaviour enemyBehaviour;
-    private ProjectileBehaviour projectileBehaviour;
+    private FWProjectileBehaviour fwProjectileBehaviour;
 
     // Start is called before the first frame update
     void Start()
     {
-        projectileBehaviour = towerProjectile.GetComponent<ProjectileBehaviour>();
-        projectileBehaviour.damageAmount = towerDamage;
+        fwProjectileBehaviour = towerProjectile.GetComponent<FWProjectileBehaviour>();
+        fwProjectileBehaviour.damageAmount = towerFWDamage;
+        fwProjectileBehaviour.explosionRange = areaFW;
     }
 
     // Update is called once per frame

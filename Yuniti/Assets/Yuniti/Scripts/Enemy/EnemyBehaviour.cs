@@ -10,9 +10,9 @@ public class EnemyBehaviour : MonoBehaviour
 
     public NavMeshAgent enemyAgent;
     public GameObject waypoint;
-    public int damageAmount = 0;
+    public int damageAmount;
     public int attackRate = 0;
-    public int healthAmount = 0;
+    public int healthAmount;
     public int maxHealth = 3;
     
     private bool attackCooldown = false;

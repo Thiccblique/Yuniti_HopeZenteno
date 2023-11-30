@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Scripts")]
     public TowerSpawner defendingPoints;
-    
+
     [Header("HUD")]
     public GameObject hudCanvas;
 
@@ -52,9 +52,9 @@ public class GameManager : MonoBehaviour
     public int coins = 5;
     public int itemPrice = 2;
     public bool towerIsLocked = true;
-  
-    
-    
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
 
     public void DisplayItemPrice()
     {
-        
+
     }
 
     public void UnlockItem()
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
                 round1TowerTwo.SetActive(true);
 
                 towerIsLocked = false;
-                
+
             }
         }
     }
@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
 
     private void Spawner()
     {
-        if(defendingPoints.spawnOne == true)
+        if (defendingPoints.spawnOne == true)
         {
             hudCanvas.SetActive(true);
             round1TowerOne.SetActive(true);
@@ -121,37 +121,33 @@ public class GameManager : MonoBehaviour
             round1TowerThree.SetActive(true);
             round1TowerFour.SetActive(true);
 
-                if (defendingPoints.spawnTwo)
-                {
-                    round2TowerOne.SetActive(true);
-                    round2TowerTwo.SetActive(true);
-                    round2TowerThree.SetActive(true);
-                    round2TowerFour.SetActive(true);
-                    round2TowerFive.SetActive(true);
-                    round2TowerSix.SetActive(true);
-                    round2TowerSeven.SetActive(true);
-                    round2TowerEight.SetActive(true);
-                  
-                }
-                if (defendingPoints.spawnThree)
-                {
-                    round3TowerOne.SetActive(true);
-                    round3TowerTwo.SetActive(true);
-                    round3TowerThree.SetActive(true); 
-                    round3TowerFour.SetActive(true);
-                    round3TowerFive.SetActive(true);
-                    rounde3TowerSix.SetActive(true);
-                    
-                }
-                
+            if (defendingPoints.spawnTwo)
+            {
+                round2TowerOne.SetActive(true);
+                round2TowerTwo.SetActive(true);
+                round2TowerThree.SetActive(true);
+                round2TowerFour.SetActive(true);
+                round2TowerFive.SetActive(true);
+                round2TowerSix.SetActive(true);
+                round2TowerSeven.SetActive(true);
+                round2TowerEight.SetActive(true);
 
-            
+            }
+            if (defendingPoints.spawnThree)
+            {
+                round3TowerOne.SetActive(true);
+                round3TowerTwo.SetActive(true);
+                round3TowerThree.SetActive(true);
+                round3TowerFour.SetActive(true);
+                round3TowerFive.SetActive(true);
+                rounde3TowerSix.SetActive(true);
+            }
         }
 
     }
     private void Disability()
     {
-        round1TowerOne.SetActive(false);       
+        round1TowerOne.SetActive(false);
         round1TowerTwo.SetActive(false);
         round1TowerThree.SetActive(false);
         round1TowerFour.SetActive(false);
@@ -164,7 +160,7 @@ public class GameManager : MonoBehaviour
         round2TowerSix.SetActive(false);
         round2TowerSeven.SetActive(false);
         round2TowerEight.SetActive(false);
-      
+
         round3TowerOne.SetActive(false);
         round3TowerTwo.SetActive(false);
         round3TowerThree.SetActive(false);
@@ -180,7 +176,7 @@ public class GameManager : MonoBehaviour
         RoundManager.instance.StartRoundCountdown();
         RoundManager.instance.totalEnemies = 12;
         RoundManager.instance.remainingEnemies = RoundManager.instance.totalEnemies;
-       
-        
+
+
     }
 }

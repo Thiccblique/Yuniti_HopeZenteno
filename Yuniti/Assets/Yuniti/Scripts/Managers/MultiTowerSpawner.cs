@@ -6,11 +6,14 @@ public class MultiTowerSpawner : MonoBehaviour
 {
     public static MultiTowerSpawner instance;
 
-    public GameObject tower1Hud; 
+    public GameObject tower1Hud;
     public GameObject tower2Hud;
+    public GameObject kunaiTower;
+    public GameObject fireworkTower;
+    public GameObject buildingLocationPrim;
 
-    public GameObject deactavator;
     public bool multiDeactivate = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,12 +46,24 @@ public class MultiTowerSpawner : MonoBehaviour
         }
     }
 
-   
-
     public void Deactivate()
     {
-        deactavator.SetActive(false);
         tower1Hud.SetActive(false);
         tower2Hud.SetActive(false);
+    }
+
+    public void KunaiTowerClick()
+    {
+        kunaiTower.SetActive(true);
+        buildingLocationPrim.SetActive(false);
+        multiDeactivate = true;
+    }
+
+
+    public void FireworkTowerClick()
+    {
+        fireworkTower.SetActive(true);
+        buildingLocationPrim.SetActive(false);
+        multiDeactivate = true;
     }
 }

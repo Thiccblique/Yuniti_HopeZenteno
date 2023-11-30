@@ -10,7 +10,7 @@ public class TowerSpawner : MonoBehaviour
     public GameObject towerStageOne;
     public GameObject towerStageTwo;
     public GameObject towerStageThree;
-    
+
 
     [Header("TT")]
     public GameObject notEnoughTTOne;
@@ -31,19 +31,19 @@ public class TowerSpawner : MonoBehaviour
     public GameObject locationMarkerTwo;
     public GameObject locationMarkerThree;
 
-    
+
     [Header("Price Markers")]
     public GameObject priceMarkerOne;
     public GameObject priceMarkerTwo;
     public GameObject priceMarkerThree;
-    
+
     [Header("Other Mechanics")]
-    public Transform spawnPoint; 
+    public Transform spawnPoint;
     public float spawnRadius = 3f;
     public int price = 2;
     private bool paidFor = true;
-    
-   
+
+
 
 
     [SerializeField]
@@ -58,17 +58,17 @@ public class TowerSpawner : MonoBehaviour
         towerStageOne.SetActive(false);
         notEnoughTTOne.SetActive(false);
         paidFor = false;
-      
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       SpawnTower();
-       MakeMarkerGoByeBye();
+        SpawnTower();
+        MakeMarkerGoByeBye();
     }
 
-  
+
 
     private void OnDrawGizmosSelected()
     {
@@ -89,7 +89,7 @@ public class TowerSpawner : MonoBehaviour
                     hasSpawned = true;
                     GameManager.instance.coins = GameManager.instance.coins - price;
                     SpawnObject();
-                   
+
                 }
             }
         }
@@ -108,9 +108,9 @@ public class TowerSpawner : MonoBehaviour
             hasSpawned = true;
             GameManager.instance.coins = GameManager.instance.coins - price;
             SpawnObject();
-           
+
         }
-               
+
     }
 
     private void SpawnObject()
@@ -124,12 +124,10 @@ public class TowerSpawner : MonoBehaviour
             hasSpawned = false;
             locationMarkerTwo.SetActive(true);
             price = 7;
-
-
         }
         else if (!spawnTwo)
         {
-          
+
             towerStageOne.SetActive(false);
             Instantiate(towerStageTwo, spawnPoint.position, spawnPoint.rotation);
             towerStageTwo.SetActive(true);
@@ -138,13 +136,10 @@ public class TowerSpawner : MonoBehaviour
             hasSpawned = false;
             locationMarkerThree.SetActive(true);
             price = 15;
-
-
-
         }
         else if (!spawnThree)
         {
-            
+
             towerStageTwo.SetActive(false);
             Instantiate(towerStageThree, spawnPoint.position, spawnPoint.rotation);
             towerStageThree.SetActive(true);
@@ -156,7 +151,7 @@ public class TowerSpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       
+
         if (other.CompareTag("Player") && !hasSpawned && GameManager.instance.inRound == false)
         {
             if (!spawnOne)
@@ -208,7 +203,7 @@ public class TowerSpawner : MonoBehaviour
             {
                 locationMarkerOne.SetActive(false);
             }
-            else if(GameManager.instance.inRound == false)
+            else if (GameManager.instance.inRound == false)
             {
                 locationMarkerOne.SetActive(true);
             }
@@ -250,7 +245,6 @@ public class TowerSpawner : MonoBehaviour
             priceMarkerThree.SetActive(false);
             justEnoughTT_Three.SetActive(false);
             notEnoughTT_Three.SetActive(false);
-
         }
     }
 }

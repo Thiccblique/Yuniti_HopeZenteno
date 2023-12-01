@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class TowerSpawner : MonoBehaviour
@@ -43,9 +44,6 @@ public class TowerSpawner : MonoBehaviour
     public int price = 2;
     private bool paidFor = true;
 
-
-
-
     [SerializeField]
     public bool hasSpawned = false;
 
@@ -58,7 +56,6 @@ public class TowerSpawner : MonoBehaviour
         towerStageOne.SetActive(false);
         notEnoughTTOne.SetActive(false);
         paidFor = false;
-
     }
 
     // Update is called once per frame
@@ -108,7 +105,6 @@ public class TowerSpawner : MonoBehaviour
             hasSpawned = true;
             GameManager.instance.coins = GameManager.instance.coins - price;
             SpawnObject();
-
         }
 
     }

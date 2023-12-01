@@ -1,26 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class TowerHealth : MonoBehaviour
 {
     public static TowerHealth instance;
 
-    public int curHealth = 0;
-    public int maxHealth = 100;
+    public GameObject goPanel;
+    public Slider healthBar;
 
-    // Start is called before the first frame update
-    void Awake()
+    public void SetHealth(int health)
     {
-        curHealth = maxHealth;
+        slider.value = health;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetMaxHealth(int health)
     {
-        if (curHealth <= 0)
-        {
-            curHealth = 0;
-        }
+        slider.maxValue = health;
+        slider.value = health;
     }
 }

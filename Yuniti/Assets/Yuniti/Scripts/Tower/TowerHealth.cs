@@ -9,15 +9,17 @@ public class TowerHealth : MonoBehaviour
 
     public GameObject goPanel;
     public Slider healthBar;
+    public int maxHealth = 5;
+    public int curHealth;
 
     public void SetHealth(int health)
     {
-        slider.value = health;
+        healthBar.value = health;
     }
 
     public void SetMaxHealth(int health)
     {
-        slider.maxValue = health;
-        slider.value = health;
+        healthBar.maxValue = health;
+        healthBar.value = health;
     }
 }

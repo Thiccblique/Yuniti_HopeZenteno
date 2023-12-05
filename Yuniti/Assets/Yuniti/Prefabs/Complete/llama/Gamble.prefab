@@ -1457,6 +1457,37 @@ Transform:
   - {fileID: 9045888436752122587}
   m_Father: {fileID: 3396573271064854578}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5552571472458628624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2135532184998559959}
+  m_Layer: 9
+  m_Name: Paricals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2135532184998559959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5552571472458628624}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3225650241671013452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5690695811981950740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,6 +1683,7 @@ Transform:
   - {fileID: 7621114926947022711}
   - {fileID: 5812091814058373779}
   - {fileID: 6529323460724935626}
+  - {fileID: 2135532184998559959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8256872193045886325
@@ -1672,6 +1704,7 @@ MonoBehaviour:
   input: {x: 0, y: 0, z: 0}
   hitBox: {fileID: 7989369639585349358}
   orionAnim: {fileID: 4697822146249734366}
+  particals: {fileID: 0}
 --- !u!65 &8377794641055771478
 BoxCollider:
   m_ObjectHideFlags: 0

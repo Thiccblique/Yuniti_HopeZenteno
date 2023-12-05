@@ -13,7 +13,7 @@ public class IsometricController : MonoBehaviour
     public GameObject hitBox;
     private Animator anim;
     public Animator orionAnim;
-    
+    public GameObject particals;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -75,11 +75,13 @@ public class IsometricController : MonoBehaviour
         {
             // Activate the animation
             anim.SetBool("Walk", true);
+            particals.SetActive(true);
         }
         else
         {
             // Activate the animation
             anim.SetBool("Walk", false);
+            particals.SetActive(false);
         } 
       
         

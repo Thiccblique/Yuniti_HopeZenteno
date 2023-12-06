@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     public TMPro.TMP_Text coinsCount;
     public TMPro.TMP_Text enemyCount;
+    public TMPro.TMP_Text roundCount;
 
     [Header("Money")]
     public int coins = 5;
@@ -68,6 +69,7 @@ public class GameManager : MonoBehaviour
     {
         coinsCount.text = coins.ToString();
         enemyCount.text = RoundManager.instance.remainingEnemies.ToString();
+        roundCount.text = RoundManager.instance.roundNumber.ToString();
     }
 
     public void DisplayItemPrice()

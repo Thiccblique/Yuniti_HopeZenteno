@@ -4,6 +4,102 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner instance;
+
+    public GameObject[] objectToSpawn;
+    public Transform[] spawnPoint;
+    public float spawnInterval = 3.0f;
+
+    public int spawnCount = 0;
+    private int curRound = 0;
+    private int enemiesToSpawn = 0;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        instance = this;
+        curRound = RoundManager.instance.roundNumber;
+        enemiesToSpawn = RoundManager.instance.totalEnemies;
+    }
+
+    public void StartSpawning()
+    {
+        spawnCount = 0;
+        StartCoroutine(SpawnEnemies());
+    }
+
+    IEnumerator SpawnEnemies()
+    {
+        while (true)
+        {
+            float firstEnemyCount = 0f;
+            float secondEnemyCount = 0f;
+
+            if (curRound >= 1 && curRound <= 3)
+            {
+                firstEnemyCount = RoundManager.instance.remainingEnemies * .8f;
+                secondEnemyCount = RoundManager.instance.remainingEnemies * .2f;
+
+                firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
+                secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
+
+                if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
+                {
+                    firstEnemyCount++;
+                }
+            }
+            else if (curRound >= 4 && curRound <= 7)
+            {
+                firstEnemyCount = RoundManager.instance.remainingEnemies * .6f;
+                secondEnemyCount = RoundManager.instance.remainingEnemies * .4f;
+
+                firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
+                secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
+                if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
+                {
+                    secondEnemyCount++;
+                }
+            }
+            else if (curRound >= 8 && curRound <= 10)
+            {
+                firstEnemyCount = RoundManager.instance.remainingEnemies * .2f;
+                secondEnemyCount = RoundManager.instance.remainingEnemies * .8f;
+
+                firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
+                secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
+
+                if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
+                {
+                    secondEnemyCount++;
+                }
+            }
+
+
+            for (int i = 0; firstEnemyCount > i && spawnCount < RoundManager.instance.remainingEnemies; i++)
+            {
+                int spawnPointChosen = Random.Range(0, spawnPoint.Length);
+                Instantiate(objectToSpawn[0], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
+                spawnCount++;
+                yield return new WaitForSeconds(spawnInterval);
+            }
+
+            for (int i = 0; secondEnemyCount > i; i++)
+            {
+                int spawnPointChosen = Random.Range(0, spawnPoint.Length);
+                Instantiate(objectToSpawn[1], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
+                spawnCount++;
+                yield return new WaitForSeconds(spawnInterval);
+            }
+
+            if(spawnCount >= enemiesToSpawn)
+            {
+                break;
+            }
+        }
+    }
+
+    /* Old Code
+     
     public static EnemySpawner instance; 
 
     public GameObject objectToSpawn; 
@@ -61,4 +157,6 @@ public class EnemySpawner : MonoBehaviour
         Instantiate(objectToSpawn, spawnPoint.position, spawnPoint.rotation);
         spawnCount++;
     }
+
+     */
 }

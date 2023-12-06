@@ -57,7 +57,7 @@ public class AllyPerimeter : MonoBehaviour
 
         ShufflePatrolPoints();
 
-        for (int i = 0; i < Mathf.Min(patrolPoints.Count, alliesInRange.Count); i++)
+        for (int i = 0; i < Mathf.Min(patrolPoints.Count, alliesInRange.Count); i++) // this does not work fix later
         {
             if (targets.Count <= 0 && alliesInRange != null)
             {

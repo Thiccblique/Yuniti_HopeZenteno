@@ -6,6 +6,8 @@ public class MultiTowerSpawner : MonoBehaviour
 {
     public static MultiTowerSpawner instance;
 
+    public Hud hud;
+    public Animator hudAnim;
     public GameObject tower1Hud;
     public GameObject tower2Hud;
     public GameObject kunaiTower;
@@ -25,14 +27,17 @@ public class MultiTowerSpawner : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            hudAnim.SetBool("open", true);
             tower1Hud.SetActive(true);
             tower2Hud.SetActive(true);
+
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            hudAnim.SetBool("open", false);
             tower1Hud.SetActive(false);
             tower2Hud.SetActive(false);
         }

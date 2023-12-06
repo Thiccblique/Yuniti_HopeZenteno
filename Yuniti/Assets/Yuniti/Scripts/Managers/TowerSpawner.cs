@@ -46,6 +46,7 @@ public class TowerSpawner : MonoBehaviour
 
     [SerializeField]
     public bool hasSpawned = false;
+    private bool maxedOut = true;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +54,7 @@ public class TowerSpawner : MonoBehaviour
         spawnOne = false;
         spawnTwo = false;
         spawnThree = false;
+        maxedOut = false;
         towerStageOne.SetActive(false);
         notEnoughTTOne.SetActive(false);
         paidFor = false;
@@ -111,38 +113,44 @@ public class TowerSpawner : MonoBehaviour
 
     private void SpawnObject()
     {
-        if (!spawnOne)
+        if(!maxedOut)
         {
-            Instantiate(towerStageOne, spawnPoint.position, spawnPoint.rotation);
-            towerStageOne.SetActive(true);
-            locationMarkerOne.SetActive(false);
-            spawnOne = true;
-            hasSpawned = false;
-            locationMarkerTwo.SetActive(true);
-            price = 7;
-        }
-        else if (!spawnTwo)
-        {
+            if (!spawnOne)
+            {
+                Instantiate(towerStageOne, spawnPoint.position, spawnPoint.rotation);
+                towerStageOne.SetActive(true);
+                locationMarkerOne.SetActive(false);
+                spawnOne = true;
+                hasSpawned = false;
+                locationMarkerTwo.SetActive(true);
+                price = 7;
+            }
+            else if (!spawnTwo)
+            {
 
-            towerStageOne.SetActive(false);
-            Instantiate(towerStageTwo, spawnPoint.position, spawnPoint.rotation);
-            towerStageTwo.SetActive(true);
-            locationMarkerTwo.SetActive(false);
-            spawnTwo = true;
-            hasSpawned = false;
-            locationMarkerThree.SetActive(true);
-            price = 15;
-        }
-        else if (!spawnThree)
-        {
+                towerStageOne.SetActive(false);
+                Instantiate(towerStageTwo, spawnPoint.position, spawnPoint.rotation);
+                towerStageTwo.SetActive(true);
+                locationMarkerTwo.SetActive(false);
+                spawnTwo = true;
+                hasSpawned = false;
+                locationMarkerThree.SetActive(true);
+                price = 15;
+            }
+            else if (!spawnThree)
+            {
 
-            towerStageTwo.SetActive(false);
-            Instantiate(towerStageThree, spawnPoint.position, spawnPoint.rotation);
-            towerStageThree.SetActive(true);
-            locationMarkerThree.SetActive(false);
-            spawnThree = true;
-            hasSpawned = false;
+                towerStageTwo.SetActive(false);
+                Instantiate(towerStageThree, spawnPoint.position, spawnPoint.rotation);
+                towerStageThree.SetActive(true);
+                locationMarkerThree.SetActive(false);
+                spawnThree = true;
+                hasSpawned = false;
+            }
+            else
+                maxedOut = true;
         }
+       
     }
 
     private void OnTriggerEnter(Collider other)

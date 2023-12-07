@@ -43,6 +43,7 @@ public class TowerSpawner : MonoBehaviour
     public float spawnRadius = 3f;
     public int price = 2;
     private bool paidFor = true;
+    public Animator hudAnim;
 
     [SerializeField]
     public bool hasSpawned = false;
@@ -155,7 +156,7 @@ public class TowerSpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        hudAnim.SetBool("open", true);
         if (other.CompareTag("Player") && !hasSpawned && GameManager.instance.inRound == false)
         {
             if (!spawnOne)
@@ -238,6 +239,7 @@ public class TowerSpawner : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        hudAnim.SetBool("open", false);
         if (other.CompareTag("Player"))
         {
             priceMarkerOne.SetActive(false);

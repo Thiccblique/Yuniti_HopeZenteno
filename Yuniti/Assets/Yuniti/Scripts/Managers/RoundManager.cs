@@ -17,7 +17,7 @@ public class RoundManager : MonoBehaviour
     public bool endRound = true;
 
     public int totalEnemies = 12;
-    public int roundNumber = 1;
+    public int roundNumber = 0;
    
     [Header("UIWork")]
     public GameObject startRoundUI;
@@ -140,6 +140,7 @@ public class RoundManager : MonoBehaviour
         EnemySpawner.instance.StartSpawning();
         endRound = false;
         TurnOn();
+        roundNumber++;
     }
     public void EndRound()
     {
@@ -151,7 +152,7 @@ public class RoundManager : MonoBehaviour
             GameManager.instance.inRound = false;
             if (runOnce)
             {
-                roundNumber++;
+                
                 canContinue = true;
                 runOnce = false;
                 endRound = true;

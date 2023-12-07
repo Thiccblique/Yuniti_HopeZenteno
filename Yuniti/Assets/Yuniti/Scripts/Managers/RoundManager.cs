@@ -140,7 +140,7 @@ public class RoundManager : MonoBehaviour
         EnemySpawner.instance.StartSpawning();
         endRound = false;
         TurnOn();
-        roundNumber++;
+       
     }
     public void EndRound()
     {
@@ -152,7 +152,7 @@ public class RoundManager : MonoBehaviour
             GameManager.instance.inRound = false;
             if (runOnce)
             {
-                
+                roundNumber++;
                 canContinue = true;
                 runOnce = false;
                 endRound = true;

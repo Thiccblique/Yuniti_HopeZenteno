@@ -405,6 +405,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 1424628886636818269}
   spawnRadius: 2
   price: 2
+  hudAnim: {fileID: 0}
   hasSpawned: 0
 --- !u!135 &6213665625510844394
 SphereCollider:
@@ -825,9 +826,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   towerProjectile: {fileID: 751157327898857165, guid: 2f808b969b8a9ba478e8dc19db9cbfb9, type: 3}
-  fireRate: 2
-  towerDamage: 4
-  maxTargets: 3
+  fireRate: 3
+  towerDamage: 5
+  maxTargets: 4
   towerPrice: 2
 --- !u!135 &1466561090327801913
 SphereCollider:
@@ -862,8 +863,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f543be4d6241949994311f2a04a157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curHealth: 0
+  goPanel: {fileID: 0}
+  healthBar: {fileID: 0}
   maxHealth: 40
+  curHealth: 0
 --- !u!208 &2972863715209694581
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -894,11 +897,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4309873495939383356, guid: ec1b7f49e4970274994c0c7d09dfca6f, type: 3}
       propertyPath: fireRate
-      value: 1.5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309873495939383356, guid: ec1b7f49e4970274994c0c7d09dfca6f, type: 3}
+      propertyPath: maxTargets
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4309873495939383356, guid: ec1b7f49e4970274994c0c7d09dfca6f, type: 3}
       propertyPath: towerDamage
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6236881725901766182, guid: ec1b7f49e4970274994c0c7d09dfca6f, type: 3}
       propertyPath: m_LocalScale.x
@@ -1942,8 +1949,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f543be4d6241949994311f2a04a157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curHealth: 0
+  goPanel: {fileID: 0}
+  healthBar: {fileID: 0}
   maxHealth: 10
+  curHealth: 0
 --- !u!208 &6374453971096682990
 NavMeshObstacle:
   m_ObjectHideFlags: 0

@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public GameObject round1TowerTwo;
     public GameObject round1TowerThree;
     public GameObject round1TowerFour;
+    public GameObject round1TowerFive;
+    public GameObject round1TowerSix;
 
     [Header("SecondRound")]
     public GameObject round2TowerOne;
@@ -122,6 +124,8 @@ public class GameManager : MonoBehaviour
             round1TowerTwo.SetActive(true);
             round1TowerThree.SetActive(true);
             round1TowerFour.SetActive(true);
+            round1TowerFive.SetActive(true);
+            round1TowerSix.SetActive(true);
 
             if (defendingPoints.spawnTwo)
             {
@@ -153,6 +157,8 @@ public class GameManager : MonoBehaviour
         round1TowerTwo.SetActive(false);
         round1TowerThree.SetActive(false);
         round1TowerFour.SetActive(false);
+        round1TowerFive.SetActive(false);
+        round1TowerSix.SetActive(false);
 
         round2TowerOne.SetActive(false);
         round2TowerTwo.SetActive(false);

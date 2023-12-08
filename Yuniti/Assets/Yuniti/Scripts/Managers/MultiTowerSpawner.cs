@@ -10,9 +10,16 @@ public class MultiTowerSpawner : MonoBehaviour
     public Animator hudAnim;
     public GameObject tower1Hud;
     public GameObject tower2Hud;
+    public GameObject buildingLocationPrim;
+    private bool bought = true;
+
+    [Header("Towers")]
     public GameObject kunaiTower;
     public GameObject fireworkTower;
-    public GameObject buildingLocationPrim;
+    public GameObject bambooTower;
+    public GameObject mineingTower;
+
+    
 
     public bool multiDeactivate = true;
 
@@ -22,6 +29,7 @@ public class MultiTowerSpawner : MonoBehaviour
         tower1Hud.SetActive(false);
         tower2Hud.SetActive(false);
         multiDeactivate = false;
+        bought = false;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -49,25 +57,47 @@ public class MultiTowerSpawner : MonoBehaviour
         {
             Deactivate();
         }
+        MakeMarkerGoByeBye();
     }
 
     public void Deactivate()
     {
         tower1Hud.SetActive(false);
         tower2Hud.SetActive(false);
+        bought = true;
     }
-
+    private void MakeMarkerGoByeBye()
+    {
+            if (GameManager.instance.inRound)
+            {
+                buildingLocationPrim.SetActive(false);
+            }
+            else if (GameManager.instance.inRound == false && !bought) 
+            {
+                buildingLocationPrim.SetActive(true);
+            }
+    }
     public void KunaiTowerClick()
     {
         kunaiTower.SetActive(true);
         buildingLocationPrim.SetActive(false);
         multiDeactivate = true;
     }
-
-
     public void FireworkTowerClick()
     {
         fireworkTower.SetActive(true);
+        buildingLocationPrim.SetActive(false);
+        multiDeactivate = true;
+    }
+    public void BambooTowerClick()
+    {
+        bambooTower.SetActive(true);
+        buildingLocationPrim.SetActive(false);
+        multiDeactivate = true;
+    }
+    public void MineingTowerClick()
+    {
+        mineingTower.SetActive(true);
         buildingLocationPrim.SetActive(false);
         multiDeactivate = true;
     }

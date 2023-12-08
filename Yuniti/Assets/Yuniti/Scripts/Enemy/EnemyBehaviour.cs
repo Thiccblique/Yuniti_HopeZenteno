@@ -55,6 +55,7 @@ public class EnemyBehaviour : MonoBehaviour
             GameManager.instance.coins++;
             RoundManager.instance.remainingEnemies--;
         }
+       
     }
 
     private void OnTriggerEnter(Collider other)
@@ -103,9 +104,10 @@ public class EnemyBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("Tower") && !attackCooldown)
         {
             towerHealth = other.gameObject.GetComponent<TowerHealth>();
-            towerHealth.curHealth = towerHealth.curHealth - damageAmount;
-            Debug.Log("Tower Health: " + towerHealth.curHealth);
-           
+            //towerHealth.curHealth = towerHealth.curHealth - damageAmount;
+            //Debug.Log("Tower Health: " + towerHealth.curHealth);
+            Debug.Log(damageAmount);
+
             anim.SetBool("EnemyAttack", true);
 
             StartCoroutine(StartAttackCooldown());

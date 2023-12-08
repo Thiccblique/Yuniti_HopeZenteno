@@ -16,7 +16,7 @@ public class MineingTowerBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(Animations());
+        //StartCoroutine(Animations());
     }
 
     IEnumerator Animations()

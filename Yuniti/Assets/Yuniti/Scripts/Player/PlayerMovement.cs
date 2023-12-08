@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float rotateSpeed = 180.0f;
 
     public Rigidbody rb;
+    public ConstantForce gravity;
 
     void FixedUpdate()
     {
@@ -28,6 +29,11 @@ public class PlayerMovement : MonoBehaviour
 
         // Apply movement
         rb.MovePosition(transform.position + (moveDirection * moveSpeed * Time.deltaTime));
+
+        //Adjusting gravity force
+        gameObject.GetComponent<Rigidbody>().useGravity = false;
+        gravity = gameObject.AddComponent<ConstantForce>();
+        gravity.force = new Vector3(0.0f, -25, 0.0f);
     }
 
    

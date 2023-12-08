@@ -14,6 +14,7 @@ public class IsometricController : MonoBehaviour
     private Animator anim;
     public Animator orionAnim;
     public GameObject particals;
+
     void Start()
     {
         anim = GetComponent<Animator>();

@@ -156,9 +156,10 @@ public class TowerSpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        hudAnim.SetBool("open", true);
+       
         if (other.CompareTag("Player") && !hasSpawned && GameManager.instance.inRound == false)
         {
+            hudAnim.SetBool("open", true);
             if (!spawnOne)
             {
                 priceMarkerOne.SetActive(true);

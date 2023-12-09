@@ -62,6 +62,7 @@ public class TowerSpawner : MonoBehaviour
         towerStageOne.SetActive(false);
         notEnoughTTOne.SetActive(false);
         paidFor = false;
+        
         firstUpgrade.SetActive(false);
         secondUpgrade.SetActive(false);
         thirdUpgrade.SetActive(false);

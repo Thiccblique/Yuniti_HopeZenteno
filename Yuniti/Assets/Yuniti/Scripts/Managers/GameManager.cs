@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         Disability();
         CodeTooUI();
         inRound = false;
+        hudCanvas.SetActive(false);
     }
 
     public void CodeTooUI()

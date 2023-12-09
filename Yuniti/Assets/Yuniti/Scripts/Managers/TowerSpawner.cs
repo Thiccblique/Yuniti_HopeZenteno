@@ -21,7 +21,6 @@ public class TowerSpawner : MonoBehaviour
     public GameObject notEnoughTT_Three;
     public GameObject justEnoughTT_Three;
 
-
     [Header("Tower Booleans")]
     public bool spawnOne = true;
     public bool spawnTwo = true;
@@ -32,11 +31,15 @@ public class TowerSpawner : MonoBehaviour
     public GameObject locationMarkerTwo;
     public GameObject locationMarkerThree;
 
-
     [Header("Price Markers")]
     public GameObject priceMarkerOne;
     public GameObject priceMarkerTwo;
     public GameObject priceMarkerThree;
+
+    [Header("Upgrade UI")]
+    public GameObject firstUpgrade;
+    public GameObject secondUpgrade;
+    public GameObject thirdUpgrade;
 
     [Header("Other Mechanics")]
     public Transform spawnPoint;
@@ -59,6 +62,9 @@ public class TowerSpawner : MonoBehaviour
         towerStageOne.SetActive(false);
         notEnoughTTOne.SetActive(false);
         paidFor = false;
+        firstUpgrade.SetActive(false);
+        secondUpgrade.SetActive(false);
+        thirdUpgrade.SetActive(false);
     }
 
     // Update is called once per frame
@@ -67,9 +73,6 @@ public class TowerSpawner : MonoBehaviour
         SpawnTower();
         MakeMarkerGoByeBye();
     }
-
-
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
@@ -163,6 +166,7 @@ public class TowerSpawner : MonoBehaviour
             if (!spawnOne)
             {
                 priceMarkerOne.SetActive(true);
+              
                 if (GameManager.instance.coins >= price)
                 {
                     justEnoughTTOne.SetActive(true);
@@ -171,6 +175,7 @@ public class TowerSpawner : MonoBehaviour
                 {
                     notEnoughTTOne.SetActive(true);
                 }
+                firstUpgrade.SetActive(true);
             }
             else if (!spawnTwo)
             {
@@ -183,6 +188,7 @@ public class TowerSpawner : MonoBehaviour
                 {
                     notEnoughTT_Two.SetActive(true);
                 }
+                secondUpgrade.SetActive(true);
             }
             else if (!spawnThree)
             {
@@ -195,6 +201,7 @@ public class TowerSpawner : MonoBehaviour
                 {
                     notEnoughTT_Three.SetActive(true);
                 }
+                thirdUpgrade.SetActive(true);
             }
 
 
@@ -238,6 +245,7 @@ public class TowerSpawner : MonoBehaviour
         }
     }
 
+    
     private void OnTriggerExit(Collider other)
     {
         hudAnim.SetBool("open", false);
@@ -252,6 +260,10 @@ public class TowerSpawner : MonoBehaviour
             priceMarkerThree.SetActive(false);
             justEnoughTT_Three.SetActive(false);
             notEnoughTT_Three.SetActive(false);
+
+            firstUpgrade.SetActive(false);
+            secondUpgrade.SetActive(false);
+            thirdUpgrade.SetActive(false);
         }
     }
 }

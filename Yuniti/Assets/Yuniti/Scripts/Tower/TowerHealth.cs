@@ -12,6 +12,10 @@ public class TowerHealth : MonoBehaviour
     public int maxHealth = 5;
     public int curHealth;
 
+    void Start()
+    {
+        curHealth = maxHealth;
+    }
     public void SetHealth(int health)
     {
         healthBar.value = health;

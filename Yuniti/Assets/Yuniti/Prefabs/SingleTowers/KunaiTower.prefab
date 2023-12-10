@@ -405,6 +405,9 @@ MonoBehaviour:
   firstUpgrade: {fileID: 0}
   secondUpgrade: {fileID: 0}
   thirdUpgrade: {fileID: 0}
+  priceOne: 2
+  priceTwo: 10
+  priceThree: 20
   spawnPoint: {fileID: 1424628886636818269}
   spawnRadius: 2
   price: 2
@@ -829,7 +832,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   towerProjectile: {fileID: 751157327898857165, guid: 2f808b969b8a9ba478e8dc19db9cbfb9, type: 3}
-  fireRate: 3
+  fireRate: 4
   towerDamage: 5
   maxTargets: 4
   towerPrice: 2
@@ -868,7 +871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goPanel: {fileID: 0}
   healthBar: {fileID: 0}
-  maxHealth: 40
+  maxHealth: 240
   curHealth: 0
 --- !u!208 &2972863715209694581
 NavMeshObstacle:
@@ -896,7 +899,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 614832018238464487, guid: ec1b7f49e4970274994c0c7d09dfca6f, type: 3}
       propertyPath: maxHealth
-      value: 20
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4309873495939383356, guid: ec1b7f49e4970274994c0c7d09dfca6f, type: 3}
       propertyPath: fireRate
@@ -905,6 +908,10 @@ PrefabInstance:
     - target: {fileID: 4309873495939383356, guid: ec1b7f49e4970274994c0c7d09dfca6f, type: 3}
       propertyPath: maxTargets
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309873495939383356, guid: ec1b7f49e4970274994c0c7d09dfca6f, type: 3}
+      propertyPath: towerPrice
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4309873495939383356, guid: ec1b7f49e4970274994c0c7d09dfca6f, type: 3}
       propertyPath: towerRange
@@ -1282,7 +1289,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3161168450957284822, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 985432684549373302, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7017855970177651341, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       insertIndex: -1
@@ -1344,7 +1352,9 @@ PrefabInstance:
       propertyPath: m_text
       value: '  [E]
 
-        Price: 7'
+        Price: 10
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 3836405134854541847, guid: be879e3750c6630438b517e8cd68748c, type: 3}
       propertyPath: m_LocalScale.x
@@ -1410,7 +1420,9 @@ PrefabInstance:
       propertyPath: m_text
       value: '  [E]
 
-        Price: 7'
+        Price: 10
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 8230810793279947917, guid: be879e3750c6630438b517e8cd68748c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1563,7 +1575,9 @@ PrefabInstance:
       propertyPath: m_text
       value: '  [E]
 
-        Price: 15'
+        Price: 20
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 3836405134854541847, guid: be879e3750c6630438b517e8cd68748c, type: 3}
       propertyPath: m_LocalScale.x
@@ -1629,7 +1643,9 @@ PrefabInstance:
       propertyPath: m_text
       value: '  [E]
 
-        Price: 15'
+        Price: 20
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 8230810793279947917, guid: be879e3750c6630438b517e8cd68748c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1658,6 +1674,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 378704019081536585}
     m_Modifications:
+    - target: {fileID: 985432684549373302, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2738028226836014807, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_Name
       value: BuildLocationOneThree
@@ -1720,7 +1740,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3161168450957284822, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 985432684549373302, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7017855970177651341, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       insertIndex: -1
@@ -1958,7 +1979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goPanel: {fileID: 0}
   healthBar: {fileID: 0}
-  maxHealth: 10
+  maxHealth: 12
   curHealth: 0
 --- !u!208 &6374453971096682990
 NavMeshObstacle:
@@ -1991,7 +2012,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 945178203540594299, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_VersionIndex
-      value: 502
+      value: 505
       objectReference: {fileID: 0}
     - target: {fileID: 2738028226836014807, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_Name
@@ -1999,7 +2020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3780320140752922605, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_VersionIndex
-      value: 502
+      value: 505
       objectReference: {fileID: 0}
     - target: {fileID: 5098893387046213890, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2043,7 +2064,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3161168450957284822, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 985432684549373302, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7017855970177651341, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       insertIndex: -1

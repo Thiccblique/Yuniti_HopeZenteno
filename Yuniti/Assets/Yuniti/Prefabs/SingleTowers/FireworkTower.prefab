@@ -151,9 +151,15 @@ MonoBehaviour:
   priceMarkerOne: {fileID: 1967732834755860587}
   priceMarkerTwo: {fileID: 1822254108507251164}
   priceMarkerThree: {fileID: 5143719120884596728}
+  firstUpgrade: {fileID: 0}
+  secondUpgrade: {fileID: 0}
+  thirdUpgrade: {fileID: 0}
+  priceOne: 10
+  priceTwo: 25
+  priceThree: 35
   spawnPoint: {fileID: 5533975365455255953}
   spawnRadius: 2
-  price: 2
+  price: 10
   hudAnim: {fileID: 0}
   hasSpawned: 0
 --- !u!135 &3769226575686277392
@@ -1521,7 +1527,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 945178203540594299, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_VersionIndex
-      value: 520
+      value: 523
+      objectReference: {fileID: 0}
+    - target: {fileID: 1046632381933640609, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
+      propertyPath: m_text
+      value: '  [E]
+
+        Price: 10
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 2738028226836014807, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_Name
@@ -1529,7 +1543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3780320140752922605, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_VersionIndex
-      value: 520
+      value: 523
       objectReference: {fileID: 0}
     - target: {fileID: 5098893387046213890, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1570,6 +1584,14 @@ PrefabInstance:
     - target: {fileID: 5098893387046213890, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728208704975480837, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
+      propertyPath: m_text
+      value: '  [E]
+
+        Price: 10
+
+'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1803,7 +1825,9 @@ PrefabInstance:
       propertyPath: m_text
       value: '  [E]
 
-        Price: 7'
+        Price: 25
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 3836405134854541847, guid: be879e3750c6630438b517e8cd68748c, type: 3}
       propertyPath: m_LocalScale.x
@@ -1869,7 +1893,9 @@ PrefabInstance:
       propertyPath: m_text
       value: '  [E]
 
-        Price: 7'
+        Price: 25
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 8230810793279947917, guid: be879e3750c6630438b517e8cd68748c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2060,7 +2086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goPanel: {fileID: 0}
   healthBar: {fileID: 0}
-  maxHealth: 20
+  maxHealth: 10
   curHealth: 0
 --- !u!114 &2036949525904039746
 MonoBehaviour:
@@ -2074,15 +2100,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3cb4150a6a967a4399d7a2b530979a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerRange: 10
+  towerRange: 5
   shootingPoint: {fileID: 4523010249999515214}
   enemy:
     serializedVersion: 2
     m_Bits: 256
   towerProjectile: {fileID: 3711714857634095452, guid: e4913e6eea596ea499218505eed4cdf5, type: 3}
-  fireRate: 1
-  towerFWDamage: 3
-  areaFW: 4
+  fireRate: 0.2
+  towerFWDamage: 1
+  areaFW: 2
   maxTargets: 1
   towerPrice: 2
 --- !u!208 &7262800926808477212
@@ -2717,7 +2743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goPanel: {fileID: 0}
   healthBar: {fileID: 0}
-  maxHealth: 50
+  maxHealth: 20
   curHealth: 0
 --- !u!114 &8994064061255432718
 MonoBehaviour:
@@ -2731,17 +2757,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3cb4150a6a967a4399d7a2b530979a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerRange: 14
+  towerRange: 7
   shootingPoint: {fileID: 5230008640297810470}
   enemy:
     serializedVersion: 2
     m_Bits: 256
   towerProjectile: {fileID: 3711714857634095452, guid: e4913e6eea596ea499218505eed4cdf5, type: 3}
-  fireRate: 2
+  fireRate: 1.5
   towerFWDamage: 5
-  areaFW: 8
-  maxTargets: 5
-  towerPrice: 2
+  areaFW: 4
+  maxTargets: 4
+  towerPrice: 35
 --- !u!208 &3530288221274366749
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -3080,7 +3106,9 @@ PrefabInstance:
       propertyPath: m_text
       value: '  [E]
 
-        Price: 15'
+        Price: 35
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 3836405134854541847, guid: be879e3750c6630438b517e8cd68748c, type: 3}
       propertyPath: m_LocalScale.x
@@ -3146,7 +3174,9 @@ PrefabInstance:
       propertyPath: m_text
       value: '  [E]
 
-        Price: 15'
+        Price: 35
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 8230810793279947917, guid: be879e3750c6630438b517e8cd68748c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3413,7 +3443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goPanel: {fileID: 0}
   healthBar: {fileID: 0}
-  maxHealth: 35
+  maxHealth: 13
   curHealth: 0
 --- !u!114 &1306175546103251999
 MonoBehaviour:
@@ -3427,17 +3457,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3cb4150a6a967a4399d7a2b530979a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerRange: 12
+  towerRange: 6
   shootingPoint: {fileID: 4827984176944811314}
   enemy:
     serializedVersion: 2
     m_Bits: 256
   towerProjectile: {fileID: 3711714857634095452, guid: e4913e6eea596ea499218505eed4cdf5, type: 3}
-  fireRate: 2
-  towerFWDamage: 4
-  areaFW: 6
+  fireRate: 0.7
+  towerFWDamage: 3
+  areaFW: 3
   maxTargets: 2
-  towerPrice: 2
+  towerPrice: 25
 --- !u!208 &7622088174498173353
 NavMeshObstacle:
   m_ObjectHideFlags: 0

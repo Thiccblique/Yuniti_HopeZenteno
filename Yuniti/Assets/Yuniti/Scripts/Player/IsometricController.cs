@@ -15,6 +15,8 @@ public class IsometricController : MonoBehaviour
     public Animator orionAnim;
     public GameObject particals;
 
+    [SerializeField] public CameraZoom cameraZoom;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -22,10 +24,14 @@ public class IsometricController : MonoBehaviour
 
     void Update()
     {
-        PlayerInput();
-        Look();
-        Animation();
-        AttackAnim();
+        if(cameraZoom.zoom <= cameraZoom.minZom)
+        {
+            PlayerInput();
+            Look();
+            Animation();
+            AttackAnim();
+        }
+       
     }
 
     private void FixedUpdate()

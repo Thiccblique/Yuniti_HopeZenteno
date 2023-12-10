@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using System.Data;
 
 public class TowerSpawner : MonoBehaviour
 {
@@ -41,10 +42,15 @@ public class TowerSpawner : MonoBehaviour
     public GameObject secondUpgrade;
     public GameObject thirdUpgrade;
 
+    [Header("Price")]
+    public int priceOne = 0;
+    public int priceTwo = 0;
+    public int priceThree = 0;
+
     [Header("Other Mechanics")]
     public Transform spawnPoint;
     public float spawnRadius = 3f;
-    public int price = 2;
+    public int price;
     private bool paidFor = true;
     public Animator hudAnim;
 
@@ -55,6 +61,8 @@ public class TowerSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        price = priceOne;
+
         spawnOne = false;
         spawnTwo = false;
         spawnThree = false;
@@ -128,7 +136,7 @@ public class TowerSpawner : MonoBehaviour
                 spawnOne = true;
                 hasSpawned = false;
                 locationMarkerTwo.SetActive(true);
-                price = 7;
+                price = priceTwo;
             }
             else if (!spawnTwo)
             {
@@ -140,7 +148,7 @@ public class TowerSpawner : MonoBehaviour
                 spawnTwo = true;
                 hasSpawned = false;
                 locationMarkerThree.SetActive(true);
-                price = 15;
+                price = priceThree;
             }
             else if (!spawnThree)
             {

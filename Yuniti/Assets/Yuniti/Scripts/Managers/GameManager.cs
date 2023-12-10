@@ -183,7 +183,6 @@ public class GameManager : MonoBehaviour
     public void RoundStart()
     {
         RoundManager.instance.StartRoundCountdown();
-        RoundManager.instance.totalEnemies = 12;
         RoundManager.instance.remainingEnemies = RoundManager.instance.totalEnemies;
 
 

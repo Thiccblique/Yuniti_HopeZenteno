@@ -18,6 +18,7 @@ public class RoundManager : MonoBehaviour
 
     public int totalEnemies = 12;
     public int roundNumber = 0;
+    public int enemyIncreaseNum = 4;
    
     [Header("UIWork")]
     public GameObject startRoundUI;
@@ -153,6 +154,7 @@ public class RoundManager : MonoBehaviour
             if (runOnce)
             {
                 roundNumber++;
+                totalEnemies = totalEnemies + enemyIncreaseNum;
                 canContinue = true;
                 runOnce = false;
                 endRound = true;

@@ -142,16 +142,22 @@ public class TowerSpawner : MonoBehaviour
         {
             spawnOne = false;
             health1.curHealth = health1.maxHealth;
+            price = priceOne;
         }
         if (health2.curHealth <= 0)
         {
             spawnTwo = false;
+            spawnOne = false;
             health2.curHealth = health2.maxHealth;
+           
         }
         if (health3.curHealth <= 0)
         {
             spawnThree = false;
+            spawnTwo = false;
+            spawnOne = false;
             health3.curHealth = health3.maxHealth;
+            
         }
         
     }

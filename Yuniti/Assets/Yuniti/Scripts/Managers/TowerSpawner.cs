@@ -48,6 +48,8 @@ public class TowerSpawner : MonoBehaviour
     public int priceThree = 0;
 
     [Header("Other Mechanics")]
+    public GameObject pointer;
+    public CameraZoom cameraZoom;
     public Transform spawnPoint;
     public float spawnRadius = 3f;
     public int price;
@@ -74,6 +76,8 @@ public class TowerSpawner : MonoBehaviour
         firstUpgrade.SetActive(false);
         secondUpgrade.SetActive(false);
         thirdUpgrade.SetActive(false);
+
+        pointer.SetActive(false);
     }
 
     // Update is called once per frame
@@ -81,6 +85,7 @@ public class TowerSpawner : MonoBehaviour
     {
         SpawnTower();
         MakeMarkerGoByeBye();
+        TowerPointer();
     }
     private void OnDrawGizmosSelected()
     {
@@ -254,7 +259,26 @@ public class TowerSpawner : MonoBehaviour
         }
     }
 
-    
+    private void TowerPointer()
+    {
+        if (!spawnOne)
+        {
+            if (cameraZoom.zoom <= cameraZoom.minZom)
+            {
+                pointer.SetActive(false);
+            }
+            else
+            {
+                pointer.SetActive(true);
+            }
+        }
+        else
+        {
+            pointer.SetActive(false);
+        }
+    }
+
+
     private void OnTriggerExit(Collider other)
     {
         hudAnim.SetBool("open", false);

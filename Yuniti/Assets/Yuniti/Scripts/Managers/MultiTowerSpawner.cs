@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class MultiTowerSpawner : MonoBehaviour
@@ -12,6 +13,8 @@ public class MultiTowerSpawner : MonoBehaviour
     public GameObject tower2Hud;
     public GameObject buildingLocationPrim;
     private bool bought = true;
+    public GameObject pointer;
+    public CameraZoom cameraZoom;
 
     [Header("Towers")]
     public GameObject kunaiTower;
@@ -58,6 +61,7 @@ public class MultiTowerSpawner : MonoBehaviour
             Deactivate();
         }
         MakeMarkerGoByeBye();
+        TowerPointer();
     }
 
     public void Deactivate()
@@ -76,6 +80,24 @@ public class MultiTowerSpawner : MonoBehaviour
             {
                 buildingLocationPrim.SetActive(true);
             }
+    }
+    private void TowerPointer()
+    {
+        if (!bought)
+        {
+            if (cameraZoom.zoom <= cameraZoom.minZom)
+            {
+                pointer.SetActive(false);
+            }
+            else
+            {
+                pointer.SetActive(true);
+            }
+        }
+        else
+        {
+            pointer.SetActive(false);
+        }
     }
     public void KunaiTowerClick()
     {

@@ -7,7 +7,10 @@ public class IsometricController : MonoBehaviour
     public static IsometricController instance;
 
     public Rigidbody rb;
-    public float speed = 5;
+    
+    private float speed;
+    public float solidSpeed = 10;
+    private float stop = 0f;
     public float rotSpeed = 360;
     public Vector3 input;
     public GameObject hitBox;
@@ -19,6 +22,7 @@ public class IsometricController : MonoBehaviour
 
     void Start()
     {
+        speed = solidSpeed;
         anim = GetComponent<Animator>();
     }
 
@@ -26,10 +30,17 @@ public class IsometricController : MonoBehaviour
     {
         if(cameraZoom.zoom <= cameraZoom.minZom)
         {
+            speed = solidSpeed;
             PlayerInput();
             Look();
             Animation();
             AttackAnim();
+        }
+        else
+        {
+            speed = stop;
+            anim.SetBool("Walk", false);
+            particals.SetActive(false);
         }
        
     }

@@ -83,7 +83,7 @@ public class MultiTowerSpawner : MonoBehaviour
     }
     private void TowerPointer()
     {
-        if (!bought)
+        if (!bought && GameManager.instance.inRound == false)
         {
             if (cameraZoom.zoom <= cameraZoom.minZom)
             {

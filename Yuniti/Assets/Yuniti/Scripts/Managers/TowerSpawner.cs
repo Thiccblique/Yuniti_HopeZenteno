@@ -47,7 +47,13 @@ public class TowerSpawner : MonoBehaviour
     public int priceTwo = 0;
     public int priceThree = 0;
 
+    [Header("TowerHealth")]
+    public TowerHealth health1;
+    public TowerHealth health2;
+    public TowerHealth health3;
+
     [Header("Other Mechanics")]
+    private TowerHealth towerHealth;
     public GameObject pointer;
     public CameraZoom cameraZoom;
     public Transform spawnPoint;
@@ -56,7 +62,7 @@ public class TowerSpawner : MonoBehaviour
     private bool paidFor = true;
     public Animator hudAnim;
 
-    [SerializeField]
+    //[SerializeField]
     public bool hasSpawned = false;
     private bool maxedOut = true;
 
@@ -86,6 +92,7 @@ public class TowerSpawner : MonoBehaviour
         SpawnTower();
         MakeMarkerGoByeBye();
         TowerPointer();
+        TowerHealth();
     }
     private void OnDrawGizmosSelected()
     {
@@ -129,6 +136,25 @@ public class TowerSpawner : MonoBehaviour
 
     }
 
+    private void TowerHealth()
+    {
+        if (health1.curHealth <= 0)
+        {
+            spawnOne = false;
+            health1.curHealth = health1.maxHealth;
+        }
+        if (health2.curHealth <= 0)
+        {
+            spawnTwo = false;
+            health2.curHealth = health2.maxHealth;
+        }
+        if (health3.curHealth <= 0)
+        {
+            spawnThree = false;
+            health3.curHealth = health3.maxHealth;
+        }
+        
+    }
     private void SpawnObject()
     {
         if(!maxedOut)
@@ -261,7 +287,7 @@ public class TowerSpawner : MonoBehaviour
 
     private void TowerPointer()
     {
-        if (!spawnOne)
+        if (!spawnOne && GameManager.instance.inRound == false)
         {
             if (cameraZoom.zoom <= cameraZoom.minZom)
             {

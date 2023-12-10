@@ -17137,7 +17137,7 @@ MonoBehaviour:
   canContinue: 1
   runOnce: 1
   endRound: 1
-  totalEnemies: 12
+  totalEnemies: 4
   roundNumber: 1
   enemyIncreaseNum: 4
   startRoundUI: {fileID: 1193410205}
@@ -53347,7 +53347,7 @@ MonoBehaviour:
   coinsCount: {fileID: 345214007}
   enemyCount: {fileID: 1749237603}
   roundCount: {fileID: 1685301139}
-  coins: 90
+  coins: 5
   itemPrice: 2
   towerIsLocked: 1
 --- !u!4 &1170593440
@@ -94235,6 +94235,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1500409771}
     - target: {fileID: 139282188838509668, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
+      propertyPath: cameraZoom
+      value: 
+      objectReference: {fileID: 963194232}
+    - target: {fileID: 139282188838509668, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: firstUpgrade
       value: 
       objectReference: {fileID: 1374286950}
@@ -94246,10 +94250,6 @@ PrefabInstance:
       propertyPath: secondUpgrade
       value: 
       objectReference: {fileID: 48089122}
-    - target: {fileID: 181104842140687240, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 301836687496109862, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -94258,23 +94258,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DefendingPoint
       objectReference: {fileID: 0}
-    - target: {fileID: 600796579270195361, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
+    - target: {fileID: 471881442313548021, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Tower
       objectReference: {fileID: 0}
     - target: {fileID: 697400921269738784, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 443352560}
-    - target: {fileID: 815792291603221336, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_text
-      value: '  [E]
-
-        Price: 15
-
-
-'
-      objectReference: {fileID: 0}
     - target: {fileID: 1161343248463341605, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -94283,30 +94274,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1779488055}
-    - target: {fileID: 1467167212476875867, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 2034454859823927763, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 2036208562604920644, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_text
-      value: '  [E]
-
-        Price: 40
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138213811942460431, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2138213811942460431, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 2987711995171246515, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -94319,38 +94286,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 443352560}
-    - target: {fileID: 4433069680170363516, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 4536295561037248141, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1779488055}
-    - target: {fileID: 4617887905073028659, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 4682720932173024097, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 5241352972888826634, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 5300124389535664988, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 443352560}
-    - target: {fileID: 5770120050416316892, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 6204093712876905136, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 7450097560348431860, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -94359,14 +94302,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 443352560}
-    - target: {fileID: 7774516907313904864, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_text
-      value: '  [E]
-
-        Price: 40
-
-'
-      objectReference: {fileID: 0}
     - target: {fileID: 7885038825177201514, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.98
@@ -94411,23 +94346,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1779488055}
-    - target: {fileID: 8289090055509217148, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8289090055509217148, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 9004094018243098876, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_text
-      value: '  [E]
-
-        Price: 15
-
-
-'
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -94460,6 +94378,10 @@ PrefabInstance:
       propertyPath: waypoint
       value: 
       objectReference: {fileID: 1493163913}
+    - target: {fileID: 3764066608623461050, guid: 3cfe200e9e7becf48aa2353b4abf1c88, type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3764066608623461050, guid: 3cfe200e9e7becf48aa2353b4abf1c88, type: 3}
       propertyPath: attackRate
       value: 5

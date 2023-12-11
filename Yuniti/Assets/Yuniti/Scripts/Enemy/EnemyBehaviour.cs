@@ -13,7 +13,8 @@ public class EnemyBehaviour : MonoBehaviour
     public int damageAmount;
     public int attackRate = 0;
     public int healthAmount;
-    public int maxHealth = 3;
+    public int maxHealth;
+    public int curHealth;
     
     private bool attackCooldown = false;
     private bool towerNearby = false;
@@ -21,7 +22,7 @@ public class EnemyBehaviour : MonoBehaviour
     public Vector3 originalWaypointVector3;
     private Animator anim;
 
-    private TowerHealth towerHealth;
+    public TowerHealth towerHealth;
     private ProjectileBehaviour projectileBehaviour;
     private FWProjectileBehaviour fwProjectileBehaviour;
 

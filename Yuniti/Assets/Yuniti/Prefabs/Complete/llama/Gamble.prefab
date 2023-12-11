@@ -337,6 +337,7 @@ GameObject:
   - component: {fileID: 7761201423080036189}
   - component: {fileID: 1534941901946023424}
   - component: {fileID: 4697822146249734366}
+  - component: {fileID: 1883220963129353870}
   m_Layer: 9
   m_Name: Orion
   m_TagString: Untagged
@@ -452,6 +453,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1883220963129353870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940540033529461947}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 465599c204a01f54aadea16741b3c3e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalSpeed: 8
+  verticalSpeed: 8
 --- !u!1 &1982296893292873549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,12 +1683,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 456459203689375049}
-  speed: 10
+  solidSpeed: 10
   rotSpeed: 1800
   input: {x: 0, y: 0, z: 0}
   hitBox: {fileID: 7989369639585349358}
   orionAnim: {fileID: 4697822146249734366}
   particals: {fileID: 5547800997898841310}
+  cameraZoom: {fileID: 0}
 --- !u!65 &8377794641055771478
 BoxCollider:
   m_ObjectHideFlags: 0

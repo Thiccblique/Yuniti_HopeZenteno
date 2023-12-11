@@ -313,9 +313,10 @@ public class TowerSpawner : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        hudAnim.SetBool("open", false);
+       
         if (other.CompareTag("Player"))
         {
+            hudAnim.SetBool("open", false);
             priceMarkerOne.SetActive(false);
             justEnoughTTOne.SetActive(false);
             notEnoughTTOne.SetActive(false);

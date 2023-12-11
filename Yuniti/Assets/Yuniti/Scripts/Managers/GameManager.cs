@@ -10,10 +10,16 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [Header("Scripts")]
+    public IsometricController pController;
     public TowerSpawner defendingPoints;
+    public TowerHealth defendingPointHP1;
+    public TowerHealth defendingPointHP2;
+    public TowerHealth defendingPointsHP3;
+
 
     [Header("HUD")]
     public GameObject hudCanvas;
+    public GameObject gameOver;
 
     [SerializeField]
     public bool readyForUpgradeII = false;
@@ -178,6 +184,15 @@ public class GameManager : MonoBehaviour
         rounde3TowerSix.SetActive(false);
 
 
+    }
+
+    private void GameOver()
+    {
+        if (defendingPointHP1.curHealth <= 0 || defendingPointHP2.curHealth <= 0 || defendingPointsHP3.curHealth <= 0)
+        {
+            gameOver.SetActive(true);
+            pController.PlayerStop();
+        }
     }
 
     public void RoundStart()

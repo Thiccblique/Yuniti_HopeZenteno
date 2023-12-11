@@ -8,9 +8,9 @@ public class IsometricController : MonoBehaviour
 
     public Rigidbody rb;
     
-    private float speed;
+    public float speed;
     public float solidSpeed = 10;
-    private float stop = 0f;
+    public float stop = 0f;
     public float rotSpeed = 360;
     public Vector3 input;
     public GameObject hitBox;
@@ -103,6 +103,13 @@ public class IsometricController : MonoBehaviour
         } 
       
         
+    }
+
+    public void PlayerStop()
+    {
+        speed = stop;
+        anim.SetBool("Walk", false);
+        particals.SetActive(false);
     }
     
 }

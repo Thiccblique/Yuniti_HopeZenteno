@@ -7,7 +7,7 @@ public class TowerHealth : MonoBehaviour
 {
     public static TowerHealth instance;
 
-    public GameObject goPanel;
+   
     public Slider healthBar;
     public int maxHealth;
     public int curHealth = 0;
@@ -21,15 +21,12 @@ public class TowerHealth : MonoBehaviour
         curHealth = maxHealth;
         healthBar.maxValue = maxHealth;
         healthBar.value = curHealth;
-        goPanel.SetActive(false);
+       
     }
 
     void Update()
     {
-        if (curHealth == 0)
-        {
-            goPanel.SetActive(true);
-        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)

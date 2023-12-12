@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public bool readyForUpgradeII = false;
     public bool readyForUpgradeIII = false;
     public bool inRound = true;
+    public GameObject player;
 
     [Header("FirstRound")]
     public GameObject round1TowerOne;
@@ -120,6 +121,7 @@ public class GameManager : MonoBehaviour
         Spawner();
         CodeTooUI();
         DisplayItemPrice();
+        GameOver();
     }
 
     private void Spawner()
@@ -186,10 +188,11 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         if (defendingPointHP1.curHealth <= 0 || defendingPointHP2.curHealth <= 0 || defendingPointsHP3.curHealth <= 0)
         {
+            player.SetActive(false);
             gameOver.SetActive(true);
             pController.PlayerStop();
         }

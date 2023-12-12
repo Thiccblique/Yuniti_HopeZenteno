@@ -140,12 +140,14 @@ public class TowerSpawner : MonoBehaviour
     {
         if (health1.curHealth <= 0)
         {
+            towerStageOne.SetActive(false);
             spawnOne = false;
             health1.curHealth = health1.maxHealth;
             price = priceOne;
         }
         if (health2.curHealth <= 0)
         {
+            towerStageTwo.SetActive(false);
             spawnTwo = false;
             spawnOne = false;
             health2.curHealth = health2.maxHealth;
@@ -153,6 +155,7 @@ public class TowerSpawner : MonoBehaviour
         }
         if (health3.curHealth <= 0)
         {
+            towerStageThree.SetActive(false);
             spawnThree = false;
             spawnTwo = false;
             spawnOne = false;

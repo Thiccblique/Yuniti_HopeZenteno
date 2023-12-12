@@ -9,33 +9,35 @@ public class TowerHealth : MonoBehaviour
 
    
     public Slider healthBar;
-    public int maxHealth;
+    public int maxHealth = 10;
     public int curHealth = 0;
 
     public int damageAmount = 1;
-
-    public GameObject defendPoint;
+  
+    /*public GameObject defendPoint;*/
 
     void Start()
     {
         curHealth = maxHealth;
-        healthBar.maxValue = maxHealth;
-        healthBar.value = curHealth;
+        SetMaxHealth(maxHealth);
        
     }
 
     void Update()
     {
-        
+        SetHealth(curHealth);
+       
+    }
+    public void SetMaxHealth(int health)
+    {
+        healthBar.maxValue = health;
+        healthBar.value = health;
+    }
+    public void SetHealth(int health)
+    {
+        healthBar.value = health;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.layer.Equals(8))
-        {
-            curHealth = maxHealth - damageAmount;
-            healthBar.value = curHealth;
-        }
-    }
+
 
 }

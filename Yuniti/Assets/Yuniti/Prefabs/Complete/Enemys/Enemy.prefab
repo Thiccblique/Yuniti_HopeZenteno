@@ -200,11 +200,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAgent: {fileID: 8006127765544688456}
   waypoint: {fileID: 0}
-  damageAmount: 2
-  attackRate: 3
+  damageAmount: 1
+  attackRate: 5
   healthAmount: 0
-  maxHealth: 6
+  maxHealth: 10
+  curHealth: 0
   originalWaypointVector3: {x: 0, y: 0, z: 0}
+  towerHealth: {fileID: 0}
   healthbar: {fileID: 8705379454919036762}
   healthbarUI: {fileID: 1354017024982681820}
 --- !u!54 &689282693438974996
@@ -363,6 +365,7 @@ GameObject:
   - component: {fileID: 3465949990443434896}
   - component: {fileID: 1280650858294411247}
   - component: {fileID: 6715839331767813823}
+  - component: {fileID: 5982096002007682338}
   m_Layer: 8
   m_Name: HealthCanvas
   m_TagString: Untagged
@@ -453,6 +456,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5982096002007682338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354017024982681820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42189dafff99cfb458697e68e579d74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3537596180405577088
 GameObject:
   m_ObjectHideFlags: 0

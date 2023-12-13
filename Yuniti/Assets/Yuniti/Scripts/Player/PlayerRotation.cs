@@ -4,19 +4,38 @@ using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour
 {
-    public float horizontalSpeed = 2.0F;
-    public float verticalSpeed = 2.0F;
+    public Camera cam;
+    private MouseCoordinates mouseCoordinates;
+    public float rotationSpeed = 5f;
+    public LayerMask layer;
+    Ray ray;
+
+    void Start()
+    {
+
+    }
 
     // Update is called once per frame
     void Update()
     {
-        float h = horizontalSpeed * Input.GetAxis("Mouse X");
-        float mouseY = verticalSpeed * Input.GetAxis("Mouse Y");
-        transform.Rotate(0, h, 0);
+        ray = cam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit[] hitDataArray = Physics.RaycastAll(ray, Mathf.Infinity, layer);
 
-        if (mouseY > 0) 
+        foreach (var hitData in hitDataArray)
         {
-             transform.Rotate(0, mouseY, 0);
+            if (hitData.transform.CompareTag("Ground"))
+            {
+                mouseCoordinates = hitData.collider.GetComponent<MouseCoordinates>();
+
+                // Calculate the direction from the character to the mouse position
+                Vector3 direction = mouseCoordinates.worldPosition - transform.position;
+                direction.y = 0f; // Keep the rotation only in the horizontal plane
+
+                // Rotate the character towards the mouse position
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            }
         }
     }
 }

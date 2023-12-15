@@ -460,13 +460,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940540033529461947}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 465599c204a01f54aadea16741b3c3e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 8
-  verticalSpeed: 8
+  cam: {fileID: 0}
+  rotationSpeed: 20
+  layer:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!1 &1982296893292873549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,9 +1644,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3225650241671013452}
   - component: {fileID: 8256872193045886325}
-  - component: {fileID: 8377794641055771478}
   - component: {fileID: 5064666956481870131}
   - component: {fileID: 456459203689375049}
+  - component: {fileID: 980474705661148929}
   m_Layer: 9
   m_Name: Gamble
   m_TagString: Player
@@ -1683,34 +1686,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 456459203689375049}
+  speed: 0
   solidSpeed: 10
+  stop: 0
   rotSpeed: 1800
   input: {x: 0, y: 0, z: 0}
   hitBox: {fileID: 7989369639585349358}
   orionAnim: {fileID: 4697822146249734366}
   particals: {fileID: 5547800997898841310}
   cameraZoom: {fileID: 0}
---- !u!65 &8377794641055771478
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6474599976150083692}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.232997, z: 1}
-  m_Center: {x: 0, y: -0.11649847, z: 0}
 --- !u!95 &5064666956481870131
 Animator:
   serializedVersion: 5
@@ -1759,6 +1743,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!136 &980474705661148929
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6474599976150083692}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7068502610829144949
 GameObject:
   m_ObjectHideFlags: 0

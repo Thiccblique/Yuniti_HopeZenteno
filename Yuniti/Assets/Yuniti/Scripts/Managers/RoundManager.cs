@@ -16,7 +16,7 @@ public class RoundManager : MonoBehaviour
     public bool runOnce = true;
     public bool endRound = true;
 
-    public int totalEnemies = 12;
+    public int totalEnemies;
     public int roundNumber = 0;
     public int enemyIncreaseNum = 4;
    
@@ -57,7 +57,7 @@ public class RoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        remainingEnemies = totalEnemies;
+       
         day.SetActive(true);
         night.SetActive(false);
         TurnOff();
@@ -81,6 +81,7 @@ public class RoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        remainingEnemies = totalEnemies;
         Conter();
         EndRound();
     }
@@ -154,7 +155,7 @@ public class RoundManager : MonoBehaviour
             if (runOnce)
             {
                 roundNumber++;
-                totalEnemies = totalEnemies + enemyIncreaseNum;
+                totalEnemies += enemyIncreaseNum;
                 canContinue = true;
                 runOnce = false;
                 endRound = true;

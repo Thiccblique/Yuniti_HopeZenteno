@@ -51,10 +51,11 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (healthAmount <= 0)
         {
+            GameManager.instance.coins++;
+            RoundManager.instance.totalEnemies--;
             healthAmount = 0;
             Destroy(gameObject);
-            GameManager.instance.coins++;
-            RoundManager.instance.remainingEnemies--;
+            
         }
        
     }

@@ -10,7 +10,7 @@ public class TowerHealth : MonoBehaviour
    
     public Slider healthBar;
     public int maxHealth = 10;
-    public int curHealth = 0;
+    public float curHealth = 0;
 
     public int damageAmount = 1;
   
@@ -26,6 +26,7 @@ public class TowerHealth : MonoBehaviour
     void Update()
     {
         SetHealth(curHealth);
+        HealthBack();
        
     }
     public void SetMaxHealth(int health)
@@ -33,9 +34,18 @@ public class TowerHealth : MonoBehaviour
         healthBar.maxValue = health;
         healthBar.value = health;
     }
-    public void SetHealth(int health)
+    public void SetHealth(float health)
     {
         healthBar.value = health;
+    }
+
+    private void HealthBack()
+    {
+        if (RoundManager.instance.endRound == true && curHealth != maxHealth)
+        {
+           curHealth += Time.deltaTime;
+        }
+       
     }
 
 

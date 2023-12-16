@@ -81,7 +81,7 @@ public class RoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        remainingEnemies = totalEnemies;
+        //remainingEnemies = totalEnemies;
         Conter();
         EndRound();
     }
@@ -144,7 +144,7 @@ public class RoundManager : MonoBehaviour
         TurnOn();
        
     }
-    public void EndRound()
+    public void EndRound() // This is always running and messing with the starting round. Add boolean or moved it from Update.
     {
         if(remainingEnemies <= 0)
         {
@@ -154,8 +154,6 @@ public class RoundManager : MonoBehaviour
             GameManager.instance.inRound = false;
             if (runOnce)
             {
-                roundNumber++;
-                totalEnemies += enemyIncreaseNum;
                 canContinue = true;
                 runOnce = false;
                 endRound = true;

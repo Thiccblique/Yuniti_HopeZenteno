@@ -71,7 +71,6 @@ public class GameManager : MonoBehaviour
     {
         Disability();
         CodeTooUI();
-        inRound = false;
         hudCanvas.SetActive(false);
     }
 
@@ -201,8 +200,8 @@ public class GameManager : MonoBehaviour
     public void RoundStart()
     {
         RoundManager.instance.StartRoundCountdown();
+        RoundManager.instance.totalEnemies += RoundManager.instance.enemyIncreaseNum;
         RoundManager.instance.remainingEnemies = RoundManager.instance.totalEnemies;
-
-
+        RoundManager.instance.roundNumber++;
     }
 }

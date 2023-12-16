@@ -18,12 +18,13 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         instance = this;
-        curRound = RoundManager.instance.roundNumber;
-        enemiesToSpawn = RoundManager.instance.totalEnemies;
+ 
     }
 
     public void StartSpawning()
     {
+        curRound = RoundManager.instance.roundNumber;
+        enemiesToSpawn = RoundManager.instance.totalEnemies;
         spawnCount = 0;
         StartCoroutine(SpawnEnemies());
     }
@@ -47,6 +48,10 @@ public class EnemySpawner : MonoBehaviour
                 {
                     firstEnemyCount++;
                 }
+                if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
+                {
+                    secondEnemyCount++;
+                }
             }
             else if (curRound >= 4 && curRound <= 7)
             {
@@ -59,8 +64,12 @@ public class EnemySpawner : MonoBehaviour
                 {
                     secondEnemyCount++;
                 }
+                if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
+                {
+                    firstEnemyCount++;
+                }
             }
-            else if (curRound >= 8 && curRound <= 10)
+            else if (curRound >= 8) // This type of enemy count goes forever. Change later when end round is added plus more enmies.
             {
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .2f;
                 secondEnemyCount = RoundManager.instance.remainingEnemies * .8f;
@@ -71,6 +80,10 @@ public class EnemySpawner : MonoBehaviour
                 if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
                 {
                     secondEnemyCount++;
+                }
+                if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
+                {
+                    firstEnemyCount++;
                 }
             }
 

@@ -41,7 +41,7 @@ public class TowerHealth : MonoBehaviour
 
     private void HealthBack()
     {
-        if (RoundManager.instance.endRound == true && curHealth != maxHealth)
+        while (RoundManager.instance.endRound == true && curHealth != maxHealth)
         {
            curHealth += Time.deltaTime;
         }

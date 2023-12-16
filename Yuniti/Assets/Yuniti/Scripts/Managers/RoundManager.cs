@@ -150,13 +150,14 @@ public class RoundManager : MonoBehaviour
         {
             day.SetActive(true);
             night.SetActive(false);
+            endRound = true;
             TurnOff();
             GameManager.instance.inRound = false;
             if (runOnce)
             {
                 canContinue = true;
                 runOnce = false;
-                endRound = true;
+                
             }
             startRoundUI.SetActive(true);
             enemRemainUI.SetActive(false);

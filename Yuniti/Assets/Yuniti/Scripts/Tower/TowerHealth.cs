@@ -39,13 +39,19 @@ public class TowerHealth : MonoBehaviour
         healthBar.value = health;
     }
 
+    private float GetCurHealth()
+    {
+        return curHealth;
+    }
+
     private void HealthBack()
     {
-        while (RoundManager.instance.endRound == true && curHealth != maxHealth)
+        if (RoundManager.instance.endRound == true && curHealth != maxHealth)
         {
            curHealth += Time.deltaTime;
         }
        
+      
     }
 
 

@@ -28,6 +28,9 @@ public class EnemyBehaviour : MonoBehaviour
 
     public Slider healthbar;
     public GameObject healthbarUI;
+    public GameObject hitTextPrefab;
+    public Transform hitPosition;
+
 
     void Start()
     {
@@ -72,7 +75,8 @@ public class EnemyBehaviour : MonoBehaviour
             projectileBehaviour = other.gameObject.GetComponent<ProjectileBehaviour>();
             healthAmount = healthAmount - projectileBehaviour.damageAmount;
             healthbar.value = CalculateHealth();
-            Debug.Log("Enemy Health: " + healthAmount);
+            CreateHitAnimation(hitPosition.position);
+            // Debug.Log("Enemy Health: " + healthAmount);
         }
 
         if (other.gameObject.CompareTag("FWProjectile"))
@@ -80,13 +84,16 @@ public class EnemyBehaviour : MonoBehaviour
             fwProjectileBehaviour = other.gameObject.GetComponent<FWProjectileBehaviour>();
             healthAmount = healthAmount - fwProjectileBehaviour.damageAmount;
             healthbar.value = CalculateHealth();
-            Debug.Log("Enemy Health: " + healthAmount);
+            CreateHitAnimation(hitPosition.position);
+            //Debug.Log("Enemy Health: " + healthAmount);
         }
 
         if (other.gameObject.CompareTag("HitBox"))
         {
             healthAmount--;
+
             healthbar.value = CalculateHealth();
+            CreateHitAnimation(hitPosition.position);
         }
     }
 
@@ -121,6 +128,12 @@ public class EnemyBehaviour : MonoBehaviour
             
         }
        
+    }
+
+    void CreateHitAnimation(Vector3 position)
+    {
+        GameObject hitText = Instantiate(hitTextPrefab, position, Quaternion.identity);
+        HitTextAnimation hitTextAnimation = hitText.AddComponent<HitTextAnimation>();
     }
 
     IEnumerator StartAttackCooldown()

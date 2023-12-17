@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3748296967184728274}
   m_Layer: 0
   m_Name: BambooFarm
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +104,59 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2943703233965810708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6433490800107702032}
+  - component: {fileID: 1664574263742534730}
+  m_Layer: 0
+  m_Name: Waypoint
+  m_TagString: Waypoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6433490800107702032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2943703233965810708}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 368661121183493429}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1664574263742534730
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2943703233965810708}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3277128681637238619
 GameObject:
@@ -777,7 +830,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 945178203540594299, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_VersionIndex
-      value: 511
+      value: 526
       objectReference: {fileID: 0}
     - target: {fileID: 2738028226836014807, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_Name
@@ -789,7 +842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3780320140752922605, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_VersionIndex
-      value: 511
+      value: 526
       objectReference: {fileID: 0}
     - target: {fileID: 5098893387046213890, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1125,6 +1178,10 @@ PrefabInstance:
     - target: {fileID: 4673076619321195709, guid: 89072da91e28c7e478f2b49841b4cbdb, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673076619321195709, guid: 89072da91e28c7e478f2b49841b4cbdb, type: 3}
+      propertyPath: m_TagString
+      value: Tower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2514,6 +2571,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4560479451924096601, guid: 554c2cf136eaf26409c3dcea32f9b1e3, type: 3}
+      propertyPath: m_TagString
+      value: Tower
+      objectReference: {fileID: 0}
     - target: {fileID: 7687208807289015051, guid: 554c2cf136eaf26409c3dcea32f9b1e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.10552502
@@ -2563,6 +2624,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7687208807289015051, guid: 554c2cf136eaf26409c3dcea32f9b1e3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1983880329378876877}
+    - targetCorrespondingSourceObject: {fileID: 7687208807289015051, guid: 554c2cf136eaf26409c3dcea32f9b1e3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6433490800107702032}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4560479451924096601, guid: 554c2cf136eaf26409c3dcea32f9b1e3, type: 3}
       insertIndex: -1
@@ -2648,6 +2712,10 @@ PrefabInstance:
     - target: {fileID: 7305008493249916953, guid: fdc395ea6d9ffe44182313435250a093, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7305008493249916953, guid: fdc395ea6d9ffe44182313435250a093, type: 3}
+      propertyPath: m_TagString
+      value: Tower
       objectReference: {fileID: 0}
     - target: {fileID: 7381095478101089729, guid: fdc395ea6d9ffe44182313435250a093, type: 3}
       propertyPath: m_LocalPosition.x

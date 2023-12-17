@@ -22,7 +22,7 @@ public class EnemyBehaviour : MonoBehaviour
     public Vector3 originalWaypointVector3;
     private Animator anim;
 
-    public TowerHealth towerHealth;
+    private TowerHealth towerHealth;
     private ProjectileBehaviour projectileBehaviour;
     private FWProjectileBehaviour fwProjectileBehaviour;
 

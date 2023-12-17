@@ -46,9 +46,14 @@ public class TowerHealth : MonoBehaviour
 
     private void HealthBack()
     {
+        float realTime = Time.deltaTime;
         if (RoundManager.instance.endRound == true && curHealth < maxHealth)
         {
-           curHealth += Time.deltaTime;
+           curHealth += realTime;
+        }
+        else
+        {
+            realTime = 0;
         }
        
         

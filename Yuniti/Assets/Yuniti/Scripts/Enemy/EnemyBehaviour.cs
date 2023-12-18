@@ -91,9 +91,9 @@ public class EnemyBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("HitBox"))
         {
             healthAmount--;
-
             healthbar.value = CalculateHealth();
             CreateHitAnimation(hitPosition.position);
+            //Debug.Log("Enemy Health: " + healthAmount);
         }
     }
 

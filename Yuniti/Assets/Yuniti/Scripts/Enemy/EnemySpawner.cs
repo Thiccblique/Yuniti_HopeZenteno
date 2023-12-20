@@ -14,11 +14,15 @@ public class EnemySpawner : MonoBehaviour
     private int curRound = 0;
     private int enemiesToSpawn = 0;
 
+    private EnemyBehaviour enemy;
+
+
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
- 
+        
+
     }
 
     public void StartSpawning()
@@ -55,8 +59,10 @@ public class EnemySpawner : MonoBehaviour
             }
             else if (curRound >= 4 && curRound <= 7)
             {
+                
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .6f;
                 secondEnemyCount = RoundManager.instance.remainingEnemies * .4f;
+              
 
                 firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
                 secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);

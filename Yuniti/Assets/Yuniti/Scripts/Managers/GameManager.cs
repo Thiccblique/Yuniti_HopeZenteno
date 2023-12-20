@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public TowerHealth defendingPointHP1;
     public TowerHealth defendingPointHP2;
     public TowerHealth defendingPointsHP3;
+    private EnemyBehaviour enemy;
 
 
     [Header("HUD")]
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemy = GetComponent<EnemyBehaviour>();
         Disability();
         CodeTooUI();
         hudCanvas.SetActive(false);
@@ -121,6 +123,11 @@ public class GameManager : MonoBehaviour
         CodeTooUI();
         DisplayItemPrice();
         GameOver();
+    }
+
+    private void EnemyStats()
+    {
+
     }
 
     private void Spawner()

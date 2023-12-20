@@ -31,6 +31,9 @@ public class EnemyBehaviour : MonoBehaviour
     public GameObject hitTextPrefab;
     public Transform hitPosition;
 
+    [Header("Particals")]
+    public ParticleSystem hitPartical;
+
 
     void Start()
     {
@@ -75,7 +78,7 @@ public class EnemyBehaviour : MonoBehaviour
             projectileBehaviour = other.gameObject.GetComponent<ProjectileBehaviour>();
             healthAmount = healthAmount - projectileBehaviour.damageAmount;
             healthbar.value = CalculateHealth();
-            CreateHitAnimation(hitPosition.position);
+            HitPartical();
             // Debug.Log("Enemy Health: " + healthAmount);
         }
 
@@ -84,7 +87,7 @@ public class EnemyBehaviour : MonoBehaviour
             fwProjectileBehaviour = other.gameObject.GetComponent<FWProjectileBehaviour>();
             healthAmount = healthAmount - fwProjectileBehaviour.damageAmount;
             healthbar.value = CalculateHealth();
-            CreateHitAnimation(hitPosition.position);
+            HitPartical();
             //Debug.Log("Enemy Health: " + healthAmount);
         }
 
@@ -92,7 +95,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             healthAmount--;
             healthbar.value = CalculateHealth();
-            CreateHitAnimation(hitPosition.position);
+            HitPartical();
             //Debug.Log("Enemy Health: " + healthAmount);
         }
     }
@@ -134,6 +137,15 @@ public class EnemyBehaviour : MonoBehaviour
     {
         GameObject hitText = Instantiate(hitTextPrefab, position, Quaternion.identity);
         HitTextAnimation hitTextAnimation = hitText.AddComponent<HitTextAnimation>();
+    }
+
+    private void HitPartical()
+    {
+        if (hitPartical != null)
+        {
+            hitPartical.gameObject.SetActive(true);
+            hitPartical.Play();
+        }
     }
 
     IEnumerator StartAttackCooldown()

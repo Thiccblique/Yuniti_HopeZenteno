@@ -17,8 +17,11 @@ public class IsometricController : MonoBehaviour
     private Animator anim;
     public Animator orionAnim;
     public GameObject particals;
+    
 
     [SerializeField] public CameraZoom cameraZoom;
+
+    public ParticleSystem attack;
 
     void Start()
     {
@@ -75,6 +78,7 @@ public class IsometricController : MonoBehaviour
         {
             hitBox.SetActive(true);
             orionAnim.SetBool("OrionAttack", true);
+            //HitPartical();
         }
         else
         {
@@ -111,7 +115,16 @@ public class IsometricController : MonoBehaviour
         anim.SetBool("Walk", false);
         particals.SetActive(false);
     }
-    
+
+    private void HitPartical()
+    {
+        if (attack != null)
+        {
+            attack.gameObject.SetActive(true);
+            attack.Play();
+        }
+    }
+
 }
 
 public static class Helpers

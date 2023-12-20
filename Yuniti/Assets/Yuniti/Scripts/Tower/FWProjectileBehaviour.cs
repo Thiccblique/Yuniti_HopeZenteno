@@ -9,6 +9,8 @@ public class FWProjectileBehaviour : MonoBehaviour
     public int damageAmount = 1;
     public float explosionRange = 3f;
 
+    public ParticleSystem fireWork;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +38,22 @@ public class FWProjectileBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Enemy") /*|| other.gameObject.CompareTag("Ground")*/)
         {
             SphereCollider explosionRadius = gameObject.GetComponent<SphereCollider>();
             explosionRadius.radius = explosionRange;
-            projectileLifetime = 0.05f;
+            //projectileLifetime = 0.05f;
+            HitPartical();
+
+        }
+    }
+
+    private void HitPartical()
+    {
+        if (fireWork != null)
+        {
+            fireWork.gameObject.SetActive(true);
+            fireWork.Play();
         }
     }
 }

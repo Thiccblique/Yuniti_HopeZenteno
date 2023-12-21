@@ -15,8 +15,10 @@ public class GameManager : MonoBehaviour
     public TowerHealth defendingPointHP1;
     public TowerHealth defendingPointHP2;
     public TowerHealth defendingPointsHP3;
-    private EnemyBehaviour enemy;
+    //private EnemyBehaviour enemy;
 
+    [Header("Enemy Scripts")]
+    public EnemyBehaviour enemy;
 
     [Header("HUD")]
     public GameObject hudCanvas;
@@ -60,9 +62,11 @@ public class GameManager : MonoBehaviour
     public TMPro.TMP_Text roundCount;
 
     [Header("Money")]
-    public int coins = 5;
+    public float coins = 5f;
     public int itemPrice = 2;
-    public bool towerIsLocked = true;
+    public bool towerIsLocked = true;  
+
+    
 
 
 
@@ -70,7 +74,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemy = GetComponent<EnemyBehaviour>();
+        //enemy = GetComponent<EnemyBehaviour>();
+      
         Disability();
         CodeTooUI();
         hudCanvas.SetActive(false);
@@ -83,10 +88,7 @@ public class GameManager : MonoBehaviour
         roundCount.text = RoundManager.instance.roundNumber.ToString();
     }
 
-    public void DisplayItemPrice()
-    {
-
-    }
+    
 
     public void UnlockItem()
     {
@@ -121,13 +123,19 @@ public class GameManager : MonoBehaviour
     {
         Spawner();
         CodeTooUI();
-        DisplayItemPrice();
+        
         GameOver();
     }
 
     private void EnemyStats()
     {
+        if (RoundManager.instance.roundNumber == 4)
+        {
+            enemy.attackRate = 3;
+            enemy.damageAmount = 2;
+            enemy.maxHealth = 20;
 
+        }
     }
 
     private void Spawner()
@@ -210,5 +218,6 @@ public class GameManager : MonoBehaviour
         RoundManager.instance.totalEnemies += RoundManager.instance.enemyIncreaseNum;
         RoundManager.instance.remainingEnemies = RoundManager.instance.totalEnemies;
         RoundManager.instance.roundNumber++;
+        EnemyStats();
     }
 }

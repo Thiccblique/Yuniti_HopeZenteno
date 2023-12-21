@@ -12,7 +12,7 @@ public class TowerHealth : MonoBehaviour
     public int maxHealth = 10;
     public float curHealth = 0;
 
-    public int damageAmount = 1;
+    //public int damageAmount = 1;
   
     /*public GameObject defendPoint;*/
 

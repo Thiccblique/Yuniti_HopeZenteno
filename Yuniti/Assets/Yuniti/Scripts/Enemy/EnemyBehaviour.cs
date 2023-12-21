@@ -10,11 +10,11 @@ public class EnemyBehaviour : MonoBehaviour
 
     public NavMeshAgent enemyAgent;
     public GameObject waypoint;
-    public int damageAmount;
+    public int damageAmount = 0;
     public int attackRate = 0;
     public int healthAmount;
     public int maxHealth;
-    public int curHealth;
+    //public int curHealth;
     
     private bool attackCooldown = false;
     private bool towerNearby = false;
@@ -113,7 +113,7 @@ public class EnemyBehaviour : MonoBehaviour
             StartCoroutine(TowerCheck());
         }
 
-        if (other.gameObject.CompareTag("Tower") && !attackCooldown)
+        if (other.gameObject.CompareTag("Tower") && !attackCooldown && other.gameObject != null)
         {
             towerHealth = other.gameObject.GetComponent<TowerHealth>();
             towerHealth.curHealth -= damageAmount;

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9131651873474101050}
   - component: {fileID: 8972506164052628333}
   - component: {fileID: -6344425047837617112}
+  - component: {fileID: -1140460725452327646}
   m_Layer: 0
   m_Name: GambleCoin
   m_TagString: Untagged
@@ -102,9 +103,9 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 10.24
   m_Center: {x: 0, y: 0, z: 0}
@@ -150,3 +151,24 @@ MonoBehaviour:
   rotationSpeed: 150
   targetObject: {fileID: 3225650241671013452, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
   moveSpeed: 3
+--- !u!135 &-1140460725452327646
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3083323839593401277}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 10.24
+  m_Center: {x: 0, y: 0, z: 0}

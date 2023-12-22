@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &610870542565282002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4784547461540844722}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4784547461540844722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610870542565282002}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.25, y: 0.287, z: -36.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7049803440048303859}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2300594760682058252
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +223,37 @@ Transform:
   - {fileID: 5422851479247514863}
   m_Father: {fileID: 420705974061299694}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4338446499465593667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8063132904916093892}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8063132904916093892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4338446499465593667}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.194, y: 0, z: -35.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1673501184511127590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4379603272943513025
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +313,7 @@ Transform:
   m_GameObject: {fileID: 5458270861555432317}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.16, z: 2.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -830,7 +892,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 945178203540594299, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_VersionIndex
-      value: 526
+      value: 529
       objectReference: {fileID: 0}
     - target: {fileID: 2738028226836014807, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_Name
@@ -842,7 +904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3780320140752922605, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_VersionIndex
-      value: 526
+      value: 529
       objectReference: {fileID: 0}
     - target: {fileID: 5098893387046213890, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1189,6 +1251,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2374749278958519808, guid: 89072da91e28c7e478f2b49841b4cbdb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1916906956657690117}
+    - targetCorrespondingSourceObject: {fileID: 2374749278958519808, guid: 89072da91e28c7e478f2b49841b4cbdb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4784547461540844722}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4673076619321195709, guid: 89072da91e28c7e478f2b49841b4cbdb, type: 3}
       insertIndex: -1
@@ -1218,7 +1283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 3083323839593401277, guid: aefc80cd53edfd6498553dd76aa3ed97, type: 3}
-  spawnPoint: {fileID: 7049803440048303859}
+  spawnPoint: {fileID: 4784547461540844722}
   numberOfSpawns: 7
   spawnInterval: 0.1
   spawnCount: 0
@@ -1253,7 +1318,6 @@ MonoBehaviour:
   healthBar: {fileID: 2366100902928294866}
   maxHealth: 30
   curHealth: 0
-  damageAmount: 1
 --- !u!4 &7049803440048303859 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2374749278958519808, guid: 89072da91e28c7e478f2b49841b4cbdb, type: 3}
@@ -1525,11 +1589,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3648854004287513829, guid: 2b870f4ab0e48ae419ac690a2cf43477, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3648854004287513829, guid: 2b870f4ab0e48ae419ac690a2cf43477, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5816070343406318815, guid: 2b870f4ab0e48ae419ac690a2cf43477, type: 3}
       propertyPath: m_Name
@@ -2189,11 +2253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7285214727216728482, guid: fc9a4884c7bbc7541b06678fd9114c17, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7285214727216728482, guid: fc9a4884c7bbc7541b06678fd9114c17, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8999744475234739364, guid: fc9a4884c7bbc7541b06678fd9114c17, type: 3}
       propertyPath: m_Pivot.x
@@ -2696,7 +2760,6 @@ MonoBehaviour:
   healthBar: {fileID: 4350389707489753426}
   maxHealth: 12
   curHealth: 0
-  damageAmount: 1
 --- !u!1001 &8167158416646483431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2763,6 +2826,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7381095478101089729, guid: fdc395ea6d9ffe44182313435250a093, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4058999172099901174}
+    - targetCorrespondingSourceObject: {fileID: 7381095478101089729, guid: fdc395ea6d9ffe44182313435250a093, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8063132904916093892}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7305008493249916953, guid: fdc395ea6d9ffe44182313435250a093, type: 3}
       insertIndex: -1
@@ -2792,7 +2858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 3083323839593401277, guid: aefc80cd53edfd6498553dd76aa3ed97, type: 3}
-  spawnPoint: {fileID: 1673501184511127590}
+  spawnPoint: {fileID: 8063132904916093892}
   numberOfSpawns: 5
   spawnInterval: 0.1
   spawnCount: 0
@@ -2827,7 +2893,6 @@ MonoBehaviour:
   healthBar: {fileID: 6801108941089990404}
   maxHealth: 20
   curHealth: 0
-  damageAmount: 1
 --- !u!4 &1673501184511127590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7381095478101089729, guid: fdc395ea6d9ffe44182313435250a093, type: 3}

@@ -17,6 +17,9 @@ public class IsometricController : MonoBehaviour
     private Animator anim;
     public Animator orionAnim;
     public GameObject particals;
+
+    [Header("Audio")]
+    public AudioSource run;
     
 
     [SerializeField] public CameraZoom cameraZoom;
@@ -90,7 +93,6 @@ public class IsometricController : MonoBehaviour
     public void Animation()
     {
        
-
         var hitKey = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow);
     
         if (hitKey == true)
@@ -98,12 +100,14 @@ public class IsometricController : MonoBehaviour
             // Activate the animation
             anim.SetBool("Walk", true);
             particals.SetActive(true);
+            run.Play();
         }
         else
         {
             // Activate the animation
             anim.SetBool("Walk", false);
             particals.SetActive(false);
+            run.Stop();
         } 
       
         

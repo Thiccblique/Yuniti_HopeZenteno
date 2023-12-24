@@ -18,13 +18,14 @@ public class IsometricController : MonoBehaviour
     public Animator orionAnim;
     public GameObject particals;
 
-    [Header("Audio")]
-    public AudioSource run;
+   
     
 
     [SerializeField] public CameraZoom cameraZoom;
-
     public ParticleSystem attack;
+   
+    [Header("Audio")]
+    public AudioSource run;
 
     void Start()
     {

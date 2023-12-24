@@ -37,6 +37,7 @@ public class CoinBehaior : MonoBehaviour
         {
             GameManager.instance.coins++;
             Destroy(gameObject);
+            FindAnyObjectByType<AudioManager>().Play("CoinPickup");
         }
     }
 

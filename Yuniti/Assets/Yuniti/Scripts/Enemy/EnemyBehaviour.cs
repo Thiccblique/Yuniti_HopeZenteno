@@ -79,6 +79,7 @@ public class EnemyBehaviour : MonoBehaviour
             healthAmount = healthAmount - projectileBehaviour.damageAmount;
             healthbar.value = CalculateHealth();
             HitPartical();
+            FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             // Debug.Log("Enemy Health: " + healthAmount);
         }
 
@@ -88,14 +89,16 @@ public class EnemyBehaviour : MonoBehaviour
             healthAmount = healthAmount - fwProjectileBehaviour.damageAmount;
             healthbar.value = CalculateHealth();
             HitPartical();
+            FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             //Debug.Log("Enemy Health: " + healthAmount);
         }
 
         if (other.gameObject.CompareTag("HitBox"))
         {
-            healthAmount--;
+            healthAmount -= 2;
             healthbar.value = CalculateHealth();
             HitPartical();
+            FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             //Debug.Log("Enemy Health: " + healthAmount);
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class IsometricController : MonoBehaviour
 {
     public static IsometricController instance;
-
+    private AudioManager sound;
     public Rigidbody rb;
     
     public float speed;
@@ -17,18 +17,18 @@ public class IsometricController : MonoBehaviour
     private Animator anim;
     public Animator orionAnim;
     public GameObject particals;
-
+    
+    
    
     
 
     [SerializeField] public CameraZoom cameraZoom;
     public ParticleSystem attack;
    
-    [Header("Audio")]
-    public AudioSource run;
-
+  
     void Start()
     {
+        sound = GetComponent<AudioManager>();
         speed = solidSpeed;
         anim = GetComponent<Animator>();
     }
@@ -50,6 +50,7 @@ public class IsometricController : MonoBehaviour
             particals.SetActive(false);
         }
        
+
     }
 
     private void FixedUpdate()
@@ -78,10 +79,11 @@ public class IsometricController : MonoBehaviour
 
     public void AttackAnim()
     {
-        if (Input.GetKey(KeyCode.O) || Input.GetMouseButton(0) /*|| Input.GetKeyDown(KeyCode.Space)*/)
+        if (Input.GetKey(KeyCode.O) || Input.GetMouseButtonDown(0) /*|| Input.GetKeyDown(KeyCode.Space)*/)
         {
             hitBox.SetActive(true);
             orionAnim.SetBool("OrionAttack", true);
+            FindAnyObjectByType<AudioManager>().Play("HatThrow");
             //HitPartical();
         }
         else
@@ -101,17 +103,28 @@ public class IsometricController : MonoBehaviour
             // Activate the animation
             anim.SetBool("Walk", true);
             particals.SetActive(true);
-            run.Play();
+           
+
         }
         else
         {
             // Activate the animation
             anim.SetBool("Walk", false);
             particals.SetActive(false);
-            run.Stop();
-        } 
-      
-        
+            
+        }
+
+        var hitKeySound = Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.RightArrow);
+        var hitKeySoundUp = Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.RightArrow);
+
+        if (hitKeySound == true)
+        {
+            FindAnyObjectByType<AudioManager>().Play("PlayerWalk");
+        }
+        else if (hitKeySoundUp == true)
+        {
+            FindAnyObjectByType<AudioManager>().Stop("PlayerWalk");
+        }
     }
 
     public void PlayerStop()

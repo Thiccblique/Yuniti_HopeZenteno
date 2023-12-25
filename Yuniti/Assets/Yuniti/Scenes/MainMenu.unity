@@ -525,9 +525,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1421765693}
-        m_TargetAssemblyTypeName: AsyncManager, Assembly-CSharp
-        m_MethodName: LoadLevelBtn
+      - m_Target: {fileID: 56406311}
+        m_TargetAssemblyTypeName: LoadingManager, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 56406310}
-  - component: {fileID: 56406309}
+  - component: {fileID: 56406311}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -592,18 +592,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &56406309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56406308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 776ee5399f4414548b6f1e568aa93392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &56406310
 Transform:
   m_ObjectHideFlags: 0
@@ -613,12 +601,26 @@ Transform:
   m_GameObject: {fileID: 56406308}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -491.62622, y: -213.22485, z: -33.47676}
+  m_LocalPosition: {x: 10.200012, y: -0.3580017, z: -1.3170013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1142610574}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &56406311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56406308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e73621032f6a64bb72a7694e8e6501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingScreen: {fileID: 426012237}
+  loadingFill: {fileID: 1406590726}
 --- !u!1 &67337721
 GameObject:
   m_ObjectHideFlags: 0
@@ -4029,7 +4031,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 56406310}
   - {fileID: 568544677}
   - {fileID: 623818817}
   - {fileID: 534191532}
@@ -4534,9 +4535,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1421765693}
-        m_TargetAssemblyTypeName: AsyncManager, Assembly-CSharp
-        m_MethodName: LoadLevelBtn
+      - m_Target: {fileID: 56406311}
+        m_TargetAssemblyTypeName: LoadingManager, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4689,7 +4690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1421765693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6794,6 +6795,7 @@ SceneRoots:
   - {fileID: 1596371986}
   - {fileID: 1461891434}
   - {fileID: 930203341}
+  - {fileID: 56406310}
   - {fileID: 1142610574}
   - {fileID: 1421765694}
   - {fileID: 426012241}

@@ -30959,7 +30959,10 @@ Transform:
   m_LocalPosition: {x: 3.95476, y: 0.1527213, z: 20.187943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 760476155}
+  - {fileID: 1960762113}
+  - {fileID: 1640395098}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &725208955
@@ -33679,7 +33682,7 @@ GameObject:
   - component: {fileID: 760476154}
   - component: {fileID: 760476153}
   m_Layer: 0
-  m_Name: DialogueTrigger
+  m_Name: DialogueStart
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -33700,11 +33703,11 @@ MonoBehaviour:
   dialogue:
     name: Gamble
     setences:
-    - Hey! I'm Gamble the llama. Looks like we both fell through that weird portal
-      thingy huh!
-    - Well then lets move out of here Use WASD to move from here.
-    - Looks like we are in some forest... Use your scroll wheel to zoom out so we
-      can see where exactly we are.
+    - Hey! I'm Gamble the llama. Looks like you fell through that weird portal thingy
+      huh!
+    - Well then lets move out of here Use [WASD] to move from here.
+    - Looks like we are in some forest... Use your [scroll wheel] to zoom out so
+      we can see where exactly we are.
   gambleAnim: {fileID: 1801898655}
 --- !u!65 &760476154
 BoxCollider:
@@ -33735,12 +33738,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760476152}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.549, y: 5, z: -27.242}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -41.50376, y: 4.8472786, z: -47.429943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 724740658}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &764081201
 PrefabInstance:
@@ -77361,6 +77364,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640379513}
   m_CullTransparentMesh: 1
+--- !u!1 &1640395097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1640395098}
+  - component: {fileID: 1640395100}
+  - component: {fileID: 1640395099}
+  m_Layer: 0
+  m_Name: DialogueStart (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1640395098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640395097}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -19.84, y: 4.8472786, z: -23.13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 724740658}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1640395099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640395097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1eda0ba316d6640898a3ebad8420fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Gamble
+    setences:
+    - I feel like there are enemys near. Lets head to the yellow diamond and build
+      a place for defence.
+    - Hey, you keep throwing your hat! I wonder if that will come in handy?
+  gambleAnim: {fileID: 1801898655}
+--- !u!65 &1640395100
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640395097}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.076908, y: 2.2676554, z: 9.326498}
+  m_Center: {x: 1.3714008, y: -0.6338277, z: 0.39397144}
 --- !u!1 &1641563188
 GameObject:
   m_ObjectHideFlags: 0
@@ -78404,14 +78480,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1031710657}
-    - target: {fileID: 3775379661918579666, guid: f7150f375e38b5e4ab53a1868ace2187, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3775379661918579666, guid: f7150f375e38b5e4ab53a1868ace2187, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5170261180219447776, guid: f7150f375e38b5e4ab53a1868ace2187, type: 3}
       propertyPath: hudAnim
       value: 
@@ -89298,6 +89366,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960434200}
   m_CullTransparentMesh: 1
+--- !u!1 &1960762112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1960762113}
+  - component: {fileID: 1960762115}
+  - component: {fileID: 1960762114}
+  m_Layer: 0
+  m_Name: DialogueStart (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1960762113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960762112}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.24, y: 4.8472786, z: -15.58}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 724740658}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1960762114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960762112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1eda0ba316d6640898a3ebad8420fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Gamble
+    setences:
+    - Press [E] to build a tower
+    - Look at the [HUD], looks like you have 5 coins. Lets see what else you can
+      build
+    - The enemys are on our tail. Click Strart Round in [HUD] when you are ready
+      to fight them!
+  gambleAnim: {fileID: 1801898655}
+--- !u!65 &1960762115
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960762112}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.0253906, y: 2.2676554, z: 5.2370224}
+  m_Center: {x: -0.9834938, y: -0.6338277, z: -0.64151764}
 --- !u!1 &1962176100
 GameObject:
   m_ObjectHideFlags: 0
@@ -92192,18 +92335,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1779488055}
-    - target: {fileID: 2157810146139521702, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2157810146139521702, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3909993841870714078, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3973817993989627755, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -92220,14 +92351,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 443352560}
-    - target: {fileID: 6138645152771720006, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6138645152771720006, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6331631573468562820, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -92240,10 +92363,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 443352560}
-    - target: {fileID: 8507831166529047569, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8576453570666613015, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -104069,10 +104188,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1779488055}
-    - target: {fileID: 1255950297970751786, guid: 9c7136f43629f7245b68ccc097b0a050, type: 3}
-      propertyPath: spawnPoint
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1461939918447766934, guid: 9c7136f43629f7245b68ccc097b0a050, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -104472,14 +104587,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1344658166}
-    - target: {fileID: 2995500063265375591, guid: 4c5014dac3d8c5a41bdaf9279fda7821, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2995500063265375591, guid: 4c5014dac3d8c5a41bdaf9279fda7821, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3825260904310728142, guid: 4c5014dac3d8c5a41bdaf9279fda7821, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -104746,10 +104853,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DefendingPoint
       objectReference: {fileID: 0}
-    - target: {fileID: 471881442313548021, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 697400921269738784, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -104762,10 +104865,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1779488055}
-    - target: {fileID: 2923780171771659229, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2987711995171246515, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -104774,10 +104873,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 443352560}
-    - target: {fileID: 3359848778261118866, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: curHealth
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3484798857943239442, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -104790,10 +104885,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 443352560}
-    - target: {fileID: 3905211540135788171, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: curHealth
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4536295561037248141, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -104802,10 +104893,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 443352560}
-    - target: {fileID: 6062804074683558166, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: curHealth
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7450097560348431860, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -104814,10 +104901,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 443352560}
-    - target: {fileID: 7745731658682810560, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.52
-      objectReference: {fileID: 0}
     - target: {fileID: 7885038825177201514, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.98
@@ -105200,7 +105283,7 @@ PrefabInstance:
       objectReference: {fileID: 963194227}
     - target: {fileID: 3225650241671013452, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.71
+      value: -37.81
       objectReference: {fileID: 0}
     - target: {fileID: 3225650241671013452, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
       propertyPath: m_LocalPosition.y
@@ -105601,4 +105684,3 @@ SceneRoots:
   - {fileID: 357354818}
   - {fileID: 1579103754}
   - {fileID: 724740658}
-  - {fileID: 760476155}

@@ -53,6 +53,7 @@ public class TowerSpawner : MonoBehaviour
     public TowerHealth health3;
 
     [Header("Other Mechanics")]
+    public ParticleSystem buildPartical;
     private TowerHealth towerHealth;
     public GameObject pointer;
     public CameraZoom cameraZoom;
@@ -110,6 +111,7 @@ public class TowerSpawner : MonoBehaviour
             {
                 if (col.CompareTag("Player"))
                 {
+                    buildPartical.Play();
                     hasSpawned = true;
                     GameManager.instance.coins = GameManager.instance.coins - price;
                     SpawnObject();

@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 4798201932179914748}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.32}
+  m_LocalPosition: {x: 0, y: 0, z: -0.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -600,7 +600,6 @@ MonoBehaviour:
   healthBar: {fileID: 1764355958905313418}
   maxHealth: 70
   curHealth: 1
-  damageAmount: 1
 --- !u!1001 &4643414216376918987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1089,6 +1088,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 226d534b4d7ec7c4aadc168c0d3e4e80, type: 3}
   m_PrefabInstance: {fileID: 6688685802771270797}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7072682865331188693
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7885038825177201514}
+    m_Modifications:
+    - target: {fileID: 7159139022338682, guid: ebbeff363ac351f4a93dcfde83bfa8b6, type: 3}
+      propertyPath: m_Name
+      value: Build Smoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119786341606099540, guid: ebbeff363ac351f4a93dcfde83bfa8b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119786341606099540, guid: ebbeff363ac351f4a93dcfde83bfa8b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119786341606099540, guid: ebbeff363ac351f4a93dcfde83bfa8b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119786341606099540, guid: ebbeff363ac351f4a93dcfde83bfa8b6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119786341606099540, guid: ebbeff363ac351f4a93dcfde83bfa8b6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119786341606099540, guid: ebbeff363ac351f4a93dcfde83bfa8b6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119786341606099540, guid: ebbeff363ac351f4a93dcfde83bfa8b6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119786341606099540, guid: ebbeff363ac351f4a93dcfde83bfa8b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119786341606099540, guid: ebbeff363ac351f4a93dcfde83bfa8b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119786341606099540, guid: ebbeff363ac351f4a93dcfde83bfa8b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ebbeff363ac351f4a93dcfde83bfa8b6, type: 3}
+--- !u!198 &647592765490824313 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7699890544582801324, guid: ebbeff363ac351f4a93dcfde83bfa8b6, type: 3}
+  m_PrefabInstance: {fileID: 7072682865331188693}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6560438773430008193 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4119786341606099540, guid: ebbeff363ac351f4a93dcfde83bfa8b6, type: 3}
+  m_PrefabInstance: {fileID: 7072682865331188693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7110740048148288656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1180,7 +1246,6 @@ MonoBehaviour:
   healthBar: {fileID: 4576386235790330976}
   maxHealth: 100
   curHealth: 1
-  damageAmount: 1
 --- !u!4 &8665791894068516294 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1940347434990043478, guid: 3ef0867f6ea8dcf42953308e23331ac2, type: 3}
@@ -1787,7 +1852,6 @@ MonoBehaviour:
   healthBar: {fileID: 2515299005409108896}
   maxHealth: 50
   curHealth: 1
-  damageAmount: 1
 --- !u!4 &5430734468640081033 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3462746243685176025, guid: 2f3bb60efbe886446b8070f35fa9a0d4, type: 3}
@@ -2115,6 +2179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DefendingPoint Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8657168421082129602, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8879463249369619747, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
       propertyPath: m_text
       value: '     {E}
@@ -2173,6 +2241,10 @@ PrefabInstance:
       propertyPath: spawnRadius
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 9171247548963539027, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
+      propertyPath: buildPartical
+      value: 
+      objectReference: {fileID: 647592765490824313}
     - target: {fileID: 9171247548963539027, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
       propertyPath: towerStageOne
       value: 
@@ -2234,6 +2306,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1424628886636818269, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7745731658682810560}
+    - targetCorrespondingSourceObject: {fileID: 1424628886636818269, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6560438773430008193}
     - targetCorrespondingSourceObject: {fileID: 4144817347398761425, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5430734468640081033}

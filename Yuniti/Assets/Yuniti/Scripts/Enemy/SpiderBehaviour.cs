@@ -84,7 +84,7 @@ public class SpiderBehaviour : MonoBehaviour
 
         if (other.gameObject.CompareTag("HitBox"))
         {
-            healthAmount -= 2;
+            healthAmount--;
             healthbar.value = CalculateHealth();
             HitPartical();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");

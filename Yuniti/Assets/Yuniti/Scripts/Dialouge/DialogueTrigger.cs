@@ -1,0 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DialogueTrigger : MonoBehaviour
+{
+    public Dialogue dialogue;
+    public Animator gambleAnim;
+    private void OnTriggerEnter(Collider other)
+    {
+        gambleAnim.SetBool("isOpen", true);
+        TriggerDialogue();
+        Destroy(gameObject);
+    }
+    public void TriggerDialogue()
+    {
+        FindAnyObjectByType<DialogueManager>().StartDialogue(dialogue);
+    }
+}

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 public class IsometricController : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class IsometricController : MonoBehaviour
     
     public float speed;
     public float solidSpeed = 10;
+   
     public float stop = 0f;
     public float rotSpeed = 360;
     public Vector3 input;
@@ -17,20 +20,22 @@ public class IsometricController : MonoBehaviour
     private Animator anim;
     public Animator orionAnim;
     public GameObject particals;
-    
-    
-   
-    
-
     [SerializeField] public CameraZoom cameraZoom;
     public ParticleSystem attack;
-   
-  
+
+    [Header("Stamana")]
+    public float sprintSpeed = 15f;
+    public float maxStamana = 5f;
+    public float stamana;
+    public Slider stamanaBar;
+
     void Start()
     {
+        stamana = maxStamana;
         sound = GetComponent<AudioManager>();
         speed = solidSpeed;
         anim = GetComponent<Animator>();
+        SetMaxStamana(maxStamana);
     }
 
     void Update()
@@ -42,6 +47,8 @@ public class IsometricController : MonoBehaviour
             Look();
             Animation();
             AttackAnim();
+            PlayerSprint();
+            SetStamana(stamana);
         }
         else
         {
@@ -75,6 +82,40 @@ public class IsometricController : MonoBehaviour
     private void Move()
     {
         rb.MovePosition(transform.position + transform.forward * input.normalized.magnitude * speed * Time.deltaTime);
+    }
+
+    private void PlayerSprint()
+    {
+        float realTime = Time.deltaTime;
+        if(Input.GetKey(KeyCode.LeftShift) && stamana > .1 && speed > 1)
+        {
+            speed = sprintSpeed;
+            stamana -= realTime;
+        }
+        else
+        {
+            realTime = 0;
+            speed = solidSpeed;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) && stamana != maxStamana)
+        {
+            realTime = 0;
+            stamana += realTime;
+        }
+        else if (stamana == maxStamana)
+        {
+            realTime = 0;
+        }
+        
+    }
+    public void SetMaxStamana(float stamana)
+    {
+        stamanaBar.maxValue = stamana;
+        stamanaBar.value = stamana;
+    }
+    public void SetStamana(float stamana)
+    {
+        stamanaBar.value = stamana;
     }
 
     public void AttackAnim()

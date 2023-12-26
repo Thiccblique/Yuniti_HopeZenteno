@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -64,8 +65,13 @@ public class GameManager : MonoBehaviour
     [Header("Money")]
     public float coins = 5f;
     public int itemPrice = 2;
-    public bool towerIsLocked = true;  
+    public bool towerIsLocked = true;
 
+    [Header("Dialouge")]
+    public GameObject[] dialougeBox;
+
+    [HideInInspector]
+    public int killCount;
     
 
 
@@ -123,7 +129,7 @@ public class GameManager : MonoBehaviour
     {
         Spawner();
         CodeTooUI();
-        
+        DialogueActivator();
         GameOver();
     }
 
@@ -200,6 +206,15 @@ public class GameManager : MonoBehaviour
         rounde3TowerSix.SetActive(false);
 
 
+    }
+
+    private void DialogueActivator()
+    {
+        if (RoundManager.instance.roundNumber == 1 && RoundManager.instance.endRound == true && killCount > 1)
+        {
+            dialougeBox[0].SetActive(true);
+            Destroy(dialougeBox[0]);
+        }
     }
 
     public void GameOver()

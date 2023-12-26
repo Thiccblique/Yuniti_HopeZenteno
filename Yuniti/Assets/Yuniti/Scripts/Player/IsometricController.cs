@@ -24,8 +24,9 @@ public class IsometricController : MonoBehaviour
     public ParticleSystem attack;
 
     [Header("Stamana")]
+    public GameObject stamanaSlider;
     public float sprintSpeed = 15f;
-    public float maxStamana = 5f;
+    public float maxStamana = 1f;
     public float stamana;
     public Slider stamanaBar;
 
@@ -36,6 +37,7 @@ public class IsometricController : MonoBehaviour
         speed = solidSpeed;
         anim = GetComponent<Animator>();
         SetMaxStamana(maxStamana);
+        stamanaSlider.SetActive(false);
     }
 
     void Update()
@@ -49,6 +51,7 @@ public class IsometricController : MonoBehaviour
             AttackAnim();
             PlayerSprint();
             SetStamana(stamana);
+            StamanaBack();
         }
         else
         {
@@ -89,24 +92,30 @@ public class IsometricController : MonoBehaviour
         float realTime = Time.deltaTime;
         if(Input.GetKey(KeyCode.LeftShift) && stamana > .1 && speed > 1)
         {
+            
             speed = sprintSpeed;
             stamana -= realTime;
+            stamanaSlider.SetActive(true);
+        }
+        else
+        {
+            stamanaSlider.SetActive(false);
+            realTime = 0;
+            speed = solidSpeed;
+        }
+        
+    }
+    private void StamanaBack()
+    {
+        float realTime = Time.deltaTime;
+        if (speed < sprintSpeed && stamana < maxStamana && !(Input.GetKeyDown(KeyCode.LeftShift)))
+        {
+            stamana += realTime;
         }
         else
         {
             realTime = 0;
-            speed = solidSpeed;
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift) && stamana != maxStamana)
-        {
-            realTime = 0;
-            stamana += realTime;
-        }
-        else if (stamana == maxStamana)
-        {
-            realTime = 0;
-        }
-        
     }
     public void SetMaxStamana(float stamana)
     {

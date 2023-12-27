@@ -18246,7 +18246,7 @@ GameObject:
   - component: {fileID: 367731053}
   m_Layer: 12
   m_Name: PatrolWaypoint1
-  m_TagString: Untagged
+  m_TagString: AllyWaypoint
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18281,7 +18281,7 @@ Transform:
   m_GameObject: {fileID: 367731052}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.84, y: 4.3, z: 8.15}
+  m_LocalPosition: {x: 12.84, y: 4.01, z: 8.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25651,7 +25651,7 @@ GameObject:
   - component: {fileID: 588199492}
   m_Layer: 12
   m_Name: PatrolWaypoint3
-  m_TagString: Untagged
+  m_TagString: AllyWaypoint
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25686,7 +25686,7 @@ Transform:
   m_GameObject: {fileID: 588199491}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.88, y: 4.673, z: 12.97}
+  m_LocalPosition: {x: -4.88, y: 4.673, z: 11.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -38475,7 +38475,7 @@ GameObject:
   - component: {fileID: 902049420}
   m_Layer: 12
   m_Name: PatrolWaypoint2
-  m_TagString: Untagged
+  m_TagString: AllyWaypoint
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38510,7 +38510,7 @@ Transform:
   m_GameObject: {fileID: 902049419}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.3, y: 4.65, z: -6.01}
+  m_LocalPosition: {x: 14.3, y: 4.5, z: -6.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40440,7 +40440,7 @@ GameObject:
   - component: {fileID: 941461897}
   m_Layer: 0
   m_Name: AllyPerimeter
-  m_TagString: Untagged
+  m_TagString: AllyWaypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40499,10 +40499,15 @@ MonoBehaviour:
   ally:
     serializedVersion: 2
     m_Bits: 2048
-  PatrolWaypoint:
+  patrol:
     serializedVersion: 2
     m_Bits: 4096
   perimeterRange: 17
+  patrolPoints:
+  - {fileID: 367731052}
+  - {fileID: 902049419}
+  - {fileID: 588199491}
+  - {fileID: 1525434827}
 --- !u!1001 &941535706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59312,7 +59317,7 @@ MonoBehaviour:
   coinsCount: {fileID: 345214007}
   enemyCount: {fileID: 1749237603}
   roundCount: {fileID: 1685301139}
-  coins: 5
+  coins: 999
   itemPrice: 2
   towerIsLocked: 1
   dialougeBox:
@@ -72661,7 +72666,7 @@ GameObject:
   - component: {fileID: 1525434828}
   m_Layer: 12
   m_Name: PatrolWaypoint4
-  m_TagString: Untagged
+  m_TagString: AllyWaypoint
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105366,7 +105371,7 @@ PrefabInstance:
       objectReference: {fileID: 963194227}
     - target: {fileID: 3225650241671013452, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.17
+      value: -5.47
       objectReference: {fileID: 0}
     - target: {fileID: 3225650241671013452, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
       propertyPath: m_LocalPosition.y
@@ -105374,7 +105379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3225650241671013452, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.31
+      value: -2.11
       objectReference: {fileID: 0}
     - target: {fileID: 3225650241671013452, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
       propertyPath: m_LocalRotation.w

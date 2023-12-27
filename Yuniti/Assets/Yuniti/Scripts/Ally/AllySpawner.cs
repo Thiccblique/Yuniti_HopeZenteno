@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class AllySpawner : MonoBehaviour
 {
     public static AllySpawner instance;
@@ -13,6 +14,8 @@ public class AllySpawner : MonoBehaviour
 
     private int spawnCount = 0;
     private float spawnTimer = 0.0f;
+
+
 
     // Start is called before the first frame update
     void Start()

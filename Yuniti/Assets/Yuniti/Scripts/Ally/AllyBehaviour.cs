@@ -3,25 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class AllyBehaviour : MonoBehaviour
 {
     public NavMeshAgent allyAgent;
     public int damageAmount = 1;
     public int attackRate = 1;
     private bool attackCooldown = false;
-    private bool standingDown = false;
+    //private bool standingDown = true;
     private EnemyBehaviour enemyBehaviour;
+    private AllyPerimeter allyPerimeter;
+  
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -41,11 +44,5 @@ public class AllyBehaviour : MonoBehaviour
         attackCooldown = true;
         yield return new WaitForSeconds(attackRate);
         attackCooldown = false;
-    }
-
-    IEnumerator EnemiesInRange()
-    {
-        yield return new WaitForSeconds(5);
-        standingDown = true;
     }
 }

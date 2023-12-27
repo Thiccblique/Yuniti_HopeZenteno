@@ -213,7 +213,6 @@ public class GameManager : MonoBehaviour
         if (RoundManager.instance.roundNumber == 1 && RoundManager.instance.endRound == true && killCount > 1)
         {
             dialougeBox[0].SetActive(true);
-            Destroy(dialougeBox[0]);
         }
     }
 

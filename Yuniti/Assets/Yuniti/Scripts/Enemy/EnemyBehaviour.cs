@@ -8,6 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public static EnemyBehaviour instance;
 
+    public float coinsGiven = .5f;
     public NavMeshAgent enemyAgent;
     public GameObject waypoint;
     public int damageAmount = 0;
@@ -25,6 +26,7 @@ public class EnemyBehaviour : MonoBehaviour
     private TowerHealth towerHealth;
     private ProjectileBehaviour projectileBehaviour;
     private FWProjectileBehaviour fwProjectileBehaviour;
+    private WallBehavior wallBehavior;
 
     public Slider healthbar;
     public GameObject healthbarUI;
@@ -57,7 +59,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (healthAmount <= 0)
         {
-            GameManager.instance.coins += .5f;
+            GameManager.instance.coins += coinsGiven;
             GameManager.instance.killCount++;
             RoundManager.instance.remainingEnemies--;
             healthAmount = 0;
@@ -94,9 +96,20 @@ public class EnemyBehaviour : MonoBehaviour
             //Debug.Log("Enemy Health: " + healthAmount);
         }
 
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            // wallBehavior = other.gameObject.GetComponent<WallBehavior>();
+            //healthAmount = healthAmount - wallBehavior.damageAmount;
+            healthAmount--;
+            healthbar.value = CalculateHealth();
+            HitPartical();
+            FindAnyObjectByType<AudioManager>().Play("EnemyHit");
+            // Debug.Log("Enemy Health: " + healthAmount);
+        }
+
         if (other.gameObject.CompareTag("HitBox"))
         {
-            healthAmount -= 2;
+            healthAmount --;
             healthbar.value = CalculateHealth();
             HitPartical();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");

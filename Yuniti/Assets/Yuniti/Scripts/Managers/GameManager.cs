@@ -140,6 +140,7 @@ public class GameManager : MonoBehaviour
             enemy.attackRate = 3;
             enemy.damageAmount = 2;
             enemy.maxHealth = 20;
+            enemy.coinsGiven = 1f;
 
         }
     }

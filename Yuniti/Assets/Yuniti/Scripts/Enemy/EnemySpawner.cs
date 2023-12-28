@@ -39,6 +39,7 @@ public class EnemySpawner : MonoBehaviour
         {
             float firstEnemyCount = 0f;
             float secondEnemyCount = 0f;
+            float thirdEnemyCount = 0f;
 
             if (curRound >= 1 && curRound <= 3)
             {
@@ -60,15 +61,22 @@ public class EnemySpawner : MonoBehaviour
             else if (curRound >= 4 && curRound <= 7)
             {
                 
-                firstEnemyCount = RoundManager.instance.remainingEnemies * .6f;
+                firstEnemyCount = RoundManager.instance.remainingEnemies * .4f;
                 secondEnemyCount = RoundManager.instance.remainingEnemies * .4f;
+                thirdEnemyCount = RoundManager.instance.remainingEnemies * .2f;
               
 
                 firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
                 secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
+                thirdEnemyCount = Mathf.FloorToInt(thirdEnemyCount);
+
                 if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
                 {
                     secondEnemyCount++;
+                }
+                if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
+                {
+                    thirdEnemyCount++;
                 }
                 if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
                 {
@@ -78,11 +86,17 @@ public class EnemySpawner : MonoBehaviour
             else if (curRound >= 8) // This type of enemy count goes forever. Change later when end round is added plus more enmies.
             {
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .2f;
-                secondEnemyCount = RoundManager.instance.remainingEnemies * .8f;
+                secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
+                thirdEnemyCount = RoundManager.instance.remainingEnemies * .5f;
 
                 firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
                 secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
+                thirdEnemyCount = Mathf .FloorToInt(thirdEnemyCount);
 
+                if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
+                {
+                    thirdEnemyCount++;
+                }
                 if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
                 {
                     secondEnemyCount++;
@@ -110,7 +124,15 @@ public class EnemySpawner : MonoBehaviour
                 yield return new WaitForSeconds(spawnInterval);
             }
 
-            if(spawnCount >= enemiesToSpawn)
+            for (int i = 0; thirdEnemyCount > i; i++)
+            {
+                int spawnPointChosen = Random.Range(0, spawnPoint.Length);
+                Instantiate(objectToSpawn[2], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
+                spawnCount++;
+                yield return new WaitForSeconds(spawnInterval);
+            }
+
+            if (spawnCount >= enemiesToSpawn)
             {
                 break;
             }

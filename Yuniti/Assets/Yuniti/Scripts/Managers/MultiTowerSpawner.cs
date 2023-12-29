@@ -101,24 +101,29 @@ public class MultiTowerSpawner : MonoBehaviour
     }
     public void KunaiTowerClick()
     {
+        FindAnyObjectByType<AudioManager>().Play("Select");
         kunaiTower.SetActive(true);
         buildingLocationPrim.SetActive(false);
         multiDeactivate = true;
+
     }
     public void FireworkTowerClick()
     {
+        FindAnyObjectByType<AudioManager>().Play("Select");
         fireworkTower.SetActive(true);
         buildingLocationPrim.SetActive(false);
         multiDeactivate = true;
     }
     public void BambooTowerClick()
     {
+        FindAnyObjectByType<AudioManager>().Play("Select");
         bambooTower.SetActive(true);
         buildingLocationPrim.SetActive(false);
         multiDeactivate = true;
     }
     public void MineingTowerClick()
     {
+        FindAnyObjectByType<AudioManager>().Play("Select");
         mineingTower.SetActive(true);
         buildingLocationPrim.SetActive(false);
         multiDeactivate = true;

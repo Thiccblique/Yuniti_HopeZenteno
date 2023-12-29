@@ -53,4 +53,9 @@ public class Hud : MonoBehaviour
        
  
     }
+
+    public void AudioSelect()
+    {
+        FindAnyObjectByType<AudioManager>().Play("Select");
+    }
 }

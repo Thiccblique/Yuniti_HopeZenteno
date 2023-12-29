@@ -34,7 +34,8 @@ public class EnemyBehaviour : MonoBehaviour
     public Transform hitPosition;
 
     [Header("Particals")]
-    public ParticleSystem hitPartical;
+    //public ParticleSystem hitPartical;
+    public ParticleSystem[] particleSystems;
 
 
     void Start()
@@ -81,7 +82,8 @@ public class EnemyBehaviour : MonoBehaviour
             projectileBehaviour = other.gameObject.GetComponent<ProjectileBehaviour>();
             healthAmount = healthAmount - projectileBehaviour.damageAmount;
             healthbar.value = CalculateHealth();
-            HitPartical();
+            //HitPartical();
+            ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             // Debug.Log("Enemy Health: " + healthAmount);
         }
@@ -91,7 +93,8 @@ public class EnemyBehaviour : MonoBehaviour
             fwProjectileBehaviour = other.gameObject.GetComponent<FWProjectileBehaviour>();
             healthAmount = healthAmount - fwProjectileBehaviour.damageAmount;
             healthbar.value = CalculateHealth();
-            HitPartical();
+            //HitPartical();
+            ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             //Debug.Log("Enemy Health: " + healthAmount);
         }
@@ -102,7 +105,8 @@ public class EnemyBehaviour : MonoBehaviour
             //healthAmount = healthAmount - wallBehavior.damageAmount;
             healthAmount--;
             healthbar.value = CalculateHealth();
-            HitPartical();
+            //HitPartical();
+            ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             // Debug.Log("Enemy Health: " + healthAmount);
         }
@@ -111,7 +115,8 @@ public class EnemyBehaviour : MonoBehaviour
         {
             healthAmount --;
             healthbar.value = CalculateHealth();
-            HitPartical();
+            //HitPartical();
+            ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             //Debug.Log("Enemy Health: " + healthAmount);
         }
@@ -156,12 +161,36 @@ public class EnemyBehaviour : MonoBehaviour
         HitTextAnimation hitTextAnimation = hitText.AddComponent<HitTextAnimation>();
     }
 
-    private void HitPartical()
+    // OG partical system code
+    /*private void HitPartical()
     {
         if (hitPartical != null)
         {
             hitPartical.gameObject.SetActive(true);
             hitPartical.Play();
+        }
+    }*/
+    public void ActivateRandomParticleSystem()
+    {
+        if (particleSystems != null && particleSystems.Length > 0)
+        {
+            int randomIndex = Random.Range(0, particleSystems.Length);
+
+            // Disable all particle systems in the array
+            for (int i = 0; i < particleSystems.Length; i++)
+            {
+                if (particleSystems[i].isPlaying)
+                {
+                    particleSystems[i].Stop();
+                }
+            }
+
+            // Activate the randomly selected particle system
+            particleSystems[randomIndex].Play();
+        }
+        else
+        {
+            Debug.LogWarning("No particle systems found or added to the array!");
         }
     }
 

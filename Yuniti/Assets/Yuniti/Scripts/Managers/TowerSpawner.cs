@@ -116,6 +116,8 @@ public class TowerSpawner : MonoBehaviour
                     GameManager.instance.coins = GameManager.instance.coins - price;
                     SpawnObject();
                     FindAnyObjectByType<AudioManager>().Play("Buy");
+                    FindAnyObjectByType<AudioManager>().Play("Building");
+
 
                 }
             }

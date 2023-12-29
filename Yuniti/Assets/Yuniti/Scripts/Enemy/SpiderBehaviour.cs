@@ -32,7 +32,7 @@ public class SpiderBehaviour : MonoBehaviour
     public Transform hitPosition;
 
     [Header("Particals")]
-    public ParticleSystem hitPartical;
+    public ParticleSystem[] particleSystems;
 
 
     void Start()
@@ -133,10 +133,25 @@ public class SpiderBehaviour : MonoBehaviour
 
     private void HitPartical()
     {
-        if (hitPartical != null)
+        if (particleSystems != null && particleSystems.Length > 0)
         {
-            hitPartical.gameObject.SetActive(true);
-            hitPartical.Play();
+            int randomIndex = Random.Range(0, particleSystems.Length);
+
+            // Disable all particle systems in the array
+            for (int i = 0; i < particleSystems.Length; i++)
+            {
+                if (particleSystems[i].isPlaying)
+                {
+                    particleSystems[i].Stop();
+                }
+            }
+
+            // Activate the randomly selected particle system
+            particleSystems[randomIndex].Play();
+        }
+        else
+        {
+            Debug.LogWarning("No particle systems found or added to the array!");
         }
     }
 

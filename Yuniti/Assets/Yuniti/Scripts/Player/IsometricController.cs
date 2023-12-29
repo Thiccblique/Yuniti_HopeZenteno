@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class IsometricController : MonoBehaviour
 {
@@ -79,7 +80,9 @@ public class IsometricController : MonoBehaviour
         {
             var rot = Quaternion.LookRotation(input.ToIso(), Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, rotSpeed * Time.deltaTime);
+          
         }
+        
     }
 
     private void Move()

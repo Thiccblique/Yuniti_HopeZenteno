@@ -70,15 +70,15 @@ public class EnemySpawner : MonoBehaviour
                 secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
                 thirdEnemyCount = Mathf.FloorToInt(thirdEnemyCount);
 
-                if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
+                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount != enemiesToSpawn)
                 {
                     secondEnemyCount++;
                 }
-                if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
+                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount != enemiesToSpawn)
                 {
                     thirdEnemyCount++;
                 }
-                if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
+                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount != enemiesToSpawn)
                 {
                     firstEnemyCount++;
                 }
@@ -93,15 +93,15 @@ public class EnemySpawner : MonoBehaviour
                 secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
                 thirdEnemyCount = Mathf .FloorToInt(thirdEnemyCount);
 
-                if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
+                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount != enemiesToSpawn)
                 {
                     thirdEnemyCount++;
                 }
-                if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
+                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount != enemiesToSpawn)
                 {
                     secondEnemyCount++;
                 }
-                if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
+                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount != enemiesToSpawn)
                 {
                     firstEnemyCount++;
                 }

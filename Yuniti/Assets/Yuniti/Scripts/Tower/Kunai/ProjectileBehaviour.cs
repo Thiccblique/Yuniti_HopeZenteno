@@ -17,7 +17,7 @@ public class ProjectileBehaviour : MonoBehaviour
         {
             GameObject enemy = collider.gameObject; // allows usage of GameObject methods (creates gameobject for enemies detected).
             transform.LookAt(enemy.transform.position); // Looks at the enemy using the z axis (rotation).
-            transform.Rotate(0, 0, 0); // This then rotates -90 degrees in the x axis to give it a more arrow look.
+            transform.Rotate(-90, 0, 0); // This then rotates -90 degrees in the x axis to give it a more arrow look.
         }
     }
 

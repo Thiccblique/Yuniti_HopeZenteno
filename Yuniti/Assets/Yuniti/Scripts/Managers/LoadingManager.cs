@@ -29,4 +29,9 @@ public class LoadingManager : MonoBehaviour
             yield return null;
         }
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

@@ -44,4 +44,9 @@ public class AsyncManager : MonoBehaviour
             yield return null;
         }
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

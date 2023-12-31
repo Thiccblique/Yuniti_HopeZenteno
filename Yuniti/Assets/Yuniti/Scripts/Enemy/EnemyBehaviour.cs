@@ -13,8 +13,7 @@ public class EnemyBehaviour : MonoBehaviour
     public GameObject waypoint;
     public int damageAmount = 0;
     public int attackRate = 0;
-    public int healthAmount;
-    public int maxHealth;
+   
     //public int curHealth;
     
     private bool attackCooldown = false;
@@ -28,14 +27,18 @@ public class EnemyBehaviour : MonoBehaviour
     private FWProjectileBehaviour fwProjectileBehaviour;
     private WallBehavior wallBehavior;
 
-    public Slider healthbar;
-    public GameObject healthbarUI;
+   
     public GameObject hitTextPrefab;
     public Transform hitPosition;
 
     [Header("Particals")]
-    //public ParticleSystem hitPartical;
     public ParticleSystem[] particleSystems;
+
+    [Header("Health")]
+    public int healthAmount;
+    public int maxHealth;
+
+    public Slider healthBar;
 
 
     void Start()
@@ -44,6 +47,7 @@ public class EnemyBehaviour : MonoBehaviour
         destination = waypoint.transform.position; // This sets the Vector3 destination (X, Y, Z) for the Enemy to go to.
         healthAmount = maxHealth;
         anim = GetComponent<Animator>();
+        SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -67,7 +71,7 @@ public class EnemyBehaviour : MonoBehaviour
             Destroy(gameObject);
             
         }
-       
+       SetHealth(healthAmount);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -81,7 +85,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             projectileBehaviour = other.gameObject.GetComponent<ProjectileBehaviour>();
             healthAmount = healthAmount - projectileBehaviour.damageAmount;
-            healthbar.value = CalculateHealth();
+           // healthBar.value = CalculateHealth();
             //HitPartical();
             ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
@@ -92,7 +96,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             fwProjectileBehaviour = other.gameObject.GetComponent<FWProjectileBehaviour>();
             healthAmount = healthAmount - fwProjectileBehaviour.damageAmount;
-            healthbar.value = CalculateHealth();
+            //healthBar.value = CalculateHealth();
             //HitPartical();
             ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
@@ -104,7 +108,7 @@ public class EnemyBehaviour : MonoBehaviour
             // wallBehavior = other.gameObject.GetComponent<WallBehavior>();
             //healthAmount = healthAmount - wallBehavior.damageAmount;
             healthAmount--;
-            healthbar.value = CalculateHealth();
+            //healthbar.value = CalculateHealth();
             //HitPartical();
             ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
@@ -114,7 +118,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("HitBox"))
         {
             healthAmount --;
-            healthbar.value = CalculateHealth();
+            //healthbar.value = CalculateHealth();
             //HitPartical();
             ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
@@ -122,10 +126,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    float CalculateHealth()
-    {
-        return healthAmount;
-    }
+    
 
     private void OnTriggerStay(Collider other)
     {
@@ -155,21 +156,7 @@ public class EnemyBehaviour : MonoBehaviour
        
     }
 
-    void CreateHitAnimation(Vector3 position)
-    {
-        GameObject hitText = Instantiate(hitTextPrefab, position, Quaternion.identity);
-        HitTextAnimation hitTextAnimation = hitText.AddComponent<HitTextAnimation>();
-    }
-
-    // OG partical system code
-    /*private void HitPartical()
-    {
-        if (hitPartical != null)
-        {
-            hitPartical.gameObject.SetActive(true);
-            hitPartical.Play();
-        }
-    }*/
+   
     public void ActivateRandomParticleSystem()
     {
         if (particleSystems != null && particleSystems.Length > 0)
@@ -208,4 +195,17 @@ public class EnemyBehaviour : MonoBehaviour
         yield return new WaitForSeconds(3);
         towerNearby = false;
     }
+
+    /* ENEMY HEALTH SYSTEM */
+
+    public void SetMaxHealth(float health)
+    {
+        healthBar.maxValue = health;
+        healthBar.value = health;
+    }
+    public void SetHealth(float health)
+    {
+        healthBar.value = health;
+    }
+
 }

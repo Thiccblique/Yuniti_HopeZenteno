@@ -57,8 +57,9 @@ public class RoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        
         day.SetActive(true);
+        FindAnyObjectByType<AudioManager>().Play("OverWorld");
         night.SetActive(false);
         TurnOff();
         endRound = false;
@@ -142,7 +143,9 @@ public class RoundManager : MonoBehaviour
         EnemySpawner.instance.StartSpawning();
         endRound = false;
         TurnOn();
-       
+        FindAnyObjectByType<AudioManager>().Stop("OverWorld");
+        FindAnyObjectByType<AudioManager>().Play("InBattle");
+
     }
     public void EndRound() // This is always running and messing with the starting round. Add boolean or moved it from Update.
     {
@@ -157,7 +160,9 @@ public class RoundManager : MonoBehaviour
             {
                 canContinue = true;
                 runOnce = false;
-                
+                FindAnyObjectByType<AudioManager>().Play("OverWorld");
+                FindAnyObjectByType<AudioManager>().Stop("InBattle");
+
             }
             startRoundUI.SetActive(true);
             enemRemainUI.SetActive(false);

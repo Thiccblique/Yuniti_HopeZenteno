@@ -12,8 +12,7 @@ public class SpiderBehaviour : MonoBehaviour
     public GameObject waypoint;
     public int damageAmount = 0;
     public int attackRate = 0;
-    public int healthAmount;
-    public int maxHealth;
+    
     //public int curHealth;
 
     private bool attackCooldown = false;
@@ -26,14 +25,18 @@ public class SpiderBehaviour : MonoBehaviour
     private ProjectileBehaviour projectileBehaviour;
     private FWProjectileBehaviour fwProjectileBehaviour;
 
-    public Slider healthbar;
-    public GameObject healthbarUI;
+  
     public GameObject hitTextPrefab;
     public Transform hitPosition;
 
     [Header("Particals")]
     public ParticleSystem[] particleSystems;
 
+    [Header("Health")]
+    public int healthAmount;
+    public int maxHealth;
+
+    public Slider healthBar;
 
     void Start()
     {
@@ -41,6 +44,7 @@ public class SpiderBehaviour : MonoBehaviour
         destination = waypoint.transform.position; // This sets the Vector3 destination (X, Y, Z) for the Enemy to go to.
         healthAmount = maxHealth;
         //anim = GetComponent<Animator>();
+        SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -56,6 +60,7 @@ public class SpiderBehaviour : MonoBehaviour
             Destroy(gameObject);
 
         }
+        SetHealth(healthAmount);
 
     }
 
@@ -66,7 +71,7 @@ public class SpiderBehaviour : MonoBehaviour
         {
             projectileBehaviour = other.gameObject.GetComponent<ProjectileBehaviour>();
             healthAmount = healthAmount - projectileBehaviour.damageAmount;
-            healthbar.value = CalculateHealth();
+           // healthbar.value = CalculateHealth();
             HitPartical();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             // Debug.Log("Enemy Health: " + healthAmount);
@@ -76,7 +81,7 @@ public class SpiderBehaviour : MonoBehaviour
         {
             fwProjectileBehaviour = other.gameObject.GetComponent<FWProjectileBehaviour>();
             healthAmount = healthAmount - fwProjectileBehaviour.damageAmount;
-            healthbar.value = CalculateHealth();
+           // healthbar.value = CalculateHealth();
             HitPartical();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             //Debug.Log("Enemy Health: " + healthAmount);
@@ -85,7 +90,7 @@ public class SpiderBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("HitBox"))
         {
             healthAmount--;
-            healthbar.value = CalculateHealth();
+           // healthbar.value = CalculateHealth();
             HitPartical();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             //Debug.Log("Enemy Health: " + healthAmount);
@@ -168,5 +173,17 @@ public class SpiderBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         towerNearby = false;
+    }
+
+    /* ENEMY HEALTH SYSTEM */
+
+    public void SetMaxHealth(float health)
+    {
+        healthBar.maxValue = health;
+        healthBar.value = health;
+    }
+    public void SetHealth(float health)
+    {
+        healthBar.value = health;
     }
 }

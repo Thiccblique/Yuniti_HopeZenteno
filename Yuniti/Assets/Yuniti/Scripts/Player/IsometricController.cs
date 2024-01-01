@@ -10,7 +10,7 @@ public class IsometricController : MonoBehaviour
     public static IsometricController instance;
     private AudioManager sound;
     public Rigidbody rb;
-    
+    public float attackDamage = 1;
     public float speed;
     public float solidSpeed = 10;
    

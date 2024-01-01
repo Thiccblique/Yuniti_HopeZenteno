@@ -18,8 +18,10 @@ public class GameManager : MonoBehaviour
     public TowerHealth defendingPointsHP3;
     //private EnemyBehaviour enemy;
 
-    [Header("Enemy Scripts")]
-    public EnemyBehaviour enemy;
+    [Header("Enemys")]
+    public EnemyBehaviour standardBehaviour;
+    public EnemyBehaviour flyBehaviour;
+    public SpiderBehaviour spiderBehaviour;
 
     [Header("HUD")]
     public GameObject hudCanvas;
@@ -72,6 +74,7 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public int killCount;
+    private bool hasRan = false;
     
 
 
@@ -135,14 +138,25 @@ public class GameManager : MonoBehaviour
 
     private void EnemyStats()
     {
-        if (RoundManager.instance.roundNumber == 4)
-        {
-            enemy.attackRate = 3;
-            enemy.damageAmount = 2;
-            enemy.maxHealth = 20;
-            enemy.coinsGiven = 1f;
+        //Standart Enemy
+        standardBehaviour.damageAmount += 2f;
+        standardBehaviour.maxHealth += 2.5f;
+        standardBehaviour.attackRate += 0.2f;
 
-        }
+        //Flying Enemy
+        flyBehaviour.damageAmount += 2f;
+        flyBehaviour.maxHealth += 2.5f;
+        flyBehaviour.attackRate += 0.2f;
+
+        //FilmRed Spider
+        spiderBehaviour.damageAmount += 2f;
+        spiderBehaviour.maxHealth += 2.5f;
+        standardBehaviour.attackRate += 0.4f;
+
+        //And Player? lol 
+        pController.attackDamage += 1f;
+
+
     }
 
     private void Spawner()
@@ -211,9 +225,11 @@ public class GameManager : MonoBehaviour
 
     private void DialogueActivator()
     {
-        if (RoundManager.instance.roundNumber == 1 && RoundManager.instance.endRound == true && killCount > 1)
+        if (RoundManager.instance.roundNumber == 1 && RoundManager.instance.endRound == true && killCount > 1 && hasRan)
         {
             dialougeBox[0].SetActive(true);
+            hasRan = true;
+
         }
     }
 

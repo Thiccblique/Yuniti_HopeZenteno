@@ -10,8 +10,8 @@ public class SpiderBehaviour : MonoBehaviour
 
     public NavMeshAgent enemyAgent;
     public GameObject waypoint;
-    public int damageAmount = 0;
-    public int attackRate = 0;
+    public float damageAmount = 0;
+    public float attackRate = 0;
     
     //public int curHealth;
 

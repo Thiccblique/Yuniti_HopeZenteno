@@ -8,11 +8,12 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public static EnemyBehaviour instance;
 
+    
     public float coinsGiven = .7f;
     public NavMeshAgent enemyAgent;
     public GameObject waypoint;
     public float damageAmount = 0;
-    public int attackRate = 0;
+    public float attackRate = 0;
    
     //public int curHealth;
     
@@ -26,6 +27,7 @@ public class EnemyBehaviour : MonoBehaviour
     private ProjectileBehaviour projectileBehaviour;
     private FWProjectileBehaviour fwProjectileBehaviour;
     private WallBehavior wallBehavior;
+    public IsometricController player;
 
    
     public GameObject hitTextPrefab;
@@ -64,7 +66,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (healthAmount <= 0)
         {
-            GameManager.instance.coins += coinsGiven;
+            GameManager.instance.coins++;
             GameManager.instance.killCount++;
             RoundManager.instance.remainingEnemies--;
             healthAmount = 0;
@@ -117,12 +119,13 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (other.gameObject.CompareTag("HitBox"))
         {
-            healthAmount --;
-            //healthbar.value = CalculateHealth();
-            //HitPartical();
+            
+
+            healthAmount -= player.attackDamage;
+           
             ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
-            //Debug.Log("Enemy Health: " + healthAmount);
+           
         }
     }
 

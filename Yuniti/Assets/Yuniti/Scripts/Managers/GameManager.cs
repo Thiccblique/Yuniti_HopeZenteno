@@ -139,19 +139,19 @@ public class GameManager : MonoBehaviour
     private void EnemyStats()
     {
         //Standart Enemy
-        standardBehaviour.damageAmount += 2f;
-        standardBehaviour.maxHealth += 2.5f;
-        standardBehaviour.attackRate += 0.2f;
+        standardBehaviour.damageAmount += 1.5f;
+        standardBehaviour.maxHealth += 2f;
+        standardBehaviour.attackRate += 0.1f;
 
         //Flying Enemy
         flyBehaviour.damageAmount += 2f;
         flyBehaviour.maxHealth += 2.5f;
-        flyBehaviour.attackRate += 0.2f;
+        flyBehaviour.attackRate += 0.1f;
 
         //FilmRed Spider
-        spiderBehaviour.damageAmount += 2f;
-        spiderBehaviour.maxHealth += 2.5f;
-        standardBehaviour.attackRate += 0.4f;
+        spiderBehaviour.damageAmount += 1.5f;
+        spiderBehaviour.maxHealth += 2f;
+        standardBehaviour.attackRate += 0.3f;
 
         //And Player? lol 
         pController.attackDamage += 1f;

@@ -90,7 +90,11 @@ public class TowerSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpawnTower();
+        if(!maxedOut)
+        {
+            SpawnTower();
+        }
+        
         MakeMarkerGoByeBye();
         TowerPointer();
         TowerHealth();
@@ -157,7 +161,8 @@ public class TowerSpawner : MonoBehaviour
             spawnTwo = false;
             spawnOne = false;
             health2.curHealth = health2.maxHealth;
-           
+            price = priceOne;
+
         }
         if (health3.curHealth <= 0)
         {
@@ -166,7 +171,8 @@ public class TowerSpawner : MonoBehaviour
             spawnTwo = false;
             spawnOne = false;
             health3.curHealth = health3.maxHealth;
-            
+            price = priceOne;
+            maxedOut = false;
         }
         
     }
@@ -205,9 +211,10 @@ public class TowerSpawner : MonoBehaviour
                 locationMarkerThree.SetActive(false);
                 spawnThree = true;
                 hasSpawned = false;
-            }
-            else
                 maxedOut = true;
+            }
+            
+              
         }
        
     }

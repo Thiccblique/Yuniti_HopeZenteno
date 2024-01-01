@@ -33,8 +33,8 @@ public class SpiderBehaviour : MonoBehaviour
     public ParticleSystem[] particleSystems;
 
     [Header("Health")]
-    public int healthAmount;
-    public int maxHealth;
+    public float healthAmount;
+    public float maxHealth;
 
     public Slider healthBar;
 

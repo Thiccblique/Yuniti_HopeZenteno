@@ -8,10 +8,10 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public static EnemyBehaviour instance;
 
-    public float coinsGiven = .5f;
+    public float coinsGiven = .7f;
     public NavMeshAgent enemyAgent;
     public GameObject waypoint;
-    public int damageAmount = 0;
+    public float damageAmount = 0;
     public int attackRate = 0;
    
     //public int curHealth;
@@ -35,8 +35,8 @@ public class EnemyBehaviour : MonoBehaviour
     public ParticleSystem[] particleSystems;
 
     [Header("Health")]
-    public int healthAmount;
-    public int maxHealth;
+    public float healthAmount;
+    public float maxHealth;
 
     public Slider healthBar;
 

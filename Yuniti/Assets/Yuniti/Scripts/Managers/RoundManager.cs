@@ -36,6 +36,11 @@ public class RoundManager : MonoBehaviour
     [Header("Day&&Night")]
     public GameObject day;
     public GameObject night;
+    
+    [Header("Enemys")]
+    public EnemyBehaviour standardBehaviour;
+    public EnemyBehaviour flyBehaviour;
+    public SpiderBehaviour spiderBehaviour;
 
     [Header("Particals")]
     public GameObject partical1;

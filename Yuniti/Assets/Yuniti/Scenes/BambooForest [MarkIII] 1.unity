@@ -7323,6 +7323,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2588946008871931735, guid: bb6581a0645bee740b1d504350e3251d, type: 3}
   m_PrefabInstance: {fileID: 6765966536879857233}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &143307673 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6441320892637882320, guid: bb6581a0645bee740b1d504350e3251d, type: 3}
+  m_PrefabInstance: {fileID: 6765966536879857233}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143307667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0cae5e5c2046946b0121200bafd997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &147326830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20196,6 +20207,9 @@ MonoBehaviour:
   countdownPanel: {fileID: 1480401169}
   day: {fileID: 774116777}
   night: {fileID: 868407966}
+  standardBehaviour: {fileID: 1870500888}
+  flyBehaviour: {fileID: 143307673}
+  spiderBehaviour: {fileID: 1283201221}
   partical1: {fileID: 2010122857}
   partical2: {fileID: 319260871}
   partical3: {fileID: 414880337}
@@ -53099,10 +53113,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 335500719}
     m_Modifications:
+    - target: {fileID: 271163792821760316, guid: 8912c6e6868562f46b6e22c899678569, type: 3}
+      propertyPath: m_Speed
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 271163792821760316, guid: 8912c6e6868562f46b6e22c899678569, type: 3}
+      propertyPath: m_Acceleration
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 439126325606090695, guid: 8912c6e6868562f46b6e22c899678569, type: 3}
       propertyPath: waypoint
       value: 
       objectReference: {fileID: 1930265122}
+    - target: {fileID: 439126325606090695, guid: 8912c6e6868562f46b6e22c899678569, type: 3}
+      propertyPath: maxHealth
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4372587712353952729, guid: 8912c6e6868562f46b6e22c899678569, type: 3}
       propertyPath: m_Name
       value: FRSpider
@@ -60865,7 +60891,7 @@ MonoBehaviour:
   coinsCount: {fileID: 345214007}
   enemyCount: {fileID: 1749237603}
   roundCount: {fileID: 1685301139}
-  coins: 9999
+  coins: 5
   itemPrice: 2
   towerIsLocked: 1
   dialougeBox:
@@ -60994,7 +61020,7 @@ PrefabInstance:
     - target: {fileID: 4637631894482625210, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1125878020}
     - target: {fileID: 5068645624998872254, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -61002,7 +61028,7 @@ PrefabInstance:
     - target: {fileID: 5602989262465818812, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1788899959}
     - target: {fileID: 6079641696986308604, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -64544,6 +64570,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4372587712353952729, guid: 8912c6e6868562f46b6e22c899678569, type: 3}
   m_PrefabInstance: {fileID: 1053705807}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1283201221 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 439126325606090695, guid: 8912c6e6868562f46b6e22c899678569, type: 3}
+  m_PrefabInstance: {fileID: 1053705807}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283201218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70549fe6f4fb89498d11739a26a2e74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1285173981
 GameObject:
   m_ObjectHideFlags: 0
@@ -71482,11 +71519,11 @@ PrefabInstance:
     - target: {fileID: 1583518536197573136, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 158010146}
     - target: {fileID: 1757588129050478614, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 392304175}
     - target: {fileID: 2300594760682058252, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_Name
       value: BambooFarm (1)
@@ -95349,11 +95386,11 @@ PrefabInstance:
     - target: {fileID: 4637631894482625210, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1587334922}
     - target: {fileID: 5602989262465818812, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 756645456}
     - target: {fileID: 6084803954388948409, guid: 400e62296654cee408d76a87b31a9e47, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -97310,6 +97347,18 @@ PrefabInstance:
       propertyPath: cameraZoom
       value: 
       objectReference: {fileID: 963194232}
+    - target: {fileID: 1335017762447841914, guid: af84af904000f894287af17917113668, type: 3}
+      propertyPath: firstUpgrade
+      value: 
+      objectReference: {fileID: 1895258195}
+    - target: {fileID: 1335017762447841914, guid: af84af904000f894287af17917113668, type: 3}
+      propertyPath: thirdUpgrade
+      value: 
+      objectReference: {fileID: 1895258195}
+    - target: {fileID: 1335017762447841914, guid: af84af904000f894287af17917113668, type: 3}
+      propertyPath: secondUpgrade
+      value: 
+      objectReference: {fileID: 1895258195}
     - target: {fileID: 1605379574605474536, guid: af84af904000f894287af17917113668, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -107810,7 +107859,7 @@ PrefabInstance:
     - target: {fileID: 3980589967058596152, guid: 9c7136f43629f7245b68ccc097b0a050, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1938078808}
     - target: {fileID: 4130556199249916015, guid: 9c7136f43629f7245b68ccc097b0a050, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -107818,7 +107867,7 @@ PrefabInstance:
     - target: {fileID: 4224404846636184382, guid: 9c7136f43629f7245b68ccc097b0a050, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 346263488}
     - target: {fileID: 5188606370436607834, guid: 9c7136f43629f7245b68ccc097b0a050, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -108278,11 +108327,11 @@ PrefabInstance:
     - target: {fileID: 3825260904310728142, guid: 4c5014dac3d8c5a41bdaf9279fda7821, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2053766312}
     - target: {fileID: 4074616546441537480, guid: 4c5014dac3d8c5a41bdaf9279fda7821, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1873531464}
     - target: {fileID: 4959408499648999418, guid: 4c5014dac3d8c5a41bdaf9279fda7821, type: 3}
       propertyPath: hudAnim
       value: 
@@ -108447,11 +108496,11 @@ PrefabInstance:
     - target: {fileID: 3704725712167285899, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1318138310}
     - target: {fileID: 4536295561037248141, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1147720837}
     - target: {fileID: 5300124389535664988, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -108730,11 +108779,11 @@ PrefabInstance:
     - target: {fileID: 1583518536197573136, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509809970}
     - target: {fileID: 1757588129050478614, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 344610444}
     - target: {fileID: 2300594760682058252, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_Name
       value: BambooFarm

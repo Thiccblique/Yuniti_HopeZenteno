@@ -36,7 +36,7 @@ public class MultiTowerSpawner : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && GameManager.instance.inRound == false)
         {
             hudAnim.SetBool("open", true);
             tower1Hud.SetActive(true);

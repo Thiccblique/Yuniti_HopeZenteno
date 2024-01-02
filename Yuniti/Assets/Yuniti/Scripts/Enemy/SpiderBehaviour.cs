@@ -54,7 +54,7 @@ public class SpiderBehaviour : MonoBehaviour
         enemyAgent.SetDestination(originalWaypointVector3);
         if (healthAmount <= 0)
         {
-            GameManager.instance.coins += .5f;
+            GameManager.instance.coins++;
             RoundManager.instance.remainingEnemies--;
             healthAmount = 0;
             Destroy(gameObject);

@@ -50,6 +50,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentences.ToCharArray())
         {
             dialogueText.text += letter;
+            FindAnyObjectByType<AudioManager>().Play("Text");
             yield return new WaitForSeconds(.02f);
             yield return null;
         }

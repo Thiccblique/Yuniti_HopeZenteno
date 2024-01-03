@@ -49,7 +49,7 @@ public class TowerHealth : MonoBehaviour
         float realTime = Time.deltaTime;
         if (RoundManager.instance.endRound == true && curHealth < maxHealth)
         {
-           curHealth += realTime;
+           curHealth += (realTime * 2);
         }
         else
         {

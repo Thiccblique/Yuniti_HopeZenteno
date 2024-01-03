@@ -40,11 +40,12 @@ public class EnemySpawner : MonoBehaviour
             float firstEnemyCount = 0f;
             float secondEnemyCount = 0f;
             float thirdEnemyCount = 0f;
+            float fourthEnemyCount = 0f;
 
             if (curRound >= 1 && curRound <= 3)
             {
-                firstEnemyCount = RoundManager.instance.remainingEnemies * .8f;
-                secondEnemyCount = RoundManager.instance.remainingEnemies * .2f;
+                firstEnemyCount = RoundManager.instance.remainingEnemies * .9f;
+                secondEnemyCount = RoundManager.instance.remainingEnemies * .1f;
 
                 firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
                 secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
@@ -62,48 +63,60 @@ public class EnemySpawner : MonoBehaviour
             {
                 
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .4f;
-                secondEnemyCount = RoundManager.instance.remainingEnemies * .4f;
+                secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
                 thirdEnemyCount = RoundManager.instance.remainingEnemies * .2f;
+                fourthEnemyCount = RoundManager.instance.remainingEnemies * .1f;
               
 
                 firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
                 secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
                 thirdEnemyCount = Mathf.FloorToInt(thirdEnemyCount);
+                fourthEnemyCount= Mathf.FloorToInt(fourthEnemyCount);
 
-                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount != enemiesToSpawn)
+                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
                 {
                     secondEnemyCount++;
                 }
-                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount != enemiesToSpawn)
+                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
                 {
                     thirdEnemyCount++;
                 }
-                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount != enemiesToSpawn)
+                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
                 {
                     firstEnemyCount++;
                 }
+                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
+                {
+                    fourthEnemyCount++;
+                }
+
             }
             else if (curRound >= 8) // This type of enemy count goes forever. Change later when end round is added plus more enmies.
             {
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .2f;
-                secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
-                thirdEnemyCount = RoundManager.instance.remainingEnemies * .5f;
+                secondEnemyCount = RoundManager.instance.remainingEnemies * .2f;
+                thirdEnemyCount = RoundManager.instance.remainingEnemies * .4f;
+                fourthEnemyCount = RoundManager.instance.remainingEnemies * 2f;
 
                 firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
                 secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
                 thirdEnemyCount = Mathf .FloorToInt(thirdEnemyCount);
 
-                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount != enemiesToSpawn)
+                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
                 {
                     thirdEnemyCount++;
                 }
-                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount != enemiesToSpawn)
+                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
                 {
                     secondEnemyCount++;
                 }
-                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount != enemiesToSpawn)
+                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
                 {
                     firstEnemyCount++;
+                }
+                if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
+                {
+                    fourthEnemyCount++;
                 }
             }
 
@@ -128,6 +141,13 @@ public class EnemySpawner : MonoBehaviour
             {
                 int spawnPointChosen = Random.Range(0, spawnPoint.Length);
                 Instantiate(objectToSpawn[2], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
+                spawnCount++;
+                yield return new WaitForSeconds(spawnInterval);
+            }
+            for (int i = 0; fourthEnemyCount > i; i++)
+            {
+                int spawnPointChosen = Random.Range(0, spawnPoint.Length);
+                Instantiate(objectToSpawn[3], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
                 spawnCount++;
                 yield return new WaitForSeconds(spawnInterval);
             }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 689282693438974996}
   - component: {fileID: 3905238596930857355}
   - component: {fileID: 5359489932702136998}
+  - component: {fileID: 8766852825172738773}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -58,7 +59,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 0.5
+  m_BaseOffset: 1
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
 --- !u!114 &3764066608623461050
@@ -73,12 +74,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0cae5e5c2046946b0121200bafd997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsGiven: 0
+  coinsGiven: 1
   enemyAgent: {fileID: 8006127765544688456}
   waypoint: {fileID: 0}
   damageAmount: 1
   attackRate: 3
   originalWaypointVector3: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
   hitTextPrefab: {fileID: 4773093525110597554, guid: 3d346e6a2b996ea4da01c24478f38e5d, type: 3}
   hitPosition: {fileID: 7845677973006606016}
   particleSystems:
@@ -160,6 +162,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &8766852825172738773
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907213948248888774}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.2989627
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.14948134, z: 0}
 --- !u!1 &2271392337805194796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,15 +1115,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 5b30fe5439c7ceb4aab99d9bfdf6b037, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.30143
+      value: -0.32
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 5b30fe5439c7ceb4aab99d9bfdf6b037, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9087
+      value: 2.26
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 5b30fe5439c7ceb4aab99d9bfdf6b037, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.069223
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 5b30fe5439c7ceb4aab99d9bfdf6b037, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1146,15 +1171,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4083501151425157549, guid: 5b30fe5439c7ceb4aab99d9bfdf6b037, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.10585
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 4083501151425157549, guid: 5b30fe5439c7ceb4aab99d9bfdf6b037, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.46854
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 4083501151425157549, guid: 5b30fe5439c7ceb4aab99d9bfdf6b037, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.11179
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 4083501151425157549, guid: 5b30fe5439c7ceb4aab99d9bfdf6b037, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1190,15 +1215,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8632055958874330854, guid: 5b30fe5439c7ceb4aab99d9bfdf6b037, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0287
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8632055958874330854, guid: 5b30fe5439c7ceb4aab99d9bfdf6b037, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.6743
+      value: 5.03
       objectReference: {fileID: 0}
     - target: {fileID: 8632055958874330854, guid: 5b30fe5439c7ceb4aab99d9bfdf6b037, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.027167
+      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

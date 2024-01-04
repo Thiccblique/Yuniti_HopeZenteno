@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public EnemyBehaviour standardBehaviour;
     public EnemyBehaviour flyBehaviour;
     public SpiderBehaviour spiderBehaviour;
+    public EnemyBehaviour tankBehaviour;
 
     [Header("HUD")]
     public GameObject hudCanvas;
@@ -141,17 +142,18 @@ public class GameManager : MonoBehaviour
         //Standart Enemy
         standardBehaviour.damageAmount += 1.5f;
         standardBehaviour.maxHealth += 2f;
-        standardBehaviour.attackRate += 0.05f;
 
         //Flying Enemy
-        flyBehaviour.damageAmount += 2f;
-        flyBehaviour.maxHealth += 2.5f;
-        flyBehaviour.attackRate += 0.05f;
-
+        flyBehaviour.damageAmount += 1.5f;
+        flyBehaviour.maxHealth += 2f;
+       
         //FilmRed Spider
         spiderBehaviour.damageAmount += 1.5f;
         spiderBehaviour.maxHealth += 2f;
-        standardBehaviour.attackRate += 0.1f;
+
+        //Tank Behaviour
+        tankBehaviour.damageAmount += 3f;
+        tankBehaviour.maxHealth += 4f;
 
         //And Player? lol 
         pController.attackDamage += 1f;

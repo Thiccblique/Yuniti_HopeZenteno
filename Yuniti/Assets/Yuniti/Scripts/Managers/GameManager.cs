@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public int killCount;
-    private bool hasRan = false;
+    private bool hasRan = true;
     
 
 
@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
         Disability();
         CodeTooUI();
         hudCanvas.SetActive(false);
+        hasRan = false;
     }
 
     public void CodeTooUI()
@@ -227,7 +228,7 @@ public class GameManager : MonoBehaviour
 
     private void DialogueActivator()
     {
-        if (RoundManager.instance.roundNumber == 1 && RoundManager.instance.endRound == true && killCount > 1 && hasRan)
+        if (RoundManager.instance.roundNumber == 1 && RoundManager.instance.endRound == true && killCount > 1 && !hasRan)
         {
             dialougeBox[0].SetActive(true);
             hasRan = true;

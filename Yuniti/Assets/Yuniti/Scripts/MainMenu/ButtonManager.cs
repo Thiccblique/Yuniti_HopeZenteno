@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public AudioMixer audioMixer;
+
+    public void SetVolume (float volume)
     {
-        
+        audioMixer.SetFloat("volume", Mathf.Log10(volume)*20);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetQuality (int qualityIndex)
     {
-        
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
+    public void SetFullScreen (bool isFullScreen)
+    {
+        Screen.fullScreen = isFullScreen;
     }
 }

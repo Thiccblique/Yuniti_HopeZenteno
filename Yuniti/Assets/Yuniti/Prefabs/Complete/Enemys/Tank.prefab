@@ -17,7 +17,7 @@ GameObject:
   m_Layer: 0
   m_Name: Tank
   m_TagString: Enemy
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -97,7 +97,7 @@ MonoBehaviour:
   coinsGiven: 1
   enemyAgent: {fileID: 5043177869621354908}
   waypoint: {fileID: 0}
-  damageAmount: 5
+  damageAmount: 3
   attackRate: 5
   originalWaypointVector3: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   - {fileID: 9146202046371643765}
   - {fileID: 2645343189468096255}
   healthAmount: 0
-  maxHealth: 200
+  maxHealth: 50
   healthBar: {fileID: 6922297562024779876}
 --- !u!54 &6547397666859869499
 Rigidbody:
@@ -510,11 +510,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8386048133845293118, guid: 917252b7b7a7112429b7063145047a30, type: 3}
       propertyPath: m_Value
-      value: 200
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8386048133845293118, guid: 917252b7b7a7112429b7063145047a30, type: 3}
       propertyPath: m_MaxValue
-      value: 200
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -642,15 +642,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2168224630498156841, guid: 85b95d223462b294aac1f981155bedbc, type: 3}
       propertyPath: m_VersionIndex
-      value: 9425
+      value: 9422
       objectReference: {fileID: 0}
     - target: {fileID: 3173140990899833444, guid: 85b95d223462b294aac1f981155bedbc, type: 3}
       propertyPath: m_VersionIndex
-      value: 2133
+      value: 2130
       objectReference: {fileID: 0}
     - target: {fileID: 3216248488954186750, guid: 85b95d223462b294aac1f981155bedbc, type: 3}
       propertyPath: m_VersionIndex
-      value: 9425
+      value: 9422
       objectReference: {fileID: 0}
     - target: {fileID: 6647323682399327301, guid: 85b95d223462b294aac1f981155bedbc, type: 3}
       propertyPath: m_LocalScale.x
@@ -709,39 +709,13 @@ PrefabInstance:
     - {fileID: 7840659049464348503, guid: 85b95d223462b294aac1f981155bedbc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 232570160877707442, guid: 85b95d223462b294aac1f981155bedbc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7548938214653340457}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85b95d223462b294aac1f981155bedbc, type: 3}
 --- !u!4 &2122022127533904660 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6647323682399327301, guid: 85b95d223462b294aac1f981155bedbc, type: 3}
   m_PrefabInstance: {fileID: 4698070567899187025}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4758236753626785763 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 232570160877707442, guid: 85b95d223462b294aac1f981155bedbc, type: 3}
-  m_PrefabInstance: {fileID: 4698070567899187025}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7548938214653340457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4758236753626785763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 3
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1001 &7118423746357711102
 PrefabInstance:
   m_ObjectHideFlags: 0

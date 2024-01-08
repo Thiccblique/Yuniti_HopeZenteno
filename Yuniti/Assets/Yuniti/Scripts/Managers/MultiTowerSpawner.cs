@@ -21,6 +21,8 @@ public class MultiTowerSpawner : MonoBehaviour
     public GameObject fireworkTower;
     public GameObject bambooTower;
     public GameObject mineingTower;
+    public GameObject dojo;
+    public GameObject archer;
 
     
 
@@ -125,6 +127,22 @@ public class MultiTowerSpawner : MonoBehaviour
     {
         FindAnyObjectByType<AudioManager>().Play("Select");
         mineingTower.SetActive(true);
+        buildingLocationPrim.SetActive(false);
+        multiDeactivate = true;
+    }
+
+    public void DojoTowerClick()
+    {
+        FindAnyObjectByType<AudioManager>().Play("Select");
+        dojo.SetActive(true);
+        buildingLocationPrim.SetActive(false);
+        multiDeactivate = true;
+    }
+
+    public void ArcherTowerClick()
+    {
+        FindAnyObjectByType<AudioManager>().Play("Select");
+        archer.SetActive(true);
         buildingLocationPrim.SetActive(false);
         multiDeactivate = true;
     }

@@ -22,4 +22,9 @@ public class SceneOnSetTime : MonoBehaviour
             SceneManager.LoadScene(sceneName);
         }
     }
+
+    public void SceneOnPress()
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }

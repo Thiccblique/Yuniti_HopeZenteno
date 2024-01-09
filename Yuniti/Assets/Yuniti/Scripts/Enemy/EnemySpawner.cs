@@ -91,7 +91,7 @@ public class EnemySpawner : MonoBehaviour
                 }
 
             }
-            else if (curRound >= 8) // This type of enemy count goes forever. Change later when end round is added plus more enmies.
+            else if (curRound >= 7) // This type of enemy count goes forever. Change later when end round is added plus more enmies.
             {
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .2f;
                 secondEnemyCount = RoundManager.instance.remainingEnemies * .2f;

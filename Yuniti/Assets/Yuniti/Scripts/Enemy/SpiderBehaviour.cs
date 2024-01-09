@@ -28,7 +28,7 @@ public class SpiderBehaviour : MonoBehaviour
   
     public GameObject hitTextPrefab;
     public Transform hitPosition;
-
+    public IsometricController player;
     [Header("Particals")]
     public ParticleSystem[] particleSystems;
 
@@ -89,8 +89,8 @@ public class SpiderBehaviour : MonoBehaviour
 
         if (other.gameObject.CompareTag("HitBox"))
         {
-            healthAmount--;
-           // healthbar.value = CalculateHealth();
+            healthAmount -= player.attackDamage;
+
             HitPartical();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             //Debug.Log("Enemy Health: " + healthAmount);

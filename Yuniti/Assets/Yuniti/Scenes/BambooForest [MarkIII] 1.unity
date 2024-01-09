@@ -33047,6 +33047,7 @@ Transform:
   - {fileID: 1640395098}
   - {fileID: 1960762113}
   - {fileID: 1134229168}
+  - {fileID: 1266713209}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &725208955
@@ -56000,9 +56001,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 335500719}
     m_Modifications:
     - target: {fileID: 439126325606090695, guid: 8912c6e6868562f46b6e22c899678569, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 8241868118973693189}
+    - target: {fileID: 439126325606090695, guid: 8912c6e6868562f46b6e22c899678569, type: 3}
       propertyPath: waypoint
       value: 
       objectReference: {fileID: 1930265122}
+    - target: {fileID: 439126325606090695, guid: 8912c6e6868562f46b6e22c899678569, type: 3}
+      propertyPath: attackRate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4372587712353952729, guid: 8912c6e6868562f46b6e22c899678569, type: 3}
       propertyPath: m_Name
       value: FRSpider
@@ -67885,6 +67894,11 @@ Mesh:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7170560921663440638, guid: 966a6f4ebf30b384e9cc6ff63ba0cafe, type: 3}
   m_PrefabInstance: {fileID: 750091430}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1266713209 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5140090352621742838, guid: b6dacbfb598afa84f831ede72dd1e876, type: 3}
+  m_PrefabInstance: {fileID: 1579103754}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1269015982 stripped
 GameObject:
@@ -80716,7 +80730,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 724740658}
     m_Modifications:
     - target: {fileID: 315925629002289635, guid: b6dacbfb598afa84f831ede72dd1e876, type: 3}
       propertyPath: m_Name
@@ -112487,6 +112501,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1547874204}
+    - target: {fileID: 5043177869621354908, guid: 629b868a8d4220d46bf4c78a26bf30b9, type: 3}
+      propertyPath: m_Speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5103008449781534636, guid: 629b868a8d4220d46bf4c78a26bf30b9, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -112499,6 +112517,10 @@ PrefabInstance:
       propertyPath: waypoint
       value: 
       objectReference: {fileID: 1930265122}
+    - target: {fileID: 5991643557209818984, guid: 629b868a8d4220d46bf4c78a26bf30b9, type: 3}
+      propertyPath: maxHealth
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 6215447322716233443, guid: 629b868a8d4220d46bf4c78a26bf30b9, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -114007,7 +114029,6 @@ SceneRoots:
   - {fileID: 1043967778}
   - {fileID: 1355148332}
   - {fileID: 81315743}
-  - {fileID: 1579103754}
   - {fileID: 142166687}
   - {fileID: 357354818}
   - {fileID: 1646356850}

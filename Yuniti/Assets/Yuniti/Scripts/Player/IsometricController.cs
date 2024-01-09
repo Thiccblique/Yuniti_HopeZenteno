@@ -59,6 +59,7 @@ public class IsometricController : MonoBehaviour
             speed = stop;
             anim.SetBool("Walk", false);
             particals.SetActive(false);
+            FindAnyObjectByType<AudioManager>().Stop("PlayerWalk");
         }
        
 

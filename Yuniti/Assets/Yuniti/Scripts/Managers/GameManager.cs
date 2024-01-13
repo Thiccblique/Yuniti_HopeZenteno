@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Enemys")]
     public EnemyBehaviour standardBehaviour;
-    public EnemyBehaviour flyBehaviour;
+    public BirdBehaviour flyBehaviour;
     public SpiderBehaviour spiderBehaviour;
     public EnemyBehaviour tankBehaviour;
 

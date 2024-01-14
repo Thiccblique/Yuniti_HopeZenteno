@@ -42,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
             float thirdEnemyCount = 0f;
             float fourthEnemyCount = 0f;
 
-            if (curRound >= 1)
+            /*if (curRound >= 1)
             {
                 firstEnemyCount = RoundManager.instance.remainingEnemies * 1f;
                 
@@ -55,8 +55,8 @@ public class EnemySpawner : MonoBehaviour
                     firstEnemyCount++;
                 }
                 
-            }
-            else if(curRound >= 2 && curRound <= 3)
+            }*/
+            if(curRound >= 1 && curRound <= 3)
             {
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .7f;
                 secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
@@ -108,9 +108,9 @@ public class EnemySpawner : MonoBehaviour
             else if (curRound >= 6 && curRound <= 7) // This type of enemy count goes forever. Change later when end round is added plus more enmies.
             {
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .2f;
-                secondEnemyCount = RoundManager.instance.remainingEnemies * .2f;
+                secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
                 thirdEnemyCount = RoundManager.instance.remainingEnemies * .4f;
-                fourthEnemyCount = RoundManager.instance.remainingEnemies * 2f;
+                fourthEnemyCount = RoundManager.instance.remainingEnemies * 1f;
 
                 firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
                 secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);

@@ -46,13 +46,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2588946008871931735}
-  - component: {fileID: 960598439304570138}
+  - component: {fileID: 2092562697698336855}
   - component: {fileID: 2602696727646376321}
   - component: {fileID: 3290660138533991092}
   - component: {fileID: 5189143889898727751}
   - component: {fileID: 2212258617615014541}
-  - component: {fileID: 8212257416512595412}
-  - component: {fileID: 2914420874329122}
   m_Layer: 8
   m_Name: Flying Enemy
   m_TagString: Enemy
@@ -78,7 +76,7 @@ Transform:
   - {fileID: 6392202111050281499}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &960598439304570138
+--- !u!114 &2092562697698336855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,7 +85,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5699004164570108029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b651529723a603b48a95c457359b8a01, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c0cae5e5c2046946b0121200bafd997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   coinsGiven: 1
@@ -200,52 +198,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &8212257416512595412
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5699004164570108029}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 4
-  m_Height: 10
-  m_Direction: 1
-  m_Center: {x: 0, y: -2.41, z: 0}
---- !u!136 &2914420874329122
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5699004164570108029}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 4
-  m_Height: 10
-  m_Direction: 1
-  m_Center: {x: 0, y: -2.41, z: 0}
 --- !u!1001 &2316220219781066145
 PrefabInstance:
   m_ObjectHideFlags: 0

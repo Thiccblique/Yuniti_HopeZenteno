@@ -482,7 +482,7 @@ Transform:
   m_GameObject: {fileID: 8837226889268743846}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: -2.773959e-10, w: 0.7071068}
-  m_LocalPosition: {x: 11.46, y: 15.246871, z: -7.9392557}
+  m_LocalPosition: {x: 11.46, y: 14.69, z: -0.08}
   m_LocalScale: {x: 5.3846145, y: 5.384615, z: 5.3846145}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -510,15 +510,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 97fdddd60b142904798e0b2dacb7afd8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.0202675
+      value: -1.39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 97fdddd60b142904798e0b2dacb7afd8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.701
+      value: -0.7680001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 97fdddd60b142904798e0b2dacb7afd8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.24
+      value: 1.49
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 97fdddd60b142904798e0b2dacb7afd8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -648,13 +648,13 @@ PrefabInstance:
       addedObject: {fileID: 2302025693566793130}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 97fdddd60b142904798e0b2dacb7afd8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2491409502552480995}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 97fdddd60b142904798e0b2dacb7afd8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7979266163309610480}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 97fdddd60b142904798e0b2dacb7afd8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9188513048555283932}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 97fdddd60b142904798e0b2dacb7afd8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8584549865743744559}
   m_SourcePrefab: {fileID: 100100000, guid: 97fdddd60b142904798e0b2dacb7afd8, type: 3}
 --- !u!4 &2681685436392903934 stripped
 Transform:
@@ -702,29 +702,6 @@ MonoBehaviour:
   healthBar: {fileID: 5523940247070478325}
   maxHealth: 35
   curHealth: 0
---- !u!114 &2491409502552480995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3349712883108400708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3cb4150a6a967a4399d7a2b530979a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerRange: 90
-  shootingPoint: {fileID: 1645695147423063243}
-  enemy:
-    serializedVersion: 2
-    m_Bits: 256
-  towerProjectile: {fileID: 3711714857634095452, guid: e4913e6eea596ea499218505eed4cdf5, type: 3}
-  fireRate: 1.5
-  towerFWDamage: 5
-  areaFW: 4
-  maxTargets: 4
-  towerPrice: 35
 --- !u!208 &7979266163309610480
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -762,6 +739,29 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 20.87
   m_Center: {x: 12.1, y: -0.72, z: 0}
+--- !u!114 &8584549865743744559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349712883108400708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3cb4150a6a967a4399d7a2b530979a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerRange: 5
+  shootingPoint: {fileID: 1645695147423063243}
+  enemy:
+    serializedVersion: 2
+    m_Bits: 256
+  towerProjectile: {fileID: 3711714857634095452, guid: e4913e6eea596ea499218505eed4cdf5, type: 3}
+  fireRate: 5
+  towerFWDamage: 5
+  areaFW: 3
+  maxTargets: 4
+  towerPrice: 2
 --- !u!1001 &3229399708948957490
 PrefabInstance:
   m_ObjectHideFlags: 0

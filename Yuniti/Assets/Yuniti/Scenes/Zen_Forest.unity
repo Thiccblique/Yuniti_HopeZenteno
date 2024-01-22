@@ -113507,10 +113507,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8413289042933238, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
+      propertyPath: m_Mass
+      value: 1e+9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413289042933238, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413289042933238, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
+      propertyPath: m_ImplicitCom
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413289042933238, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413289042933238, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 718757501607391528, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1883220963129353870, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 1883220963129353870, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940540033529461947, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3225650241671013452, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
       propertyPath: m_LocalPosition.x
       value: -37.969543
@@ -113551,13 +113583,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3370952353396344671, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
-      propertyPath: m_IsTrigger
+    - target: {fileID: 6174366908048061750, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
+      propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4991594405595205656, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6196778034916225914, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
       propertyPath: m_AnchorMax.x
@@ -113575,12 +113603,10 @@ PrefabInstance:
       propertyPath: cameraZoom
       value: 
       objectReference: {fileID: 963194232}
-    - target: {fileID: 8256872193045886325, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
-      propertyPath: attackDamage
-      value: 0.7
-      objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 4985907972627939829, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
+    - {fileID: 718757501607391528, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
+    - {fileID: 8413289042933238, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
+    - {fileID: 6174366908048061750, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

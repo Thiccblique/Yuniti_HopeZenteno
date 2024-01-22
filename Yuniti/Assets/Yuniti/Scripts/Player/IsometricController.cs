@@ -22,7 +22,7 @@ public class IsometricController : MonoBehaviour
     public Animator orionAnim;
     public GameObject particals;
     [SerializeField] public CameraZoom cameraZoom;
-    public ParticleSystem attack;
+  
 
     [Header("Stamana")]
     public GameObject stamanaSlider;
@@ -188,14 +188,7 @@ public class IsometricController : MonoBehaviour
         particals.SetActive(false);
     }
 
-    private void HitPartical()
-    {
-        if (attack != null)
-        {
-            attack.gameObject.SetActive(true);
-            attack.Play();
-        }
-    }
+  
 
 }
 

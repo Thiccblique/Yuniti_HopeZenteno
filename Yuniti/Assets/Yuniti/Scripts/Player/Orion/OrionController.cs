@@ -11,12 +11,14 @@ public class OrionController : MonoBehaviour
     [SerializeField] private float turnSpeed = 360;
     private Vector3 input;
 
-    private void Start()
+    public bool isMounted = true;
+
+    void Start()
     {
+        isMounted = false;
         rb = GetComponent<Rigidbody>();
-        //rb. = false;
     }
-    private void Update()
+    void Update()
     {
         GatherInput();
         Look();
@@ -27,6 +29,23 @@ public class OrionController : MonoBehaviour
         Move();
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Saddle")) 
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && !isMounted)
+            {
+                gameObject.SetActive(false);
+                isMounted = true;
+            }
+            /*if (Input.GetKeyDown(KeyCode.Space) && isMounted)
+            {
+                gameObject.SetActive(true);
+                isMounted = false;
+            }*/
+
+        }
+    }
     private void GatherInput()
     {
         input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));

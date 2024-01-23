@@ -22,7 +22,8 @@ public class IsometricController : MonoBehaviour
     public Animator orionAnim;
     public GameObject particals;
     [SerializeField] public CameraZoom cameraZoom;
-  
+    public OrionController orionController;
+
 
     [Header("Stamana")]
     public GameObject stamanaSlider;
@@ -30,6 +31,9 @@ public class IsometricController : MonoBehaviour
     public float maxStamana = 1f;
     public float stamana;
     public Slider stamanaBar;
+
+    [Header("Orion")]
+    public GameObject orion;
 
     void Start()
     {
@@ -53,6 +57,7 @@ public class IsometricController : MonoBehaviour
             PlayerSprint();
             SetStamana(stamana);
             StamanaBack();
+            Dismount();
         }
         else
         {
@@ -69,7 +74,20 @@ public class IsometricController : MonoBehaviour
     {
         Move();
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+      
+    }
+    public void Dismount()
+    {
+        if (orionController.isMounted && Input.GetKey(KeyCode.Space))
+        {
+            orion.SetActive(true);
+            orionController.isMounted = false;
+        }
+    }
+   
     private void PlayerInput()
     {
         input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));

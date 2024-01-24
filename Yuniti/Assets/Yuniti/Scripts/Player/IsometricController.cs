@@ -33,7 +33,9 @@ public class IsometricController : MonoBehaviour
     public Slider stamanaBar;
 
     [Header("Orion")]
-    public GameObject orion;
+    public Transform saddle;
+    public GameObject freeOrion;
+    public GameObject onOrion;
 
     void Start()
     {
@@ -47,7 +49,7 @@ public class IsometricController : MonoBehaviour
 
     void Update()
     {
-        if(cameraZoom.zoom <= cameraZoom.minZom)
+        if(cameraZoom.zoom <= cameraZoom.minZom && orionController.isMounted == true)
         {
             speed = solidSpeed;
             PlayerInput();
@@ -57,7 +59,7 @@ public class IsometricController : MonoBehaviour
             PlayerSprint();
             SetStamana(stamana);
             StamanaBack();
-            Dismount();
+           
         }
         else
         {
@@ -66,7 +68,7 @@ public class IsometricController : MonoBehaviour
             particals.SetActive(false);
             FindAnyObjectByType<AudioManager>().Stop("PlayerWalk");
         }
-       
+        Dismount();
 
     }
 
@@ -81,10 +83,16 @@ public class IsometricController : MonoBehaviour
     }
     public void Dismount()
     {
-        if (orionController.isMounted && Input.GetKey(KeyCode.Space))
-        {
-            orion.SetActive(true);
-            orionController.isMounted = false;
+        if (orionController.isMounted == true)
+        { 
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                saddle.DetachChildren();
+                onOrion.SetActive(false);
+                freeOrion.SetActive(true);
+                orionController.isMounted = false;
+            }
+           
         }
     }
    

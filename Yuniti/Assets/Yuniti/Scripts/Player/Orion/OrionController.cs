@@ -12,7 +12,8 @@ public class OrionController : MonoBehaviour
     private Vector3 input;
 
     public bool isMounted = true;
-
+    public GameObject onOrion;
+    public Transform saddle;
     void Start()
     {
         isMounted = false;
@@ -33,17 +34,16 @@ public class OrionController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Saddle")) 
         {
-            if (Input.GetKeyDown(KeyCode.Space) && !isMounted)
+            if(!isMounted)
             {
-                gameObject.SetActive(false);
-                isMounted = true;
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    gameObject.transform.SetParent(saddle);
+                    onOrion.SetActive(true);
+                    gameObject.SetActive(false);
+                    isMounted = true;
+                }
             }
-            /*if (Input.GetKeyDown(KeyCode.Space) && isMounted)
-            {
-                gameObject.SetActive(true);
-                isMounted = false;
-            }*/
-
         }
     }
     private void GatherInput()

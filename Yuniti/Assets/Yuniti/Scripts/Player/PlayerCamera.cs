@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
+    public OrionController orionController;
     public Transform target;
     public float smoothSpeed = 1f;
     public Vector3 offset;
-
-    // LateUpdate is used to so that the camera updates after the target's position has been updated
+    public Transform orion;
+    public Transform gamble;
+   
+    private void Update()
+    {
+        if (!(orionController.isMounted = false))
+        {
+            target = gamble;
+        }
+        else
+        {
+            target = orion;
+        }
+    }
     void LateUpdate()
     {
         // Calculates position for camera and moves it

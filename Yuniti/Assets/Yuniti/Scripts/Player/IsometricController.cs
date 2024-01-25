@@ -49,7 +49,8 @@ public class IsometricController : MonoBehaviour
 
     void Update()
     {
-        if(cameraZoom.zoom <= cameraZoom.minZom && orionController.isMounted == true)
+        Dismount();
+        if (cameraZoom.zoom <= cameraZoom.minZom/* && orionController.isMounted == true*/)
         {
             speed = solidSpeed;
             PlayerInput();
@@ -68,7 +69,7 @@ public class IsometricController : MonoBehaviour
             particals.SetActive(false);
             FindAnyObjectByType<AudioManager>().Stop("PlayerWalk");
         }
-        Dismount();
+       
 
     }
 
@@ -85,7 +86,7 @@ public class IsometricController : MonoBehaviour
     {
         if (orionController.isMounted == true)
         { 
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.Q))
             {
                 saddle.DetachChildren();
                 onOrion.SetActive(false);

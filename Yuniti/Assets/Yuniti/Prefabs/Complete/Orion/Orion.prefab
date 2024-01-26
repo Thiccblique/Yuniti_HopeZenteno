@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6012190741608515911}
   - component: {fileID: 1028272316263898621}
   - component: {fileID: 1169351653117821331}
+  - component: {fileID: 6549463626060699337}
   m_Layer: 9
   m_Name: Orion
   m_TagString: Player
@@ -50,6 +51,9 @@ MonoBehaviour:
   rb: {fileID: 1028272316263898621}
   speed: 5
   turnSpeed: 360
+  isMounted: 1
+  onOrion: {fileID: 0}
+  saddle: {fileID: 0}
 --- !u!54 &1028272316263898621
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -92,7 +96,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -100,6 +104,27 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: -0.25, z: 0}
+--- !u!65 &6549463626060699337
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563207823604161574}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.25, y: 0.25, z: 0.25}
+  m_Center: {x: 0, y: -0.6, z: 0}
 --- !u!1 &2705238596597697324
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +348,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3042574046787415222}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 465599c204a01f54aadea16741b3c3e1, type: 3}
   m_Name: 
@@ -645,7 +670,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2.708628
@@ -662,7 +687,6 @@ GameObject:
   - component: {fileID: 1367897513827135260}
   - component: {fileID: 905193070447073274}
   - component: {fileID: 8569356936031592437}
-  - component: {fileID: 7993745864988933346}
   m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
@@ -736,27 +760,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7993745864988933346
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6591551890377190490}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.02623091
-  m_Center: {x: -0.000000023748724, y: 0.0000087525705, z: 0.014248688}
 --- !u!1 &7409876680607309388
 GameObject:
   m_ObjectHideFlags: 0

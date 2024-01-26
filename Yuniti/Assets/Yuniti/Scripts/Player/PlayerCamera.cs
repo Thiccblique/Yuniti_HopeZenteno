@@ -8,10 +8,10 @@ public class PlayerCamera : MonoBehaviour
     public Transform target;
     public float smoothSpeed = 1f;
     public Vector3 offset;
-    public Transform orion;
-    public Transform gamble;
+    //public Transform orion;
+    //public Transform gamble;
    
-    private void Update()
+   /* private void Update()
     {
         if (!(orionController.isMounted = false))
         {
@@ -21,7 +21,7 @@ public class PlayerCamera : MonoBehaviour
         {
             target = orion;
         }
-    }
+    }*/
     void LateUpdate()
     {
         // Calculates position for camera and moves it

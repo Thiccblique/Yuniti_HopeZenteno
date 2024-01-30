@@ -8,8 +8,8 @@ public class PlayerCamera : MonoBehaviour
     public Transform target;
     public float smoothSpeed = 1f;
     public Vector3 offset;
-    //public Transform orion;
-    //public Transform gamble;
+    public Transform orion;
+    public Transform gamble;
    
    /* private void Update()
     {
@@ -24,9 +24,20 @@ public class PlayerCamera : MonoBehaviour
     }*/
     void LateUpdate()
     {
-        // Calculates position for camera and moves it
-        Vector3 desiredPosition = target.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-        transform.position = smoothedPosition;
+        if (orionController.isMounted)
+        {
+            // Calculates position for camera and moves it
+            Vector3 desiredPosition = gamble.position + offset;
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+            transform.position = smoothedPosition;
+        }
+        else
+        {
+            // Calculates position for camera and moves it
+            Vector3 desiredPosition = orion.position + offset;
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+            transform.position = smoothedPosition;
+        }
+      
     }
 }

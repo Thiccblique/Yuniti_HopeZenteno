@@ -46,13 +46,20 @@ public class OrionController : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    gameObject.transform.SetParent(saddle);
-                    onOrion.SetActive(true);
-                    gameObject.SetActive(false);
-                    isMounted = true;
+                    StartCoroutine(Mount());
+                   
                 }
             }
         }
+    }
+    IEnumerator Mount()
+    {
+        yield return new WaitForSeconds(0.01f);
+        gameObject.transform.SetParent(saddle);
+        onOrion.SetActive(true);
+        gameObject.SetActive(false);
+        isMounted = true;
+        yield return new WaitForSeconds(0.01f);
     }
     private void GatherInput()
     {

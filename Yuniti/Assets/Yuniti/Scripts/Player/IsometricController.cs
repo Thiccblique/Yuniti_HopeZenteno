@@ -50,7 +50,7 @@ public class IsometricController : MonoBehaviour
     void Update()
     {
         Dismount();
-        if (cameraZoom.zoom <= cameraZoom.minZom/* && orionController.isMounted == true*/)
+        if (cameraZoom.zoom <= cameraZoom.minZom && orionController.isMounted == true)
         {
             speed = solidSpeed;
             PlayerInput();
@@ -86,7 +86,7 @@ public class IsometricController : MonoBehaviour
     {
         if (orionController.isMounted == true)
         { 
-            if(Input.GetKeyDown(KeyCode.Q))
+            if(Input.GetKeyDown(KeyCode.Space))
             {
                 saddle.DetachChildren();
                 onOrion.SetActive(false);
@@ -115,6 +115,7 @@ public class IsometricController : MonoBehaviour
 
     private void Move()
     {
+        //Fix collider
         rb.MovePosition(transform.position + transform.forward * input.normalized.magnitude * speed * Time.deltaTime);
     }
 

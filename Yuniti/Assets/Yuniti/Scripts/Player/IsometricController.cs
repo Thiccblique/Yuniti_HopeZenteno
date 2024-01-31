@@ -47,6 +47,7 @@ public class IsometricController : MonoBehaviour
         stamanaSlider.SetActive(false);
     }
 
+    
     void Update()
     {
         Dismount();

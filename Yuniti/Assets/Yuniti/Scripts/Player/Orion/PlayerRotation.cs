@@ -15,8 +15,17 @@ public class PlayerRotation : MonoBehaviour
 
     }
 
+    private void Awake()
+    {
+        Rotation();
+    }
     // Update is called once per frame
     void Update()
+    {
+        Rotation();
+    }
+
+    private void Rotation()
     {
         ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit[] hitDataArray = Physics.RaycastAll(ray, Mathf.Infinity, layer);

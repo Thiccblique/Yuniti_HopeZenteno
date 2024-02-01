@@ -22,8 +22,10 @@ public class IsometricController : MonoBehaviour
     public Animator orionAnim;
     public GameObject particals;
     [SerializeField] public CameraZoom cameraZoom;
-   
 
+    [Header("Scripts")]
+    public GambleTower gambleTower;
+    
 
     [Header("Stamana")]
     public GameObject stamanaSlider;
@@ -90,10 +92,13 @@ public class IsometricController : MonoBehaviour
         { 
             if(Input.GetKeyDown(KeyCode.Space))
             {
+                gambleTower.enabled = true;
                 saddle.DetachChildren();
                 GameManager.instance.DisableAllMeshMounted();
                 freeOrion.SetActive(true);
                 orionController.isMounted = false;
+                this.enabled = false;
+
             }
            
         }

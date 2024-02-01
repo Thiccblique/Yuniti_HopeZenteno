@@ -17,10 +17,14 @@ public class OrionController : MonoBehaviour
   
     public Transform saddle;
     public ParticleSystem hit;
-   [Header("Aniamtion")]
+    [Header("Aniamtion")]
     public Animator orionAnim;
     public GameObject onOrion;
     public Animator sword;
+
+    [Header("Scripts")]
+    public IsometricController gambleWalk;
+    public GambleTower gambleTower;
    
     private void Awake()
     {
@@ -55,7 +59,9 @@ public class OrionController : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    gambleWalk.enabled = true;
                     StartCoroutine(Mount());
+                    gambleTower.enabled = false;
                    
                 }
             }
@@ -87,13 +93,13 @@ public class OrionController : MonoBehaviour
     }
     public void AttackAnim()
     {
-        if (Input.GetKey(KeyCode.O) || Input.GetMouseButtonDown(0) /*|| Input.GetKeyDown(KeyCode.Space)*/)
+        if (Input.GetKey(KeyCode.Space) && !isMounted)
         {
             
             sword.SetBool("Swing", true);
             FindAnyObjectByType<AudioManager>().Play("HatThrow");
             //HitPartical();
-            hit.Play();
+            StartCoroutine(ParticalSlash());
         }
         else
         {
@@ -101,7 +107,11 @@ public class OrionController : MonoBehaviour
            
         }
     }
-
+    IEnumerator ParticalSlash()
+    {
+        yield return new WaitForSeconds(0.15f);
+        hit.Play();
+    }
     private void GatherInput()
     {
         input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));

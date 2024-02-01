@@ -16,16 +16,11 @@ public class OrionController : MonoBehaviour
     public bool isMounted = true;
   
     public Transform saddle;
-
-    [Header("Aniamtion")]
+    public ParticleSystem hit;
+   [Header("Aniamtion")]
     public Animator orionAnim;
-
-    [Header("Monted Orion")]
-   
     public GameObject onOrion;
-
-    [Header("Free Orion")]
-    public MeshRenderer[] orionBodyPartsFree;
+    public Animator sword;
    
     private void Awake()
     {
@@ -44,7 +39,7 @@ public class OrionController : MonoBehaviour
         GatherInput();
         Look();
         WalkAnim();
-        //AttackAnim();
+        AttackAnim();
     }
 
     private void FixedUpdate()
@@ -95,13 +90,14 @@ public class OrionController : MonoBehaviour
         if (Input.GetKey(KeyCode.O) || Input.GetMouseButtonDown(0) /*|| Input.GetKeyDown(KeyCode.Space)*/)
         {
             
-            orionAnim.SetBool("OrionAttack", true);
+            sword.SetBool("Swing", true);
             FindAnyObjectByType<AudioManager>().Play("HatThrow");
             //HitPartical();
+            hit.Play();
         }
         else
         {
-            orionAnim.SetBool("OrionAttack", false);
+            sword.SetBool("Swing", false);
            
         }
     }

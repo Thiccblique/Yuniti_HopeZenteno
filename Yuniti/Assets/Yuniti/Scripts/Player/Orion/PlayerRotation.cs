@@ -9,10 +9,12 @@ public class PlayerRotation : MonoBehaviour
     public float rotationSpeed = 5f;
     public LayerMask layer;
     Ray ray;
+    //private OrionController orionController;
+    //public GameObject orion;
 
     void Start()
     {
-
+        //orionController = orion.gameObject.GetComponent<OrionController>();
     }
 
     private void Awake()
@@ -27,24 +29,25 @@ public class PlayerRotation : MonoBehaviour
 
     private void Rotation()
     {
-        ray = cam.ScreenPointToRay(Input.mousePosition);
-        RaycastHit[] hitDataArray = Physics.RaycastAll(ray, Mathf.Infinity, layer);
+            ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit[] hitDataArray = Physics.RaycastAll(ray, Mathf.Infinity, layer);
 
-        foreach (var hitData in hitDataArray)
-        {
-            if (hitData.transform.CompareTag("Ground"))
+            foreach (var hitData in hitDataArray)
             {
-                mouseCoordinates = hitData.collider.GetComponent<MouseCoordinates>();
+                if (hitData.transform.CompareTag("Ground"))
+                {
+                    mouseCoordinates = hitData.collider.GetComponent<MouseCoordinates>();
 
-                // Calculate the direction from the character to the mouse position
-                Vector3 direction = mouseCoordinates.worldPosition - transform.position;
-                direction.y = 0f; // Keep the rotation only in the horizontal plane
+                    // Calculate the direction from the character to the mouse position
+                    Vector3 direction = mouseCoordinates.worldPosition - transform.position;
+                    direction.y = 0f; // Keep the rotation only in the horizontal plane
 
-                // Rotate the character towards the mouse position
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                    // Rotate the character towards the mouse position
+                    Quaternion targetRotation = Quaternion.LookRotation(direction);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
+                }
             }
-        }
+
     }
 }

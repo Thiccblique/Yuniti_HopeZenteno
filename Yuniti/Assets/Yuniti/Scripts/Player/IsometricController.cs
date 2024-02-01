@@ -22,7 +22,7 @@ public class IsometricController : MonoBehaviour
     public Animator orionAnim;
     public GameObject particals;
     [SerializeField] public CameraZoom cameraZoom;
-    public OrionController orionController;
+   
 
 
     [Header("Stamana")]
@@ -36,6 +36,7 @@ public class IsometricController : MonoBehaviour
     public Transform saddle;
     public GameObject freeOrion;
     public GameObject onOrion;
+    public OrionController orionController;
 
     void Start()
     {
@@ -90,7 +91,7 @@ public class IsometricController : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 saddle.DetachChildren();
-                onOrion.SetActive(false);
+                orionController.DisableAllMeshMounted();
                 freeOrion.SetActive(true);
                 orionController.isMounted = false;
             }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
+using static UnityEngine.Rendering.DebugUI;
+using static UnityEngine.ParticleSystem;
 
 public class OrionController : MonoBehaviour
 {
@@ -12,9 +14,19 @@ public class OrionController : MonoBehaviour
     private Vector3 input;
 
     public bool isMounted = true;
-    public GameObject onOrion;
+  
     public Transform saddle;
-    
+
+    [Header("Aniamtion")]
+    public Animator orionAnim;
+
+    [Header("Monted Orion")]
+    public MeshRenderer[] orionBodyPartsMounted;
+    public GameObject onOrion;
+
+    [Header("Free Orion")]
+    public MeshRenderer[] orionBodyPartsFree;
+   
     private void Awake()
     {
         gameObject.transform.SetParent(saddle);
@@ -31,6 +43,8 @@ public class OrionController : MonoBehaviour
     {
         GatherInput();
         Look();
+        WalkAnim();
+        AttackAnim();
     }
 
     private void FixedUpdate()
@@ -56,11 +70,42 @@ public class OrionController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.01f);
         gameObject.transform.SetParent(saddle);
-        onOrion.SetActive(true);
+        EnableAllMeshMounted();
         gameObject.SetActive(false);
         isMounted = true;
         yield return new WaitForSeconds(0.01f);
     }
+    public void WalkAnim()
+    {
+         var hitKey = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow);
+
+            if (hitKey == true && !isMounted)
+            {
+                // Activate the animation
+                orionAnim.SetBool("Walk", true);
+            }
+            else
+            {
+                // Activate the animation
+                orionAnim.SetBool("Walk", false);
+            }
+    }
+    public void AttackAnim()
+    {
+        if (Input.GetKey(KeyCode.O) || Input.GetMouseButtonDown(0) /*|| Input.GetKeyDown(KeyCode.Space)*/)
+        {
+            
+            orionAnim.SetBool("OrionAttack", true);
+            FindAnyObjectByType<AudioManager>().Play("HatThrow");
+            //HitPartical();
+        }
+        else
+        {
+            orionAnim.SetBool("OrionAttack", false);
+           
+        }
+    }
+
     private void GatherInput()
     {
         input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
@@ -77,6 +122,42 @@ public class OrionController : MonoBehaviour
     private void Move()
     {
         rb.MovePosition(transform.position + transform.forward * input.normalized.magnitude * speed * Time.deltaTime);
+    }
+
+    public void DisableAllMeshMounted()
+    {
+        foreach (MeshRenderer meshRenderer in orionBodyPartsMounted)
+        {
+            // Check if the MeshRenderer is not null
+            if (meshRenderer != null)
+            {
+                // Disable the MeshRenderer
+                meshRenderer.enabled = false;
+            }
+            else
+            {
+                // Log a warning if a MeshRenderer in the array is null
+                Debug.LogWarning("Null MeshRenderer in the array");
+            }
+        }
+    }
+
+    public void EnableAllMeshMounted()
+    {
+        foreach (MeshRenderer meshRenderer in orionBodyPartsMounted)
+        {
+            // Check if the MeshRenderer is not null
+            if (meshRenderer != null)
+            {
+                // Disable the MeshRenderer
+                meshRenderer.enabled = true;
+            }
+            else
+            {
+                // Log a warning if a MeshRenderer in the array is null
+                Debug.LogWarning("Null MeshRenderer in the array");
+            }
+        }
     }
 }
 

@@ -10,6 +10,12 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    [Header("Monted Orion")]
+    public MeshRenderer[] orionBodyPartsMounted;
+    
+    [Header("Free Orion")]
+    public MeshRenderer[] orionBodyPartsFree;
+
     [Header("Scripts")]
     public IsometricController pController;
     public TowerSpawner defendingPoints;
@@ -99,7 +105,41 @@ public class GameManager : MonoBehaviour
         roundCount.text = RoundManager.instance.roundNumber.ToString();
     }
 
-    
+    public void DisableAllMeshMounted()
+    {
+        foreach (MeshRenderer meshRenderer in orionBodyPartsMounted)
+        {
+            // Check if the MeshRenderer is not null
+            if (meshRenderer != null)
+            {
+                // Disable the MeshRenderer
+                meshRenderer.enabled = false;
+            }
+            else
+            {
+                // Log a warning if a MeshRenderer in the array is null
+                Debug.LogWarning("Null MeshRenderer in the array");
+            }
+        }
+    }
+
+    public void EnableAllMeshMounted()
+    {
+        foreach (MeshRenderer meshRenderer in orionBodyPartsMounted)
+        {
+            // Check if the MeshRenderer is not null
+            if (meshRenderer != null)
+            {
+                // Disable the MeshRenderer
+                meshRenderer.enabled = true;
+            }
+            else
+            {
+                // Log a warning if a MeshRenderer in the array is null
+                Debug.LogWarning("Null MeshRenderer in the array");
+            }
+        }
+    }
 
     public void UnlockItem()
     {
@@ -254,4 +294,6 @@ public class GameManager : MonoBehaviour
         RoundManager.instance.roundNumber++;
         EnemyStats();
     }
+
+
 }

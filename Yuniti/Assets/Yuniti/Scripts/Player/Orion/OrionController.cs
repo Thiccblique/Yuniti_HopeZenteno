@@ -21,7 +21,7 @@ public class OrionController : MonoBehaviour
     public Animator orionAnim;
 
     [Header("Monted Orion")]
-    public MeshRenderer[] orionBodyPartsMounted;
+   
     public GameObject onOrion;
 
     [Header("Free Orion")]
@@ -44,7 +44,7 @@ public class OrionController : MonoBehaviour
         GatherInput();
         Look();
         WalkAnim();
-        AttackAnim();
+        //AttackAnim();
     }
 
     private void FixedUpdate()
@@ -70,7 +70,7 @@ public class OrionController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.01f);
         gameObject.transform.SetParent(saddle);
-        EnableAllMeshMounted();
+        GameManager.instance.EnableAllMeshMounted();
         gameObject.SetActive(false);
         isMounted = true;
         yield return new WaitForSeconds(0.01f);
@@ -124,41 +124,7 @@ public class OrionController : MonoBehaviour
         rb.MovePosition(transform.position + transform.forward * input.normalized.magnitude * speed * Time.deltaTime);
     }
 
-    public void DisableAllMeshMounted()
-    {
-        foreach (MeshRenderer meshRenderer in orionBodyPartsMounted)
-        {
-            // Check if the MeshRenderer is not null
-            if (meshRenderer != null)
-            {
-                // Disable the MeshRenderer
-                meshRenderer.enabled = false;
-            }
-            else
-            {
-                // Log a warning if a MeshRenderer in the array is null
-                Debug.LogWarning("Null MeshRenderer in the array");
-            }
-        }
-    }
-
-    public void EnableAllMeshMounted()
-    {
-        foreach (MeshRenderer meshRenderer in orionBodyPartsMounted)
-        {
-            // Check if the MeshRenderer is not null
-            if (meshRenderer != null)
-            {
-                // Disable the MeshRenderer
-                meshRenderer.enabled = true;
-            }
-            else
-            {
-                // Log a warning if a MeshRenderer in the array is null
-                Debug.LogWarning("Null MeshRenderer in the array");
-            }
-        }
-    }
+    
 }
 
 public static class HelpersOrion

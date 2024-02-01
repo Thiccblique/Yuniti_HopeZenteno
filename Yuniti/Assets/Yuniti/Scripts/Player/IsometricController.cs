@@ -91,7 +91,7 @@ public class IsometricController : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 saddle.DetachChildren();
-                orionController.DisableAllMeshMounted();
+                GameManager.instance.DisableAllMeshMounted();
                 freeOrion.SetActive(true);
                 orionController.isMounted = false;
             }

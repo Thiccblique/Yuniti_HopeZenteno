@@ -20,6 +20,8 @@ public class GambleTower : MonoBehaviour
     private EnemyBehaviour enemyBehaviour;
     private ProjectileBehaviour projectileBehaviour;
 
+    public GameObject healthBar;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,7 @@ public class GambleTower : MonoBehaviour
         fireCountdown -= Time.deltaTime;
     }
 
+   
     void OnDrawGizmosSelected() // This draws a red circle in scene view showing the tower range.
     {
         Gizmos.color = Color.red;

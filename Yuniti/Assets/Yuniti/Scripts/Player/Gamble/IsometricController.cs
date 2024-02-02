@@ -22,6 +22,8 @@ public class IsometricController : MonoBehaviour
     public Animator orionAnim;
     public GameObject particals;
     [SerializeField] public CameraZoom cameraZoom;
+    public GameObject healthBar;
+
 
     [Header("Scripts")]
     public GambleTower gambleTower;
@@ -40,6 +42,11 @@ public class IsometricController : MonoBehaviour
     public GameObject onOrion;
     public OrionController orionController;
 
+
+  
+    
+       
+    
     void Start()
     {
         stamana = maxStamana;
@@ -82,16 +89,14 @@ public class IsometricController : MonoBehaviour
         Move();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-      
-    }
+    
     public void Dismount()
     {
         if (orionController.isMounted == true)
         { 
             if(Input.GetKeyDown(KeyCode.Space))
             {
+                healthBar.SetActive(true);
                 gambleTower.enabled = true;
                 saddle.DetachChildren();
                 GameManager.instance.DisableAllMeshMounted();

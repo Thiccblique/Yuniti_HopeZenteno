@@ -25,7 +25,8 @@ public class OrionController : MonoBehaviour
     [Header("Scripts")]
     public IsometricController gambleWalk;
     public GambleTower gambleTower;
-   
+    public GameObject healthBar;
+
     private void Awake()
     {
         gameObject.transform.SetParent(saddle);
@@ -62,6 +63,7 @@ public class OrionController : MonoBehaviour
                     gambleWalk.enabled = true;
                     StartCoroutine(Mount());
                     gambleTower.enabled = false;
+                    healthBar.SetActive(false);
                    
                 }
             }
@@ -93,7 +95,7 @@ public class OrionController : MonoBehaviour
     }
     public void AttackAnim()
     {
-        if (Input.GetKey(KeyCode.Space) && !isMounted)
+        if (Input.GetMouseButtonDown(0) && !isMounted)
         {
             
             sword.SetBool("Swing", true);

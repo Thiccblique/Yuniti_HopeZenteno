@@ -20,7 +20,7 @@ public class GambleTower : MonoBehaviour
     private EnemyBehaviour enemyBehaviour;
     private ProjectileBehaviour projectileBehaviour;
 
-    public GameObject healthBar;
+  
     
     // Start is called before the first frame update
     void Start()

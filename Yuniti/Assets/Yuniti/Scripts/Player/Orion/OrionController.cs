@@ -26,6 +26,7 @@ public class OrionController : MonoBehaviour
     public IsometricController gambleWalk;
     public GambleTower gambleTower;
     public GameObject healthBar;
+    public GameObject range;
 
     private void Awake()
     {
@@ -64,6 +65,7 @@ public class OrionController : MonoBehaviour
                     StartCoroutine(Mount());
                     gambleTower.enabled = false;
                     healthBar.SetActive(false);
+                    range.SetActive(false);
                    
                 }
             }

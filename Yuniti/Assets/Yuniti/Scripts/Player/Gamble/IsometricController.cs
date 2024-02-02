@@ -23,6 +23,7 @@ public class IsometricController : MonoBehaviour
     public GameObject particals;
     [SerializeField] public CameraZoom cameraZoom;
     public GameObject healthBar;
+    public GameObject range;
 
 
     [Header("Scripts")]
@@ -97,6 +98,7 @@ public class IsometricController : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 healthBar.SetActive(true);
+                range.SetActive(true);
                 gambleTower.enabled = true;
                 saddle.DetachChildren();
                 GameManager.instance.DisableAllMeshMounted();

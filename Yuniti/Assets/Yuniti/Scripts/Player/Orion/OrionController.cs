@@ -108,7 +108,6 @@ public class OrionController : MonoBehaviour
         else
         {
             sword.SetBool("Swing", false);
-           
         }
     }
     IEnumerator ParticalSlash()

@@ -51,6 +51,9 @@ public class TowerSpawner : MonoBehaviour
     public TowerHealth health2;
     public TowerHealth health3;
 
+    [Header("Range")]
+    public GameObject[] range;
+
     [Header("Other Mechanics")]
     public ParticleSystem buildPartical;
     private TowerHealth towerHealth;
@@ -227,7 +230,7 @@ public class TowerSpawner : MonoBehaviour
             if (!spawnOne)
             {
                 priceMarkerOne.SetActive(true);
-              
+                range[0].SetActive(true);
                 if (GameManager.instance.coins >= price)
                 {
                     justEnoughTTOne.SetActive(true);
@@ -241,6 +244,7 @@ public class TowerSpawner : MonoBehaviour
             else if (!spawnTwo)
             {
                 priceMarkerTwo.SetActive(true);
+                range[1].SetActive(true);
                 if (GameManager.instance.coins >= price)
                 {
                     justEnoughTT_Two.SetActive(true);
@@ -254,6 +258,7 @@ public class TowerSpawner : MonoBehaviour
             else if (!spawnThree)
             {
                 priceMarkerThree.SetActive(true);
+                range[2].SetActive(true);
                 if (GameManager.instance.coins >= price)
                 {
                     justEnoughTT_Three.SetActive(true);
@@ -345,6 +350,10 @@ public class TowerSpawner : MonoBehaviour
             firstUpgrade.SetActive(false);
             secondUpgrade.SetActive(false);
             thirdUpgrade.SetActive(false);
+
+            range[0].SetActive(false);
+            range[1].SetActive(false);
+            range[2].SetActive(false);
         }
     }
 }

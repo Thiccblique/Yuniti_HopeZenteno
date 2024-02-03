@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public static PlayerHealth instance;
 
+    public OrionController orionPlayer;
     public Slider healthBar;
     public int maxHealth = 10;
     public float curHealth = 0;
@@ -46,7 +47,7 @@ public class PlayerHealth : MonoBehaviour
     private void HealthBack()
     {
         float realTime = Time.deltaTime;
-        if (RoundManager.instance.endRound == true && curHealth < maxHealth)
+        if ((RoundManager.instance.endRound == true || orionPlayer.isMounted == true) && curHealth < maxHealth)
         {
             curHealth += (realTime * 2);
         }

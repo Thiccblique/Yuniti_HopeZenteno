@@ -24,10 +24,12 @@ public class EnemyBehaviour : MonoBehaviour
     private Animator anim;
 
     private TowerHealth towerHealth;
+    private PlayerHealth playerHealth;
     private ProjectileBehaviour projectileBehaviour;
     private FWProjectileBehaviour fwProjectileBehaviour;
     private WallBehavior wallBehavior;
     public IsometricController player;
+    public OrionController orionPlayer;
 
    
     public GameObject hitTextPrefab;
@@ -156,7 +158,25 @@ public class EnemyBehaviour : MonoBehaviour
             }
             
         }
-       
+
+        if (other.gameObject.CompareTag("Player") && !attackCooldown && other.gameObject != null && orionPlayer.isMounted == false)
+        {
+            playerHealth = other.gameObject.GetComponent<PlayerHealth>();
+            playerHealth.curHealth -= damageAmount;
+            
+
+
+            anim.SetBool("EnemyAttack", true);
+
+            StartCoroutine(StartAttackCooldown());
+
+            if (playerHealth.curHealth <= 0 && towerNearby == true)
+            {
+                other.gameObject.SetActive(false);
+            }
+
+        }
+
     }
 
    

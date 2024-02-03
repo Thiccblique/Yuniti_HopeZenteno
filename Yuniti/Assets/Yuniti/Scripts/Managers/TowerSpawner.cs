@@ -99,6 +99,7 @@ public class TowerSpawner : MonoBehaviour
         
         MakeMarkerGoByeBye();
         TowerPointer();
+        RangeShower();
         TowerHealth();
     }
     private void OnDrawGizmosSelected()
@@ -244,7 +245,7 @@ public class TowerSpawner : MonoBehaviour
             else if (!spawnTwo)
             {
                 priceMarkerTwo.SetActive(true);
-                range[1].SetActive(true);
+                range[1].SetActive(true);        
                 if (GameManager.instance.coins >= price)
                 {
                     justEnoughTT_Two.SetActive(true);
@@ -307,6 +308,43 @@ public class TowerSpawner : MonoBehaviour
             else if (GameManager.instance.inRound == false)
             {
                 locationMarkerThree.SetActive(true);
+            }
+        }
+    }
+
+    private void RangeShower()
+    {
+        if (spawnThree)
+        {
+            if (cameraZoom.zoom <= cameraZoom.minZom)
+            {
+                range[2].SetActive(false);
+            }
+            else
+            {
+                range[2].SetActive(true);
+            }
+        }
+        else if (spawnTwo)
+        {
+            if (cameraZoom.zoom <= cameraZoom.minZom)
+            {
+                range[1].SetActive(false);
+            }
+            else
+            {
+                range[1].SetActive(true);
+            }
+        }
+        else if (spawnOne)
+        {
+            if (cameraZoom.zoom <= cameraZoom.minZom)
+            {
+                range[0].SetActive(false);
+            }
+            else
+            {
+                range[0].SetActive(true);
             }
         }
     }

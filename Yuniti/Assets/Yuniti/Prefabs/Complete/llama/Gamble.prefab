@@ -2231,7 +2231,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6474599976150083692}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 442bd3e1369e31c46b2655910cac6bc1, type: 3}
   m_Name: 
@@ -2243,7 +2243,7 @@ MonoBehaviour:
     m_Bits: 256
   towerProjectile: {fileID: 5325853733405132698, guid: dffa14a5680477a4290b6759114fa568, type: 3}
   fireRate: 3
-  towerDamage: 3
+  towerDamage: 1
   maxTargets: 1
   towerPrice: 2
 --- !u!114 &9050140917734712915
@@ -2259,7 +2259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 155179977368848370}
-  maxHealth: 10
+  maxHealth: 50
   curHealth: 0
 --- !u!1 &7068502610829144949
 GameObject:
@@ -3897,6 +3897,10 @@ PrefabInstance:
     - target: {fileID: 410252371258914280, guid: 0c06d08f9e924d244b7dcd71dcb9404b, type: 3}
       propertyPath: m_Name
       value: Range
+      objectReference: {fileID: 0}
+    - target: {fileID: 410252371258914280, guid: 0c06d08f9e924d244b7dcd71dcb9404b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4922859012793448287, guid: 0c06d08f9e924d244b7dcd71dcb9404b, type: 3}
       propertyPath: m_LocalPosition.x

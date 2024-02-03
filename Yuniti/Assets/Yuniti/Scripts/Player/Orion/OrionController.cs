@@ -8,6 +8,8 @@ using static UnityEngine.ParticleSystem;
 
 public class OrionController : MonoBehaviour
 {
+    public static OrionController instance;
+
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float speed = 5;
     [SerializeField] private float turnSpeed = 360;

@@ -97,6 +97,7 @@ public class IsometricController : MonoBehaviour
         { 
             if(Input.GetKeyDown(KeyCode.Space))
             {
+                FindAnyObjectByType<AudioManager>().Play("Jump");
                 healthBar.SetActive(true);
                 range.SetActive(true);
                 gambleTower.enabled = true;
@@ -105,6 +106,7 @@ public class IsometricController : MonoBehaviour
                 freeOrion.SetActive(true);
                 orionController.isMounted = false;
                 this.enabled = false;
+               
 
             }
            

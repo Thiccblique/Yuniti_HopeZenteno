@@ -63,12 +63,14 @@ public class OrionController : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    FindAnyObjectByType<AudioManager>().Play("Jump");
                     gambleWalk.enabled = true;
                     StartCoroutine(Mount());
                     gambleTower.enabled = false;
                     healthBar.SetActive(false);
                     range.SetActive(false);
-                   
+                  
+
                 }
             }
         }

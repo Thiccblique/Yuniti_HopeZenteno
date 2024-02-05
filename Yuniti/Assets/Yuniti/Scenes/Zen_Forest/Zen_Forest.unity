@@ -63065,17 +63065,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140349545}
   m_CullTransparentMesh: 1
---- !u!114 &1142634994 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3905211540135788171, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-  m_PrefabInstance: {fileID: 4481489419201910399}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81f543be4d6241949994311f2a04a157, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1143427644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64513,9 +64502,9 @@ MonoBehaviour:
   orionBodyPartsFree: []
   pController: {fileID: 8241868118973693189}
   defendingPoints: {fileID: 1493163915}
-  defendingPointHP1: {fileID: 1862322761}
-  defendingPointHP2: {fileID: 1142634994}
-  defendingPointsHP3: {fileID: 1830695638}
+  defendingPointHP1: {fileID: 0}
+  defendingPointHP2: {fileID: 0}
+  defendingPointsHP3: {fileID: 0}
   standardBehaviour: {fileID: 1870500888}
   flyBehaviour: {fileID: 143307673}
   spiderBehaviour: {fileID: 1283201221}
@@ -83552,6 +83541,12 @@ MonoBehaviour:
     pitch: 2
     loop: 0
     source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 2271bff18169f434c864651769eb4688, type: 3}
+    volume: 0.5
+    pitch: 2
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1621918011
 Transform:
   m_ObjectHideFlags: 0
@@ -92414,17 +92409,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9169828570661351750, guid: 81b53313a1253904282e06238158110e, type: 3}
   m_PrefabInstance: {fileID: 174619042}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1830695638 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6062804074683558166, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-  m_PrefabInstance: {fileID: 4481489419201910399}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81f543be4d6241949994311f2a04a157, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1835322073
 GameObject:
   m_ObjectHideFlags: 0
@@ -93743,17 +93727,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6, y: 4.614093, z: 6}
   m_Center: {x: 0, y: 0.6929536, z: 0}
---- !u!114 &1862322761 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3359848778261118866, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
-  m_PrefabInstance: {fileID: 4481489419201910399}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81f543be4d6241949994311f2a04a157, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1869452611
 GameObject:
   m_ObjectHideFlags: 0
@@ -114442,6 +114415,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8568408038895276829, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568408038895276829, guid: be9747c03481ccf49af8a6518612c5e5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -114948,15 +114929,15 @@ PrefabInstance:
       objectReference: {fileID: 963194227}
     - target: {fileID: 3225650241671013452, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.969543
+      value: -38.77
       objectReference: {fileID: 0}
     - target: {fileID: 3225650241671013452, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.979
+      value: 5.91
       objectReference: {fileID: 0}
     - target: {fileID: 3225650241671013452, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -27.35
+      value: -26.6
       objectReference: {fileID: 0}
     - target: {fileID: 3225650241671013452, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
       propertyPath: m_LocalRotation.w

@@ -52,6 +52,7 @@ public class TowerSpawner : MonoBehaviour
     public TowerHealth health3;
 
     [Header("Range")]
+    public GameObject[] tRange;
     public GameObject[] range;
 
     [Header("Other Mechanics")]

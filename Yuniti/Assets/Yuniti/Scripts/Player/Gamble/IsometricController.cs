@@ -131,8 +131,17 @@ public class IsometricController : MonoBehaviour
 
     private void Move()
     {
-        //Fix collider
-        rb.MovePosition(transform.position + transform.forward * input.normalized.magnitude * speed * Time.deltaTime);
+        Vector3 desiredMovement = transform.forward * input.normalized.magnitude * speed * Time.deltaTime;
+
+        RaycastHit hit;
+        if (rb.SweepTest(desiredMovement.normalized, out hit, desiredMovement.magnitude))
+        {
+            if (!hit.collider.isTrigger)
+            {
+                desiredMovement = Vector3.ProjectOnPlane(desiredMovement, hit.normal);
+            }
+        }
+        rb.MovePosition(rb.position + desiredMovement);
     }
 
     private void PlayerSprint()

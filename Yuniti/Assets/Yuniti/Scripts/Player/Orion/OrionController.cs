@@ -134,7 +134,23 @@ public class OrionController : MonoBehaviour
 
     private void Move()
     {
-        rb.MovePosition(transform.position + transform.forward * input.normalized.magnitude * speed * Time.deltaTime);
+        // Calculate the desired movement direction
+        Vector3 desiredMovement = transform.forward * input.normalized.magnitude * speed * Time.deltaTime;
+
+        // Perform a movement raycast to check for collisions
+        RaycastHit hit;
+        if (rb.SweepTest(desiredMovement.normalized, out hit, desiredMovement.magnitude))
+        {
+            // Check if the collided object's collider is not a trigger
+            if (!hit.collider.isTrigger)
+            {
+                // Adjust the movement direction to prevent clipping
+                desiredMovement = Vector3.ProjectOnPlane(desiredMovement, hit.normal);
+            }
+        }
+
+        // Move the Rigidbody to the adjusted position
+        rb.MovePosition(rb.position + desiredMovement);
     }
 
     

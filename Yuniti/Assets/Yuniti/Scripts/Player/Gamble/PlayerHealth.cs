@@ -47,7 +47,7 @@ public class PlayerHealth : MonoBehaviour
     private void HealthBack()
     {
         float realTime = Time.deltaTime;
-        if ((RoundManager.instance.endRound == true || orionPlayer.isMounted == true) && curHealth < maxHealth)
+        if (RoundManager.instance.endRound == true && curHealth < maxHealth)
         {
             curHealth += (realTime * 2);
         }

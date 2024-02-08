@@ -16,7 +16,7 @@ public class OrionController : MonoBehaviour
     private Vector3 input;
 
     public bool isMounted = true;
-  
+    
     public Transform saddle;
     public ParticleSystem hit;
     [Header("Aniamtion")]
@@ -35,7 +35,7 @@ public class OrionController : MonoBehaviour
         gameObject.transform.SetParent(saddle);
         onOrion.SetActive(true);
         gameObject.SetActive(false);
-        isMounted = true;
+        isMounted = false;
     }
     void Start()
     {

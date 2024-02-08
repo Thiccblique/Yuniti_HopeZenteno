@@ -34,8 +34,12 @@ public class OrionController : MonoBehaviour
     {
         gameObject.transform.SetParent(saddle);
         onOrion.SetActive(true);
-        gameObject.SetActive(false);
-        isMounted = false;
+        if(isMounted)
+        {
+            gameObject.SetActive(false);
+        }
+       
+        //isMounted = true;
     }
     void Start()
     {

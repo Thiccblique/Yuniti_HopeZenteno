@@ -232,7 +232,7 @@ public class TowerSpawner : MonoBehaviour
             if (!spawnOne)
             {
                 priceMarkerOne.SetActive(true);
-                range[0].SetActive(true);
+                //range[0].SetActive(true);
                 if (GameManager.instance.coins >= price)
                 {
                     justEnoughTTOne.SetActive(true);
@@ -246,7 +246,7 @@ public class TowerSpawner : MonoBehaviour
             else if (!spawnTwo)
             {
                 priceMarkerTwo.SetActive(true);
-                range[1].SetActive(true);        
+                //range[1].SetActive(true);        
                 if (GameManager.instance.coins >= price)
                 {
                     justEnoughTT_Two.SetActive(true);
@@ -260,7 +260,7 @@ public class TowerSpawner : MonoBehaviour
             else if (!spawnThree)
             {
                 priceMarkerThree.SetActive(true);
-                range[2].SetActive(true);
+                //range[2].SetActive(true);
                 if (GameManager.instance.coins >= price)
                 {
                     justEnoughTT_Three.SetActive(true);

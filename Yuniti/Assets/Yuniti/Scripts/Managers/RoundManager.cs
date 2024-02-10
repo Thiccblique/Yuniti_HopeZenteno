@@ -153,6 +153,7 @@ public class RoundManager : MonoBehaviour
     {
         if(remainingEnemies <= 0)
         {
+            GameManager.instance.hasStarted = false;
             day.SetActive(true);
             night.SetActive(false);
             endRound = true;

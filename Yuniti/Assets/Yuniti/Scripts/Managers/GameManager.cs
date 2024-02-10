@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     public bool readyForUpgradeIII = false;
     public bool inRound = true;
     public GameObject player;
+    public bool hasStarted = true;
 
     [Header("FirstRound")]
     public GameObject round1TowerOne;
@@ -96,6 +97,7 @@ public class GameManager : MonoBehaviour
         CodeTooUI();
         hudCanvas.SetActive(false);
         hasRan = false;
+        hasStarted = false;
     }
 
     public void CodeTooUI()
@@ -288,11 +290,16 @@ public class GameManager : MonoBehaviour
 
     public void RoundStart()
     {
-        RoundManager.instance.StartRoundCountdown();
-        RoundManager.instance.totalEnemies += RoundManager.instance.enemyIncreaseNum;
-        RoundManager.instance.remainingEnemies = RoundManager.instance.totalEnemies;
-        RoundManager.instance.roundNumber++;
-        EnemyStats();
+        if(!hasStarted)
+        {
+            RoundManager.instance.StartRoundCountdown();
+            RoundManager.instance.totalEnemies += RoundManager.instance.enemyIncreaseNum;
+            RoundManager.instance.remainingEnemies = RoundManager.instance.totalEnemies;
+            RoundManager.instance.roundNumber++;
+            EnemyStats();
+            hasStarted = true;
+        }
+        
     }
 
 

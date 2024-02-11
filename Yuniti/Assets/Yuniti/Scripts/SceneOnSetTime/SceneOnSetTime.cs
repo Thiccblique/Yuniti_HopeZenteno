@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneOnSetTime : MonoBehaviour
 {
+    public LoadingScreen loadingScreen;
     public float changetime;
     public string sceneName;
     // Start is called before the first frame update
@@ -19,7 +20,7 @@ public class SceneOnSetTime : MonoBehaviour
 
         if (changetime <= 0)
         {
-            SceneManager.LoadScene(sceneName);
+            loadingScreen.LoadScene(sceneName);
         }
     }
 

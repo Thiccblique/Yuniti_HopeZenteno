@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 749523522543575942}
   - component: {fileID: 8194336291952201613}
   - component: {fileID: 6944840586772924328}
+  - component: {fileID: 4211462285000698126}
   m_Layer: 0
   m_Name: DrillTop (1)
   m_TagString: Untagged
@@ -99,6 +100,27 @@ MonoBehaviour:
   rotationSpeedX: 0
   rotationSpeedY: 0
   rotationSpeedZ: -500
+--- !u!65 &4211462285000698126
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947593166601753373}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.029750789, y: 0.029752199, z: 0.023518985}
+  m_Center: {x: -0.00013117115, y: -0.00040749134, z: 0.0017594788}
 --- !u!1 &5425245072570327764
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,6 +133,7 @@ GameObject:
   - component: {fileID: 5531799306167948775}
   - component: {fileID: 1959378481963811702}
   - component: {fileID: 831924770709322234}
+  - component: {fileID: 82041492279633959}
   m_Layer: 0
   m_Name: DeviceSphere
   m_TagString: Untagged
@@ -200,6 +223,29 @@ MonoBehaviour:
   rotationSpeedX: 0
   rotationSpeedY: 0
   rotationSpeedZ: 100
+--- !u!136 &82041492279633959
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5425245072570327764}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.010596207
+  m_Height: 0.021192417
+  m_Direction: 1
+  m_Center: {x: 0, y: 9.313226e-10, z: 0}
 --- !u!1 &8566157991656219608
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +258,7 @@ GameObject:
   - component: {fileID: 6668887411031345582}
   - component: {fileID: 5743604959582883496}
   - component: {fileID: 3187926984466689203}
+  - component: {fileID: 4515359261221980242}
   m_Layer: 0
   m_Name: DrillBottom (1)
   m_TagString: Untagged
@@ -299,3 +346,24 @@ MonoBehaviour:
   rotationSpeedX: 0
   rotationSpeedY: 0
   rotationSpeedZ: -500
+--- !u!65 &4515359261221980242
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8566157991656219608}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.08412641, y: 0.08413041, z: 0.14595595}
+  m_Center: {x: 0.002043735, y: -0.000022254886, z: 0.008574586}

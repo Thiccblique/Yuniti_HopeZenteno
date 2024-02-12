@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScreen : MonoBehaviour
 {
+    public static LoadingScreen instance;
+
     public GameObject loadingScreen;
     public GameObject loadingScreenPrefab;
     // Start is called before the first frame update

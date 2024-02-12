@@ -82,7 +82,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public int killCount;
-    private bool hasRan = true;
+    public bool hasRan = true;
+    public bool isRan = true;
     
 
 
@@ -97,6 +98,7 @@ public class GameManager : MonoBehaviour
         CodeTooUI();
         hudCanvas.SetActive(false);
         hasRan = false;
+        isRan = false;
         hasStarted = false;
     }
 
@@ -200,6 +202,7 @@ public class GameManager : MonoBehaviour
 
         //And Player? lol 
         pController.attackDamage += 1f;
+        pController.swordDamage += 0.7f;
 
 
     }
@@ -275,6 +278,21 @@ public class GameManager : MonoBehaviour
             dialougeBox[0].SetActive(true);
             hasRan = true;
 
+        }
+        if (dialougeBox[1] != null)
+        {
+            if(defendingPoints.spawnOne == true)
+            {
+                dialougeBox[1].SetActive(true); 
+            }
+        }
+        if (dialougeBox[2] != null)
+        {
+            if (RoundManager.instance.roundNumber == 4 && RoundManager.instance.endRound == true && killCount > 25 && !isRan)
+            {
+                dialougeBox[2].SetActive(true);
+                isRan = true;
+            }
         }
     }
 

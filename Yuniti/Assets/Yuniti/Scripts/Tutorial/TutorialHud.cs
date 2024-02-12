@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class TutorialManager : MonoBehaviour
+public class TutorialHud : MonoBehaviour
 {
-    public static TutorialManager instance;
-
+    public static TutorialHud instance;
+    public LoadingScreen loadingScreen;
     private bool[] hasActivated = new bool[5] { true, true, true, true, true };
+    private bool[] hasSpoken = new bool[5] { true, true, true, true, true };
     public GameObject[] arrows;
     public GameObject mask;
     public bool startedHud = false;
     private bool buyTower = false;
+    public string sceneName;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +24,17 @@ public class TutorialManager : MonoBehaviour
     void Update()
     {
         ArrowManager(hasActivated);
+        FinalTalk(hasSpoken);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        startedHud = true;
+        if(buyTower == false)
+        {
+            startedHud = true;
+            buyTower = true;
+        }
+       
     }
 
     private void ArrowManager(bool[] hasActivated )
@@ -73,7 +81,7 @@ public class TutorialManager : MonoBehaviour
                     arrows[3].SetActive(false);
                     mask.SetActive(false);
                     hasActivated[4] = false;
-                    
+                    startedHud = false;
                     
                 }
             }
@@ -81,7 +89,63 @@ public class TutorialManager : MonoBehaviour
        
     }
 
-   
+    private void FinalTalk(bool[] hasSpoken)
+    {
+        if (RoundManager.instance.roundNumber == 1 && RoundManager.instance.endRound == true && GameManager.instance.killCount > 1)
+        {
+           
+            if (hasSpoken[0] == true)
+            {
+                mask.SetActive(true);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    hasSpoken[0] = false;
+                }
+               
+            }
+            else if (hasSpoken[1] == true)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    mask.SetActive(false);
+                    hasSpoken[1] = false;
+                    
+                }
+            }
+           
+        }
+        if (RoundManager.instance.roundNumber == 4 && RoundManager.instance.endRound == true && GameManager.instance.killCount > 25)
+        {
+            if (hasSpoken[2] == true)
+            {
+                mask.SetActive(true);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    hasSpoken[2] = false;
+                }
+
+            }
+            else if (hasSpoken[3] == true)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    //loadingScreen.LoadScene(sceneName);
+                    hasSpoken[3] = false;
+                }
+            }
+            else if (hasSpoken[4] == true)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    loadingScreen.LoadScene(sceneName);
+                }
+            }
+        }
+
+
+    }
+
+
 
 
 }

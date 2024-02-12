@@ -129,6 +129,13 @@ public class EnemyBehaviour : MonoBehaviour
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
            
         }
+        if (other.gameObject.CompareTag("SwordHitBox"))
+        {
+            healthAmount -= player.swordDamage;
+            ActivateRandomParticleSystem();
+            FindAnyObjectByType<AudioManager>().Play("EnemyHit");
+
+        }
     }
 
     

@@ -11,6 +11,7 @@ public class IsometricController : MonoBehaviour
     private AudioManager sound;
     public Rigidbody rb;
     public float attackDamage = 1;
+    public float swordDamage = 0.5f;
     public float speed;
     public float solidSpeed = 10;
    

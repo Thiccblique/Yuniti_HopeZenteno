@@ -288,7 +288,7 @@ public class GameManager : MonoBehaviour
         }
         if (dialougeBox[2] != null)
         {
-            if (RoundManager.instance.roundNumber == 4 && RoundManager.instance.endRound == true && killCount > 25 && !isRan)
+            if (RoundManager.instance.roundNumber == 3 && RoundManager.instance.endRound == true && killCount > 13 && !isRan)
             {
                 dialougeBox[2].SetActive(true);
                 isRan = true;

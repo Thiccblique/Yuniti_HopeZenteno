@@ -14,10 +14,12 @@ public class TutorialHud : MonoBehaviour
     public bool startedHud = false;
     private bool buyTower = false;
     public string sceneName;
+    public OrionController orionController;
+    public GameObject continueText;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        continueText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -43,14 +45,18 @@ public class TutorialHud : MonoBehaviour
         {
             if (hasActivated[0] == true)
             {
+               
+                orionController.inTutorial = true;
                 arrows[0].SetActive(true);
                 mask.SetActive(true);
                 hasActivated[0] = false;
             }
             else if (hasActivated[1] == true)
             {
+               
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    continueText.SetActive(true);
                     arrows[0].SetActive(false);
                     arrows[1].SetActive(true);
                     hasActivated[1] = false;
@@ -82,7 +88,8 @@ public class TutorialHud : MonoBehaviour
                     mask.SetActive(false);
                     hasActivated[4] = false;
                     startedHud = false;
-                    
+                    orionController.inTutorial = false;
+                    Invoke("Deactivate", 1f);
                 }
             }
         }
@@ -96,6 +103,8 @@ public class TutorialHud : MonoBehaviour
            
             if (hasSpoken[0] == true)
             {
+                continueText.SetActive(true);
+                orionController.inTutorial = true;
                 mask.SetActive(true);
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -109,15 +118,19 @@ public class TutorialHud : MonoBehaviour
                 {
                     mask.SetActive(false);
                     hasSpoken[1] = false;
-                    
+                    orionController.inTutorial = false;
+                    Invoke("Deactivate", 1f);
+
                 }
             }
            
         }
-        if (RoundManager.instance.roundNumber == 4 && RoundManager.instance.endRound == true && GameManager.instance.killCount > 25)
+        if (RoundManager.instance.roundNumber == 3 && RoundManager.instance.endRound == true && GameManager.instance.killCount > 13)
         {
             if (hasSpoken[2] == true)
             {
+                continueText.SetActive(true);
+                orionController.inTutorial = true;
                 mask.SetActive(true);
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -130,7 +143,10 @@ public class TutorialHud : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     //loadingScreen.LoadScene(sceneName);
+                    orionController.inTutorial = false;
+                    Invoke("Deactivate", 1f);
                     hasSpoken[3] = false;
+                    Invoke("Transfer", 3f);
                 }
             }
             else if (hasSpoken[4] == true)
@@ -145,7 +161,14 @@ public class TutorialHud : MonoBehaviour
 
     }
 
-
+    private void Transfer()
+    {
+        loadingScreen.LoadScene(sceneName);
+    }
+    private void Deactivate()
+    {
+        continueText.SetActive(false);
+    }
 
 
 }

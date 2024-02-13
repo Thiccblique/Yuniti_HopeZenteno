@@ -10,7 +10,13 @@ public class TutorialStats : MonoBehaviour
     public bool startedHud = false;
     private bool buyTower = false;
     public TowerSpawner defendingPoints;
- 
+    public OrionController orionController;
+    public GameObject continueText;
+
+    private void Start()
+    {
+        continueText.SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -32,6 +38,8 @@ public class TutorialStats : MonoBehaviour
         {
             if (hasActivated[0] == true)
             {
+                continueText.SetActive (true);
+                orionController.inTutorial = true;
                 arrows[0].SetActive(true);
                 mask.SetActive(true);
                 hasActivated[0] = false;
@@ -61,10 +69,17 @@ public class TutorialStats : MonoBehaviour
                     arrows[2].SetActive(false);
                     mask.SetActive(false);
                     hasActivated[3] = false;
+                    orionController.inTutorial = false;
+                    Invoke("Deactivate", 1f);
                 }
             }
             
         }
 
+    }
+
+    private void Deactivate()
+    {
+        continueText.SetActive(false);
     }
 }

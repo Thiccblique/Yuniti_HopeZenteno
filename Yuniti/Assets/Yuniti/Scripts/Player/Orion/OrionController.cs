@@ -16,7 +16,7 @@ public class OrionController : MonoBehaviour
     private Vector3 input;
 
     public bool isMounted = true;
-    
+    public bool inTutorial = false;
     public Transform saddle;
     public ParticleSystem hit;
     [Header("Aniamtion")]
@@ -29,6 +29,7 @@ public class OrionController : MonoBehaviour
     public GambleTower gambleTower;
     public GameObject healthBar;
     public GameObject range;
+
 
     private void Awake()
     {
@@ -48,15 +49,25 @@ public class OrionController : MonoBehaviour
     }
     void Update()
     {
-        GatherInput();
-        Look();
-        WalkAnim();
-        AttackAnim();
+        if (inTutorial == false)
+        {
+            GatherInput();
+            Look();
+            WalkAnim();
+            AttackAnim();
+        }
+        else
+            orionAnim.SetBool("Walk", false);
+
     }
 
     private void FixedUpdate()
     {
-        Move();
+        if(inTutorial == false)
+        {
+            Move();
+        }
+        
     }
 
     private void OnTriggerStay(Collider other)

@@ -51,7 +51,7 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueText.text += letter;
             FindAnyObjectByType<AudioManager>().Play("Text");
-            yield return new WaitForSeconds(.02f);
+            yield return new WaitForSeconds(.01f);
             yield return null;
         }
     }

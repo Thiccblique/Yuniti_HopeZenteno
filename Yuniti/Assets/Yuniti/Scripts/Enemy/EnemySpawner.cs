@@ -73,7 +73,7 @@ public class EnemySpawner : MonoBehaviour
                     secondEnemyCount++;
                 }
             }
-            else if (curRound >= 4 && curRound <= 15)
+            else if (curRound >= 4 && curRound <= 8)
             {
                 
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .4f;

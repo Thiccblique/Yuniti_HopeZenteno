@@ -7,6 +7,8 @@ public class EnemySpawner : MonoBehaviour
     public static EnemySpawner instance;
 
     public GameObject[] objectToSpawn;
+    public GameObject bullEnemy;
+    public Transform bullSpawnPoint;
     public Transform[] spawnPoint;
     public float spawnInterval = 3.0f;
 
@@ -105,7 +107,20 @@ public class EnemySpawner : MonoBehaviour
                 }
 
             }
-            else if (curRound >= 16 && curRound <= 25) // This type of enemy count goes forever. Change later when end round is added plus more enmies.
+            else if (curRound == 9) // bull spawning
+            {
+                int filler = enemiesToSpawn - 1;
+                spawnCount = filler;
+                RoundManager.instance.remainingEnemies = RoundManager.instance.remainingEnemies - filler;
+                Instantiate(bullEnemy, bullSpawnPoint.position, bullSpawnPoint.rotation);
+                spawnCount++;
+
+                if (spawnCount >= enemiesToSpawn)
+                {
+                    break;
+                }
+            }
+            else if (curRound >= 10 && curRound <= 25) // This type of enemy count goes forever. Change later when end round is added plus more enmies.
             {
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .2f;
                 secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;

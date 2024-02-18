@@ -56,6 +56,7 @@ public class BullBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("BullWaypoint") && other.gameObject.transform.position == lastPoint) // Checks the tag of the other object that has a collider trigger to see if it is "BullWaypoint".
         {                                                                                                    // It also checks if it is the last point in the pathing array to show that it has reached the final destination.
             // things to do once it reaches the last point
+            RoundManager.instance.remainingEnemies--;
             Destroy(gameObject); // placeholder - it just destroys the bull
         }
 

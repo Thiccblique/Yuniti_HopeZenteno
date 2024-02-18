@@ -11,6 +11,7 @@ public class BullBehaviour : MonoBehaviour
     [Header("Bull Pathing")]
     public NavMeshAgent enemyBull; // makes a variable of type NavMeshAgent which used for the NavMesh navigating. We call it enemyBull.
     public GameObject[] pathing; // an array of GameObjects to get the Vector3 position.
+    public GameObject target;
 
     private Vector3 lastPoint; // an instance variable (Vector3) that will get the last Vector3 position for the pathing array named lastPoint.
     private Vector3 currentAssignedPoint; // an instance variable (Vector3) that keeps track of the current Vector3 position the bull will be going towards to. Named currentAssignedPoint.
@@ -57,7 +58,14 @@ public class BullBehaviour : MonoBehaviour
         {                                                                                                    // It also checks if it is the last point in the pathing array to show that it has reached the final destination.
             // things to do once it reaches the last point
             RoundManager.instance.remainingEnemies--;
-            Destroy(gameObject); // placeholder - it just destroys the bull
+            
+            Vector3 direction = target.transform.position - transform.position;
+
+            // Use Quaternion.LookRotation to compute the rotation needed to look at the target
+            Quaternion rotation = Quaternion.LookRotation(direction);
+
+            // Apply the rotation to the current GameObject
+            transform.rotation = rotation;
         }
 
         // === Bull Being Attacked ===

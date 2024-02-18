@@ -122,9 +122,9 @@ public class EnemySpawner : MonoBehaviour
             }
             else if (curRound >= 10 && curRound <= 25) // This type of enemy count goes forever. Change later when end round is added plus more enmies.
             {
-                firstEnemyCount = RoundManager.instance.remainingEnemies * .2f;
+                firstEnemyCount = RoundManager.instance.remainingEnemies * .4f;
                 secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
-                thirdEnemyCount = RoundManager.instance.remainingEnemies * .4f;
+                thirdEnemyCount = RoundManager.instance.remainingEnemies * .2f;
                 fourthEnemyCount = RoundManager.instance.remainingEnemies * 1f;
 
                 firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);

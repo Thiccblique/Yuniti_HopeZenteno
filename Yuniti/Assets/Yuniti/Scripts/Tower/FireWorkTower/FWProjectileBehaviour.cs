@@ -8,6 +8,7 @@ public class FWProjectileBehaviour : MonoBehaviour
     public float projectileLifetime = 5f;
     public int damageAmount = 1;
     public float explosionRange = 3f;
+    public float speedMultiplier = 3f;
 
     public ParticleSystem fireWork;
 
@@ -28,6 +29,7 @@ public class FWProjectileBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        IncreaseSpeed();
         projectileLifetime -= Time.deltaTime;
 
         if (projectileLifetime < 0)
@@ -48,6 +50,17 @@ public class FWProjectileBehaviour : MonoBehaviour
         }
     }
 
+    private void IncreaseSpeed()
+    {
+        // Get the current velocity of the object
+        Vector3 currentVelocity = GetComponent<Rigidbody>().velocity;
+
+        // Multiply the velocity by the speed multiplier
+        Vector3 newVelocity = currentVelocity * speedMultiplier;
+
+        // Set the new velocity to the object
+        GetComponent<Rigidbody>().velocity = newVelocity;
+    }
     private void HitPartical()
     {
         if (fireWork != null)

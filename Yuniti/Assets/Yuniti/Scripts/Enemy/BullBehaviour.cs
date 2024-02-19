@@ -33,6 +33,9 @@ public class BullBehaviour : MonoBehaviour
     [Header("Particals")]
     public ParticleSystem[] particleSystems;
 
+    private string unTagged = "Untagged";
+    public int newLayerIndex = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +77,10 @@ public class BullBehaviour : MonoBehaviour
 
             // Apply the rotation to the current GameObject
             transform.rotation = rotation;
+
+            //Chages tag
+            gameObject.tag = unTagged;
+            gameObject.layer = newLayerIndex;
         }
 
         // === Bull Being Attacked ===

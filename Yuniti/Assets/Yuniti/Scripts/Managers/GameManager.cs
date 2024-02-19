@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 using Unity.VisualScripting;
+using System.IO.Compression;
 
 public class GameManager : MonoBehaviour
 {
@@ -84,9 +85,21 @@ public class GameManager : MonoBehaviour
     public int killCount;
     public bool hasRan = true;
     public bool isRan = true;
-    
 
-
+    private KeyCode[] konamiCodeSequence = {
+        KeyCode.UpArrow,
+        KeyCode.UpArrow,
+        KeyCode.DownArrow,
+        KeyCode.DownArrow,
+        KeyCode.LeftArrow,
+        KeyCode.RightArrow,
+        KeyCode.LeftArrow,
+        KeyCode.RightArrow,
+        KeyCode.B,
+        KeyCode.A
+        
+    };
+    private int currentIndex = 0;
 
 
     // Start is called before the first frame update
@@ -100,6 +113,15 @@ public class GameManager : MonoBehaviour
         hasRan = false;
         isRan = false;
         hasStarted = false;
+    }
+    void Update()
+    {
+        KonamiCode();
+        Spawner();
+        CodeTooUI();
+        DialogueActivator();
+        GameOver();
+       
     }
 
     public void CodeTooUI()
@@ -174,13 +196,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        Spawner();
-        CodeTooUI();
-        DialogueActivator();
-        GameOver();
-    }
+   
 
     private void EnemyStats()
     {
@@ -318,6 +334,25 @@ public class GameManager : MonoBehaviour
             hasStarted = true;
         }
         
+    }
+
+    public void KonamiCode()
+    {
+        if (Input.GetKeyDown(konamiCodeSequence[currentIndex]))
+        {
+            currentIndex++;
+       
+            if (currentIndex == konamiCodeSequence.Length)
+            {
+                coins = 99999999f;
+                Debug.Log("Konami Code activated!");
+                currentIndex = 0;
+            }
+        }
+        else
+        {
+            currentIndex = 0;
+        }
     }
 
 

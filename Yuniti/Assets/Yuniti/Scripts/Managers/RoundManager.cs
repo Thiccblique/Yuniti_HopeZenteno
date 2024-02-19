@@ -19,12 +19,12 @@ public class RoundManager : MonoBehaviour
     public int totalEnemies;
     public int roundNumber = 0;
     public int enemyIncreaseNum = 4;
-   
+
     [Header("UIWork")]
     public GameObject startRoundUI;
     public GameObject inActionUI;
     public GameObject enemRemainUI;
-    
+
     [SerializeField]
     public int remainingEnemies;
 
@@ -36,7 +36,11 @@ public class RoundManager : MonoBehaviour
     [Header("Day&&Night")]
     public GameObject day;
     public GameObject night;
-    
+
+    [Header("EnemyTower")]
+    public ParticleSystem enemyBuild;
+    private bool activateTower = false;
+    public GameObject enemyTower;
     
 
     [Header("Particals")]
@@ -158,6 +162,7 @@ public class RoundManager : MonoBehaviour
             night.SetActive(false);
             endRound = true;
             TurnOff();
+            enemyBuild.Stop();
             GameManager.instance.inRound = false;
             if (runOnce)
             {
@@ -174,6 +179,21 @@ public class RoundManager : MonoBehaviour
           
         }
       
+    }
+    
+    public void EnemyTowers()
+    {
+        if (roundNumber == 9 && endRound == false)
+        {
+            enemyBuild.Play();
+            activateTower = true;
+        }
+        if (activateTower == true && endRound == true)
+        {
+            enemyTower.SetActive(true);
+            
+        }
+            
     }
 
     public void TurnOn()

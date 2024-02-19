@@ -29,7 +29,7 @@ public class AllyBehaviour : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy") && !attackCooldown)
+        if (other.gameObject.CompareTag("Enemy") && !attackCooldown && RoundManager.instance.endRound == false)
         {
            enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
            enemyBehaviour.healthAmount = enemyBehaviour.healthAmount - damageAmount;

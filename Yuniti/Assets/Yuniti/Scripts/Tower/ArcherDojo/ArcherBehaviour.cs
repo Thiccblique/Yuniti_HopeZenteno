@@ -30,7 +30,7 @@ public class ArcherBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fireCountdown <= 0.0f)
+        if (fireCountdown <= 0.0f && RoundManager.instance.endRound == false)
         {
             Detect();
             fireCountdown = 1.0f / fireRate;

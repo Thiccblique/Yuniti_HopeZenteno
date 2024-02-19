@@ -39,6 +39,7 @@ public class RoundManager : MonoBehaviour
 
     [Header("EnemyTower")]
     public ParticleSystem enemyBuild;
+   
     private bool activateTower = false;
     public GameObject enemyTower;
     
@@ -91,6 +92,7 @@ public class RoundManager : MonoBehaviour
         //remainingEnemies = totalEnemies;
         Conter();
         EndRound();
+        EnemyTowers();
     }
 
     private void Conter()
@@ -163,6 +165,7 @@ public class RoundManager : MonoBehaviour
             endRound = true;
             TurnOff();
             enemyBuild.Stop();
+           
             GameManager.instance.inRound = false;
             if (runOnce)
             {
@@ -186,6 +189,7 @@ public class RoundManager : MonoBehaviour
         if (roundNumber == 9 && endRound == false)
         {
             enemyBuild.Play();
+           
             activateTower = true;
         }
         if (activateTower == true && endRound == true)

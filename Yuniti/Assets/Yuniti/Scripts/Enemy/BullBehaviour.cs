@@ -28,6 +28,10 @@ public class BullBehaviour : MonoBehaviour
     [Header("Health")]
     public float healthAmount;
     public float maxHealth;
+    public Slider healthBar;
+
+    [Header("Particals")]
+    public ParticleSystem[] particleSystems;
 
     // Start is called before the first frame update
     void Start()
@@ -36,12 +40,16 @@ public class BullBehaviour : MonoBehaviour
         currentAssignedPoint = pathing[0].transform.position; // assigns the first GameObject Vector3 position of the pathing array to currentAssignedPoint.
         currentPathingIndex = 0; // sets currentPathingIndex to 0 since in an array this would be the first element inside it.
         enemyBull.SetDestination(currentAssignedPoint); // sets the first destination using NavMesh to currentAssignedPoint which would be just the first Vector3 position of the first GameObject in pathing array.
+        SetMaxHealth(maxHealth);
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
         enemyBull.SetDestination(currentAssignedPoint); // constantly updates the destination of the bull using NavMesh based on the current Vector3 point assigned to currentAssignedPoint.
+        SetHealth(healthAmount);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -76,7 +84,7 @@ public class BullBehaviour : MonoBehaviour
             healthAmount = healthAmount - projectileBehaviour.damageAmount;
             // healthBar.value = CalculateHealth();
             //HitPartical();
-            //ActivateRandomParticleSystem();
+            ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             // Debug.Log("Enemy Health: " + healthAmount);
         }
@@ -87,7 +95,7 @@ public class BullBehaviour : MonoBehaviour
             healthAmount = healthAmount - fwProjectileBehaviour.damageAmount;
             //healthBar.value = CalculateHealth();
             //HitPartical();
-            //ActivateRandomParticleSystem();
+            ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             //Debug.Log("Enemy Health: " + healthAmount);
         }
@@ -99,7 +107,7 @@ public class BullBehaviour : MonoBehaviour
             healthAmount--;
             //healthbar.value = CalculateHealth();
             //HitPartical();
-            //ActivateRandomParticleSystem();
+            ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             // Debug.Log("Enemy Health: " + healthAmount);
         }
@@ -108,15 +116,48 @@ public class BullBehaviour : MonoBehaviour
         {
             healthAmount -= player.attackDamage;
 
-            //ActivateRandomParticleSystem();
+            ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
 
         }
         if (other.gameObject.CompareTag("SwordHitBox"))
         {
             healthAmount -= player.swordDamage;
-            //ActivateRandomParticleSystem();
+            ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
         }
+    }
+
+    public void ActivateRandomParticleSystem()
+    {
+        if (particleSystems != null && particleSystems.Length > 0)
+        {
+            int randomIndex = Random.Range(0, particleSystems.Length);
+
+            // Disable all particle systems in the array
+            for (int i = 0; i < particleSystems.Length; i++)
+            {
+                if (particleSystems[i].isPlaying)
+                {
+                    particleSystems[i].Stop();
+                }
+            }
+
+            // Activate the randomly selected particle system
+            particleSystems[randomIndex].Play();
+        }
+        else
+        {
+            Debug.LogWarning("No particle systems found or added to the array!");
+        }
+    }
+    public void SetMaxHealth(float health)
+    {
+        healthBar.maxValue = health;
+        healthBar.value = health;
+    }
+    public void SetHealth(float health)
+    {
+        healthBar.value = health;
     }
 }

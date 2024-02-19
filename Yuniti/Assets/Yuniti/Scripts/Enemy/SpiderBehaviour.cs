@@ -95,6 +95,13 @@ public class SpiderBehaviour : MonoBehaviour
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             //Debug.Log("Enemy Health: " + healthAmount);
         }
+        if (other.gameObject.CompareTag("SwordHitBox"))
+        {
+            healthAmount -= player.swordDamage;
+            HitPartical();
+            FindAnyObjectByType<AudioManager>().Play("EnemyHit");
+
+        }
     }
 
     float CalculateHealth()

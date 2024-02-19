@@ -75,7 +75,7 @@ public class EnemySpawner : MonoBehaviour
                     secondEnemyCount++;
                 }
             }
-            else if (curRound >= 4 && curRound <= 8)
+            else if (curRound >= 4 && curRound <= 7)
             {
                 
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .4f;
@@ -107,7 +107,7 @@ public class EnemySpawner : MonoBehaviour
                 }
 
             }
-            else if (curRound == 9) // bull spawning
+            else if (curRound == 8) // bull spawning
             {
                 int filler = enemiesToSpawn - 1;
                 spawnCount = filler;

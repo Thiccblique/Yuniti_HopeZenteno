@@ -10750,6 +10750,8 @@ MonoBehaviour:
   countdownPanel: {fileID: 1480401169}
   day: {fileID: 563006350}
   night: {fileID: 1337362645}
+  enemyBuild: {fileID: 1244797998}
+  enemyTower: {fileID: 1895258195}
   partical1: {fileID: 1895258195}
   partical2: {fileID: 1895258195}
   partical3: {fileID: 1895258195}
@@ -11759,6 +11761,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 673363918}
+    - target: {fileID: 6012190741608515911, guid: bcf01a434c9c10f47b5ffc2430dabbc7, type: 3}
+      propertyPath: isMounted
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6012190741608515911, guid: bcf01a434c9c10f47b5ffc2430dabbc7, type: 3}
       propertyPath: gambleWalk
       value: 
@@ -25220,6 +25226,8 @@ MonoBehaviour:
   - {fileID: 1960469446}
   - {fileID: 1960469446}
   - {fileID: 1960469446}
+  bullEnemy: {fileID: 0}
+  bullSpawnPoint: {fileID: 0}
   spawnPoint:
   - {fileID: 1422805667}
   - {fileID: 931911739}
@@ -90777,7 +90785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8728069372898229172, guid: e986ce0c6440d1541825b885c09936e3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -95855,6 +95863,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242304373}
   m_CullTransparentMesh: 1
+--- !u!198 &1244797998 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7728828073233915800, guid: bf5e38055ef082e459abff5e91637ad4, type: 3}
+  m_PrefabInstance: {fileID: 297444147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1248356525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2375583458100008676, guid: 5dda9db9a48634248b0e712138287549, type: 3}
@@ -223347,18 +223360,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1444737065}
     m_Modifications:
-    - target: {fileID: 2927046603083630371, guid: 2adf3205abafd4744aa3b9ccaaa6928d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2927046603083630371, guid: 2adf3205abafd4744aa3b9ccaaa6928d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2927046603083630371, guid: 2adf3205abafd4744aa3b9ccaaa6928d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2927046603083630371, guid: 2adf3205abafd4744aa3b9ccaaa6928d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.88

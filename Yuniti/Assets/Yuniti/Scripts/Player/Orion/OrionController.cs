@@ -30,6 +30,8 @@ public class OrionController : MonoBehaviour
     public GameObject healthBar;
     public GameObject range;
 
+    [Header("UI")]
+    public GameObject space;
 
     private void Awake()
     {
@@ -76,6 +78,7 @@ public class OrionController : MonoBehaviour
         {
             if(!isMounted)
             {
+                space.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     FindAnyObjectByType<AudioManager>().Play("Jump");
@@ -90,14 +93,21 @@ public class OrionController : MonoBehaviour
             }
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Saddle"))
+        {
+            space.SetActive(false);
+        }
+    }
     IEnumerator Mount()
     {
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.005f);
         gameObject.transform.SetParent(saddle);
         GameManager.instance.EnableAllMeshMounted();
         gameObject.SetActive(false);
         isMounted = true;
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.005f);
     }
     public void WalkAnim()
     {

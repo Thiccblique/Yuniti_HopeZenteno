@@ -40,7 +40,7 @@ public class RoundManager : MonoBehaviour
     [Header("EnemyTower")]
     public ParticleSystem enemyBuild;
    
-    private bool activateTower = false;
+    public bool activateTower = false;
     public GameObject enemyTower;
     
 

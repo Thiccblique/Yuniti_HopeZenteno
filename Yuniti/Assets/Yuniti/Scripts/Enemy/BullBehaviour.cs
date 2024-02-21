@@ -53,6 +53,11 @@ public class BullBehaviour : MonoBehaviour
     {
         enemyBull.SetDestination(currentAssignedPoint); // constantly updates the destination of the bull using NavMesh based on the current Vector3 point assigned to currentAssignedPoint.
         SetHealth(healthAmount);
+
+        if(RoundManager.instance.activateTower == true)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

@@ -4,39 +4,31 @@ using UnityEngine;
 
 public class EarthMover : MonoBehaviour
 {
+    public float moveSpeed = 5f; // Adjust this value to control movement speed
+    public float rotationSpeed = 50f; // Adjust this value to control rotation speed
 
-    public float rotationSpeed = 5f; // Adjust this value to control the rotation speed
-    public float tiltSpeed = 2f; // Adjust this value to control the tilt speed
-    public float tiltAngleLimit = 30f; // Limit the maximum tilt angle
-
-    private Rigidbody rb;
-
-    // Start is called before the first frame update
-    void Start()
+    void Update()
     {
-        // Get the Rigidbody component attached to the sphere
-        rb = GetComponent<Rigidbody>();
-    }
-
-    // FixedUpdate is called at fixed intervals
-    void FixedUpdate()
-    {
-        // Check for user input for rotation
+        // Get input from horizontal and vertical axes
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        // Calculate rotation amount based on input
-        float rotationAmount = rotationSpeed * Time.fixedDeltaTime;
+        // Rotate the sphere on the Y-axis based on horizontal input
+        transform.Rotate(Vector3.down, -horizontalInput * rotationSpeed * Time.deltaTime, Space.World);
 
-        // Apply torque for rotation
-        rb.AddTorque(Vector3.back * horizontalInput * rotationAmount);
-        rb.AddTorque(Vector3.right * verticalInput * rotationAmount);
+        // Calculate rotation angle on the X-axis based on vertical input
+        float rotationAngleX = -verticalInput * rotationSpeed * Time.deltaTime;
 
-        // Calculate tilt amount based on current velocity
-        float tiltAmount = Mathf.Clamp(rb.velocity.magnitude * tiltSpeed, 0f, tiltAngleLimit);
+        // Create a rotation quaternion around the X-axis
+        Quaternion rotationX = Quaternion.AngleAxis(rotationAngleX, Vector3.right);
 
-        // Apply tilt to the object
-        Quaternion targetRotation = Quaternion.Euler(tiltAmount, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * tiltSpeed);
+        // Apply rotation only on the X-axis
+        transform.rotation = rotationX * transform.rotation;
+    }
+
+
+    public void GambleAnimations()
+    {
+        
     }
 }

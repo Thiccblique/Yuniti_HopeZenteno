@@ -155,7 +155,7 @@ public class RoundManager : MonoBehaviour
         FindAnyObjectByType<AudioManager>().Play("InBattle");
 
     }
-    public void EndRound() // This is always running and messing with the starting round. Add boolean or moved it from Update.
+    public void EndRound() // This is always running and messing with the starting round. Add boolean or move it from Update.
     {
         if(remainingEnemies <= 0)
         {

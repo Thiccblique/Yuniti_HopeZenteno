@@ -12,6 +12,7 @@ public class AllyBehaviour : MonoBehaviour
     private bool attackCooldown = false;
     //private bool standingDown = true;
     private EnemyBehaviour enemyBehaviour;
+    private SpiderBehaviour spiderBehaviour;
     private AllyPerimeter allyPerimeter;
   
 
@@ -31,9 +32,19 @@ public class AllyBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy") && !attackCooldown && RoundManager.instance.endRound == false)
         {
-           enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
-           enemyBehaviour.healthAmount = enemyBehaviour.healthAmount - damageAmount;
-           Debug.Log("Enemy Health: " + enemyBehaviour.healthAmount);
+            if (other.gameObject.GetComponent<EnemyBehaviour>() != null)
+            {
+                enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
+                enemyBehaviour.healthAmount = enemyBehaviour.healthAmount - damageAmount;
+                Debug.Log("Enemy Health: " + enemyBehaviour.healthAmount);
+            }
+            else if (other.gameObject.GetComponent<SpiderBehaviour>() != null)
+            {
+                spiderBehaviour = other.gameObject.GetComponent<SpiderBehaviour>();
+                spiderBehaviour.healthAmount = spiderBehaviour.healthAmount - damageAmount;
+                Debug.Log("Enemy Health: " + spiderBehaviour.healthAmount);
+            }
+
 
            StartCoroutine(StartAttackCooldown());
         }

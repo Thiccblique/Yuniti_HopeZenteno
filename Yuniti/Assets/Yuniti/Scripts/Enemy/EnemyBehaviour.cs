@@ -66,14 +66,20 @@ public class EnemyBehaviour : MonoBehaviour
             enemyAgent.SetDestination(originalWaypointVector3);
         }
 
-        if (healthAmount <= 0)
+        if (healthAmount <= 0 && RoundManager.instance.roundNumber <= 9)
         {
             GameManager.instance.coins++;
             GameManager.instance.killCount++;
             RoundManager.instance.remainingEnemies--;
             healthAmount = 0;
             Destroy(gameObject);
-            
+
+        }
+        else if (healthAmount <= 0)
+        {
+            GameManager.instance.coins++;
+            healthAmount = 0;
+            Destroy(gameObject);
         }
        SetHealth(healthAmount);
     }

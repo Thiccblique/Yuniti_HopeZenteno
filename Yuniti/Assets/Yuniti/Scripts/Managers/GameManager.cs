@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Monted Orion")]
     public MeshRenderer[] orionBodyPartsMounted;
-    
+
     [Header("Free Orion")]
     public MeshRenderer[] orionBodyPartsFree;
 
@@ -97,16 +97,16 @@ public class GameManager : MonoBehaviour
         KeyCode.RightArrow,
         KeyCode.B,
         KeyCode.A
-        
+
     };
-    private int currentIndex = 0;
+    public int currentIndex = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
         //enemy = GetComponent<EnemyBehaviour>();
-      
+
         Disability();
         CodeTooUI();
         hudCanvas.SetActive(false);
@@ -116,12 +116,20 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        KonamiCode();
+        if (Input.GetKeyDown(konamiCodeSequence[currentIndex]))
+        {
+            KonamiCode();
+        }
+        else if (Input.anyKeyDown != Input.GetKeyDown(konamiCodeSequence[currentIndex]))
+        {
+            currentIndex = 0;
+        }
+
         Spawner();
         CodeTooUI();
         DialogueActivator();
         GameOver();
-       
+
     }
 
     public void CodeTooUI()
@@ -196,7 +204,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-   
+
 
     private void EnemyStats()
     {
@@ -207,7 +215,7 @@ public class GameManager : MonoBehaviour
         //Flying Enemy
         flyBehaviour.damageAmount += 1.5f;
         flyBehaviour.maxHealth += 2f;
-       
+
         //FilmRed Spider
         spiderBehaviour.damageAmount += 1.5f;
         spiderBehaviour.maxHealth += 2f;
@@ -297,9 +305,9 @@ public class GameManager : MonoBehaviour
         }
         if (dialougeBox[1] != null)
         {
-            if(defendingPoints.spawnOne == true)
+            if (defendingPoints.spawnOne == true)
             {
-                dialougeBox[1].SetActive(true); 
+                dialougeBox[1].SetActive(true);
             }
         }
         if (dialougeBox[2] != null)
@@ -324,7 +332,7 @@ public class GameManager : MonoBehaviour
 
     public void RoundStart()
     {
-        if(!hasStarted)
+        if (!hasStarted)
         {
             RoundManager.instance.StartRoundCountdown();
             RoundManager.instance.totalEnemies += RoundManager.instance.enemyIncreaseNum;
@@ -333,24 +341,17 @@ public class GameManager : MonoBehaviour
             EnemyStats();
             hasStarted = true;
         }
-        
+
     }
 
     public void KonamiCode()
     {
-        if (Input.GetKeyDown(konamiCodeSequence[currentIndex]))
+        currentIndex++;
+
+        if (currentIndex >= konamiCodeSequence.Length)
         {
-            currentIndex++;
-       
-            if (currentIndex == konamiCodeSequence.Length)
-            {
-                coins = 99999999f;
-                Debug.Log("Konami Code activated!");
-                currentIndex = 0;
-            }
-        }
-        else
-        {
+            coins = 99999999f;
+            Debug.Log("Konami Code activated!");
             currentIndex = 0;
         }
     }

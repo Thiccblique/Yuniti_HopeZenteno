@@ -43,6 +43,7 @@ public class BullBehaviour : MonoBehaviour
         currentAssignedPoint = pathing[0].transform.position; // assigns the first GameObject Vector3 position of the pathing array to currentAssignedPoint.
         currentPathingIndex = 0; // sets currentPathingIndex to 0 since in an array this would be the first element inside it.
         enemyBull.SetDestination(currentAssignedPoint); // sets the first destination using NavMesh to currentAssignedPoint which would be just the first Vector3 position of the first GameObject in pathing array.
+        healthAmount = maxHealth;
         SetMaxHealth(maxHealth);
     }
 

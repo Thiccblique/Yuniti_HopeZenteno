@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject[] objectToSpawn;
     public GameObject bullEnemy;
     public Transform bullSpawnPoint;
+    public Transform enemyTowerSP;
     public Transform[] spawnPoint;
     public float spawnInterval = 3.0f;
 
@@ -23,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         instance = this;
-        
+
 
     }
 
@@ -58,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
                 }
                 
             }*/
-            if(curRound >= 1 && curRound <= 3)
+            if (curRound >= 1 && curRound <= 3)
             {
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .7f;
                 secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
@@ -77,17 +78,17 @@ public class EnemySpawner : MonoBehaviour
             }
             else if (curRound >= 4 && curRound <= 7)
             {
-                
+
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .4f;
                 secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
                 thirdEnemyCount = RoundManager.instance.remainingEnemies * .2f;
                 fourthEnemyCount = RoundManager.instance.remainingEnemies * .1f;
-              
+
 
                 firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
                 secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
                 thirdEnemyCount = Mathf.FloorToInt(thirdEnemyCount);
-                fourthEnemyCount= Mathf.FloorToInt(fourthEnemyCount);
+                fourthEnemyCount = Mathf.FloorToInt(fourthEnemyCount);
 
                 if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
                 {
@@ -120,7 +121,7 @@ public class EnemySpawner : MonoBehaviour
                     break;
                 }
             }
-            else if (curRound >= 9 && curRound <= 25) // This type of enemy count goes forever. Change later when end round is added plus more enmies.
+            else if (curRound == 9) // This type of enemy count goes forever. Change later when end round is added plus more enmies.
             {
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .4f;
                 secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
@@ -129,8 +130,8 @@ public class EnemySpawner : MonoBehaviour
 
                 firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
                 secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
-                thirdEnemyCount = Mathf .FloorToInt(thirdEnemyCount);
-                fourthEnemyCount = Mathf .FloorToInt(fourthEnemyCount);
+                thirdEnemyCount = Mathf.FloorToInt(thirdEnemyCount);
+                fourthEnemyCount = Mathf.FloorToInt(fourthEnemyCount);
 
                 if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
                 {
@@ -151,38 +152,71 @@ public class EnemySpawner : MonoBehaviour
             }
 
 
-            for (int i = 0; firstEnemyCount > i && spawnCount < RoundManager.instance.remainingEnemies; i++)
+            if (curRound <= 9)
             {
-                int spawnPointChosen = Random.Range(0, spawnPoint.Length);
-                Instantiate(objectToSpawn[0], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
-                spawnCount++;
-                yield return new WaitForSeconds(spawnInterval);
+
+                for (int i = 0; firstEnemyCount > i && spawnCount < RoundManager.instance.remainingEnemies; i++)
+                {
+                    int spawnPointChosen = Random.Range(0, spawnPoint.Length);
+                    Instantiate(objectToSpawn[0], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
+                    spawnCount++;
+                    yield return new WaitForSeconds(spawnInterval);
+                }
+
+                for (int i = 0; secondEnemyCount > i; i++)
+                {
+                    int spawnPointChosen = Random.Range(0, spawnPoint.Length);
+                    Instantiate(objectToSpawn[1], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
+                    spawnCount++;
+                    yield return new WaitForSeconds(spawnInterval);
+                }
+
+                for (int i = 0; thirdEnemyCount > i; i++)
+                {
+                    int spawnPointChosen = Random.Range(0, spawnPoint.Length);
+                    Instantiate(objectToSpawn[2], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
+                    spawnCount++;
+                    yield return new WaitForSeconds(spawnInterval);
+                }
+                for (int i = 0; fourthEnemyCount > i; i++)
+                {
+                    int spawnPointChosen = Random.Range(0, spawnPoint.Length);
+                    Instantiate(objectToSpawn[3], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
+                    spawnCount++;
+                    yield return new WaitForSeconds(spawnInterval);
+                }
             }
 
-            for (int i = 0; secondEnemyCount > i; i++)
+            if (curRound == 10 && !EnemyTower.instance.towerDefeated)
             {
-                int spawnPointChosen = Random.Range(0, spawnPoint.Length);
-                Instantiate(objectToSpawn[1], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
-                spawnCount++;
-                yield return new WaitForSeconds(spawnInterval);
+                RoundManager.instance.remainingEnemies = 999;
+                spawnInterval = 1.5f;
+                //spawnInterval /= 2; (yeah this thing gets updated each frame so if the first one is 3 it will then go to 1.5 and then .75 and so on. I learned this the hard way. Made me laugh so I am keeping it here).
+                int randomEnemyProbability = Random.Range(0, 100);
+
+                if (randomEnemyProbability >= 0 && randomEnemyProbability < 20)
+                {
+                    Instantiate(objectToSpawn[0], enemyTowerSP.position, enemyTowerSP.rotation);
+                    yield return new WaitForSeconds(spawnInterval);
+                }
+                else if(randomEnemyProbability >= 20 && randomEnemyProbability < 40)
+                {
+                    Instantiate(objectToSpawn[1], enemyTowerSP.position, enemyTowerSP.rotation);
+                    yield return new WaitForSeconds(spawnInterval);
+                }
+                else if (randomEnemyProbability >= 40 && randomEnemyProbability < 70)
+                {
+                    Instantiate(objectToSpawn[2], enemyTowerSP.position, enemyTowerSP.rotation);
+                    yield return new WaitForSeconds(spawnInterval);
+                }
+                else if (randomEnemyProbability >= 70 && randomEnemyProbability <= 100)
+                {
+                    Instantiate(objectToSpawn[3], enemyTowerSP.position, enemyTowerSP.rotation);
+                    yield return new WaitForSeconds(spawnInterval);
+                }
             }
 
-            for (int i = 0; thirdEnemyCount > i; i++)
-            {
-                int spawnPointChosen = Random.Range(0, spawnPoint.Length);
-                Instantiate(objectToSpawn[2], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
-                spawnCount++;
-                yield return new WaitForSeconds(spawnInterval);
-            }
-            for (int i = 0; fourthEnemyCount > i; i++)
-            {
-                int spawnPointChosen = Random.Range(0, spawnPoint.Length);
-                Instantiate(objectToSpawn[3], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
-                spawnCount++;
-                yield return new WaitForSeconds(spawnInterval);
-            }
-
-            if (spawnCount >= enemiesToSpawn)
+            if (spawnCount >= enemiesToSpawn || EnemyTower.instance.towerDefeated)
             {
                 break;
             }

@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public TowerHealth defendingPointHP1;
     public TowerHealth defendingPointHP2;
     public TowerHealth defendingPointsHP3;
+    public PlayerHealth orion;
+    public PlayerHealth gamble;
     //private EnemyBehaviour enemy;
 
     [Header("Enemys")]
@@ -322,7 +324,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if (defendingPointHP1.curHealth <= 0 || defendingPointHP2.curHealth <= 0 || defendingPointsHP3.curHealth <= 0)
+        if (gamble.curHealth <= 0 || orion.curHealth <= 0 || defendingPointHP1.curHealth <= 0 || defendingPointHP2.curHealth <= 0 || defendingPointsHP3.curHealth <= 0)
         {
             player.SetActive(false);
             gameOver.SetActive(true);

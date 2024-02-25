@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyTower : MonoBehaviour
 {
     public static EnemyTower instance;
 
-    public float towerCurHealth = 0;
-    public float towerMaxHealth = 10;
+    public float healthAmount = 0;
+    public float maxHealth = 10000;
+    public Slider healthBar;
 
     public bool towerDefeated = false;
 
@@ -15,17 +17,22 @@ public class EnemyTower : MonoBehaviour
 
     public IsometricController player;
 
+    [Header("Particals")]
+    public ParticleSystem[] particleSystems;
+
     // Start is called before the first frame update
     void Start()
     {
+        SetMaxHealth(maxHealth);
         instance = this;
-        towerCurHealth = towerMaxHealth;
+        healthAmount = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (towerCurHealth <= 0)
+        SetHealth(healthAmount);
+        if (healthAmount <= 0)
         {
             towerDefeated = true;
             enemyTower.SetActive(false);
@@ -40,12 +47,16 @@ public class EnemyTower : MonoBehaviour
         {
             if (other.gameObject.CompareTag("HitBox"))
             {
-                towerCurHealth -= player.attackDamage;
+                FindAnyObjectByType<AudioManager>().Play("EnemyHit");
+                ActivateRandomParticleSystem();
+                healthAmount -= player.attackDamage;
 
             }
             if (other.gameObject.CompareTag("SwordHitBox"))
             {
-                towerCurHealth -= player.swordDamage;
+                FindAnyObjectByType<AudioManager>().Play("EnemyHit");
+                ActivateRandomParticleSystem();
+                healthAmount -= player.swordDamage;
             }
         }
     }
@@ -58,5 +69,39 @@ public class EnemyTower : MonoBehaviour
         {
             Destroy(enemy);
         }
+    }
+
+    public void ActivateRandomParticleSystem()
+    {
+        if (particleSystems != null && particleSystems.Length > 0)
+        {
+            int randomIndex = Random.Range(0, particleSystems.Length);
+
+            // Disable all particle systems in the array
+            for (int i = 0; i < particleSystems.Length; i++)
+            {
+                if (particleSystems[i].isPlaying)
+                {
+                    particleSystems[i].Stop();
+                }
+            }
+
+            // Activate the randomly selected particle system
+            particleSystems[randomIndex].Play();
+        }
+        else
+        {
+            Debug.LogWarning("No particle systems found or added to the array!");
+        }
+    }
+
+    public void SetMaxHealth(float health)
+    {
+        healthBar.maxValue = health;
+        healthBar.value = health;
+    }
+    public void SetHealth(float health)
+    {
+        healthBar.value = health;
     }
 }

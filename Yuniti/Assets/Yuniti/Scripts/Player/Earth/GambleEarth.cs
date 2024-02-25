@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
-//
+
 
 public class GambleEarth : MonoBehaviour
 {
     public Animator animator;
     Vector2 movement;
     Vector2 lookDirection = new Vector2(1, 0);
+
+    public GameObject particals;
     private void Start()
     {
         animator.SetBool("OnEarth", true);
@@ -34,7 +36,7 @@ public class GambleEarth : MonoBehaviour
         {
             // Activate the animation
             animator.SetBool("EarthWalk", true);
-            //particals.SetActive(true);
+            particals.SetActive(true);
             UpdateAnimationsAndMove();
 
 
@@ -43,7 +45,7 @@ public class GambleEarth : MonoBehaviour
         {
             // Activate the animation
             animator.SetBool("EarthWalk", false);
-           // particals.SetActive(false);
+            particals.SetActive(false);
 
         }
     }

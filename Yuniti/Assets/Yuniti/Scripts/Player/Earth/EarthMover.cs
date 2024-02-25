@@ -26,9 +26,4 @@ public class EarthMover : MonoBehaviour
         transform.rotation = rotationX * transform.rotation;
     }
 
-
-    public void GambleAnimations()
-    {
-        
-    }
 }

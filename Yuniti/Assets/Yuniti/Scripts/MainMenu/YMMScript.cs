@@ -8,27 +8,11 @@ using UnityEngine.Audio;
 public class YMMScript : MonoBehaviour
 {
     public AudioMixer mainMixer;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject settingsPannel;
 
     public void Exit()
     {
         Application.Quit();
-    }
-
-    public void LoadScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
     }
 
     public void SetVolume (float volume)
@@ -36,4 +20,13 @@ public class YMMScript : MonoBehaviour
         mainMixer.SetFloat("volume", Mathf.Log10(volume) * 20);
     }
 
+
+    public void OpenSettings()
+    {
+        settingsPannel.SetActive(true);
+    }
+    public void CloseSetting()
+    {
+        settingsPannel.SetActive(false);
+    }
 }

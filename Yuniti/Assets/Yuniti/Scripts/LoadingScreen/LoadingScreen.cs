@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LoadingScreen : MonoBehaviour
 {
+    [Header("CircleFade")]
+    public GameObject circleFade;
+    
+    [Header("PauseMenu")]
+    public GameObject pauseMenu;
     public static LoadingScreen instance;
 
     public GameObject loadingScreen;
@@ -28,6 +33,11 @@ public class LoadingScreen : MonoBehaviour
     IEnumerator StartLoadingScreen(string sceneName)
     {
         Time.timeScale = 1f;
+        pauseMenu.SetActive(false);
+        circleFade.SetActive(true);
+        SceneTransition();
+        yield return new WaitForSeconds(1.25f);
+        circleFade.SetActive(false);
         loadingScreenPrefab.SetActive(true);
         MuteAudio();
         //LoadingChecker();
@@ -36,26 +46,7 @@ public class LoadingScreen : MonoBehaviour
 
     }
 
-    private void LoadingChecker()
-    {
-        if (loadingScreen != null)
-        {
-            // Loop through all game objects in the scene
-            foreach (GameObject obj in Object.FindObjectsOfType<GameObject>())
-            {
-                // Check if the current object is not the one with active time
-                if (obj != loadingScreen)
-                {
-                    // Stop the time scale for all objects except the one with active time
-                    Time.timeScale = 0f;
-                }
-            }
-        }
-        else
-        {
-            Debug.LogError("No object with active time specified!");
-        }
-    }
+    
 
     void MuteAudio()
     {
@@ -67,6 +58,12 @@ public class LoadingScreen : MonoBehaviour
         {
             audioSource.volume = 0f;
         }
+    }
+
+    private void SceneTransition()
+    {
+        Animator animator = circleFade.GetComponent<Animator>();
+        animator.Play("FadeIn");
     }
 
 

@@ -13,6 +13,7 @@ public class GambleEarth : MonoBehaviour
     public GameObject particals;
     private void Start()
     {
+        FindAnyObjectByType<AudioManager>().Play("BackGround");
         animator.SetBool("OnEarth", true);
     }
 
@@ -35,6 +36,7 @@ public class GambleEarth : MonoBehaviour
         if (hitKey == true)
         {
             // Activate the animation
+
             animator.SetBool("EarthWalk", true);
             particals.SetActive(true);
             UpdateAnimationsAndMove();
@@ -47,6 +49,17 @@ public class GambleEarth : MonoBehaviour
             animator.SetBool("EarthWalk", false);
             particals.SetActive(false);
 
+        }
+        var hitKeySound = Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.RightArrow);
+        var hitKeySoundUp = Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.RightArrow);
+
+        if (hitKeySound == true)
+        {
+            FindAnyObjectByType<AudioManager>().Play("PlayerWalk");
+        }
+        else if (hitKeySoundUp == true)
+        {
+            FindAnyObjectByType<AudioManager>().Stop("PlayerWalk");
         }
     }
     void UpdateAnimationsAndMove()

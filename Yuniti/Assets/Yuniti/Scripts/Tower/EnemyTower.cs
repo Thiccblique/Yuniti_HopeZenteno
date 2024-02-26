@@ -26,6 +26,7 @@ public class EnemyTower : MonoBehaviour
         SetMaxHealth(maxHealth);
         instance = this;
         healthAmount = maxHealth;
+
     }
 
     // Update is called once per frame

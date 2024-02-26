@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class EarthMover : MonoBehaviour
 {
+    [Header("CircleFade")]
+    public GameObject circleFade;
+
     public float moveSpeed = 5f; // Adjust this value to control movement speed
     public float rotationSpeed = 50f; // Adjust this value to control rotation speed
-
+    private void Start()
+    {
+        CirclePlay();
+        Invoke("CircleDeactive", 1.1f);
+    }
     void Update()
     {
         // Get input from horizontal and vertical axes
@@ -26,4 +33,19 @@ public class EarthMover : MonoBehaviour
         transform.rotation = rotationX * transform.rotation;
     }
 
+    private void CirclePlay()
+    {
+        Animator animator = circleFade.GetComponent<Animator>();
+        animator.Play("Fadeout");
+
+    }
+    private void CircleDeactive()
+    {
+        circleFade.SetActive(false);
+    }
+
+    public void SelectAudio()
+    {
+        FindAnyObjectByType<AudioManager>().Play("Select");
+    }
 }

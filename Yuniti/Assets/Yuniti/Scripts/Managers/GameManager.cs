@@ -9,6 +9,9 @@ using System.IO.Compression;
 public class GameManager : MonoBehaviour
 {
 
+    [Header("CircleFade")]
+    public GameObject circleFade;
+
     public static GameManager instance;
 
     [Header("Monted Orion")]
@@ -108,7 +111,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //enemy = GetComponent<EnemyBehaviour>();
-
+        CirclePlay();
+        Invoke("CircleDeactive", 1.1f);
         Disability();
         CodeTooUI();
         hudCanvas.SetActive(false);
@@ -358,5 +362,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void CirclePlay()
+    {
+        Animator animator = circleFade.GetComponent<Animator>();
+        animator.Play("Fadeout");
+        
+    }
+    private void CircleDeactive()
+    {
+        circleFade.SetActive(false);
+    }
 
 }

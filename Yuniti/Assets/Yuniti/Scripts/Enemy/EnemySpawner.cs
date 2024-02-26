@@ -216,7 +216,7 @@ public class EnemySpawner : MonoBehaviour
                 }
             }
 
-            if (spawnCount >= enemiesToSpawn || EnemyTower.instance.towerDefeated)
+            if (spawnCount >= enemiesToSpawn)// || EnemyTower.instance.towerDefeated)
             {
                 break;
             }

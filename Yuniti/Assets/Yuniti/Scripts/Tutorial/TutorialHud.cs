@@ -12,7 +12,7 @@ public class TutorialHud : MonoBehaviour
     public GameObject[] arrows;
     public GameObject mask;
     public bool startedHud = false;
-    private bool buyTower = false;
+    public bool buyTower = false;
     public string sceneName;
     public OrionController orionController;
     public GameObject continueText;

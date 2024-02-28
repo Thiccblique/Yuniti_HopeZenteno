@@ -393,6 +393,7 @@ public class TowerSpawner : MonoBehaviour
             range[0].SetActive(false);
             range[1].SetActive(false);
             range[2].SetActive(false);
+
         }
     }
 }

@@ -256,6 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7621114926947022711}
+  - component: {fileID: 2042529300395033533}
   m_Layer: 9
   m_Name: Llama
   m_TagString: Untagged
@@ -283,6 +284,24 @@ Transform:
   - {fileID: 5954926087204447634}
   m_Father: {fileID: 3225650241671013452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2042529300395033533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731971748901774402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 2
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1822570339899759586
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,6 +514,7 @@ GameObject:
   - component: {fileID: 6995510828960936949}
   - component: {fileID: 4697822146249734366}
   - component: {fileID: 1883220963129353870}
+  - component: {fileID: 1878373153451702522}
   m_Layer: 9
   m_Name: Orion
   m_TagString: Untagged
@@ -569,6 +589,24 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 8192
+--- !u!114 &1878373153451702522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940540033529461947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 2
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1982296893292873549
 GameObject:
   m_ObjectHideFlags: 0
@@ -2317,7 +2355,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 59e112324126c6c48b9bafded9251612, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -2411,8 +2449,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orionPlayer: {fileID: 6798325708671559207}
   healthBar: {fileID: 155179977368848370}
-  maxHealth: 50
-  curHealth: 0
+  maxHealth: 100
+  curHealth: 1
 --- !u!1 &7068502610829144949
 GameObject:
   m_ObjectHideFlags: 0
@@ -3677,6 +3715,14 @@ PrefabInstance:
       propertyPath: gambleTower
       value: 
       objectReference: {fileID: 1850022177944393753}
+    - target: {fileID: 8191358798249718925, guid: bcf01a434c9c10f47b5ffc2430dabbc7, type: 3}
+      propertyPath: curHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191358798249718925, guid: bcf01a434c9c10f47b5ffc2430dabbc7, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8649882978348007904, guid: bcf01a434c9c10f47b5ffc2430dabbc7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3695,6 +3741,9 @@ PrefabInstance:
       insertIndex: 2
       addedObject: {fileID: 3179760332443635445}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1563207823604161574, guid: bcf01a434c9c10f47b5ffc2430dabbc7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2918809771324548023}
     - targetCorrespondingSourceObject: {fileID: 3255535021624023076, guid: bcf01a434c9c10f47b5ffc2430dabbc7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3053807510301560510}
@@ -3709,6 +3758,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1563207823604161574, guid: bcf01a434c9c10f47b5ffc2430dabbc7, type: 3}
   m_PrefabInstance: {fileID: 952254682526510944}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2918809771324548023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767301857911796550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 2
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2313422269852923716 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3255535021624023076, guid: bcf01a434c9c10f47b5ffc2430dabbc7, type: 3}

@@ -12,7 +12,7 @@ public class SpiderBehaviour : MonoBehaviour
     public GameObject waypoint;
     public float damageAmount = 0;
     public float attackRate = 0;
-    
+
     //public int curHealth;
 
     private bool attackCooldown = false;
@@ -25,7 +25,16 @@ public class SpiderBehaviour : MonoBehaviour
     private ProjectileBehaviour projectileBehaviour;
     private FWProjectileBehaviour fwProjectileBehaviour;
 
-  
+    private Vector3 lastPoint;
+    private Vector3 currentAssignedPoint;
+    private bool reachedFirstPoint = false;
+    private int currentPathingIndex;
+    public GameObject[] pathing;
+    private bool finishedPathing = false;
+    public bool isPathingNeeded = false;
+    public GameObject[] spawnPoints;
+
+
     public GameObject hitTextPrefab;
     public Transform hitPosition;
     public IsometricController player;
@@ -40,8 +49,20 @@ public class SpiderBehaviour : MonoBehaviour
 
     void Start()
     {
+        currentPathingIndex = 0;
+
+        if (!isPathingNeeded)
+        {
+            destination = waypoint.transform.position; // This sets the Vector3 destination (X, Y, Z) for the Enemy to go to.
+        }
+        else
+        {
+            destination = currentAssignedPoint;
+        }
+
         originalWaypointVector3 = waypoint.transform.position; // This stores the waypoint of the assigned waypoint.
-        destination = waypoint.transform.position; // This sets the Vector3 destination (X, Y, Z) for the Enemy to go to.
+
+
         healthAmount = maxHealth;
         //anim = GetComponent<Animator>();
         SetMaxHealth(maxHealth);
@@ -51,7 +72,30 @@ public class SpiderBehaviour : MonoBehaviour
     void Update()
     {
 
-        enemyAgent.SetDestination(originalWaypointVector3);
+        if (!isPathingNeeded)
+        {
+            enemyAgent.SetDestination(originalWaypointVector3);
+        }
+        else
+        {
+            if (!reachedFirstPoint)
+            {
+                lastPoint = pathing[pathing.Length - 1].transform.position;
+                currentAssignedPoint = pathing[0].transform.position;
+            }
+
+
+            if (finishedPathing == true)
+            {
+                enemyAgent.SetDestination(originalWaypointVector3);
+            }
+            else
+            {
+                enemyAgent.SetDestination(currentAssignedPoint);
+            }
+        }
+
+
         if (healthAmount <= 0 && RoundManager.instance.roundNumber <= 9)
         {
             GameManager.instance.coins++;
@@ -72,12 +116,42 @@ public class SpiderBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("EnemyPathing") && currentAssignedPoint != lastPoint && isPathingNeeded)
+        {
+            currentPathingIndex++;
+            currentAssignedPoint = pathing[currentPathingIndex].transform.position;
+        }
+
+        if (other.gameObject.CompareTag("EnemyPathing") && other.gameObject.transform.position == pathing[0].transform.position && isPathingNeeded)
+        {
+            currentPathingIndex++;
+            currentAssignedPoint = pathing[currentPathingIndex].transform.position;
+            reachedFirstPoint = true;
+        }
+
+        if (other.gameObject.CompareTag("EnemyPathing") && other.gameObject.transform.position == lastPoint)
+        {
+            finishedPathing = true;
+            enemyAgent.SetDestination(originalWaypointVector3);
+        }
+
+        if (other.gameObject.CompareTag("SpawnPoint"))
+        {
+            if (other.gameObject == spawnPoints[0])
+            {
+                pathing = Pathing(0);
+            }
+            else if (other.gameObject == spawnPoints[1])
+            {
+                pathing = Pathing(1);
+            }
+        }
 
         if (other.gameObject.CompareTag("Projectile"))
         {
             projectileBehaviour = other.gameObject.GetComponent<ProjectileBehaviour>();
             healthAmount = healthAmount - projectileBehaviour.damageAmount;
-           // healthbar.value = CalculateHealth();
+            // healthbar.value = CalculateHealth();
             HitPartical();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             // Debug.Log("Enemy Health: " + healthAmount);
@@ -87,7 +161,7 @@ public class SpiderBehaviour : MonoBehaviour
         {
             fwProjectileBehaviour = other.gameObject.GetComponent<FWProjectileBehaviour>();
             healthAmount = healthAmount - fwProjectileBehaviour.damageAmount;
-           // healthbar.value = CalculateHealth();
+            // healthbar.value = CalculateHealth();
             HitPartical();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             //Debug.Log("Enemy Health: " + healthAmount);
@@ -198,5 +272,38 @@ public class SpiderBehaviour : MonoBehaviour
     public void SetHealth(float health)
     {
         healthBar.value = health;
+    }
+
+    public GameObject[] firstPathing;
+    public GameObject[] secondPathing;
+    public GameObject[] thirdPathing;
+    public GameObject[] fourthPathing;
+
+    public GameObject[] Pathing(int spawnPointChosen)
+    {
+        if (spawnPointChosen == 0)
+        {
+            int randomPathing = Random.Range(0, 2);
+            if (randomPathing == 0)
+            {
+                return firstPathing;
+            }
+            else
+            {
+                return thirdPathing;
+            }
+        }
+        else
+        {
+            int randomPathing = Random.Range(0, 2);
+            if (randomPathing == 0)
+            {
+                return secondPathing;
+            }
+            else
+            {
+                return fourthPathing;
+            }
+        }
     }
 }

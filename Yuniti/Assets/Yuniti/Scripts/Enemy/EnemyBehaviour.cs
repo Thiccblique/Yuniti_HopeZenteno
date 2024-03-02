@@ -8,20 +8,30 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public static EnemyBehaviour instance;
 
-    
+
     public float coinsGiven = .7f;
     public NavMeshAgent enemyAgent;
     public GameObject waypoint;
+    public GameObject[] spawnPoints;
     public float damageAmount = 0;
     public float attackRate = 0;
-   
+
+    public bool isPathingNeeded = false;
+
     //public int curHealth;
-    
+
     private bool attackCooldown = false;
     private bool towerNearby = false;
+    private bool finishedPathing = false;
     private Vector3 destination;
     public Vector3 originalWaypointVector3;
     private Animator anim;
+    private Vector3 lastPoint;
+    private Vector3 currentAssignedPoint;
+    private bool reachedFirstPoint = false;
+    private int currentPathingIndex;
+
+    public GameObject[] pathing;
 
     private TowerHealth towerHealth;
     private PlayerHealth playerHealth;
@@ -31,7 +41,7 @@ public class EnemyBehaviour : MonoBehaviour
     public IsometricController player;
     public OrionController orionPlayer;
 
-   
+
     public GameObject hitTextPrefab;
     public Transform hitPosition;
 
@@ -47,8 +57,19 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Start()
     {
+        currentPathingIndex = 0;
+
         originalWaypointVector3 = waypoint.transform.position; // This stores the waypoint of the assigned waypoint.
-        destination = waypoint.transform.position; // This sets the Vector3 destination (X, Y, Z) for the Enemy to go to.
+
+        if (!isPathingNeeded)
+        {
+            destination = waypoint.transform.position; // This sets the Vector3 destination (X, Y, Z) for the Enemy to go to.
+        }
+        else
+        {
+            destination = currentAssignedPoint;
+        }
+        
         healthAmount = maxHealth;
         anim = GetComponent<Animator>();
         SetMaxHealth(maxHealth);
@@ -57,13 +78,40 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (towerNearby == true)
+        if (!isPathingNeeded)
         {
-            enemyAgent.SetDestination(destination);
+            if (towerNearby == true)
+            {
+                enemyAgent.SetDestination(destination);
+            }
+            else
+            {
+                enemyAgent.SetDestination(originalWaypointVector3);
+            }
         }
         else
         {
-            enemyAgent.SetDestination(originalWaypointVector3);
+            if (!reachedFirstPoint)
+            {
+                lastPoint = pathing[pathing.Length - 1].transform.position;
+                currentAssignedPoint = pathing[0].transform.position;
+            }
+
+            if (towerNearby == true)
+            {
+                enemyAgent.SetDestination(destination);
+            }
+            else
+            {
+                if (finishedPathing == true)
+                {
+                    enemyAgent.SetDestination(originalWaypointVector3);
+                }
+                else
+                {
+                    enemyAgent.SetDestination(currentAssignedPoint);
+                }
+            }
         }
 
         if (healthAmount <= 0 && RoundManager.instance.roundNumber <= 9)
@@ -81,11 +129,42 @@ public class EnemyBehaviour : MonoBehaviour
             healthAmount = 0;
             Destroy(gameObject);
         }
-       SetHealth(healthAmount);
+        SetHealth(healthAmount);
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("EnemyPathing") && currentAssignedPoint != lastPoint && isPathingNeeded)
+        {
+            currentPathingIndex++;
+            currentAssignedPoint = pathing[currentPathingIndex].transform.position;
+        }
+
+        if (other.gameObject.CompareTag("EnemyPathing") && other.gameObject.transform.position == pathing[0].transform.position && isPathingNeeded)
+        {
+            currentPathingIndex++;
+            currentAssignedPoint = pathing[currentPathingIndex].transform.position;
+            reachedFirstPoint = true;
+        }
+
+        if (other.gameObject.CompareTag("EnemyPathing") && other.gameObject.transform.position == lastPoint)
+        {
+            finishedPathing = true;
+            enemyAgent.SetDestination(originalWaypointVector3);
+        }
+
+        if (other.gameObject.CompareTag("SpawnPoint"))
+        {
+            if (other.gameObject == spawnPoints[0])
+            {
+               pathing = Pathing(0);
+            }
+            else if (other.gameObject == spawnPoints[1])
+            {
+               pathing = Pathing(1);
+            }
+        }
+
         if (other.gameObject.CompareTag("Waypoint")) // It detects if the collider trigger has the tag "Waypoint".
         {
             destination = other.transform.position; // This updates the destination as it collides with a collider.
@@ -95,7 +174,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             projectileBehaviour = other.gameObject.GetComponent<ProjectileBehaviour>();
             healthAmount = healthAmount - projectileBehaviour.damageAmount;
-           // healthBar.value = CalculateHealth();
+            // healthBar.value = CalculateHealth();
             //HitPartical();
             ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
@@ -127,13 +206,13 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (other.gameObject.CompareTag("HitBox"))
         {
-            
+
 
             healthAmount -= player.attackDamage;
-           
+
             ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
-           
+
         }
         if (other.gameObject.CompareTag("SwordHitBox"))
         {
@@ -144,7 +223,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    
+
 
     private void OnTriggerStay(Collider other)
     {
@@ -159,7 +238,7 @@ public class EnemyBehaviour : MonoBehaviour
             towerHealth = other.gameObject.GetComponent<TowerHealth>();
             towerHealth.curHealth -= damageAmount;
             Debug.Log("Tower Health: " + towerHealth.curHealth);
-           
+
 
             anim.SetBool("EnemyAttack", true);
 
@@ -169,14 +248,14 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 other.gameObject.SetActive(false);
             }
-            
+
         }
 
         if (other.gameObject.CompareTag("Player") && !attackCooldown && other.gameObject != null && orionPlayer.isMounted == false)
         {
             playerHealth = other.gameObject.GetComponent<PlayerHealth>();
             playerHealth.curHealth -= damageAmount;
-            
+
 
 
             anim.SetBool("EnemyAttack", true);
@@ -192,7 +271,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     }
 
-   
+
     public void ActivateRandomParticleSystem()
     {
         if (particleSystems != null && particleSystems.Length > 0)
@@ -223,7 +302,7 @@ public class EnemyBehaviour : MonoBehaviour
         yield return new WaitForSeconds(attackRate);
         attackCooldown = false;
         anim.SetBool("EnemyAttack", false);
-        
+
     }
 
     IEnumerator TowerCheck()
@@ -244,4 +323,36 @@ public class EnemyBehaviour : MonoBehaviour
         healthBar.value = health;
     }
 
+    public GameObject[] firstPathing;
+    public GameObject[] secondPathing;
+    public GameObject[] thirdPathing;
+    public GameObject[] fourthPathing;
+
+    public GameObject[] Pathing(int spawnPointChosen)
+    {
+        if (spawnPointChosen == 0)
+        {
+            int randomPathing = Random.Range(0, 2);
+            if (randomPathing == 0)
+            {
+                return firstPathing;
+            }
+            else
+            {
+                return thirdPathing;
+            }
+        }
+        else
+        {
+            int randomPathing = Random.Range(0, 2);
+            if (randomPathing == 0)
+            {
+                return secondPathing;
+            }
+            else
+            {
+                return fourthPathing;
+            }
+        }
+    }
 }

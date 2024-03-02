@@ -110,16 +110,49 @@ public class EnemySpawner : MonoBehaviour
             }
             else if (curRound == 8) // bull spawning
             {
-                int filler = enemiesToSpawn - 1;
-                spawnCount = filler;
-                RoundManager.instance.remainingEnemies = RoundManager.instance.remainingEnemies - filler;
-                Instantiate(bullEnemy, bullSpawnPoint.position, bullSpawnPoint.rotation);
-                spawnCount++;
-
-                if (spawnCount >= enemiesToSpawn)
+                if (bullEnemy.GetComponent<BullBehaviour>() != null)
                 {
-                    break;
+                    int filler = enemiesToSpawn - 1;
+                    spawnCount = filler;
+                    RoundManager.instance.remainingEnemies = RoundManager.instance.remainingEnemies - filler;
+                    Instantiate(bullEnemy, bullSpawnPoint.position, bullSpawnPoint.rotation);
+                    spawnCount++;
+
+                    if (spawnCount >= enemiesToSpawn)
+                    {
+                        break;
+                    }
                 }
+                else
+                {
+                    firstEnemyCount = RoundManager.instance.remainingEnemies * .4f;
+                    secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
+                    thirdEnemyCount = RoundManager.instance.remainingEnemies * .2f;
+                    fourthEnemyCount = RoundManager.instance.remainingEnemies * .1f;
+
+                    firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
+                    secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
+                    thirdEnemyCount = Mathf.FloorToInt(thirdEnemyCount);
+                    fourthEnemyCount = Mathf.FloorToInt(fourthEnemyCount);
+
+                    if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
+                    {
+                        thirdEnemyCount++;
+                    }
+                    if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
+                    {
+                        secondEnemyCount++;
+                    }
+                    if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
+                    {
+                        firstEnemyCount++;
+                    }
+                    if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
+                    {
+                        fourthEnemyCount++;
+                    }
+                }
+
             }
             else if (curRound == 9) // This type of enemy count goes forever. Change later when end round is added plus more enmies.
             {
@@ -199,7 +232,7 @@ public class EnemySpawner : MonoBehaviour
                     Instantiate(objectToSpawn[0], enemyTowerSP.position, enemyTowerSP.rotation);
                     yield return new WaitForSeconds(spawnInterval);
                 }
-                else if(randomEnemyProbability >= 20 && randomEnemyProbability < 40)
+                else if (randomEnemyProbability >= 20 && randomEnemyProbability < 40)
                 {
                     Instantiate(objectToSpawn[1], enemyTowerSP.position, enemyTowerSP.rotation);
                     yield return new WaitForSeconds(spawnInterval);

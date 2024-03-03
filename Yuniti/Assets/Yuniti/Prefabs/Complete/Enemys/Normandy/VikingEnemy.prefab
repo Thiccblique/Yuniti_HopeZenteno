@@ -48,9 +48,12 @@ GameObject:
   - component: {fileID: 6499773299980777873}
   - component: {fileID: 7327592051795934557}
   - component: {fileID: 8161956066582704229}
-  m_Layer: 0
+  - component: {fileID: 3635908779544253086}
+  - component: {fileID: 102991416304210455}
+  - component: {fileID: 2876024840979756635}
+  m_Layer: 8
   m_Name: VikingEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,11 +110,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsGiven: 0.7
-  enemyAgent: {fileID: 0}
+  enemyAgent: {fileID: 3635908779544253086}
   waypoint: {fileID: 0}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
   damageAmount: 0
   attackRate: 0
+  isPathingNeeded: 1
   originalWaypointVector3: {x: 0, y: 0, z: 0}
+  pathing:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   player: {fileID: 0}
   orionPlayer: {fileID: 0}
   hitTextPrefab: {fileID: 0}
@@ -126,6 +137,92 @@ MonoBehaviour:
   healthAmount: 0
   maxHealth: 10
   healthBar: {fileID: 2666895634407406343}
+  firstPathing:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  secondPathing:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  thirdPathing:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fourthPathing:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!195 &3635908779544253086
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782958869730787213}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!54 &102991416304210455
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782958869730787213}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!135 &2876024840979756635
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782958869730787213}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.0251194
+  m_Center: {x: 0.060634494, y: 0.8237827, z: -2.6510225e-17}
 --- !u!1001 &850547613479350456
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
+
+    [Header("following STuff")]
     public GameObject[] followers; // Array to hold follower GameObjects
     public float followSpeed = 5f; // Speed of followers
     public float stopDistance = 2f; // Distance to stop behind the target GameObject
@@ -12,6 +14,11 @@ public class FollowPlayer : MonoBehaviour
 
     private Vector3[] startPos; // Array to store initial positions of followers
 
+    [Header("Activators")]
+    public int towercount = 3;
+    public bool allDone = false;
+    public bool stopReset = false;
+    public bool stopDestroy = true;
     void Start()
     {
         // Store initial positions of followers
@@ -20,6 +27,10 @@ public class FollowPlayer : MonoBehaviour
         {
             startPos[i] = followers[i].transform.position;
         }
+    }
+    private void Update()
+    {
+        CanoonChecker();
     }
 
     void FixedUpdate()
@@ -59,5 +70,28 @@ public class FollowPlayer : MonoBehaviour
 
         // Apply the new position
         targetTransform.position = newPosition;
+    }
+
+    public void CanoonChecker()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            if(towercount == 3)
+            {
+                followers[3].SetActive(false);
+                towercount--;
+            }
+            else if (towercount == 2)
+            {
+                followers[2].SetActive(false);
+                towercount--;
+            }
+            else if (towercount == 1)
+            {
+                followers[1].SetActive(false);
+                towercount--;
+
+            }
+        }
     }
 }

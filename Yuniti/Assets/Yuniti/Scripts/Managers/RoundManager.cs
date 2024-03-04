@@ -59,8 +59,8 @@ public class RoundManager : MonoBehaviour
     public GameObject partical12;
     public GameObject partical13;
 
-
-
+    [Header("FollowPlayer")]
+    public FollowPlayer followPlayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -153,6 +153,7 @@ public class RoundManager : MonoBehaviour
         TurnOn();
         FindAnyObjectByType<AudioManager>().Stop("OverWorld");
         FindAnyObjectByType<AudioManager>().Play("InBattle");
+        followPlayer.stopReset = false;
 
     }
     public void EndRound() // This is always running and messing with the starting round. Add boolean or move it from Update.

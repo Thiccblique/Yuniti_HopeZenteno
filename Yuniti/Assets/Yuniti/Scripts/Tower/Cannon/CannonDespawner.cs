@@ -25,7 +25,7 @@ public class CannonDespawner : MonoBehaviour
     {
         if (other.gameObject.CompareTag("CannonDestroyer"))
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             //StartCoroutine(Destroy());
         }
     }
@@ -33,7 +33,7 @@ public class CannonDespawner : MonoBehaviour
     {
         //goPoof.Play();
         yield return new WaitForSeconds(0.3f);
-        Destroy(this.gameObject);
+        Destroy(gameObject);
            
     }
 }

@@ -77,6 +77,6 @@ public class TowerBehaviour : MonoBehaviour
         GameObject newProjectile = Instantiate(towerProjectile, shootingPoint.position, Quaternion.identity); //Instantiates a projectile using a shooting position and the set rotation
         shootingPoint.transform.LookAt(enemy.transform); // This makes the shooting position to look at an enemy. (In hindsight this doesn't do an)
         Vector3 direction = (enemy.transform.position - shootingPoint.position).normalized; // This calculates the position from the shooting point to the enemy
-        newProjectile.GetComponent<Rigidbody>().AddForce(direction * 1000f); // We then use the direction here and add force to the instantiated projectile towards the enemy
+        newProjectile.GetComponent<Rigidbody>().AddForce(direction * 5000f); // We then use the direction here and add force to the instantiated projectile towards the enemy
     }
 }

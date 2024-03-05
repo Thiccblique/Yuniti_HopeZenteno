@@ -9,6 +9,8 @@ public class CannonSpawner : MonoBehaviour
     public Transform playerPosition;
 
     public GameObject bigCollier;
+
+    public string tagToDestroy = "YourTagHere";
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class CannonSpawner : MonoBehaviour
         if(RoundManager.instance.remainingEnemies <= 0 && followPlayer.stopReset == false)
         {
             Reset();
+            DestroyObjects();
             followPlayer.stopReset = true;
         }
     }
@@ -44,7 +47,7 @@ public class CannonSpawner : MonoBehaviour
         {
             obj.SetActive(true);
         }
-        followPlayer.stopDestroy = false;
+       
     }
     IEnumerator CanonDestroy()
     {
@@ -53,4 +56,15 @@ public class CannonSpawner : MonoBehaviour
         bigCollier.SetActive(false);
     }
 
+    public void DestroyObjects()
+    {
+        // Find all GameObjects with the specified tag
+        GameObject[] objectsToDestroy = GameObject.FindGameObjectsWithTag(tagToDestroy);
+
+        // Loop through each object and destroy it
+        foreach (GameObject obj in objectsToDestroy)
+        {
+            Destroy(obj);
+        }
+    }
 }

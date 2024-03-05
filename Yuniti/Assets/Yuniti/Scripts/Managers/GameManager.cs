@@ -227,7 +227,7 @@ public class GameManager : MonoBehaviour
         spiderBehaviour.maxHealth += 2f;
 
         //Tank Behaviour
-        tankBehaviour.damageAmount += 4f;
+        tankBehaviour.damageAmount += 4f;  
         tankBehaviour.maxHealth += 10f;
 
         //And Player? lol 

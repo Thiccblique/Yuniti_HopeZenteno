@@ -8,6 +8,8 @@ public class Hud : MonoBehaviour
 
     public GameObject HUD;
     public bool isOpen = true;
+    public GameObject normalSpeed;
+    public GameObject doubleSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,5 +59,19 @@ public class Hud : MonoBehaviour
     public void AudioSelect()
     {
         FindAnyObjectByType<AudioManager>().Play("Select");
+    }
+
+    public void DoubleSpeed()
+    {
+        Time.timeScale = 2f;
+        normalSpeed.SetActive(false);
+        doubleSpeed.SetActive(true);
+    }
+
+    public void ResetSpeed()
+    {
+        Time.timeScale = 1f;
+        normalSpeed.SetActive(true);
+        doubleSpeed.SetActive(false);
     }
 }

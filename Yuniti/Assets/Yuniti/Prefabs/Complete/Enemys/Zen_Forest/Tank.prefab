@@ -70,7 +70,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 1.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -97,10 +97,14 @@ MonoBehaviour:
   coinsGiven: 1
   enemyAgent: {fileID: 5043177869621354908}
   waypoint: {fileID: 0}
+  spawnPoints: []
   damageAmount: 3
   attackRate: 3
+  isPathingNeeded: 0
   originalWaypointVector3: {x: 0, y: 0, z: 0}
+  pathing: []
   player: {fileID: 0}
+  orionPlayer: {fileID: 0}
   hitTextPrefab: {fileID: 4773093525110597554, guid: 3d346e6a2b996ea4da01c24478f38e5d, type: 3}
   hitPosition: {fileID: 1441836433428730396}
   particleSystems:
@@ -111,8 +115,12 @@ MonoBehaviour:
   - {fileID: 9146202046371643765}
   - {fileID: 2645343189468096255}
   healthAmount: 0
-  maxHealth: 250
+  maxHealth: 225
   healthBar: {fileID: 6922297562024779876}
+  firstPathing: []
+  secondPathing: []
+  thirdPathing: []
+  fourthPathing: []
 --- !u!54 &6547397666859869499
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -770,7 +778,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 01bf15b20d6b302469c2fa967bc27547, type: 2}
     - target: {fileID: 2168224630498156841, guid: 85b95d223462b294aac1f981155bedbc, type: 3}
       propertyPath: m_VersionIndex
-      value: 9431
+      value: 9434
       objectReference: {fileID: 0}
     - target: {fileID: 2548154173203133881, guid: 85b95d223462b294aac1f981155bedbc, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -786,7 +794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3173140990899833444, guid: 85b95d223462b294aac1f981155bedbc, type: 3}
       propertyPath: m_VersionIndex
-      value: 2139
+      value: 2142
       objectReference: {fileID: 0}
     - target: {fileID: 3212544115338967631, guid: 85b95d223462b294aac1f981155bedbc, type: 3}
       propertyPath: m_Layer
@@ -794,7 +802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3216248488954186750, guid: 85b95d223462b294aac1f981155bedbc, type: 3}
       propertyPath: m_VersionIndex
-      value: 9431
+      value: 9434
       objectReference: {fileID: 0}
     - target: {fileID: 4095957361953326083, guid: 85b95d223462b294aac1f981155bedbc, type: 3}
       propertyPath: m_Layer

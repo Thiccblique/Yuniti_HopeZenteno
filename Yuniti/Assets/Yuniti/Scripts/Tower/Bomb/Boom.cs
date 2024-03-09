@@ -25,6 +25,7 @@ public class Boom : MonoBehaviour
         boomParticle.SetActive(true);
         yield return new WaitForSeconds(3f);
         bombs.SetActive(true);
+        boomParticle.SetActive(false);
         this.gameObject.SetActive(false);
         
 

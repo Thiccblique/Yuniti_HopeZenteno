@@ -9,6 +9,12 @@ public class NightSpawner : MonoBehaviour
     public GameObject notEnoughTT;
     public int price;
     public GameObject priceUI;
+    private bool hasBought = false;
+
+    public CameraZoom cameraZoom;
+    public GameObject locationMarker;
+    public GameObject pointer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +24,29 @@ public class NightSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TowerPointer();
         
+        if(GameManager.instance.inRound == false)
+        {
+            hasBought = false;
+            tower.SetActive(false);
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        
+
+        if (other.CompareTag("Player") && hasBought == false && GameManager.instance.inRound == true)
         {
+
+            if (Input.GetKey(KeyCode.E))
+            {
+                tower.SetActive(true);
+                GameManager.instance.coins = GameManager.instance.coins - price;
+                hasBought = true;
+
+            }
             priceUI.SetActive(true);
             if (GameManager.instance.coins >= price)
             {
@@ -35,11 +57,7 @@ public class NightSpawner : MonoBehaviour
                 notEnoughTT.SetActive(true);
             }
 
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                tower.SetActive(true);
-                GameManager.instance.coins = GameManager.instance.coins - price;
-            }
+            
         }
     }
     private void OnTriggerExit(Collider other)
@@ -49,6 +67,27 @@ public class NightSpawner : MonoBehaviour
             priceUI.SetActive(false);
             justEnoughTT.SetActive(false);
             notEnoughTT.SetActive(false);
+        }
+    }
+
+    private void TowerPointer()
+    {
+        if (!hasBought && GameManager.instance.inRound == true)
+        {
+            locationMarker.SetActive(true);
+            if (cameraZoom.zoom <= cameraZoom.minZom)
+            {
+                pointer.SetActive(false);
+            }
+            else
+            {
+                pointer.SetActive(true);
+            }
+        }
+        else
+        {
+            pointer.SetActive(false);
+            locationMarker.SetActive(false);
         }
     }
 

@@ -36,6 +36,7 @@ public class EnemyBehaviour : MonoBehaviour
     private TowerHealth towerHealth;
     private PlayerHealth playerHealth;
     private ProjectileBehaviour projectileBehaviour;
+    private Boom boom;
     private FWProjectileBehaviour fwProjectileBehaviour;
     private WallBehavior wallBehavior;
     public IsometricController player;
@@ -202,6 +203,15 @@ public class EnemyBehaviour : MonoBehaviour
             ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             // Debug.Log("Enemy Health: " + healthAmount);
+        }
+
+        if(other.gameObject.CompareTag("Bomb"))
+        {
+            boom = other.gameObject.GetComponent<Boom>();
+            boom.StartEffectAndDeactivate();
+            healthAmount = healthAmount / 2;
+            healthAmount -= 5;
+            
         }
 
         if (other.gameObject.CompareTag("HitBox"))

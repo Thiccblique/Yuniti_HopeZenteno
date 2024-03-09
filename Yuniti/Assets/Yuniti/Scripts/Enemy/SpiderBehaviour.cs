@@ -33,7 +33,7 @@ public class SpiderBehaviour : MonoBehaviour
     private bool finishedPathing = false;
     public bool isPathingNeeded = false;
     public GameObject[] spawnPoints;
-
+    private Boom boom;
 
     public GameObject hitTextPrefab;
     public Transform hitPosition;
@@ -180,6 +180,15 @@ public class SpiderBehaviour : MonoBehaviour
             healthAmount -= player.swordDamage;
             HitPartical();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
+
+        }
+
+        if (other.gameObject.CompareTag("Bomb"))
+        {
+            boom = other.gameObject.GetComponent<Boom>();
+            boom.StartEffectAndDeactivate();
+            healthAmount = healthAmount / 2;
+            healthAmount -= 5;
 
         }
     }

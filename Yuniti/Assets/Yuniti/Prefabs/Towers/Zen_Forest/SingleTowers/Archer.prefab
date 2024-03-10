@@ -77,6 +77,8 @@ MonoBehaviour:
   health1: {fileID: 1274298858105980928}
   health2: {fileID: 6474922366369332569}
   health3: {fileID: 4840199045455892686}
+  tRange: []
+  range: []
   buildPartical: {fileID: 5701719954942697323}
   pointer: {fileID: 6360729904548813382}
   cameraZoom: {fileID: 0}
@@ -321,7 +323,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 10
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1528,6 +1530,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6226795504420240625, guid: a16b3bcbf91b60f478a7003e12404f8b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6660877997306927456, guid: a16b3bcbf91b60f478a7003e12404f8b, type: 3}
       propertyPath: m_Name
       value: ArcherLv3
@@ -2048,6 +2054,10 @@ PrefabInstance:
     - target: {fileID: 4812243985485240091, guid: c28d983fcdaad994b86aaee1ae3bff3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562452667886940941, guid: c28d983fcdaad994b86aaee1ae3bff3a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8111822548133955697, guid: c28d983fcdaad994b86aaee1ae3bff3a, type: 3}
       propertyPath: m_Name

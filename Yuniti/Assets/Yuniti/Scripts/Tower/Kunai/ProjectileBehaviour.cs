@@ -35,7 +35,7 @@ public class ProjectileBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Enemy")/*|| other.gameObject.CompareTag("Ground")*/)
         {
             projectileLifetime = 0.05f;
         }

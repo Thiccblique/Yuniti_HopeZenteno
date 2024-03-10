@@ -18,7 +18,7 @@ public class ArcherBehaviour : MonoBehaviour
     private float fireCountdown = 0f;
     public GameObject archerProjectile;
     public Transform shootingPoint;
-    public float archerRange = 5f;
+    public float archerRange = 10f;
 
 
     void Start()

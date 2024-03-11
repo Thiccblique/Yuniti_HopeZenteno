@@ -78,7 +78,10 @@ MonoBehaviour:
   health2: {fileID: 6474922366369332569}
   health3: {fileID: 4840199045455892686}
   tRange: []
-  range: []
+  range:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   buildPartical: {fileID: 5701719954942697323}
   pointer: {fileID: 6360729904548813382}
   cameraZoom: {fileID: 0}
@@ -134,7 +137,7 @@ Transform:
   m_GameObject: {fileID: 758893684625792402}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.97789097, y: 0.03773176, z: -0.5253849}
+  m_LocalPosition: {x: 2.14, y: 0.03773176, z: 0.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -155,7 +158,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 10
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -249,7 +252,7 @@ Transform:
   m_GameObject: {fileID: 3448565512942060159}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8129062, y: 0.023077086, z: 0.11121965}
+  m_LocalPosition: {x: 0.42, y: 0.023077086, z: 0.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -270,7 +273,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 10
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -302,7 +305,7 @@ Transform:
   m_GameObject: {fileID: 3661857636636210202}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.3, y: 0, z: 0.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -323,7 +326,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 10
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -708,6 +711,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 683223637683872250, guid: 2d206e09c842aca4882368b9feba80a7, type: 3}
+      propertyPath: m_Size.y
+      value: 0.4835636
+      objectReference: {fileID: 0}
+    - target: {fileID: 683223637683872250, guid: 2d206e09c842aca4882368b9feba80a7, type: 3}
+      propertyPath: m_Center.x
+      value: 1.3700045
+      objectReference: {fileID: 0}
+    - target: {fileID: 683223637683872250, guid: 2d206e09c842aca4882368b9feba80a7, type: 3}
+      propertyPath: m_Center.y
+      value: 0.25821802
+      objectReference: {fileID: 0}
     - target: {fileID: 1382641104508970745, guid: 2d206e09c842aca4882368b9feba80a7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -852,7 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4893c5bf146af764db98f939c5c42d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 7544658082414919174, guid: 4baa77beb57bce54180b1e12d71f6527, type: 3}
+  objectToSpawn: {fileID: 7544658082414919174, guid: 4826c803b33a36140a287cd8d68c80a8, type: 3}
   spawnPoint: {fileID: 5159897782042339742}
   numberOfSpawns: 3
   spawnInterval: 2
@@ -1016,7 +1031,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 945178203540594299, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_VersionIndex
-      value: 571
+      value: 577
       objectReference: {fileID: 0}
     - target: {fileID: 2738028226836014807, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_Name
@@ -1028,7 +1043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3780320140752922605, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_VersionIndex
-      value: 571
+      value: 577
       objectReference: {fileID: 0}
     - target: {fileID: 5098893387046213890, guid: a7f14079ebd4cd0469c6fe6d2dd1f9f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1831,7 +1846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4893c5bf146af764db98f939c5c42d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 7544658082414919174, guid: 4baa77beb57bce54180b1e12d71f6527, type: 3}
+  objectToSpawn: {fileID: 7544658082414919174, guid: 4826c803b33a36140a287cd8d68c80a8, type: 3}
   spawnPoint: {fileID: 314835633559685094}
   numberOfSpawns: 6
   spawnInterval: 2
@@ -2396,7 +2411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4893c5bf146af764db98f939c5c42d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 7544658082414919174, guid: 4baa77beb57bce54180b1e12d71f6527, type: 3}
+  objectToSpawn: {fileID: 7544658082414919174, guid: 4826c803b33a36140a287cd8d68c80a8, type: 3}
   spawnPoint: {fileID: 945760630708973401}
   numberOfSpawns: 5
   spawnInterval: 2

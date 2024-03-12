@@ -75,7 +75,7 @@ MonoBehaviour:
   enemyAgent: {fileID: 8066061765952095406}
   waypoint: {fileID: 0}
   damageAmount: 0
-  attackRate: 0
+  attackRate: 3
   originalWaypointVector3: {x: 0, y: 0, z: 0}
   pathing:
   - {fileID: 0}
@@ -124,7 +124,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -334000983
   m_Radius: 0.5
-  m_Speed: 6
+  m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 145
@@ -635,8 +635,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9bf19e3403d86c1478bef4395f4f1204, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5429384122095952243}
   m_SourcePrefab: {fileID: 100100000, guid: 9bf19e3403d86c1478bef4395f4f1204, type: 3}
+--- !u!1 &5187538631103268443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9bf19e3403d86c1478bef4395f4f1204, type: 3}
+  m_PrefabInstance: {fileID: 5421418296833211146}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5429384122095952243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5187538631103268443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &5527612511554542817 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9bf19e3403d86c1478bef4395f4f1204, type: 3}

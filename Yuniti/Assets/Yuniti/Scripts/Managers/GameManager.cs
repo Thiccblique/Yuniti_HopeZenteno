@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public EnemyBehaviour flyBehaviour;
     public SpiderBehaviour spiderBehaviour;
     public EnemyBehaviour tankBehaviour;
+    public CatapultBehaviour catapultBehaviour;
 
     [Header("HUD")]
     public GameObject hudCanvas;
@@ -233,6 +234,10 @@ public class GameManager : MonoBehaviour
         //And Player? lol 
         pController.attackDamage += 1f;
         pController.swordDamage += 0.7f;
+
+        //Catapult
+        catapultBehaviour.damageAmount += 2f;
+        catapultBehaviour.maxHealth += 3f;
 
 
     }

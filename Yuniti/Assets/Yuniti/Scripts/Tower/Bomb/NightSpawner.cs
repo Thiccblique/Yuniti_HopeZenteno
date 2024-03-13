@@ -15,6 +15,8 @@ public class NightSpawner : MonoBehaviour
     public GameObject locationMarker;
     public GameObject pointer;
 
+    public GameObject stat;
+    public Animator hudAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +41,8 @@ public class NightSpawner : MonoBehaviour
 
         if (other.CompareTag("Player") && hasBought == false && GameManager.instance.inRound == true)
         {
-
+            hudAnim.SetBool("open", true);
+            stat.SetActive(true);
             if (Input.GetKey(KeyCode.E))
             {
                 tower.SetActive(true);
@@ -64,9 +67,11 @@ public class NightSpawner : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            hudAnim.SetBool("open", false);
             priceUI.SetActive(false);
             justEnoughTT.SetActive(false);
             notEnoughTT.SetActive(false);
+            stat.SetActive(false);
         }
     }
 

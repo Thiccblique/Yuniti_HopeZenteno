@@ -20,6 +20,10 @@ public class EnemyTower : MonoBehaviour
     [Header("Particals")]
     public ParticleSystem[] particleSystems;
 
+    [Header("GameEnder for transitiops ")]
+    public LoadingScreen loadingScreen;
+    public string sceneName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +36,11 @@ public class EnemyTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (towerDefeated == true)
+        {
+            Invoke("Transfer", 5f);
+        }
+
         SetHealth(healthAmount);
         if (healthAmount <= 0)
         {
@@ -40,6 +49,8 @@ public class EnemyTower : MonoBehaviour
             RoundManager.instance.remainingEnemies = 0;
             DespawnEnemies();
         }
+
+       
     }
 
     private void OnTriggerEnter(Collider other)
@@ -104,5 +115,10 @@ public class EnemyTower : MonoBehaviour
     public void SetHealth(float health)
     {
         healthBar.value = health;
+    }
+
+    private void Transfer()
+    {
+        loadingScreen.LoadScene(sceneName);
     }
 }

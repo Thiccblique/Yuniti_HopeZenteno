@@ -8,9 +8,13 @@ public class DialogueTrigger : MonoBehaviour
     public Animator gambleAnim;
     private void OnTriggerEnter(Collider other)
     {
-        gambleAnim.SetBool("isOpen", true);
-        TriggerDialogue();
-        Destroy(gameObject);
+        if(other.CompareTag("Player"))
+        {
+            gambleAnim.SetBool("isOpen", true);
+            TriggerDialogue();
+            Destroy(gameObject);
+        }
+        
     }
     public void TriggerDialogue()
     {

@@ -10,6 +10,10 @@ public class YMMScript : MonoBehaviour
     public AudioMixer mainMixer;
     public GameObject settingsPannel;
 
+    public GameObject levelMenu;
+    public GameObject optionsMenu;
+    public GameObject mainMenu;
+
     [Header("CircleFade")]
     public GameObject circleFade;
     private void Start()
@@ -32,10 +36,43 @@ public class YMMScript : MonoBehaviour
     public void OpenSettings()
     {
         settingsPannel.SetActive(true);
+
+        mainMenu.SetActive(false);
     }
+
     public void CloseSetting()
     {
         settingsPannel.SetActive(false);
+
+        mainMenu.SetActive(true);
+    }
+
+    public void OpenLevels()
+    {
+        levelMenu.SetActive(true);
+
+        mainMenu.SetActive(false);
+    }
+
+    public void CloseLevels()
+    {
+        levelMenu.SetActive(false);
+
+        mainMenu.SetActive(true);
+    }
+
+    public void OpenOptions()
+    {
+        optionsMenu.SetActive(true);
+
+        mainMenu.SetActive(false);
+    }
+
+    public void CloseOptions()
+    {
+        optionsMenu.SetActive(false);
+
+        mainMenu.SetActive(true);
     }
 
     private void CirclePlay()

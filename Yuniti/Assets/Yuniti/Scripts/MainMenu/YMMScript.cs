@@ -85,4 +85,9 @@ public class YMMScript : MonoBehaviour
     {
         circleFade.SetActive(false);
     }
+
+    public void OpenWebsite()
+    {
+        Application.OpenURL("https://sites.google.com/d/1jFRox7JWuGw-c72qpkPLCpFcnG0CGVqU/p/1ApVU7RV-Mj3U-V_XwYJ1T_VJqvN_Eho8/edit");
+    }
 }

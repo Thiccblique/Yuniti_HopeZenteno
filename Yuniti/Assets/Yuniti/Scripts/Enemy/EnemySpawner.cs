@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
     public int spawnCount = 0;
     private int curRound = 0;
-    private int enemiesToSpawn = 0;
+    public int enemiesToSpawn = 0;
 
     private EnemyBehaviour enemy;
 
@@ -24,8 +24,6 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         instance = this;
-
-
     }
 
     public void StartSpawning()
@@ -64,6 +62,7 @@ public class EnemySpawner : MonoBehaviour
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .7f;
                 secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
 
+
                 firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
                 secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
 
@@ -71,6 +70,7 @@ public class EnemySpawner : MonoBehaviour
                 {
                     firstEnemyCount++;
                 }
+
                 if (firstEnemyCount + secondEnemyCount != enemiesToSpawn)
                 {
                     secondEnemyCount++;
@@ -154,7 +154,7 @@ public class EnemySpawner : MonoBehaviour
                 }
 
             }
-            else if (curRound == 9) // This type of enemy count goes forever. Change later when end round is added plus more enmies.
+            else if (curRound == 9) // This type of enemy count goes forever. Change later when end round is added plus more enemies.
             {
                 firstEnemyCount = RoundManager.instance.remainingEnemies * .4f;
                 secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
@@ -249,9 +249,19 @@ public class EnemySpawner : MonoBehaviour
                 }
             }
 
-            if (spawnCount >= enemiesToSpawn || EnemyTower.instance.towerDefeated)
+            if (EnemyTower.instance != null)
             {
-                break;
+                if (spawnCount >= enemiesToSpawn || EnemyTower.instance.towerDefeated)
+                {
+                    break;
+                }
+            }
+            else
+            {
+                if (spawnCount >= enemiesToSpawn)
+                {
+                    break;
+                }
             }
         }
     }

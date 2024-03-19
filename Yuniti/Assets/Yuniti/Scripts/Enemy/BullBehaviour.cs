@@ -15,7 +15,7 @@ public class BullBehaviour : MonoBehaviour
 
     private Vector3 lastPoint; // an instance variable (Vector3) that will get the last Vector3 position for the pathing array named lastPoint.
     private Vector3 currentAssignedPoint; // an instance variable (Vector3) that keeps track of the current Vector3 position the bull will be going towards to. Named currentAssignedPoint.
-    private int currentPathingIndex; // an instance variable (int) that keeps track of the current index of the pathing array. For example, index 0 would be the first Vector3 waypoint. Named currentPathingIndex.
+    public int currentPathingIndex; // an instance variable (int) that keeps track of the current index of the pathing array. For example, index 0 would be the first Vector3 waypoint. Named currentPathingIndex.
 
     private TowerHealth towerHealth;
     private PlayerHealth playerHealth;
@@ -52,6 +52,7 @@ public class BullBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         enemyBull.SetDestination(currentAssignedPoint); // constantly updates the destination of the bull using NavMesh based on the current Vector3 point assigned to currentAssignedPoint.
         SetHealth(healthAmount);
 
@@ -65,8 +66,8 @@ public class BullBehaviour : MonoBehaviour
     {
         // === Bull Pathing ===
 
-        if (other.gameObject.CompareTag("BullWaypoint") && currentAssignedPoint != lastPoint) // Checks the tag of the other object that has a collider trigger to see if it is "BullWaypoint".
-        {                                                                                     // Also checks if the other waypoint isn't the last point of the pathing array to avoid an IndexOutOfBounds error.
+        if (other.gameObject.CompareTag("BullWaypoint") && other.gameObject.transform.position != lastPoint) // Checks the tag of the other object that has a collider trigger to see if it is "BullWaypoint".
+        {                                                                                                       // Also checks if the other waypoint isn't the last point of the pathing array to avoid an IndexOutOfBounds error.
             currentPathingIndex++; // adds 1 to the currentPathingIndex variable
             currentAssignedPoint = pathing[currentPathingIndex].transform.position; // assigns the new Vector3 position of the next GameObject in the pathing array using the new currentPathingIndex number.   
         }
@@ -87,6 +88,8 @@ public class BullBehaviour : MonoBehaviour
             //Chages tag
             gameObject.tag = unTagged;
             gameObject.layer = newLayerIndex;
+
+            //Destroy(other.gameObject);
         }
 
         // === Bull Being Attacked ===

@@ -27,6 +27,7 @@ public class OrionController : MonoBehaviour
     [Header("Scripts")]
     public IsometricController gambleWalk;
     public GambleTower gambleTower;
+    public PlayerHealth gamblehealth;
     public GameObject healthBar;
     public GameObject range;
 
@@ -87,6 +88,7 @@ public class OrionController : MonoBehaviour
                     gambleTower.enabled = false;
                     healthBar.SetActive(false);
                     range.SetActive(false);
+                    gamblehealth.enabled = false;
                   
 
                 }

@@ -2336,6 +2336,7 @@ MonoBehaviour:
   healthBar: {fileID: 8246517986688761033}
   range: {fileID: 7983422605108256512}
   gambleTower: {fileID: 1850022177944393753}
+  gambleHelath: {fileID: 9050140917734712915}
   stamanaSlider: {fileID: 1821253891485960692}
   sprintSpeed: 15
   maxStamana: 1
@@ -2478,6 +2479,7 @@ MonoBehaviour:
   towercount: 3
   allDone: 0
   stopReset: 0
+  stopDestroy: 1
 --- !u!114 &8093959530139749320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2493,6 +2495,8 @@ MonoBehaviour:
   followPlayer: {fileID: 624908943378011458}
   towerPrefab: {fileID: 4749052736417489908, guid: b25f27c3fa188b544ae5a41442174a7d, type: 3}
   playerPosition: {fileID: 957087941193373763}
+  bigCollier: {fileID: 0}
+  tagToDestroy: YourTagHere
 --- !u!1 &7068502610829144949
 GameObject:
   m_ObjectHideFlags: 0
@@ -3788,6 +3792,10 @@ PrefabInstance:
       propertyPath: gambleTower
       value: 
       objectReference: {fileID: 1850022177944393753}
+    - target: {fileID: 6012190741608515911, guid: bcf01a434c9c10f47b5ffc2430dabbc7, type: 3}
+      propertyPath: gamblehealth
+      value: 
+      objectReference: {fileID: 9050140917734712915}
     - target: {fileID: 8191358798249718925, guid: bcf01a434c9c10f47b5ffc2430dabbc7, type: 3}
       propertyPath: curHealth
       value: 1

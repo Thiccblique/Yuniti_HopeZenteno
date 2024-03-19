@@ -29,6 +29,7 @@ public class IsometricController : MonoBehaviour
 
     [Header("Scripts")]
     public GambleTower gambleTower;
+    public PlayerHealth gambleHelath;
     
 
     [Header("Stamana")]
@@ -107,6 +108,7 @@ public class IsometricController : MonoBehaviour
                 freeOrion.SetActive(true);
                 orionController.isMounted = false;
                 this.enabled = false;
+                gambleHelath.enabled = true;
                
 
             }

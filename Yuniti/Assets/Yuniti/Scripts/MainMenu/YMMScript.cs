@@ -8,7 +8,8 @@ using UnityEngine.Rendering;
 
 public class YMMScript : MonoBehaviour
 {
-    public AudioMixer mainMixer;
+    [SerializeField] Slider volumeSlider;
+    
     public GameObject settingsPannel;
 
     public GameObject levelMenu;
@@ -25,17 +26,39 @@ public class YMMScript : MonoBehaviour
         CirclePlay();
         Invoke("CircleDeactive", 1.1f);
         FindAnyObjectByType<AudioManager>().Play("MainMenu");
+
+        if(!PlayerPrefs.HasKey("musicVolume"))
+        {
+            PlayerPrefs.SetFloat("musicVolume", 1);
+            Load();
+        }
+
+        else
+        {
+            Load();
+        }
     }
+
     public void Exit()
     {
         Application.Quit();
     }
 
-    public void SetVolume (float volume)
+    public void ChangeVolume()
     {
-        mainMixer.SetFloat("volume", Mathf.Log10(volume) * 20);
+        AudioListener.volume = volumeSlider.value;
+        Save();
     }
 
+    private void Load()
+    {
+        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+    }
 
     public void OpenSettings()
     {

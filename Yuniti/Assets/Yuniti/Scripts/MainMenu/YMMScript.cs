@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
+using TMPro;
 
 public class YMMScript : MonoBehaviour
 {
     [SerializeField] Slider volumeSlider;
+    [SerializeField] private TextMeshProUGUI volText = null;
+    [SerializeField] private TextMeshProUGUI brightText = null;
+
+    public Light sceneLight;
+    public Slider brightnessSlider;
     
     public GameObject settingsPannel;
 
@@ -37,6 +43,8 @@ public class YMMScript : MonoBehaviour
         {
             Load();
         }
+
+        brightnessSlider.value = sceneLight.intensity;
     }
 
     public void Exit()
@@ -50,6 +58,18 @@ public class YMMScript : MonoBehaviour
         Save();
     }
 
+    public void PercentChange(float value)
+    {
+        float localValue = value;
+        volText.text = localValue.ToString("0" + "%");
+    }
+
+    public void BrightChange(float value)
+    {
+        float localValue = value;
+        brightText.text = localValue.ToString("0" + "%");
+    }
+
     private void Load()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
@@ -58,6 +78,16 @@ public class YMMScript : MonoBehaviour
     private void Save()
     {
         PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+    }
+
+    public void AjustBrightness(float newBrightness)
+    {
+        sceneLight.intensity = newBrightness;
+    }
+
+    public void SetFullscreenMode(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
     }
 
     public void OpenSettings()

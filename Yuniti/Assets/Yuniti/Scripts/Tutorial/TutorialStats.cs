@@ -13,6 +13,7 @@ public class TutorialStats : MonoBehaviour
     public OrionController orionController;
     public GameObject continueText;
 
+
     private void Start()
     {
         continueText.SetActive(false);
@@ -25,7 +26,7 @@ public class TutorialStats : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(defendingPoints.spawnOne == true)
+        if(defendingPoints.spawnOne == true && FindAnyObjectByType<GameManager>().inRound == false)
         {
             startedHud = true;
         }

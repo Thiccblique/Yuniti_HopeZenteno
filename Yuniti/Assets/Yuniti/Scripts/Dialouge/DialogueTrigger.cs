@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour
     public Animator gambleAnim;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && FindAnyObjectByType<GameManager>().inRound == false)
         {
             gambleAnim.SetBool("isOpen", true);
             TriggerDialogue();

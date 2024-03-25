@@ -64,8 +64,8 @@ public class IsometricController : MonoBehaviour
     void Update()
     {
         Dismount();
-        if (cameraZoom.zoom <= cameraZoom.minZom && orionController.isMounted == true)
-        {
+        //if (cameraZoom.zoom <= cameraZoom.minZom && orionController.isMounted == true)
+        //{
             speed = solidSpeed;
             PlayerInput();
             Look();
@@ -75,14 +75,14 @@ public class IsometricController : MonoBehaviour
             SetStamana(stamana);
             StamanaBack();
            
-        }
-        else
+        //}
+        /*else
         {
-            speed = stop;
+            //speed = stop;
             anim.SetBool("Walk", false);
             particals.SetActive(false);
             FindAnyObjectByType<AudioManager>().Stop("PlayerWalk");
-        }
+        }*/
        
 
     }

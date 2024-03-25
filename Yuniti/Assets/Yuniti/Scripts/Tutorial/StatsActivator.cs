@@ -20,7 +20,7 @@ public class StatsActivator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (defendingPoints.spawnOne == true)
+        if (defendingPoints.spawnOne == true && FindAnyObjectByType<GameManager>().inRound == false)
         {
             tutorialStats.startedHud = true;
         }

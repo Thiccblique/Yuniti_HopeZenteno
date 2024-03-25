@@ -216,19 +216,19 @@ public class GameManager : MonoBehaviour
     private void EnemyStats()
     {
         //Standart Enemy
-        standardBehaviour.damageAmount += 1.5f;
+        standardBehaviour.damageAmount += 1f;
         standardBehaviour.maxHealth += 2f;
 
         //Flying Enemy
-        flyBehaviour.damageAmount += 1.5f;
+        flyBehaviour.damageAmount += 1f;
         flyBehaviour.maxHealth += 2f;
 
         //FilmRed Spider
-        spiderBehaviour.damageAmount += 1.5f;
+        spiderBehaviour.damageAmount += 1f;
         spiderBehaviour.maxHealth += 2f;
 
         //Tank Behaviour
-        tankBehaviour.damageAmount += 4f;  
+        tankBehaviour.damageAmount += 3f;  
         tankBehaviour.maxHealth += 10f;
 
         //And Player? lol 
@@ -236,7 +236,7 @@ public class GameManager : MonoBehaviour
         pController.swordDamage += 0.7f;
 
         //Catapult
-        catapultBehaviour.damageAmount += 2f;
+        catapultBehaviour.damageAmount += 1.5f;
         catapultBehaviour.maxHealth += 3f;
 
 

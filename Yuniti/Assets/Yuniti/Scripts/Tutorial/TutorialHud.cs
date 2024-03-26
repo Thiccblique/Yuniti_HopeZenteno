@@ -146,7 +146,7 @@ public class TutorialHud : MonoBehaviour
                     orionController.inTutorial = false;
                     Invoke("Deactivate", 1f);
                     hasSpoken[3] = false;
-                    Invoke("Transfer", 3f);
+                    Invoke("Transfer", 0.5f);
                 }
             }
             else if (hasSpoken[4] == true)

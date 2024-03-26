@@ -75,9 +75,9 @@ public class GameManager : MonoBehaviour
     public GameObject rounde3TowerSix;
 
     [Header("UI")]
-    public TMPro.TMP_Text coinsCount;
-    public TMPro.TMP_Text enemyCount;
-    public TMPro.TMP_Text roundCount;
+    public TMPro.TMP_Text[] coinsCount;
+    public TMPro.TMP_Text[] enemyCount;
+    public TMPro.TMP_Text[] roundCount;
 
     [Header("Money")]
     public float coins = 5f;
@@ -141,9 +141,13 @@ public class GameManager : MonoBehaviour
 
     public void CodeTooUI()
     {
-        coinsCount.text = coins.ToString();
-        enemyCount.text = RoundManager.instance.remainingEnemies.ToString();
-        roundCount.text = RoundManager.instance.roundNumber.ToString();
+        coinsCount[0].text = coins.ToString();
+        enemyCount[0].text = RoundManager.instance.remainingEnemies.ToString();
+        roundCount[0].text = RoundManager.instance.roundNumber.ToString();
+        /****************************************************************************/
+        coinsCount[1].text = coins.ToString();
+        enemyCount[1].text = RoundManager.instance.remainingEnemies.ToString();
+        roundCount[1].text = RoundManager.instance.roundNumber.ToString();
     }
 
     public void DisableAllMeshMounted()

@@ -22,6 +22,8 @@ public class YMMScript : MonoBehaviour
     public GameObject optionsMenu;
     public GameObject mainMenu;
 
+    public GameObject darkPost;
+
     [Header("CircleFade")]
     public GameObject circleFade;
 
@@ -45,6 +47,8 @@ public class YMMScript : MonoBehaviour
         }
 
         brightnessSlider.value = sceneLight.intensity;
+
+        darkPost.gameObject.SetActive(false);
     }
 
     public void Exit()
@@ -85,9 +89,21 @@ public class YMMScript : MonoBehaviour
         sceneLight.intensity = newBrightness;
     }
 
-    public void SetFullscreenMode(bool isFullscreen)
+    public void SetFullScreen(bool isFullScreen)
     {
-        Screen.fullScreen = isFullscreen;
+        Screen.fullScreen = isFullScreen;
+    }
+
+    public void DarkProcess()
+    {
+        if(darkPost.activeInHierarchy == false)
+        {
+            darkPost.SetActive(true);
+        }
+        else
+        {
+            darkPost.SetActive(false);
+        }
     }
 
     public void OpenSettings()

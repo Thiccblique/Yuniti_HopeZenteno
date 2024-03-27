@@ -8,6 +8,9 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    
+    public GameObject darkPost;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -92,7 +92,9 @@ public class GameManager : MonoBehaviour
     public bool hasRan = true;
     public bool isRan = true;
 
-    [Header("Classic Filter")]
+    [Header("Filters")]
+    public GameObject dayPP;
+    public GameObject nightPP;
     public GameObject darkPost;
 
     private KeyCode[] konamiCodeSequence = {
@@ -368,7 +370,7 @@ public class GameManager : MonoBehaviour
 
         if (currentIndex >= konamiCodeSequence.Length)
         {
-            coins = 99999999f;
+            coins = 9999999999999999999999f;
             Debug.Log("Konami Code activated!");
             currentIndex = 0;
         }
@@ -394,6 +396,15 @@ public class GameManager : MonoBehaviour
         else
         {
             darkPost.SetActive(false);
+        }
+
+        if (dayPP.activeInHierarchy == false)
+        {
+            dayPP.SetActive(true);
+        }
+        else
+        {
+            dayPP.SetActive(false);
         }
     }
 }

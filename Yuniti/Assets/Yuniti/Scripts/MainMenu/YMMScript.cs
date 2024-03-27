@@ -48,7 +48,7 @@ public class YMMScript : MonoBehaviour
 
         brightnessSlider.value = sceneLight.intensity;
 
-        darkPost.gameObject.SetActive(false);
+        darkPost.SetActive(false);
     }
 
     public void Exit()

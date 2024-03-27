@@ -7,6 +7,9 @@ public class EarthMover : MonoBehaviour
     [Header("CircleFade")]
     public GameObject circleFade;
 
+    [Header("Classic Filter")]
+    public GameObject darkPost;
+
     public float moveSpeed = 5f; // Adjust this value to control movement speed
     public float rotationSpeed = 50f; // Adjust this value to control rotation speed
     private void Start()
@@ -47,5 +50,17 @@ public class EarthMover : MonoBehaviour
     public void SelectAudio()
     {
         FindAnyObjectByType<AudioManager>().Play("Select");
+    }
+
+    public void DarkProcess()
+    {
+        if (darkPost.activeInHierarchy == false)
+        {
+            darkPost.SetActive(true);
+        }
+        else
+        {
+            darkPost.SetActive(false);
+        }
     }
 }

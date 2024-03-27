@@ -92,6 +92,9 @@ public class GameManager : MonoBehaviour
     public bool hasRan = true;
     public bool isRan = true;
 
+    [Header("Classic Filter")]
+    public GameObject darkPost;
+
     private KeyCode[] konamiCodeSequence = {
         KeyCode.UpArrow,
         KeyCode.UpArrow,
@@ -382,4 +385,15 @@ public class GameManager : MonoBehaviour
         circleFade.SetActive(false);
     }
 
+    public void DarkProcess()
+    {
+        if (darkPost.activeInHierarchy == false)
+        {
+            darkPost.SetActive(true);
+        }
+        else
+        {
+            darkPost.SetActive(false);
+        }
+    }
 }

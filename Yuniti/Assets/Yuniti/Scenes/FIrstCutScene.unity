@@ -759,7 +759,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491020587}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: b460b595808a12a47baca63a4bad7dba, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 5003f5a0a36f2eb4c8d22da4540d21e9, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -829,7 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4df51db5c13246440bac4d5defc6153c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changetime: 8
+  changetime: 7
 --- !u!1 &753924771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,8 +1160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 329361023}
-  changetime: 38.5
-  sceneName: IntroZenForest
+  changetime: 36
+  sceneName: IntroTutorial
 --- !u!1 &1092121268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,7 +1370,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1213808060}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: ea96d5a0757f42345923d22eebdb2b02, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 95be62cbd5b89274e832236fa52c4667, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -1382,6 +1382,12 @@ PlayableDirector:
     value: {fileID: 395089645}
   - key: {fileID: -9055422581783861059, guid: ea96d5a0757f42345923d22eebdb2b02, type: 2}
     value: {fileID: 753924772}
+  - key: {fileID: 1213206844545775563, guid: 95be62cbd5b89274e832236fa52c4667, type: 2}
+    value: {fileID: 186718754}
+  - key: {fileID: -9055422581783861059, guid: 95be62cbd5b89274e832236fa52c4667, type: 2}
+    value: {fileID: 753924772}
+  - key: {fileID: -5885350775587552900, guid: 95be62cbd5b89274e832236fa52c4667, type: 2}
+    value: {fileID: 395089645}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1213808062
@@ -1549,7 +1555,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: IntroZenForest
+          m_StringArgument: IntroTutorial
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1478821512

@@ -48,6 +48,8 @@ public class NightSpawner : MonoBehaviour
                 tower.SetActive(true);
                 GameManager.instance.coins = GameManager.instance.coins - price;
                 hasBought = true;
+                FindAnyObjectByType<AudioManager>().Play("Buy");
+                FindAnyObjectByType<AudioManager>().Play("Building");
 
             }
             priceUI.SetActive(true);

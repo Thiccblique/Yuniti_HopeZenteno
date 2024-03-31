@@ -398,13 +398,5 @@ public class GameManager : MonoBehaviour
             darkPost.SetActive(false);
         }
 
-        if (dayPP.activeInHierarchy == false)
-        {
-            dayPP.SetActive(true);
-        }
-        else
-        {
-            dayPP.SetActive(false);
-        }
     }
 }

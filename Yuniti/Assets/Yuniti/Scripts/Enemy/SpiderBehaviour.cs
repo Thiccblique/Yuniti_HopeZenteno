@@ -99,6 +99,7 @@ public class SpiderBehaviour : MonoBehaviour
         if (healthAmount <= 0 && RoundManager.instance.roundNumber <= 9)
         {
             GameManager.instance.coins++;
+            GameManager.instance.score += 99;
             RoundManager.instance.remainingEnemies--;
             healthAmount = 0;
             Destroy(gameObject);
@@ -249,6 +250,7 @@ public class SpiderBehaviour : MonoBehaviour
 
             // Activate the randomly selected particle system
             particleSystems[randomIndex].Play();
+            GameManager.instance.score += 4;
         }
         else
         {

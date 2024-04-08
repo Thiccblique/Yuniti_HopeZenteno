@@ -5,9 +5,15 @@ using TMPro;
 using UnityEngine;
 using Unity.VisualScripting;
 using System.IO.Compression;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Score")]
+    private int scoreLength = 4;
+    public int score;
+    public TMPro.TMP_Text[] scoreCount;
+
 
     [Header("CircleFade")]
     public GameObject circleFade;
@@ -78,11 +84,13 @@ public class GameManager : MonoBehaviour
     public TMPro.TMP_Text[] coinsCount;
     public TMPro.TMP_Text[] enemyCount;
     public TMPro.TMP_Text[] roundCount;
+    
 
     [Header("Money")]
     public float coins = 5f;
-    public int itemPrice = 2;
+    private int itemPrice = 2;
     public bool towerIsLocked = true;
+    
 
     [Header("Dialouge")]
     public GameObject[] dialougeBox;
@@ -141,11 +149,13 @@ public class GameManager : MonoBehaviour
         CodeTooUI();
         DialogueActivator();
         GameOver();
+        ScoreTooUI();
 
     }
 
     public void CodeTooUI()
     {
+        
         coinsCount[0].text = coins.ToString();
         enemyCount[0].text = RoundManager.instance.remainingEnemies.ToString();
         roundCount[0].text = RoundManager.instance.roundNumber.ToString();
@@ -153,6 +163,46 @@ public class GameManager : MonoBehaviour
         coinsCount[1].text = coins.ToString();
         enemyCount[1].text = RoundManager.instance.remainingEnemies.ToString();
         roundCount[1].text = RoundManager.instance.roundNumber.ToString();
+    }
+
+    private void ScoreTooUI()
+    {
+        if (score <= 9)
+        {
+            scoreCount[0].text = "00000000" + score.ToString();
+        }
+        else if (score <= 99)
+        {
+            scoreCount[0].text = "0000000" + score.ToString();
+        }
+        else if (score <= 999)
+        {
+            scoreCount[0].text = "000000" + score.ToString();
+        }
+        else if (score <= 9999)
+        {
+            scoreCount[0].text = "00000" + score.ToString();
+        }
+        else if (score <= 99999)
+        {
+            scoreCount[0].text = "0000" + score.ToString();
+        }
+        else if (score <= 999999)
+        {
+            scoreCount[0].text = "000" + score.ToString();
+        }
+        else if (score <= 9999999)
+        {
+            scoreCount[0].text = "00" + score.ToString();
+        }
+        else if (score <= 99999999)
+        {
+            scoreCount[0].text = "0" + score.ToString();
+        }
+        else if (score <= 999999999)
+        {
+            scoreCount[0].text = "" + score.ToString();
+        }
     }
 
     public void DisableAllMeshMounted()
@@ -358,6 +408,7 @@ public class GameManager : MonoBehaviour
             RoundManager.instance.totalEnemies += RoundManager.instance.enemyIncreaseNum;
             RoundManager.instance.remainingEnemies = RoundManager.instance.totalEnemies;
             RoundManager.instance.roundNumber++;
+            score += 10000;
             EnemyStats();
             hasStarted = true;
         }

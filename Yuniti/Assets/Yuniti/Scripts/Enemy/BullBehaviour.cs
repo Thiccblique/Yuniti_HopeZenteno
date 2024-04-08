@@ -161,6 +161,7 @@ public class BullBehaviour : MonoBehaviour
 
             // Activate the randomly selected particle system
             particleSystems[randomIndex].Play();
+            GameManager.instance.score += 99;
         }
         else
         {

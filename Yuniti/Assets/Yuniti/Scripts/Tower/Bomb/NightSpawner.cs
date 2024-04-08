@@ -50,6 +50,7 @@ public class NightSpawner : MonoBehaviour
                 hasBought = true;
                 FindAnyObjectByType<AudioManager>().Play("Buy");
                 FindAnyObjectByType<AudioManager>().Play("Building");
+                GameManager.instance.score += 999;
 
             }
             priceUI.SetActive(true);

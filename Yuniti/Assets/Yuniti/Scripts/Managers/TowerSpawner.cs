@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using System.Data;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class TowerSpawner : MonoBehaviour
 {
@@ -158,6 +159,7 @@ public class TowerSpawner : MonoBehaviour
             spawnOne = false;
             health1.curHealth = health1.maxHealth;
             price = priceOne;
+            
         }
         if (health2.curHealth <= 0)
         {
@@ -193,6 +195,7 @@ public class TowerSpawner : MonoBehaviour
                 hasSpawned = false;
                 locationMarkerTwo.SetActive(true);
                 price = priceTwo;
+                GameManager.instance.score += 156;
             }
             else if (!spawnTwo)
             {
@@ -205,6 +208,7 @@ public class TowerSpawner : MonoBehaviour
                 hasSpawned = false;
                 locationMarkerThree.SetActive(true);
                 price = priceThree;
+                GameManager.instance.score += 1796;
             }
             else if (!spawnThree)
             {
@@ -216,6 +220,7 @@ public class TowerSpawner : MonoBehaviour
                 spawnThree = true;
                 hasSpawned = false;
                 maxedOut = true;
+                GameManager.instance.score += 4999;
             }
             
               

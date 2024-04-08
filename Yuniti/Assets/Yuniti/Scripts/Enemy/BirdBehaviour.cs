@@ -66,6 +66,7 @@ public class BirdBehaviour : MonoBehaviour
         if (healthAmount <= 0 && RoundManager.instance.roundNumber <= 9)
         {
             GameManager.instance.coins++;
+            GameManager.instance.score += 99;
             GameManager.instance.killCount++;
             RoundManager.instance.remainingEnemies--;
             healthAmount = 0;
@@ -174,6 +175,7 @@ public class BirdBehaviour : MonoBehaviour
 
             // Activate the randomly selected particle system
             particleSystems[randomIndex].Play();
+            GameManager.instance.score += 4;
         }
         else
         {

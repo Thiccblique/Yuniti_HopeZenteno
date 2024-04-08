@@ -160,6 +160,7 @@ public class RoundManager : MonoBehaviour
     {
         if(remainingEnemies <= 0)
         {
+
             GameManager.instance.hasStarted = false;
             day.SetActive(true);
             night.SetActive(false);
@@ -170,6 +171,7 @@ public class RoundManager : MonoBehaviour
             GameManager.instance.inRound = false;
             if (runOnce)
             {
+                
                 canContinue = true;
                 runOnce = false;
                 FindAnyObjectByType<AudioManager>().Play("OverWorld");

@@ -163,6 +163,8 @@ public class GameManager : MonoBehaviour
         coinsCount[1].text = coins.ToString();
         enemyCount[1].text = RoundManager.instance.remainingEnemies.ToString();
         roundCount[1].text = RoundManager.instance.roundNumber.ToString();
+        /****************************************************************************/
+        roundCount[2].text = RoundManager.instance.roundNumber.ToString();
     }
 
     private void ScoreTooUI()
@@ -170,34 +172,42 @@ public class GameManager : MonoBehaviour
         if (score <= 9)
         {
             scoreCount[0].text = "0000000" + score.ToString();
+            scoreCount[1].text = "0000000" + score.ToString();
         }
         else if (score <= 99)
         {
             scoreCount[0].text = "000000" + score.ToString();
+            scoreCount[1].text = "000000" + score.ToString();
         }
         else if (score <= 999)
         {
             scoreCount[0].text = "00000" + score.ToString();
+            scoreCount[1].text = "00000" + score.ToString();
         }
         else if (score <= 9999)
         {
             scoreCount[0].text = "0000" + score.ToString();
+            scoreCount[1].text = "0000" + score.ToString();
         }
         else if (score <= 99999)
         {
             scoreCount[0].text = "000" + score.ToString();
+            scoreCount[1].text = "000" + score.ToString();
         }
         else if (score <= 999999)
         {
             scoreCount[0].text = "00" + score.ToString();
+            scoreCount[1].text = "00" + score.ToString();
         }
         else if (score <= 9999999)
         {
             scoreCount[0].text = "0" + score.ToString();
+            scoreCount[1].text = "0" + score.ToString();
         }
         else if (score <= 99999999)
         {
             scoreCount[0].text = "" + score.ToString();
+            scoreCount[1].text = "" + score.ToString();
         }
        
     }

@@ -12554,6 +12554,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &150302929 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6220186613742585008, guid: e732db14f997c374187fb665c6d45585, type: 3}
+  m_PrefabInstance: {fileID: 258173362}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &150881794
 GameObject:
   m_ObjectHideFlags: 0
@@ -17779,18 +17790,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 602675150}
-    - target: {fileID: 1615646782291875486, guid: e732db14f997c374187fb665c6d45585, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadScene
-      objectReference: {fileID: 0}
     - target: {fileID: 2115086322115252342, guid: e732db14f997c374187fb665c6d45585, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5875113193267110429}
-    - target: {fileID: 2115086322115252342, guid: e732db14f997c374187fb665c6d45585, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Exit
-      objectReference: {fileID: 0}
     - target: {fileID: 2733775110018550017, guid: e732db14f997c374187fb665c6d45585, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -17875,22 +17878,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverPanel (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 3058621273107907875, guid: e732db14f997c374187fb665c6d45585, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6312793293443279309, guid: e732db14f997c374187fb665c6d45585, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 602675150}
-    - target: {fileID: 6312793293443279309, guid: e732db14f997c374187fb665c6d45585, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312793293443279309, guid: e732db14f997c374187fb665c6d45585, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Zen_Forest
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25608,7 +25599,7 @@ MonoBehaviour:
   partical11: {fileID: 656046732}
   partical12: {fileID: 172431521}
   partical13: {fileID: 1080344338}
-  followPlayer: {fileID: 0}
+  followPlayer: {fileID: 605280217}
 --- !u!1 &394335247
 GameObject:
   m_ObjectHideFlags: 0
@@ -34699,6 +34690,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603205578}
   m_CullTransparentMesh: 1
+--- !u!114 &605280217 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 624908943378011458, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
+  m_PrefabInstance: {fileID: 8241868118973693188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520725998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6719b6c6d034b4247a61184174d7b988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &607550439
 GameObject:
   m_ObjectHideFlags: 0
@@ -72459,6 +72461,7 @@ MonoBehaviour:
   score: 0
   scoreCount:
   - {fileID: 8241868118973693192}
+  - {fileID: 150302929}
   circleFade: {fileID: 29221996}
   orionBodyPartsMounted:
   - {fileID: 8241868118973693191}
@@ -72521,6 +72524,7 @@ MonoBehaviour:
   roundCount:
   - {fileID: 1685301139}
   - {fileID: 5875113193267110426}
+  - {fileID: 1352984963}
   coins: 5
   towerIsLocked: 1
   dialougeBox:
@@ -82503,6 +82507,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6, y: 6, z: 6}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1352984963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5526678048476246027, guid: e732db14f997c374187fb665c6d45585, type: 3}
+  m_PrefabInstance: {fileID: 258173362}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1353863624
 GameObject:
   m_ObjectHideFlags: 0
@@ -139175,6 +139190,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5064666956481870131, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
       propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5951333911680816789, guid: b2977663fe5c62f498f6c17836312e62, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6196778034916225914, guid: b2977663fe5c62f498f6c17836312e62, type: 3}

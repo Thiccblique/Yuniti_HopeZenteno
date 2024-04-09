@@ -169,40 +169,37 @@ public class GameManager : MonoBehaviour
     {
         if (score <= 9)
         {
-            scoreCount[0].text = "00000000" + score.ToString();
+            scoreCount[0].text = "0000000" + score.ToString();
         }
         else if (score <= 99)
         {
-            scoreCount[0].text = "0000000" + score.ToString();
+            scoreCount[0].text = "000000" + score.ToString();
         }
         else if (score <= 999)
         {
-            scoreCount[0].text = "000000" + score.ToString();
+            scoreCount[0].text = "00000" + score.ToString();
         }
         else if (score <= 9999)
         {
-            scoreCount[0].text = "00000" + score.ToString();
+            scoreCount[0].text = "0000" + score.ToString();
         }
         else if (score <= 99999)
         {
-            scoreCount[0].text = "0000" + score.ToString();
+            scoreCount[0].text = "000" + score.ToString();
         }
         else if (score <= 999999)
         {
-            scoreCount[0].text = "000" + score.ToString();
+            scoreCount[0].text = "00" + score.ToString();
         }
         else if (score <= 9999999)
         {
-            scoreCount[0].text = "00" + score.ToString();
+            scoreCount[0].text = "0" + score.ToString();
         }
         else if (score <= 99999999)
         {
-            scoreCount[0].text = "0" + score.ToString();
-        }
-        else if (score <= 999999999)
-        {
             scoreCount[0].text = "" + score.ToString();
         }
+       
     }
 
     public void DisableAllMeshMounted()

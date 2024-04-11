@@ -34,6 +34,9 @@ public class OrionController : MonoBehaviour
     [Header("UI")]
     public GameObject space;
 
+    [Header("Particls")]
+    public GameObject runParticals;
+
     private void Awake()
     {
         gameObject.transform.SetParent(saddle);
@@ -60,7 +63,11 @@ public class OrionController : MonoBehaviour
             AttackAnim();
         }
         else
+        {
             orionAnim.SetBool("Walk", false);
+            runParticals.SetActive(false);
+        }
+            
 
     }
 
@@ -119,11 +126,14 @@ public class OrionController : MonoBehaviour
             {
                 // Activate the animation
                 orionAnim.SetBool("Walk", true);
+                runParticals.SetActive(true);
+
             }
             else
             {
                 // Activate the animation
                 orionAnim.SetBool("Walk", false);
+                runParticals.SetActive(false);
             }
     }
     public void AttackAnim()

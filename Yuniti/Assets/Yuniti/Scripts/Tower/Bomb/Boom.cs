@@ -22,6 +22,7 @@ public class Boom : MonoBehaviour
 
     IEnumerator PlayEffectAndDeactivate()
     {
+        FindAnyObjectByType<AudioManager>().Play("Boom");
         boomParticle.SetActive(true);
         yield return new WaitForSeconds(3f);
         bombs.SetActive(true);

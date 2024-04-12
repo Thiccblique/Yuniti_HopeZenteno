@@ -145,8 +145,9 @@ public class TutorialHud : MonoBehaviour
                     //loadingScreen.LoadScene(sceneName);
                     orionController.inTutorial = false;
                     Invoke("Deactivate", 1f);
-                    hasSpoken[3] = false;
                     Invoke("Transfer", 0.5f);
+                    hasSpoken[3] = false;
+                    
                 }
             }
             else if (hasSpoken[4] == true)

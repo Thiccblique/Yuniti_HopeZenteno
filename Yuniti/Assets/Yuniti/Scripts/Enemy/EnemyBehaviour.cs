@@ -178,6 +178,7 @@ public class EnemyBehaviour : MonoBehaviour
             healthAmount = healthAmount - projectileBehaviour.damageAmount;
             // healthBar.value = CalculateHealth();
             //HitPartical();
+            
             ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             // Debug.Log("Enemy Health: " + healthAmount);
@@ -189,8 +190,10 @@ public class EnemyBehaviour : MonoBehaviour
             healthAmount = healthAmount - fwProjectileBehaviour.damageAmount;
             //healthBar.value = CalculateHealth();
             //HitPartical();
+            
             ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
+            
             //Debug.Log("Enemy Health: " + healthAmount);
         }
 
@@ -201,6 +204,7 @@ public class EnemyBehaviour : MonoBehaviour
             healthAmount--;
             //healthbar.value = CalculateHealth();
             //HitPartical();
+            
             ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
             // Debug.Log("Enemy Health: " + healthAmount);
@@ -220,7 +224,7 @@ public class EnemyBehaviour : MonoBehaviour
 
 
             healthAmount -= player.attackDamage;
-
+            
             ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
 
@@ -228,10 +232,13 @@ public class EnemyBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("SwordHitBox"))
         {
             healthAmount -= player.swordDamage;
+            
             ActivateRandomParticleSystem();
             FindAnyObjectByType<AudioManager>().Play("EnemyHit");
 
         }
+
+       
     }
 
 
@@ -300,7 +307,10 @@ public class EnemyBehaviour : MonoBehaviour
 
             // Activate the randomly selected particle system
             particleSystems[randomIndex].Play();
+            anim.SetBool("Hit", true);
             GameManager.instance.score += 4;
+            //anim.SetBool("Hit", false);
+            StartCoroutine(HitAnimReset());
         }
         else
         {
@@ -321,6 +331,12 @@ public class EnemyBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         towerNearby = false;
+    }
+
+    IEnumerator HitAnimReset()
+    {
+        yield return new WaitForSeconds(0.01f);
+        anim.SetBool("Hit", false);
     }
 
     /* ENEMY HEALTH SYSTEM */

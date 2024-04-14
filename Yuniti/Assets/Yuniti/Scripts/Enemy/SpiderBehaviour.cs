@@ -19,7 +19,7 @@ public class SpiderBehaviour : MonoBehaviour
     private bool towerNearby = false;
     private Vector3 destination;
     public Vector3 originalWaypointVector3;
-    ///private Animator anim;
+    private Animator anim;
 
     private TowerHealth towerHealth;
     private ProjectileBehaviour projectileBehaviour;
@@ -64,7 +64,7 @@ public class SpiderBehaviour : MonoBehaviour
 
 
         healthAmount = maxHealth;
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         SetMaxHealth(maxHealth);
     }
 
@@ -249,8 +249,11 @@ public class SpiderBehaviour : MonoBehaviour
             }
 
             // Activate the randomly selected particle system
-            particleSystems[randomIndex].Play();
+            particleSystems[randomIndex].Play(); 
+            anim.SetBool("Hit", true);
             GameManager.instance.score += 4;
+            //anim.SetBool("Hit", false);
+            StartCoroutine(HitAnimReset());
         }
         else
         {
@@ -272,7 +275,11 @@ public class SpiderBehaviour : MonoBehaviour
         yield return new WaitForSeconds(3);
         towerNearby = false;
     }
-
+    IEnumerator HitAnimReset()
+    {
+        yield return new WaitForSeconds(0.01f);
+        anim.SetBool("Hit", false);
+    }
     /* ENEMY HEALTH SYSTEM */
 
     public void SetMaxHealth(float health)

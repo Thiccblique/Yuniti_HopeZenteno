@@ -15,6 +15,9 @@ public class AllySpawner : MonoBehaviour
     private int spawnCount = 0;
     private float spawnTimer = 0.0f;
 
+    private TowerHealth tH;
+    public float health;
+
 
 
     // Start is called before the first frame update

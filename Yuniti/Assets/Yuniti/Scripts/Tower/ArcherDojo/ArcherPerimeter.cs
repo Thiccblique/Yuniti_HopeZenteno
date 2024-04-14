@@ -32,7 +32,7 @@ public class ArcherPerimeter : MonoBehaviour
     {
         Collider[] allyColliders = Physics.OverlapSphere(transform.position, perimeterRange, ally);
 
-        alliesInRange.Clear();
+        //alliesInRange.Clear();
 
         foreach (var collider in allyColliders) // for each ally collider detected in the OverlapSphere...
         {
@@ -72,7 +72,7 @@ public class ArcherPerimeter : MonoBehaviour
         Collider[] enemyColliders = Physics.OverlapSphere(transform.position, perimeterRange, enemy); // Detects colliders in a layermask using OverlapSphere.
         Collider[] allyColliders = Physics.OverlapSphere(transform.position, perimeterRange, ally);
 
-        alliesInRange.Clear(); // Clears the alliesInRange list...
+        //alliesInRange.Clear(); // Clears the alliesInRange list...
         targets.Clear(); // Clears the targets list...
 
         foreach (var collider in allyColliders) // for each ally collider detected in the OverlapSphere...

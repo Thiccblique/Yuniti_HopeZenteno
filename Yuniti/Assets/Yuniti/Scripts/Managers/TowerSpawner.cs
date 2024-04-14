@@ -155,6 +155,12 @@ public class TowerSpawner : MonoBehaviour
     {
         if (health1.curHealth <= 0)
         {
+            if (towerStageOne.GetComponent<AllySpawner>() != null)
+            {
+                GameObject[] allies = GameObject.FindGameObjectsWithTag("Ally");
+                foreach (GameObject a in allies)
+                    Destroy(a);
+            }
             towerStageOne.SetActive(false);
             spawnOne = false;
             health1.curHealth = health1.maxHealth;
@@ -163,6 +169,12 @@ public class TowerSpawner : MonoBehaviour
         }
         if (health2.curHealth <= 0)
         {
+            if (towerStageTwo.GetComponent<AllySpawner>() != null)
+            {
+                GameObject[] allies = GameObject.FindGameObjectsWithTag("Ally");
+                foreach (GameObject a in allies)
+                    Destroy(a);
+            }
             towerStageTwo.SetActive(false);
             spawnTwo = false;
             spawnOne = false;
@@ -172,6 +184,12 @@ public class TowerSpawner : MonoBehaviour
         }
         if (health3.curHealth <= 0)
         {
+            if (towerStageThree.GetComponent<AllySpawner>() != null)
+            {
+                GameObject[] allies = GameObject.FindGameObjectsWithTag("Ally");
+                foreach (GameObject a in allies)
+                    Destroy(a);
+            }
             towerStageThree.SetActive(false);
             spawnThree = false;
             spawnTwo = false;

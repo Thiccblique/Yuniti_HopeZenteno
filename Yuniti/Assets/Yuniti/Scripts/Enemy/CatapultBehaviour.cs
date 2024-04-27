@@ -50,6 +50,11 @@ public class CatapultBehaviour : MonoBehaviour
 
     [Header("Particals")]
     public ParticleSystem[] particleSystems;
+    public GameObject death;
+
+    [Header("EnemyBody")]
+    public GameObject[] enemyVisuals;
+    private NavMeshAgent navMesh;
 
     [Header("Health")]
     public float healthAmount;
@@ -121,12 +126,7 @@ public class CatapultBehaviour : MonoBehaviour
 
         if (healthAmount <= 0 && RoundManager.instance.roundNumber <= 9)
         {
-            GameManager.instance.coins++;
-            GameManager.instance.score += 99;
-            GameManager.instance.killCount++;
-            RoundManager.instance.remainingEnemies--;
-            healthAmount = 0;
-            Destroy(gameObject);
+            StartCoroutine(Death());
 
         }
         else if (healthAmount <= 0)
@@ -366,6 +366,23 @@ public class CatapultBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         towerNearby = false;
+    }
+    IEnumerator Death()
+    {
+        death.SetActive(true);
+        navMesh = gameObject.GetComponent<NavMeshAgent>();
+        navMesh.speed = 0;
+        foreach (GameObject obj in enemyVisuals)
+        {
+            obj.SetActive(false);
+        }
+        yield return new WaitForSeconds(1f);
+        GameManager.instance.coins++;
+        GameManager.instance.score += 99;
+        GameManager.instance.killCount++;
+        RoundManager.instance.remainingEnemies--;
+        healthAmount = 0;
+        Destroy(gameObject);
     }
 
     /* ENEMY HEALTH SYSTEM */

@@ -8,6 +8,7 @@ public class TowerBehaviour : MonoBehaviour
 
     public float towerRange = 5f;
     public Transform shootingPoint;
+    public GameObject attackAnim;
     public LayerMask enemy;
     public GameObject towerProjectile;
     public float fireRate = 1f;
@@ -74,6 +75,7 @@ public class TowerBehaviour : MonoBehaviour
 
     void Shoot(GameObject enemy)
     {
+        attackAnim.SetActive(true);
         GameObject newProjectile = Instantiate(towerProjectile, shootingPoint.position, Quaternion.identity); //Instantiates a projectile using a shooting position and the set rotation
         shootingPoint.transform.LookAt(enemy.transform); // This makes the shooting position to look at an enemy. (In hindsight this doesn't do an)
         Vector3 direction = (enemy.transform.position - shootingPoint.position).normalized; // This calculates the position from the shooting point to the enemy

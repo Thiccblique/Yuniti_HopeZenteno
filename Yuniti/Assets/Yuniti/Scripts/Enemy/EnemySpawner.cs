@@ -19,11 +19,25 @@ public class EnemySpawner : MonoBehaviour
 
     private EnemyBehaviour enemy;
 
+    public static List<GameObject> enemiesSpawned = new List<GameObject>();
+
 
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
+    }
+
+    void Update()
+    {
+        foreach (GameObject g in enemiesSpawned.ToArray())
+        {
+            if (g == null)
+            {
+                enemiesSpawned.Remove(g);
+            }
+        }
+            
     }
 
     public void StartSpawning()
@@ -86,25 +100,39 @@ public class EnemySpawner : MonoBehaviour
 
 
                 firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
+                Debug.Log("First Enemy Count: " + firstEnemyCount);
+
                 secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
+                Debug.Log("Second Enemy Count: " + secondEnemyCount);
+
                 thirdEnemyCount = Mathf.FloorToInt(thirdEnemyCount);
+                Debug.Log("Third Enemy Count: " + thirdEnemyCount);
+
                 fourthEnemyCount = Mathf.FloorToInt(fourthEnemyCount);
+                Debug.Log("Fourth Enemy Count: " + fourthEnemyCount);
 
                 if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
                 {
                     secondEnemyCount++;
+                    Debug.Log("Second Enemy Added");
                 }
                 if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
                 {
                     thirdEnemyCount++;
+                    Debug.Log("Third Enemy Added");
+
                 }
                 if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
                 {
                     firstEnemyCount++;
+                    Debug.Log("First Enemy Added");
+
                 }
                 if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
                 {
                     fourthEnemyCount++;
+                    Debug.Log("Fourth Enemy Added");
+
                 }
 
             }
@@ -131,9 +159,16 @@ public class EnemySpawner : MonoBehaviour
                     fourthEnemyCount = RoundManager.instance.remainingEnemies * .1f;
 
                     firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
+                    Debug.Log("First Enemy Count: " + firstEnemyCount);
+
                     secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
+                    Debug.Log("Second Enemy Count: " + secondEnemyCount);
+
                     thirdEnemyCount = Mathf.FloorToInt(thirdEnemyCount);
+                    Debug.Log("Third Enemy Count: " + thirdEnemyCount);
+
                     fourthEnemyCount = Mathf.FloorToInt(fourthEnemyCount);
+                    Debug.Log("Fourth Enemy Count: " +  fourthEnemyCount);
 
                     if (firstEnemyCount + secondEnemyCount + thirdEnemyCount + fourthEnemyCount != enemiesToSpawn)
                     {
@@ -188,10 +223,18 @@ public class EnemySpawner : MonoBehaviour
             if (curRound <= 9)
             {
 
+                Debug.Log("FINAL First Enemy Count: " + firstEnemyCount);
+
+                Debug.Log("FINAL Second Enemy Count: " + secondEnemyCount);
+
+                Debug.Log("FINAL Third Enemy Count: " + thirdEnemyCount);
+
+                Debug.Log("FINAL Fourth Enemy Count: " + fourthEnemyCount);
+
                 for (int i = 0; firstEnemyCount > i && spawnCount < RoundManager.instance.remainingEnemies; i++)
                 {
                     int spawnPointChosen = Random.Range(0, spawnPoint.Length);
-                    Instantiate(objectToSpawn[0], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
+                    enemiesSpawned.Add(Instantiate(objectToSpawn[0], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation));
                     spawnCount++;
                     yield return new WaitForSeconds(spawnInterval);
                 }
@@ -199,7 +242,7 @@ public class EnemySpawner : MonoBehaviour
                 for (int i = 0; secondEnemyCount > i; i++)
                 {
                     int spawnPointChosen = Random.Range(0, spawnPoint.Length);
-                    Instantiate(objectToSpawn[1], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
+                    enemiesSpawned.Add(Instantiate(objectToSpawn[1], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation));
                     spawnCount++;
                     yield return new WaitForSeconds(spawnInterval);
                 }
@@ -207,14 +250,15 @@ public class EnemySpawner : MonoBehaviour
                 for (int i = 0; thirdEnemyCount > i; i++)
                 {
                     int spawnPointChosen = Random.Range(0, spawnPoint.Length);
-                    Instantiate(objectToSpawn[2], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
+                    enemiesSpawned.Add(Instantiate(objectToSpawn[2], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation));
                     spawnCount++;
                     yield return new WaitForSeconds(spawnInterval);
                 }
+
                 for (int i = 0; fourthEnemyCount > i; i++)
                 {
                     int spawnPointChosen = Random.Range(0, spawnPoint.Length);
-                    Instantiate(objectToSpawn[3], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation);
+                    enemiesSpawned.Add(Instantiate(objectToSpawn[3], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation));
                     spawnCount++;
                     yield return new WaitForSeconds(spawnInterval);
                 }
@@ -249,10 +293,13 @@ public class EnemySpawner : MonoBehaviour
                 }
             }
 
+            yield return new WaitForSeconds(5);
+
             if (EnemyTower.instance != null)
             {
                 if (spawnCount >= enemiesToSpawn || EnemyTower.instance.towerDefeated)
                 {
+                    //enemiesSpawned.Clear();
                     break;
                 }
             }
@@ -260,71 +307,10 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (spawnCount >= enemiesToSpawn)
                 {
+                    //enemiesSpawned.Clear();
                     break;
                 }
             }
         }
     }
-
-    /* Old Code
-     
-    public static EnemySpawner instance; 
-
-    public GameObject objectToSpawn; 
-    public Transform spawnPoint;
-    public int numberOfSpawns = 5;
-    public float spawnInterval = 2.0f; 
-
-    public int spawnCount = 0;
-    private float spawnTimer = 0.0f;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-      
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        IfSpawn();
-    }
-   
-    public void IfSpawn()
-    {
-        if (RoundManager.instance.canContinue == false )
-        {
-            
-            WillSpawn();
-
-        }
-        if (RoundManager.instance.remainingEnemies <= 0)
-        {
-            spawnCount = 0;
-        }
-
-
-    }
-
-    public void WillSpawn()
-    {
-
-        if (spawnCount < numberOfSpawns)
-        {
-            spawnTimer += Time.deltaTime;
-
-            if (spawnTimer >= spawnInterval)
-            {
-                SpawnObject();
-                spawnTimer = 0.0f;
-            }
-        }
-    }
-    public void SpawnObject()
-    {
-        Instantiate(objectToSpawn, spawnPoint.position, spawnPoint.rotation);
-        spawnCount++;
-    }
-
-     */
 }

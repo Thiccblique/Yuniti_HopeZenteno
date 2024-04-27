@@ -21,6 +21,7 @@ public class BirdBehaviour : MonoBehaviour
     private Vector3 destination;
     public Vector3 originalWaypointVector3;
     private Animator anim;
+    private bool hasDecreasedEC = false;
 
     private TowerHealth towerHealth;
     private ProjectileBehaviour projectileBehaviour;
@@ -68,7 +69,11 @@ public class BirdBehaviour : MonoBehaviour
             GameManager.instance.coins++;
             GameManager.instance.score += 99;
             GameManager.instance.killCount++;
-            RoundManager.instance.remainingEnemies--;
+            if (!hasDecreasedEC)
+            {
+                RoundManager.instance.remainingEnemies--;
+                hasDecreasedEC = true;
+            }
             healthAmount = 0;
             Destroy(gameObject);
 

@@ -34,6 +34,7 @@ public class SpiderBehaviour : MonoBehaviour
     public bool isPathingNeeded = false;
     public GameObject[] spawnPoints;
     private Boom boom;
+    private bool hasDecreasedEC = false;
 
     public GameObject hitTextPrefab;
     public Transform hitPosition;
@@ -294,7 +295,11 @@ public class SpiderBehaviour : MonoBehaviour
         GameManager.instance.coins++;
         GameManager.instance.score += 99;
         GameManager.instance.killCount++;
-        RoundManager.instance.remainingEnemies--;
+        if (!hasDecreasedEC)
+        {
+            RoundManager.instance.remainingEnemies--;
+            hasDecreasedEC = true;
+        }
         healthAmount = 0;
         Destroy(gameObject);
     }

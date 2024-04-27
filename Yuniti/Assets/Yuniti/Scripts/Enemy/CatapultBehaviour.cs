@@ -32,6 +32,7 @@ public class CatapultBehaviour : MonoBehaviour
     private Vector3 currentAssignedPoint;
     private bool reachedFirstPoint = false;
     private int currentPathingIndex;
+    private bool hasDecreasedEC = false;
 
     public GameObject[] pathing;
 
@@ -380,7 +381,11 @@ public class CatapultBehaviour : MonoBehaviour
         GameManager.instance.coins++;
         GameManager.instance.score += 99;
         GameManager.instance.killCount++;
-        RoundManager.instance.remainingEnemies--;
+        if (!hasDecreasedEC)
+        {
+            RoundManager.instance.remainingEnemies--;
+            hasDecreasedEC = true;
+        }
         healthAmount = 0;
         Destroy(gameObject);
     }

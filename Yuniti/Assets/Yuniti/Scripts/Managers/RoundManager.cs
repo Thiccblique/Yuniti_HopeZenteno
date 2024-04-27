@@ -158,7 +158,7 @@ public class RoundManager : MonoBehaviour
     }
     public void EndRound() // This is always running and messing with the starting round. Add boolean or move it from Update.
     {
-        if(remainingEnemies <= 0)
+        if(remainingEnemies <= 0 && EnemySpawner.enemiesSpawned.Count == 0)
         {
 
             GameManager.instance.hasStarted = false;

@@ -170,7 +170,7 @@ public class TowerSpawner : MonoBehaviour
             price = priceOne;
             health1.curHealth = health1.maxHealth;
         }
-        if (health2.curHealth <= 0)
+        if (health2.died == true)
         {
             if (towerStageTwo.GetComponent<AllySpawner>() != null)
             {
@@ -178,6 +178,7 @@ public class TowerSpawner : MonoBehaviour
                 foreach (GameObject a in allies)
                     Destroy(a);
             }
+            destroyed[1].SetActive(true);
             towerStageTwo.SetActive(false);
             spawnTwo = false;
             spawnOne = false;
@@ -185,7 +186,7 @@ public class TowerSpawner : MonoBehaviour
             price = priceOne;
 
         }
-        if (health3.curHealth <= 0)
+        if (health3.died == true)
         {
             if (towerStageThree.GetComponent<AllySpawner>() != null)
             {
@@ -210,9 +211,11 @@ public class TowerSpawner : MonoBehaviour
             if (spawnOne == false)
             {
                 health1.died = false;
+                health2.died = false;
                 Instantiate(towerStageOne, spawnPoint.position, spawnPoint.rotation);
                 towerStageOne.SetActive(true);
                 destroyed[0].SetActive(false);
+                destroyed[1].SetActive(false);
                 locationMarkerOne.SetActive(false);
                 spawnOne = true;
                 hasSpawned = false;
@@ -222,11 +225,12 @@ public class TowerSpawner : MonoBehaviour
             }
             else if (!spawnTwo)
             {
-
+                health2.died = false;
                 towerStageOne.SetActive(false);
                 destroyed[0].SetActive(false);
                 Instantiate(towerStageTwo, spawnPoint.position, spawnPoint.rotation);
                 towerStageTwo.SetActive(true);
+                destroyed[1].SetActive(false);
                 locationMarkerTwo.SetActive(false);
                 spawnTwo = true;
                 hasSpawned = false;
@@ -238,6 +242,7 @@ public class TowerSpawner : MonoBehaviour
             {
 
                 towerStageTwo.SetActive(false);
+                destroyed[1].SetActive(false);
                 Instantiate(towerStageThree, spawnPoint.position, spawnPoint.rotation);
                 towerStageThree.SetActive(true);
                 locationMarkerThree.SetActive(false);

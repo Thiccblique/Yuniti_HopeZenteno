@@ -219,10 +219,7 @@ public class SpiderBehaviour : MonoBehaviour
 
             StartCoroutine(StartAttackCooldown());
 
-            if (towerHealth.curHealth <= 0 && towerNearby == true)
-            {
-                other.gameObject.SetActive(false);
-            }
+           
 
         }
 

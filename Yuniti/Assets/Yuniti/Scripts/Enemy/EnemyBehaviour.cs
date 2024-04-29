@@ -255,17 +255,9 @@ public class EnemyBehaviour : MonoBehaviour
             towerHealth = other.gameObject.GetComponent<TowerHealth>();
             towerHealth.curHealth -= damageAmount;
             Debug.Log("Tower Health: " + towerHealth.curHealth);
-
-
             anim.SetBool("EnemyAttack", true);
 
             StartCoroutine(StartAttackCooldown());
-
-            if (towerHealth.curHealth <= 0 && towerNearby == true)
-            {
-                other.gameObject.SetActive(false);
-            }
-
         }
 
         if (other.gameObject.CompareTag("Player") && !attackCooldown && other.gameObject != null && orionPlayer.isMounted == false)

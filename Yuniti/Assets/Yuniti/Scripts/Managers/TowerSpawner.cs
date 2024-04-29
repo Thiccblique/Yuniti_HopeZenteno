@@ -52,6 +52,9 @@ public class TowerSpawner : MonoBehaviour
     public TowerHealth health2;
     public TowerHealth health3;
 
+    [Header("Destroyed")]
+    public GameObject[] destroyed;
+    
     [Header("Range")]
     public GameObject[] tRange;
     public GameObject[] range;
@@ -153,7 +156,7 @@ public class TowerSpawner : MonoBehaviour
 
     private void TowerHealth()
     {
-        if (health1.curHealth <= 0)
+        if (health1.died == true)
         {
             if (towerStageOne.GetComponent<AllySpawner>() != null)
             {
@@ -161,11 +164,11 @@ public class TowerSpawner : MonoBehaviour
                 foreach (GameObject a in allies)
                     Destroy(a);
             }
+            destroyed[0].SetActive(true);
             towerStageOne.SetActive(false);
             spawnOne = false;
-            health1.curHealth = health1.maxHealth;
             price = priceOne;
-            
+            health1.curHealth = health1.maxHealth;
         }
         if (health2.curHealth <= 0)
         {
@@ -204,10 +207,12 @@ public class TowerSpawner : MonoBehaviour
     {
         if(!maxedOut)
         {
-            if (!spawnOne)
+            if (spawnOne == false)
             {
+                health1.died = false;
                 Instantiate(towerStageOne, spawnPoint.position, spawnPoint.rotation);
                 towerStageOne.SetActive(true);
+                destroyed[0].SetActive(false);
                 locationMarkerOne.SetActive(false);
                 spawnOne = true;
                 hasSpawned = false;
@@ -219,6 +224,7 @@ public class TowerSpawner : MonoBehaviour
             {
 
                 towerStageOne.SetActive(false);
+                destroyed[0].SetActive(false);
                 Instantiate(towerStageTwo, spawnPoint.position, spawnPoint.rotation);
                 towerStageTwo.SetActive(true);
                 locationMarkerTwo.SetActive(false);

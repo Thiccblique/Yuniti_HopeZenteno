@@ -194,6 +194,7 @@ public class TowerSpawner : MonoBehaviour
                 foreach (GameObject a in allies)
                     Destroy(a);
             }
+            destroyed[2].SetActive(true);
             towerStageThree.SetActive(false);
             spawnThree = false;
             spawnTwo = false;
@@ -212,10 +213,12 @@ public class TowerSpawner : MonoBehaviour
             {
                 health1.died = false;
                 health2.died = false;
+                health3.died = false;
                 Instantiate(towerStageOne, spawnPoint.position, spawnPoint.rotation);
                 towerStageOne.SetActive(true);
                 destroyed[0].SetActive(false);
                 destroyed[1].SetActive(false);
+                destroyed[2].SetActive(false);
                 locationMarkerOne.SetActive(false);
                 spawnOne = true;
                 hasSpawned = false;
@@ -226,11 +229,13 @@ public class TowerSpawner : MonoBehaviour
             else if (!spawnTwo)
             {
                 health2.died = false;
+                health3.died = false;
                 towerStageOne.SetActive(false);
                 destroyed[0].SetActive(false);
                 Instantiate(towerStageTwo, spawnPoint.position, spawnPoint.rotation);
                 towerStageTwo.SetActive(true);
                 destroyed[1].SetActive(false);
+                destroyed[2].SetActive(false);
                 locationMarkerTwo.SetActive(false);
                 spawnTwo = true;
                 hasSpawned = false;
@@ -240,9 +245,11 @@ public class TowerSpawner : MonoBehaviour
             }
             else if (!spawnThree)
             {
-
+                health3.died = false;
                 towerStageTwo.SetActive(false);
+                destroyed[0].SetActive(false);
                 destroyed[1].SetActive(false);
+                destroyed[2].SetActive(false);
                 Instantiate(towerStageThree, spawnPoint.position, spawnPoint.rotation);
                 towerStageThree.SetActive(true);
                 locationMarkerThree.SetActive(false);

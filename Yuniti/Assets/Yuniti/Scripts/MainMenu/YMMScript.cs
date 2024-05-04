@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using TMPro;
+using UnityEngine.Rendering.PostProcessing;
 
 public class YMMScript : MonoBehaviour
 {
@@ -29,8 +30,15 @@ public class YMMScript : MonoBehaviour
 
     [Header("Site")]
     private string website;
+
+    [Header("Glitch Effect")]
+    public PostProcessVolume postProcessVolume;
+    ChromaticAberration chromaticAberration;
+    public bool isMouseDown = false;
+
     private void Start()
     {
+        GlitchStart();
         CirclePlay();
         Invoke("CircleDeactive", 1.1f);
         FindAnyObjectByType<AudioManager>().Play("MainMenu");
@@ -51,6 +59,41 @@ public class YMMScript : MonoBehaviour
         darkPost.SetActive(false);
     }
 
+    private void Update()
+    {
+        GlitchUpdate();
+    }
+
+    /* Glitch effect Code */
+
+    private void GlitchStart()
+    {
+        postProcessVolume.profile.TryGetSettings(out chromaticAberration);
+    }
+
+    private void GlitchUpdate()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            isMouseDown = true;
+            ToggleChromaticAberration(true);
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            isMouseDown = false;
+            ToggleChromaticAberration(false);
+        }
+    }
+
+    public void ToggleChromaticAberration(bool isEnabled)
+    {
+        if(chromaticAberration != null)
+        {
+            chromaticAberration.enabled.value = isEnabled;    
+        }
+    }
+
+    /* End Glitch effect Code */
     public void Exit()
     {
         Application.Quit();

@@ -12,6 +12,9 @@ public class EnemySpawner : MonoBehaviour
     public Transform enemyTowerSP;
     public Transform[] spawnPoint;
     public float spawnInterval = 3.0f;
+    public bool factionSpawns;
+    public bool firstFaction;
+    public bool secondFaction;
 
     public int spawnCount = 0;
     private int curRound = 0;
@@ -43,7 +46,15 @@ public class EnemySpawner : MonoBehaviour
     public void StartSpawning()
     {
         curRound = RoundManager.instance.roundNumber;
-        enemiesToSpawn = RoundManager.instance.totalEnemies;
+        if (factionSpawns)
+        {
+            enemiesToSpawn = (RoundManager.instance.totalEnemies / 2);
+        }
+        else
+        {
+            enemiesToSpawn = RoundManager.instance.totalEnemies;
+        }
+        
         spawnCount = 0;
         StartCoroutine(SpawnEnemies());
     }
@@ -73,8 +84,8 @@ public class EnemySpawner : MonoBehaviour
             }*/
             if (curRound >= 1 && curRound <= 3)
             {
-                firstEnemyCount = RoundManager.instance.remainingEnemies * .7f;
-                secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
+                firstEnemyCount = enemiesToSpawn * .7f;
+                secondEnemyCount = enemiesToSpawn * .3f;
 
 
                 firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
@@ -93,10 +104,10 @@ public class EnemySpawner : MonoBehaviour
             else if (curRound >= 4 && curRound <= 7)
             {
 
-                firstEnemyCount = RoundManager.instance.remainingEnemies * .4f;
-                secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
-                thirdEnemyCount = RoundManager.instance.remainingEnemies * .2f;
-                fourthEnemyCount = RoundManager.instance.remainingEnemies * .1f;
+                firstEnemyCount = enemiesToSpawn * .4f;
+                secondEnemyCount = enemiesToSpawn * .3f;
+                thirdEnemyCount = enemiesToSpawn * .2f;
+                fourthEnemyCount = enemiesToSpawn * .1f;
 
 
                 firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
@@ -153,10 +164,10 @@ public class EnemySpawner : MonoBehaviour
                 }
                 else
                 {
-                    firstEnemyCount = RoundManager.instance.remainingEnemies * .4f;
-                    secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
-                    thirdEnemyCount = RoundManager.instance.remainingEnemies * .2f;
-                    fourthEnemyCount = RoundManager.instance.remainingEnemies * .1f;
+                    firstEnemyCount = enemiesToSpawn * .4f;
+                    secondEnemyCount = enemiesToSpawn * .3f;
+                    thirdEnemyCount = enemiesToSpawn * .2f;
+                    fourthEnemyCount = enemiesToSpawn * .1f;
 
                     firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
                     Debug.Log("First Enemy Count: " + firstEnemyCount);
@@ -191,10 +202,10 @@ public class EnemySpawner : MonoBehaviour
             }
             else if (curRound == 9) // This type of enemy count goes forever. Change later when end round is added plus more enemies.
             {
-                firstEnemyCount = RoundManager.instance.remainingEnemies * .4f;
-                secondEnemyCount = RoundManager.instance.remainingEnemies * .3f;
-                thirdEnemyCount = RoundManager.instance.remainingEnemies * .2f;
-                fourthEnemyCount = RoundManager.instance.remainingEnemies * .1f;
+                firstEnemyCount = enemiesToSpawn * .4f;
+                secondEnemyCount = enemiesToSpawn * .3f;
+                thirdEnemyCount = enemiesToSpawn * .2f;
+                fourthEnemyCount = enemiesToSpawn * .1f;
 
                 firstEnemyCount = Mathf.FloorToInt(firstEnemyCount);
                 secondEnemyCount = Mathf.FloorToInt(secondEnemyCount);
@@ -233,34 +244,107 @@ public class EnemySpawner : MonoBehaviour
 
                 for (int i = 0; firstEnemyCount > i && spawnCount < RoundManager.instance.remainingEnemies; i++)
                 {
-                    int spawnPointChosen = Random.Range(0, spawnPoint.Length);
-                    enemiesSpawned.Add(Instantiate(objectToSpawn[0], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation));
-                    spawnCount++;
-                    yield return new WaitForSeconds(spawnInterval);
+                    if (!factionSpawns)
+                    {
+                        int spawnPointChosen = Random.Range(0, spawnPoint.Length);
+                        enemiesSpawned.Add(Instantiate(objectToSpawn[0], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation));
+                        spawnCount++;
+                        yield return new WaitForSeconds(spawnInterval);
+                    }
+                    else
+                    {
+                        if (firstFaction)
+                        {
+                            enemiesSpawned.Add(Instantiate(objectToSpawn[0], spawnPoint[0].position, spawnPoint[0].rotation));
+                            spawnCount++;
+                            yield return new WaitForSeconds(spawnInterval);
+                        }
+                        else
+                        {
+                            enemiesSpawned.Add(Instantiate(objectToSpawn[0], spawnPoint[1].position, spawnPoint[1].rotation));
+                            spawnCount++;
+                            yield return new WaitForSeconds(spawnInterval);
+                        }
+                    }
+
                 }
 
                 for (int i = 0; secondEnemyCount > i; i++)
                 {
-                    int spawnPointChosen = Random.Range(0, spawnPoint.Length);
-                    enemiesSpawned.Add(Instantiate(objectToSpawn[1], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation));
-                    spawnCount++;
-                    yield return new WaitForSeconds(spawnInterval);
+                    if (!factionSpawns)
+                    {
+                        int spawnPointChosen = Random.Range(0, spawnPoint.Length);
+                        enemiesSpawned.Add(Instantiate(objectToSpawn[1], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation));
+                        spawnCount++;
+                        yield return new WaitForSeconds(spawnInterval);
+                    }
+                    else
+                    {
+                        if (firstFaction)
+                        {
+                            enemiesSpawned.Add(Instantiate(objectToSpawn[1], spawnPoint[0].position, spawnPoint[0].rotation));
+                            spawnCount++;
+                            yield return new WaitForSeconds(spawnInterval);
+                        }
+                        else
+                        {
+                            enemiesSpawned.Add(Instantiate(objectToSpawn[1], spawnPoint[1].position, spawnPoint[1].rotation));
+                            spawnCount++;
+                            yield return new WaitForSeconds(spawnInterval);
+                        }
+                    }
                 }
 
                 for (int i = 0; thirdEnemyCount > i; i++)
                 {
-                    int spawnPointChosen = Random.Range(0, spawnPoint.Length);
-                    enemiesSpawned.Add(Instantiate(objectToSpawn[2], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation));
-                    spawnCount++;
-                    yield return new WaitForSeconds(spawnInterval);
+                    if (!factionSpawns)
+                    {
+                        int spawnPointChosen = Random.Range(0, spawnPoint.Length);
+                        enemiesSpawned.Add(Instantiate(objectToSpawn[2], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation));
+                        spawnCount++;
+                        yield return new WaitForSeconds(spawnInterval);
+                    }
+                    else
+                    {
+                        if (firstFaction)
+                        {
+                            enemiesSpawned.Add(Instantiate(objectToSpawn[2], spawnPoint[0].position, spawnPoint[0].rotation));
+                            spawnCount++;
+                            yield return new WaitForSeconds(spawnInterval);
+                        }
+                        else
+                        {
+                            enemiesSpawned.Add(Instantiate(objectToSpawn[2], spawnPoint[1].position, spawnPoint[1].rotation));
+                            spawnCount++;
+                            yield return new WaitForSeconds(spawnInterval);
+                        }
+                    }
                 }
 
                 for (int i = 0; fourthEnemyCount > i; i++)
                 {
-                    int spawnPointChosen = Random.Range(0, spawnPoint.Length);
-                    enemiesSpawned.Add(Instantiate(objectToSpawn[3], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation));
-                    spawnCount++;
-                    yield return new WaitForSeconds(spawnInterval);
+                    if (!factionSpawns)
+                    {
+                        int spawnPointChosen = Random.Range(0, spawnPoint.Length);
+                        enemiesSpawned.Add(Instantiate(objectToSpawn[3], spawnPoint[spawnPointChosen].position, spawnPoint[spawnPointChosen].rotation));
+                        spawnCount++;
+                        yield return new WaitForSeconds(spawnInterval);
+                    }
+                    else
+                    {
+                        if (firstFaction)
+                        {
+                            enemiesSpawned.Add(Instantiate(objectToSpawn[3], spawnPoint[0].position, spawnPoint[0].rotation));
+                            spawnCount++;
+                            yield return new WaitForSeconds(spawnInterval);
+                        }
+                        else
+                        {
+                            enemiesSpawned.Add(Instantiate(objectToSpawn[3], spawnPoint[1].position, spawnPoint[1].rotation));
+                            spawnCount++;
+                            yield return new WaitForSeconds(spawnInterval);
+                        }
+                    }
                 }
             }
 

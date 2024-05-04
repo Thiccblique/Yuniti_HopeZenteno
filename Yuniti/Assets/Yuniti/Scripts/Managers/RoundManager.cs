@@ -148,7 +148,19 @@ public class RoundManager : MonoBehaviour
         enemRemainUI.SetActive(true);
         inActionUI.SetActive(true);
         GameManager.instance.inRound = true;
-        EnemySpawner.instance.StartSpawning();
+        if (!EnemySpawner.instance.factionSpawns)
+        {
+            EnemySpawner.instance.StartSpawning();
+        }
+        else
+        {
+            EnemySpawner[] spawners = FindObjectsOfType<EnemySpawner>();
+            foreach(EnemySpawner s in spawners)
+            {
+                s.StartSpawning();
+            }
+        }
+
         endRound = false;
         TurnOn();
         FindAnyObjectByType<AudioManager>().Stop("OverWorld");

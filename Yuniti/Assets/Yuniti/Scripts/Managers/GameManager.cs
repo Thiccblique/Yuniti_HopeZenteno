@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     public SpiderBehaviour spiderBehaviour;
     public EnemyBehaviour tankBehaviour;
     public CatapultBehaviour catapultBehaviour;
+    public RomanBehaviour[] romanBehaviours;
 
     [Header("HUD")]
     public GameObject hudCanvas;
@@ -304,6 +305,19 @@ public class GameManager : MonoBehaviour
         //Catapult
         catapultBehaviour.damageAmount += 1.5f;
         catapultBehaviour.maxHealth += 3f;
+
+        foreach (RomanBehaviour romanBehaviour  in romanBehaviours)
+        {
+            if(romanBehaviour != null)
+            {
+                romanBehaviour.damageAmount += 1f;
+                romanBehaviour.maxHealth += 2f;
+            }
+            else
+            {
+                Debug.Log("Don't have anything set");
+            }
+        }
 
 
     }

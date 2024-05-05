@@ -145,6 +145,7 @@ MonoBehaviour:
   healthBar: {fileID: 4573388508561753696}
   maxHealth: 30
   curHealth: 0
+  died: 0
 --- !u!65 &2195254604756208610
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -250,6 +251,7 @@ MonoBehaviour:
   healthBar: {fileID: 6404384961438400015}
   maxHealth: 70
   curHealth: 0
+  died: 0
 --- !u!65 &2566080340164544753
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1526,11 +1528,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 7acf635c9b3463c40952c01736a699bc, type: 3}
     - target: {fileID: 3734422169369738075, guid: 36019f8ac9978f54e83d422d8b900262, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3734422169369738075, guid: 36019f8ac9978f54e83d422d8b900262, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6176654490834703745, guid: 36019f8ac9978f54e83d422d8b900262, type: 3}
       propertyPath: m_Name
@@ -1665,6 +1667,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1203066573004462070}
     m_Modifications:
+    - target: {fileID: 1253921917439990896, guid: bb69cffa4c113704e81cd0360ca61fa2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ab631f778a24a04eaf0d51e3eeb59eb, type: 2}
+    - target: {fileID: 5070157418878916469, guid: bb69cffa4c113704e81cd0360ca61fa2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9fc582ab870b7f946a78c5ea4d814d7f, type: 2}
     - target: {fileID: 5864873389038944738, guid: bb69cffa4c113704e81cd0360ca61fa2, type: 3}
       propertyPath: m_Name
       value: miningtower
@@ -1824,11 +1834,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 535179365150296042, guid: a6ac36ac9118f6f4ba2364d26d6706e4, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 535179365150296042, guid: a6ac36ac9118f6f4ba2364d26d6706e4, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3380675674517719977, guid: a6ac36ac9118f6f4ba2364d26d6706e4, type: 3}
       propertyPath: m_Sprite
@@ -2267,31 +2277,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 178909532604919086, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_VersionIndex
-      value: 550
+      value: 553
       objectReference: {fileID: 0}
     - target: {fileID: 420705974061299694, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 420705974061299694, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 420705974061299694, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 420705974061299694, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.28
+      value: -132.57614
       objectReference: {fileID: 0}
     - target: {fileID: 420705974061299694, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.82
+      value: 0.94
       objectReference: {fileID: 0}
     - target: {fileID: 420705974061299694, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.3
+      value: -319.50757
       objectReference: {fileID: 0}
     - target: {fileID: 420705974061299694, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2363,7 +2373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4255913705054098616, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_VersionIndex
-      value: 550
+      value: 553
       objectReference: {fileID: 0}
     - target: {fileID: 5422851479247514863, guid: d63076df0a824f743bb9367175f774dc, type: 3}
       propertyPath: m_LocalScale.x
@@ -2684,6 +2694,7 @@ MonoBehaviour:
   healthBar: {fileID: 3111117545942507040}
   maxHealth: 30
   curHealth: 0
+  died: 0
 --- !u!114 &4419263835351786516
 MonoBehaviour:
   m_ObjectHideFlags: 0

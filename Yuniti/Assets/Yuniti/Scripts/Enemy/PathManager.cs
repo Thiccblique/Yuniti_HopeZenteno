@@ -30,7 +30,7 @@ public class PathManager : MonoBehaviour
         if (isDivergent && !enemyBehaviour.hasLooped && !enemyBehaviour.hasHitFirstPoint)
         {
             enemyBehaviour.hasHitFirstPoint = true;
-            int randomPoint = Random.Range(0, 1);
+            int randomPoint = Random.Range(0, 2);
             if (wpAvailable[randomPoint] == wpAvailable[0])
             {
                 enemyBehaviour.isGoingClockwise = true;
@@ -44,7 +44,7 @@ public class PathManager : MonoBehaviour
         else if (isDivergent && !enemyBehaviour.hasLooped && enemyBehaviour.hasHitFirstPoint)
         {
             enemyBehaviour.hasLooped = true;
-            int randomPoint = Random.Range(0, 1);
+            int randomPoint = Random.Range(0, 2);
             if (randomPoint == 0 && enemyBehaviour.isGoingClockwise)
             {
                 return wpAvailable[0];

@@ -303,8 +303,8 @@ public class GameManager : MonoBehaviour
         pController.swordDamage += 0.7f;
 
         //Catapult
-        catapultBehaviour.damageAmount += 1.5f;
-        catapultBehaviour.maxHealth += 3f;
+        //catapultBehaviour.damageAmount += 1.5f;
+        //catapultBehaviour.maxHealth += 3f;
 
         foreach (RomanBehaviour romanBehaviour  in romanBehaviours)
         {

@@ -64,8 +64,10 @@ public class RomanBehaviour : EnemyBehaviourBase
     void Start()
     {
         //currentPathingIndex = 0;
-
-        originalWaypointVector3 = waypoint.transform.position; // This stores the waypoint of the assigned waypoint.
+        if (waypoint != null)
+        {
+            originalWaypointVector3 = waypoint.transform.position; // This stores the waypoint of the assigned waypoint.
+        }
 
         if (!isPathingNeeded)
         {
@@ -110,8 +112,12 @@ public class RomanBehaviour : EnemyBehaviourBase
     {
         if (other.gameObject.CompareTag("EnemyPathing"))
         {
-            wpHit = other.gameObject;
-            enemyAgent.SetDestination(pathManager.getNextPoint(wpHit, this.gameObject).transform.position);
+            if (pathManager != null && enemyAgent != null)
+            {
+                wpHit = other.gameObject;
+                enemyAgent.SetDestination(pathManager.getNextPoint(wpHit, this.gameObject).transform.position);
+                InbetweenPointsCD();
+            }
         }
 
         if (other.gameObject.CompareTag("SpawnPoint"))

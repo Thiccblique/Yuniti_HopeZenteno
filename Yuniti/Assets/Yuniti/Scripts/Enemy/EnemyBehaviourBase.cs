@@ -8,4 +8,9 @@ public class EnemyBehaviourBase : MonoBehaviour
     public bool hasHitFirstPoint = false;
     public bool isGoingClockwise = false;
     public bool hasHitSpecialPoint = false;
+
+    public IEnumerator InbetweenPointsCD()
+    {
+        yield return new WaitForSeconds(1f);
+    }
 }

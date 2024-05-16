@@ -16,13 +16,10 @@ public class MouseCoordinates : MonoBehaviour
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit[] hitDataArray = Physics.RaycastAll(ray, Mathf.Infinity, layer);
-        
         foreach (var hitData in hitDataArray)
         {
             if (hitData.transform.CompareTag("Ground"))
             {
-                //worldPosition = new Vector3(hitData.point.x, hitData.point.y + offset, hitData.point.z);
-
                 worldPosition = hitData.point; 
             
             }

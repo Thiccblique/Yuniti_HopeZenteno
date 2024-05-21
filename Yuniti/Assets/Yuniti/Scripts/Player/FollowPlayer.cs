@@ -64,9 +64,10 @@ public class FollowPlayer : MonoBehaviour
         // Apply the floating movement to the transform's position
         Vector3 newPosition = startPos[index] + new Vector3(0.0f, floatOffset, 0.0f);
 
-        // Preserve the original x and z positions for forward movement
+        // Preserve the original x and z and y positions for forward movement
         newPosition.x = targetTransform.position.x;
         newPosition.z = targetTransform.position.z;
+        newPosition.y = targetTransform.position.y + floatOffset;
 
         // Apply the new position
         targetTransform.position = newPosition;

@@ -84,6 +84,73 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2530335549400537849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4131528428047479553}
+  - component: {fileID: 7103975272660088166}
+  - component: {fileID: 3807765207091372392}
+  m_Layer: 8
+  m_Name: RomanRadius
+  m_TagString: RomanRadius
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4131528428047479553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2530335549400537849}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.253, y: 1.124, z: 0.201}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4851043521589828190}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7103975272660088166
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2530335549400537849}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3807765207091372392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2530335549400537849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f09b3b1750cd247b01dd20281da265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackfight: {fileID: 8487402871801164198, guid: 90375796f996bff4cabed66da5e558cb, type: 3}
 --- !u!1 &3929837047814545782
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,13 +182,14 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 26.19855, y: 1.73, z: -345.72543}
-  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 695540041379281057}
   - {fileID: 6959318724561660616}
   - {fileID: 3169075540824599785}
   - {fileID: 1805100228252586364}
+  - {fileID: 4131528428047479553}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &6417228937609153302
@@ -168,7 +236,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
-  damageAmount: 1
+  damageAmount: 3
   attackRate: 3
   isPathingNeeded: 1
   originalWaypointVector3: {x: 0, y: 0, z: 0}
@@ -189,7 +257,7 @@ MonoBehaviour:
   - {fileID: 210786648844706331}
   - {fileID: 3971232361938609328}
   healthAmount: 0
-  maxHealth: 5
+  maxHealth: 10
   healthBar: {fileID: 7020200044240162468}
 --- !u!54 &4931193218899557499
 Rigidbody:

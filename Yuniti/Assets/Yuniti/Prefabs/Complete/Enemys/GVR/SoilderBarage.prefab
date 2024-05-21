@@ -5760,6 +5760,73 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4668662742480718614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6686204407494864686}
+  - component: {fileID: 6906279863413332647}
+  - component: {fileID: 6283404845783756349}
+  m_Layer: 8
+  m_Name: RomanRadius (2)
+  m_TagString: RomanRadius
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6686204407494864686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4668662742480718614}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.1, y: 1.0223534, z: -1.51}
+  m_LocalScale: {x: 1.1764705, y: 1.1764705, z: 1.1764705}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6855097282007206905}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &6906279863413332647
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4668662742480718614}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6283404845783756349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4668662742480718614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f09b3b1750cd247b01dd20281da265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackfight: {fileID: 8487402871801164198, guid: 90375796f996bff4cabed66da5e558cb, type: 3}
 --- !u!1 &4766528983292443823
 GameObject:
   m_ObjectHideFlags: 0
@@ -8861,6 +8928,7 @@ Transform:
   - {fileID: 5007956118886996172}
   - {fileID: 6346300014950503252}
   - {fileID: 89777274623287386}
+  - {fileID: 6686204407494864686}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &3828426611794322437
@@ -8907,7 +8975,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
-  damageAmount: 1
+  damageAmount: 6
   attackRate: 3
   isPathingNeeded: 1
   originalWaypointVector3: {x: 0, y: 0, z: 0}
@@ -8928,7 +8996,7 @@ MonoBehaviour:
   - {fileID: 1441731022142613139}
   - {fileID: 4968844359059774221}
   healthAmount: 0
-  maxHealth: 50
+  maxHealth: 60
   healthBar: {fileID: 1334338631171125529}
 --- !u!54 &8577515681086693624
 Rigidbody:

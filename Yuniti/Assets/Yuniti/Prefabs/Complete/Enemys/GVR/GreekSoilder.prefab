@@ -38,6 +38,7 @@ Transform:
   - {fileID: 7523085344196913670}
   - {fileID: 5189593377786658430}
   - {fileID: 2465727129359649525}
+  - {fileID: 6433210235300500337}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &8630351828244109811
@@ -84,7 +85,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
-  damageAmount: 1
+  damageAmount: 3
   attackRate: 3
   isPathingNeeded: 1
   originalWaypointVector3: {x: 0, y: 0, z: 0}
@@ -105,7 +106,7 @@ MonoBehaviour:
   - {fileID: 526041708190894156}
   - {fileID: 6116825135512630823}
   healthAmount: 0
-  maxHealth: 5
+  maxHealth: 10
   healthBar: {fileID: 185545307639389235}
 --- !u!54 &4052876901124066660
 Rigidbody:
@@ -213,6 +214,59 @@ Transform:
   - {fileID: 5682758114338814595}
   m_Father: {fileID: 1565520052086121050}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7681440602100934369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6433210235300500337}
+  - component: {fileID: 9074384036714961734}
+  m_Layer: 8
+  m_Name: GreekRadius
+  m_TagString: GreekRadius
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6433210235300500337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7681440602100934369}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1565520052086121050}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &9074384036714961734
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7681440602100934369}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &527902273479051037
 PrefabInstance:
   m_ObjectHideFlags: 0

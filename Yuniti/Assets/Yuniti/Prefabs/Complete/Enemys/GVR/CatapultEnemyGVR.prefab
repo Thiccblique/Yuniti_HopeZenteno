@@ -364,7 +364,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1048
+  m_VersionIndex: 1051
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -554,6 +554,73 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3565409723704684247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 884940632828934839}
+  - component: {fileID: 5009532705468756869}
+  - component: {fileID: 853446602212411559}
+  m_Layer: 8
+  m_Name: RomanRadius (1)
+  m_TagString: RomanRadius
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &884940632828934839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3565409723704684247}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -0.24, y: 1.0180006, z: -1.2}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3791653730441074363}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5009532705468756869
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3565409723704684247}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.3
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &853446602212411559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3565409723704684247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f09b3b1750cd247b01dd20281da265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackfight: {fileID: 8487402871801164198, guid: 90375796f996bff4cabed66da5e558cb, type: 3}
 --- !u!1 &4662423537965834513
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,7 +901,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1048
+  m_VersionIndex: 1051
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3130,7 +3197,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 789
+  m_VersionIndex: 792
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3517,7 +3584,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1048
+  m_VersionIndex: 1051
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3635,7 +3702,7 @@ GameObject:
   - component: {fileID: 3791653730441074363}
   - component: {fileID: 3042414230162891941}
   - component: {fileID: 4137482226511749105}
-  - component: {fileID: 860482966411843493}
+  - component: {fileID: 8504158343391051934}
   - component: {fileID: 1124125321465225747}
   - component: {fileID: 2874403372381157445}
   m_Layer: 8
@@ -3653,7 +3720,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6092673812372101974}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -20.4, y: 15.7, z: -3.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3662,6 +3729,7 @@ Transform:
   - {fileID: 8053148393214025712}
   - {fileID: 3240590466745242292}
   - {fileID: 5525396548860607783}
+  - {fileID: 884940632828934839}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &3042414230162891941
@@ -3707,7 +3775,7 @@ NavMeshAgent:
   m_BaseOffset: 0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &860482966411843493
+--- !u!114 &8504158343391051934
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3716,34 +3784,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 6092673812372101974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d907566b7b721674a8c6028bbe02490f, type: 3}
+  m_Script: {fileID: 11500000, guid: c0abc45848adb1f4e84468735befb29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsGiven: 1
+  hasLooped: 0
+  hasHitFirstPoint: 0
+  isGoingClockwise: 0
+  hasHitSpecialPoint: 0
+  coinsGiven: 0.7
   enemyAgent: {fileID: 4137482226511749105}
   waypoint: {fileID: 0}
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
-  damageAmount: 2
+  damageAmount: 3
   attackRate: 5
   catapultRange: 15
   isPathingNeeded: 1
+  originalWaypointVector3: {x: 0, y: 0, z: 0}
   tower:
     serializedVersion: 2
     m_Bits: 16384
-  originalWaypointVector3: {x: 0, y: 0, z: 0}
-  pathing:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  pathManager: {fileID: 0}
   player: {fileID: 0}
   orionPlayer: {fileID: 0}
   hitTextPrefab: {fileID: 0}
   hitPosition: {fileID: 0}
   particleSystems:
   - {fileID: 8333466677662193448}
-  - {fileID: 8333466677662193448}
+  - {fileID: 404488813742991606}
   - {fileID: 8332040647549092757}
   - {fileID: 3870833562209342221}
   - {fileID: 4468123957412506760}
@@ -3753,24 +3822,8 @@ MonoBehaviour:
   - {fileID: 7632550379529935854}
   - {fileID: 8297020746444560297}
   healthAmount: 0
-  maxHealth: 50
+  maxHealth: 40
   healthBar: {fileID: 2689937728667188669}
-  firstPathing:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  secondPathing:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  thirdPathing:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  fourthPathing:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!135 &1124125321465225747
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4099,7 +4152,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1048
+  m_VersionIndex: 1051
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5455,6 +5508,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 141e1779869c79845bd243610f187f47, type: 3}
+--- !u!198 &404488813742991606 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8099996740612524614, guid: 141e1779869c79845bd243610f187f47, type: 3}
+  m_PrefabInstance: {fileID: 8499964237384065712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3765954420401855726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4735161070083145310, guid: 141e1779869c79845bd243610f187f47, type: 3}

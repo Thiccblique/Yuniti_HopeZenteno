@@ -16,7 +16,7 @@ public class ProjectileBehaviour : MonoBehaviour
         foreach (var collider in hitColliders) // for each enemy collider detected in the OverlapSphere...
         {
             GameObject enemy = collider.gameObject; // allows usage of GameObject methods (creates gameobject for enemies detected).
-            transform.LookAt(enemy.transform.position); // Looks at the enemy using the z axis (rotation).
+            transform.LookAt(enemy.transform.position); // Looks at the enemy 
             transform.Rotate(-90, 0, 0); // This then rotates -90 degrees in the x axis to give it a more arrow look.
         }
     }

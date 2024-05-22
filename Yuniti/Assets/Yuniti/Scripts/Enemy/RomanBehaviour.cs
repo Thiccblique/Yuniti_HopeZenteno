@@ -32,6 +32,7 @@ public class RomanBehaviour : EnemyBehaviourBase
     //private int currentPathingIndex;
     private GameObject wpHit;
     private bool hasDecreasedEC = false;
+    private bool enemyWPDC = false;
 
     private TowerHealth towerHealth;
     private PlayerHealth playerHealth;
@@ -115,8 +116,13 @@ public class RomanBehaviour : EnemyBehaviourBase
             if (pathManager != null && enemyAgent != null)
             {
                 wpHit = other.gameObject;
-                enemyAgent.SetDestination(pathManager.getNextPoint(wpHit, this.gameObject).transform.position);
-                InbetweenPointsCD();
+                
+                if (!enemyWPDC)
+                {
+                    enemyWPDC = true;
+                    enemyAgent.SetDestination(pathManager.getNextPoint(wpHit, this.gameObject).transform.position);
+                    StartCoroutine(waypointCD());
+                }
             }
         }
 
@@ -283,6 +289,12 @@ public class RomanBehaviour : EnemyBehaviourBase
         attackCooldown = false;
         anim.SetBool("EnemyAttack", false);
 
+    }
+
+    IEnumerator waypointCD()
+    {
+        yield return new WaitForSeconds(3);
+        enemyWPDC = false;
     }
 
     IEnumerator TowerCheck()

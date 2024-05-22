@@ -43,7 +43,7 @@ public class PathManager : MonoBehaviour
             {
                 enemyBehaviour.isGoingClockwise = false;
             }
-            //Debug.Log("isDiv, !hasLooped, !hasHitFirst");
+            Debug.Log("isDiv, !hasLooped, !hasHitFirst");
             return wpAvailable[randomPoint];
         }
         else if (isDivergent && !enemyBehaviour.hasLooped && enemyBehaviour.hasHitFirstPoint)
@@ -52,37 +52,37 @@ public class PathManager : MonoBehaviour
             int randomPoint = Random.Range(0, 2);
             if (randomPoint == 0 && enemyBehaviour.isGoingClockwise)
             {
-                //Debug.Log("isDiv, !hasLooped, hasHitFirst");
+                Debug.Log("isDiv, !hasLooped, hasHitFirst");
                 return wpAvailable[0];
             }
             else if (randomPoint == 0 && !enemyBehaviour.isGoingClockwise)
             {
-                //Debug.Log("isDiv, !hasLooped, hasHitFirst");
+                Debug.Log("isDiv, !hasLooped, hasHitFirst");
                 return wpAvailable[1];
             }
             else
             {
-                //Debug.Log("isDiv, !hasLooped, hasHitFirst");
+                Debug.Log("isDiv, !hasLooped, hasHitFirst");
                 return wpAvailable[2];
             }
 
         }
         else if (isDivergent && enemyBehaviour.hasLooped)
         {
-            //Debug.Log("isDiv, hasLooped");
+            Debug.Log("isDiv, hasLooped");
             return wpAvailable[2];
         }
         else if (specialCheck(wpHit))
         {
             if (!enemyBehaviour.hasHitSpecialPoint)
             {
-                //Debug.Log("specialPoint");
+                Debug.Log("specialPoint");
                 enemyBehaviour.hasHitSpecialPoint = true;
                 return wpAvailable[0];
             }
             else
             {
-                //Debug.Log("specialPointReset");
+                Debug.Log("specialPointReset");
                 enemyBehaviour.hasHitSpecialPoint = false;
                 enemyBehaviour.hasHitFirstPoint = false;
                 enemyBehaviour.hasLooped = false;
@@ -95,12 +95,12 @@ public class PathManager : MonoBehaviour
         {
             if (enemyBehaviour.isGoingClockwise)
             {
-                //Debug.Log("Clockwise");
+                Debug.Log("Clockwise");
                 return wpAvailable[0];
             }
             else
             {
-                //Debug.Log("CounterClockwise");
+                Debug.Log("CounterClockwise");
                 return wpAvailable[1];
             }
         }

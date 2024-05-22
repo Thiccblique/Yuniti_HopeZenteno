@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class EnemyBehaviourBase : MonoBehaviour
 {
+    public static EnemyBehaviourBase instance;
+
     public bool hasLooped = false;
     public bool hasHitFirstPoint = false;
     public bool isGoingClockwise = false;
     public bool hasHitSpecialPoint = false;
-
-    public IEnumerator InbetweenPointsCD()
-    {
-        yield return new WaitForSeconds(1f);
-    }
 }

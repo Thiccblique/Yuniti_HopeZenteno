@@ -63,7 +63,7 @@ public class FWTowerBehaviour : MonoBehaviour
 
         foreach (var target in targets.ToArray()) // This shoots at each enemy inside the targets list.
         {
-            if (target == null)
+            if (target == null || Vector3.Distance(this.gameObject.transform.position, target.transform.position) > towerRange)
             {
                 targets.Remove(target);
             }
@@ -77,7 +77,7 @@ public class FWTowerBehaviour : MonoBehaviour
     void Shoot(GameObject enemy)
     {
         GameObject newProjectile = Instantiate(towerProjectile, shootingPoint.position, Quaternion.identity); //Instantiates a projectile using a shooting position and the set rotation
-        shootingPoint.transform.LookAt(enemy.transform); // This makes the shooting position to look at an enemy. (In hindsight this doesn't do an)
+        shootingPoint.transform.LookAt(enemy.transform); // This makes the shooting position to look at an enemy.
         Vector3 direction = (enemy.transform.position - shootingPoint.position).normalized; // This calculates the position from the shooting point to the enemy
         newProjectile.GetComponent<Rigidbody>().AddForce(direction * 1000f); // We then use the direction here and add force to the instantiated projectile towards the enemy
     }

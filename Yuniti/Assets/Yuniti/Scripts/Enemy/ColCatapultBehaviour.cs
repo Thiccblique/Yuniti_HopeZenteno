@@ -35,6 +35,7 @@ public class ColCatapultBehaviour : EnemyBehaviourBase
     private bool hasDecreasedEC = false;
     public LayerMask tower;
     private List<GameObject> towers = new List<GameObject>();
+    private bool enemyWPDC = false;
 
     private TowerHealth towerHealth;
     private PlayerHealth playerHealth;
@@ -116,9 +117,18 @@ public class ColCatapultBehaviour : EnemyBehaviourBase
     {
         if (other.gameObject.CompareTag("EnemyPathing"))
         {
-            wpHit = other.gameObject;
-            destination = pathManager.getNextPoint(wpHit, this.gameObject).transform.position;
-            enemyAgent.SetDestination(destination);
+            if (pathManager != null && enemyAgent != null)
+            {
+                wpHit = other.gameObject;
+
+                if (!enemyWPDC)
+                {
+                    enemyWPDC = true;
+                    destination = pathManager.getNextPoint(wpHit, this.gameObject).transform.position;
+                    enemyAgent.SetDestination(destination);
+                    StartCoroutine(waypointCD());
+                }
+            }
         }
 
         if (other.gameObject.CompareTag("SpawnPoint"))
@@ -294,6 +304,12 @@ public class ColCatapultBehaviour : EnemyBehaviourBase
         {
             Debug.LogWarning("No particle systems found or added to the array!");
         }
+    }
+
+    IEnumerator waypointCD()
+    {
+        yield return new WaitForSeconds(3);
+        enemyWPDC = false;
     }
 
     IEnumerator StartAttackCooldown()

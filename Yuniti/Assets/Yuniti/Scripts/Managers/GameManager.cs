@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
     {
         //enemy = GetComponent<EnemyBehaviour>();
         CirclePlay();
-        Invoke("CircleDeactive", 1.1f);
+        Invoke("CircleDeactive", 2.0f);
         Disability();
         CodeTooUI();
         hudCanvas.SetActive(false);

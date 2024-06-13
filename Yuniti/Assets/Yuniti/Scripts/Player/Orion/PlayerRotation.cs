@@ -34,7 +34,7 @@ public class PlayerRotation : MonoBehaviour
 
             foreach (var hitData in hitDataArray)
             {
-                if (hitData.transform.CompareTag("Ground"))
+                if (hitData.transform.CompareTag("LookRotation"))
                 {
                     mouseCoordinates = hitData.collider.GetComponent<MouseCoordinates>();
 

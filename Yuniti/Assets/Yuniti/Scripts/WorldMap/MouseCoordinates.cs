@@ -18,7 +18,7 @@ public class MouseCoordinates : MonoBehaviour
         RaycastHit[] hitDataArray = Physics.RaycastAll(ray, Mathf.Infinity, layer);
         foreach (var hitData in hitDataArray)
         {
-            if (hitData.transform.CompareTag("Ground"))
+            if (hitData.transform.CompareTag("LookRotation"))
             {
                 worldPosition = hitData.point; 
             

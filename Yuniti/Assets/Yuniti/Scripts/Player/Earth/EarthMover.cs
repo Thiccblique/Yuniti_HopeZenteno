@@ -15,7 +15,7 @@ public class EarthMover : MonoBehaviour
     private void Start()
     {
         CirclePlay();
-        Invoke("CircleDeactive", 1.1f);
+        Invoke("CircleDeactive", 2.5f);
     }
     void Update()
     {

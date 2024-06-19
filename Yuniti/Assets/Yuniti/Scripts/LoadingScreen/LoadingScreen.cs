@@ -36,7 +36,7 @@ public class LoadingScreen : MonoBehaviour
         pauseMenu.SetActive(false);
         circleFade.SetActive(true);
         SceneTransition();
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(2f);
         circleFade.SetActive(false);
         loadingScreenPrefab.SetActive(true);
         MuteAudio();

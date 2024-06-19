@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &186718751
 RectTransform:
   m_ObjectHideFlags: 0
@@ -759,7 +759,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491020587}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: b95532122b57023448fdd4f678fd48e9, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 5003f5a0a36f2eb4c8d22da4540d21e9, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -776,7 +776,7 @@ VideoPlayer:
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
-  - 1
+  - 0.2
   m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
@@ -829,7 +829,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4df51db5c13246440bac4d5defc6153c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changetime: 4
+  videoObject: {fileID: 491020587}
+  changetime: 7
+  videotime: 38
 --- !u!1 &753924771
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,7 +892,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New World
+  m_text: Yuniti
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 24be5e72331af8b42a3e8ef31e44c0a8, type: 2}
   m_sharedMaterial: {fileID: 4035969728245974132, guid: 24be5e72331af8b42a3e8ef31e44c0a8, type: 2}
@@ -917,8 +919,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39.3
-  m_fontSizeBase: 39.3
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -983,8 +985,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.7739, y: 0}
-  m_SizeDelta: {x: 293.5201, y: 50}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &964837361
 GameObject:
@@ -1160,8 +1162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 329361023}
-  changetime: 27
-  sceneName: IntoToNormandy
+  changetime: 36
+  sceneName: IntroTutorial
 --- !u!1 &1092121268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,13 +1266,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092121268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24df6138384997c48aff9b74cbb3c1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingScreen: {fileID: 0}
-  changetime: 50
+  loadingScreen: {fileID: 329361023}
+  changetime: 36
   sceneName: IntroZenForest
 --- !u!1 &1153688182
 GameObject:
@@ -1370,16 +1372,24 @@ PlayableDirector:
   m_GameObject: {fileID: 1213808060}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: ea96d5a0757f42345923d22eebdb2b02, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 95be62cbd5b89274e832236fa52c4667, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
+  - key: {fileID: -5940223391472477696, guid: ea96d5a0757f42345923d22eebdb2b02, type: 2}
+    value: {fileID: 186718754}
   - key: {fileID: 1213206844545775563, guid: ea96d5a0757f42345923d22eebdb2b02, type: 2}
     value: {fileID: 395089645}
   - key: {fileID: -9055422581783861059, guid: ea96d5a0757f42345923d22eebdb2b02, type: 2}
     value: {fileID: 753924772}
+  - key: {fileID: 1213206844545775563, guid: 95be62cbd5b89274e832236fa52c4667, type: 2}
+    value: {fileID: 186718754}
+  - key: {fileID: -9055422581783861059, guid: 95be62cbd5b89274e832236fa52c4667, type: 2}
+    value: {fileID: 753924772}
+  - key: {fileID: -5885350775587552900, guid: 95be62cbd5b89274e832236fa52c4667, type: 2}
+    value: {fileID: 395089645}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1213808062
@@ -1547,7 +1557,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: IntroZenForest
+          m_StringArgument: IntroTutorial
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1478821512

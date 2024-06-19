@@ -40,7 +40,7 @@ public class YMMScript : MonoBehaviour
     {
         GlitchStart();
         CirclePlay();
-        Invoke("CircleDeactive", 2.0f);
+        Invoke("CircleDeactive", 2.5f);
         FindAnyObjectByType<AudioManager>().Play("MainMenu");
 
         if(!PlayerPrefs.HasKey("musicVolume"))

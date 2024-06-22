@@ -137,6 +137,11 @@ public class YMMScript : MonoBehaviour
         Screen.fullScreen = isFullScreen;
     }
 
+    public void PlayAudio()
+    {
+        FindAnyObjectByType<AudioManager>().Play("Select");
+    }
+
     public void DarkProcess()
     {
         if(darkPost.activeInHierarchy == false)

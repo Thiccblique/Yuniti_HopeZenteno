@@ -106,6 +106,8 @@ public class GameManager : MonoBehaviour
     public GameObject nightPP;
     public GameObject darkPost;
 
+    private bool end = false;
+
     private KeyCode[] konamiCodeSequence = {
         KeyCode.UpArrow,
         KeyCode.UpArrow,
@@ -150,7 +152,11 @@ public class GameManager : MonoBehaviour
         CodeTooUI();
         DialogueActivator();
         GameOver();
-        ScoreTooUI();
+        if(end == false)
+        {
+            ScoreTooUI();
+        }
+        
 
     }
 
@@ -418,6 +424,7 @@ public class GameManager : MonoBehaviour
             player.SetActive(false);
             gameOver.SetActive(true);
             pController.PlayerStop();
+            end = true;
         }
     }
 

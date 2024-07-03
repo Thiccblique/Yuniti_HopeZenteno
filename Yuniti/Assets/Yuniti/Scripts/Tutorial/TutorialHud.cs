@@ -131,7 +131,7 @@ public class TutorialHud : MonoBehaviour
             {
                 continueText.SetActive(true);
                 orionController.inTutorial = true;
-                mask.SetActive(true);
+                //mask.SetActive(true);
                 if (Input.GetMouseButtonDown(0))
                 {
                     hasSpoken[2] = false;
@@ -143,7 +143,7 @@ public class TutorialHud : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     //loadingScreen.LoadScene(sceneName);
-                    orionController.inTutorial = false;
+                    //orionController.inTutorial = false;
                     Invoke("Deactivate", 1f);
                     Invoke("Transfer", 0.5f);
                     hasSpoken[3] = false;
